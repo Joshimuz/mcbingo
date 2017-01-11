@@ -1,0 +1,28 @@
+html, body {
+    background-color: #b3ccff;
+}
+
+#bingo {
+	float:center;
+	padding-top:20px;
+	width:800px;
+	height:800px;
+	margin: 0px auto;
+}
+
+#bingo tr td { 
+	cursor:pointer;
+	width:75px;
+	height:75px;
+	text-align:center;
+	background: #FFFFFF;   
+	font-size: 1em;
+	font-family: "Times New Roman", Times, serif;
+}
+
+#bingo tr td { background:#D1D1D1; }
+#bingo tr td:hover { background:#DADADA; }
+#bingo tr td.greensquare { background:#CAFF70; }
+#bingo tr td.greensquare:hover { background:#A2CD5A; }
+#bingo tr td.redsquare { background:#EE6A50; }
+#bingo tr td.redsquare:hover { background:#CD5B45; }
