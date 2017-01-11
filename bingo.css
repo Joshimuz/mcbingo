@@ -5,19 +5,19 @@ html, body {
 #bingo {
 	float:center;
 	padding-top:20px;
-	width:800px;
-	height:800px;
+	width:700px;
+	height:700px;
 	margin: 0px auto;
 }
 
 #bingo tr td { 
 	cursor:pointer;
-	width:75px;
-	height:75px;
+	width:100px;
+	height:100px;
 	text-align:center;
 	background: #FFFFFF;   
 	font-size: 1em;
-	font-family: "Times New Roman", Times, serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 #bingo tr td { background:#D1D1D1; }
