@@ -7,8 +7,11 @@ var amountOfSilly = 1;
 var amountOfHard = 5;
 var amountOfMedium = 10;
 
+var SEED;
+var LAYOUT;
+
 $(document).ready(function()
-{
+{	
 	$("#bingo td").click(function()
 	{
 		if ($(this).hasClass('greensquare'))
@@ -28,7 +31,7 @@ $(document).ready(function()
 	});
 	
 	// Check the url for a seed value
-	var SEED = gup( 'seed' );
+	SEED = gup( 'seed' );
 	// If there isn't one, make a new one
 	if (SEED == "") 
 	{
@@ -40,9 +43,29 @@ $(document).ready(function()
 		window.history.pushState('', "Sheet", "?seed=" + SEED);
 	}
 	
-	var LAYOUT = gup( 'layout' );
+	// Setting the random seed
+	Math.seedrandom(SEED);
 	
-	if (LAYOUT == "set")
+	LAYOUT = gup( 'layout' );
+	
+	if (LAYOUT == "random")
+	{
+		document.getElementById("LayoutTickbox").checked = true;
+	}
+	
+	if (gup('hidden') == "true")
+	{
+		document.getElementById("HiddenTickbox").checked = true;
+		document.getElementById("bingo").style.display = "none";
+	}
+	
+	
+	generateNewSheet();
+})
+
+function generateNewSheet() 
+{
+  if (LAYOUT == "set")
 	{		
 		sheetLayout = [ 1, 2, 0, 2, 1,
 						2, 0, 1, 0, 2,
@@ -120,11 +143,6 @@ $(document).ready(function()
 		//window.location = '?seed=' + SEED + '&layout=' + LAYOUT;
 	}
 	
-	// Setting the random seed
-	Math.seedrandom(SEED);
-	
-	//
-	
 	for (var i=0; i<=24; i++) 
 	{		
 		var cont = true;
@@ -162,7 +180,35 @@ $(document).ready(function()
 		
 		$('#slot'+ (i + 1)).append(bingoList[sheetLayout[i]][rng].name);
 	}
-})
+}
+
+function toggleRandomLayout(cb) 
+{
+	if (cb.checked)
+	{
+		LAYOUT = "random";
+		window.location = '?seed=' + SEED + '&layout=' + LAYOUT;
+	}
+	else
+	{
+		LAYOUT = "set";
+		window.location = '?seed=' + SEED + '&layout=' + LAYOUT;
+	}
+}
+
+function toggleTableHidden(cb) 
+{
+	if (cb.checked)
+	{
+		document.getElementById("bingo").style.display = "none";
+		window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=true');
+	}
+	else
+	{
+		document.getElementById("bingo").style.display = "table";
+		window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=false');
+	}
+}
 
 // gup source: www.netlobo.com/url_query_string_javascript.html
 function gup( name )

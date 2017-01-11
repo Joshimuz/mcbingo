@@ -5,133 +5,148 @@ for (i=0; i < 4; i++)
 	bingoList[i]=new Array()
 }
 
-bingoList[0][0] = {name :"4 Different Fish"};
-bingoList[0][1] = {name :"Enter the Nether"};
-bingoList[0][2] = {name :"5 Colours of Hardened Clay"};
-bingoList[0][3] = {name :"5 Mushroom Stew"};
-bingoList[0][4] = {name :"Activate a Button with an Arrow"};
-bingoList[0][5] = {name :"Book and Quill"};
-bingoList[0][6] = {name :"32 Flint"};
-bingoList[0][7] = {name :"Cake"};
-bingoList[0][8] = {name :"Pumpkin Pie"};
-bingoList[0][9] = {name :"Fish a Treasure and Junk item"};
-bingoList[0][10] = {name :"50 of Andesite, Granite, and/or Diorite"};
-bingoList[0][11] = {name :"30 Coarse Dirt"};
-bingoList[0][12] = {name :"2 Clocks"};
-bingoList[0][13] = {name :"3 Iron Blocks"};
-bingoList[0][14] = {name :"2 Gold Blocks"};
-bingoList[0][15] = {name :"Cyan Dye"};
-bingoList[0][16] = {name :"Golden Apple"};
-bingoList[0][17] = {name :"5 Bookshelves"};
-bingoList[0][18] = {name :"Never wear Chestplates"};
-bingoList[0][19] = {name :"Create a Jukebox"};
-bingoList[0][20] = {name :"25 Poppies & 25 Dandylions"};
-bingoList[0][21] = {name :"Build a glass cube and fill the inner with lava"};
-bingoList[0][22] = {name :"10 Mossy Cobblestone"};
-bingoList[0][23] = {name :"20 Cacti"};
-bingoList[0][24] = {name :"2 TNT"};
-bingoList[0][25] = {name :"Light Gray Dye + Light Blue Dye"};
-bingoList[0][26] = {name :"Level 10"};
-bingoList[0][27] = {name :"Power a Redstone Lamp"};
-bingoList[0][28] = {name :"Create a Snow Golem"};
-bingoList[0][29] = {name :"15 Note Blocks"};
-bingoList[0][30] = {name :"Build a 3x3x3 leaf cube"};
-bingoList[0][31] = {name :"15 Ink Sacks"};
-bingoList[0][32] = {name :"16 Bread"};
-bingoList[0][33] = {name :"5 colours of Wool"};
-bingoList[0][34] = {name :"9 Pistons"};
-bingoList[0][35] = {name :"Full Iron Armour"};
-bingoList[0][36] = {name :"Full Leather Armour"};
-bingoList[0][37] = {name :"Cauldron with Water"};
-bingoList[0][38] = {name :"Complete a Map"};
-bingoList[0][39] = {name :"32 Soul Sand"};
-bingoList[0][40] = {name :"22 Pumpkins"};
-bingoList[0][41] = {name :"40 Vines"};
-bingoList[0][42] = {name :"6 types of Slabs"};
-bingoList[0][43] = {name :"Every type of Sword"};
-bingoList[0][44] = {name :"Every type of Pickaxe"};
-bingoList[0][45] = {name :"32 Bricks (block)"};
-bingoList[0][46] = {name :"64 Arrows"};
-bingoList[0][47] = {name :"Enchanted Golden Sword"};
-bingoList[0][48] = {name :"Sleep in the Nether"};
-bingoList[0][49] = {name :"Fermented Spider Eye"};
-bingoList[0][50] = {name :"5 types of Stairs"};
-bingoList[0][51] = {name :"3 Ender Pearls"};
-bingoList[0][52] = {name :"16 Chicken Eggs"};
-bingoList[0][53] = {name :"Magenta Dye"};
-bingoList[0][54] = {name :"Hang up 3 different 4x4 Paintings"};
-bingoList[0][54] = {name :"5 Bone Blocks"};
+// Simple
+bingoList[0] = 
+[
+	{name :"4 Different Fish"},
+	{name :"Enter the Nether"},
+	{name :"5 Colours of Hardened Clay"},
+	{name :"5 Mushroom Stew"},
+	{name :"Activate a Button with an Arrow"},
+	{name :"Book and Quill"},
+	{name :"32 Flint"},
+	{name :"Cake"},
+	{name :"Pumpkin Pie"},
+	{name :"Fish a Treasure and Junk item"},
+	{name :"50 of Andesite, Granite, and/or Diorite"},
+	{name :"30 Coarse Dirt"},
+	{name :"2 Clocks"},
+	{name :"3 Iron Blocks"},
+	{name :"2 Gold Blocks"},
+	{name :"Cyan Dye"},
+	{name :"Golden Apple"},
+	{name :"5 Bookshelves"},
+	{name :"Never wear Chestplates"},
+	{name :"Create a Jukebox"},
+	{name :"25 Poppies & 25 Dandelions"},
+	{name :"Build a glass cube and fill the inner with lava"},
+	{name :"10 Mossy Cobblestone"},
+	{name :"20 Cacti"},
+	{name :"2 TNT"},
+	{name :"Light Gray Dye + Light Blue Dye"},
+	{name :"Level 10"},
+	{name :"Power a Redstone Lamp"},
+	{name :"Create a Snow Golem"},
+	{name :"15 Note Blocks"},
+	{name :"Build a 3x3x3 leaf cube"},
+	{name :"15 Ink Sacks"},
+	{name :"16 Bread"},
+	{name :"5 colours of Wool"},
+	{name :"9 Pistons"},
+	{name :"Full Iron Armour"},
+	{name :"Full Leather Armour"},
+	{name :"Cauldron with Water"},
+	{name :"Complete a Map"},
+	{name :"32 Soul Sand"},
+	{name :"22 Pumpkins"},
+	{name :"40 Vines"},
+	{name :"6 types of Slabs"},
+	{name :"Every type of Sword"},
+	{name :"Every type of Pickaxe"},
+	{name :"32 Bricks (block)"},
+	{name :"64 Arrows"},
+	{name :"Enchanted Golden Sword"},
+	{name :"Sleep in the Nether"},
+	{name :"Fermented Spider Eye"},
+	{name :"5 types of Stairs"},
+	{name :"3 Ender Pearls"},
+	{name :"16 Chicken Eggs"},
+	{name :"Magenta Dye"},
+	{name :"Hang up 3 different 4x4 Paintings"},
+	{name :"5 Bone Blocks"},
+]
+// Moderate
+bingoList[1] = 
+[
+	{name :"2 Wither Skulls"},
+	{name :"7 Different Edible Items"},
+	{name :"Build a Redstone AND Gate"},
+	{name :"4 Different Gold Items"},
+	{name :"Beetroot Soup"},
+	{name :"10 Emeralds"},
+	{name :"Trade with a Villager"},
+	{name :"Water Bucket, Lava Bucket and Milk Bucket"},
+	{name :"Tame a Horse"},
+	{name :"Place a Cactus in a Flower Pot"},
+	{name :"Ignite a TNT-Minecart"},
+	{name :"12 Magma Blocks"},
+	{name :"Skull and Crossbones Banner"},
+	{name :"Cookie"},
+	{name :"Very Damaged Anvil"},
+	{name :"15 Melons"},
+	{name :"Sleep inside a village"},
+	{name :"Kill a Skeleton with it's own Arrow"},
+	{name :"Never wear Armour"},
+	{name :"Take a Skeleton's Bow"},
+	{name :"9 Bookshelves"},
+	{name :"Diamond Block"},
+	{name :"2 Lapis Lazuli Blocks"},
+	{name :"Destroy a Monster Spawner"},
+	{name :"Level 20"},
+	{name :"4 types of Saplings"},
+	{name :"Tame an ocelot"},
+	{name :"Tame a wolf"},
+	{name :"15 Fire Charges"},
+	{name :"3 Magma Creams"},
+	{name :"Potion of Fire Resistance"},
+	{name :"Potion of Healing"},
+	{name :"Grow a full jungle Tree"},
+	{name :"Potion of Poison"},
+	{name :"Potion of Harming"},
+	{name :"Create an Iron Golem"},
+	{name :"Potion of Regeneration"},
+	{name :"Potion of Slowness"},
+	{name :"Eye of Ender"},
+	{name :"Potion of Strength"},
+	{name :"Potion of Swiftness"},
+	{name :"Music Disc"},
+	{name :"Potion of Weakness"},
+]
 
-bingoList[1][0] = {name :"2 Wither Skulls"};
-bingoList[1][1] = {name :"7 Different Edible Items"};
-bingoList[1][2] = {name :"Build a Redstone AND Gate"};
-bingoList[1][3] = {name :"4 Different Gold Items"};
-bingoList[1][4] = {name :"Beetroot Soup"};
-bingoList[1][5] = {name :"10 Emeralds"};
-bingoList[1][6] = {name :"Trade with a Villager"};
-bingoList[1][7] = {name :"Water Bucket, Lava Bucket and Milk Bucket"};
-bingoList[1][8] = {name :"Tame a Horse"};
-bingoList[1][9] = {name :"Place a Cactus in a Flower Pot"};
-bingoList[1][10] = {name :"Ignite a TNT-Minecart"};
-bingoList[1][11] = {name :"12 Magma Blocks"};
-bingoList[1][12] = {name :"Skull and Crossbones Banner"};
-bingoList[1][13] = {name :"Cookie"};
-bingoList[1][14] = {name :"Exhaust an Anvil"};
-bingoList[1][15] = {name :"15 Melons"};
-bingoList[1][16] = {name :"Sleep inside a village"};
-bingoList[1][17] = {name :"Kill a Skeleton with it's own Arrow"};
-bingoList[1][18] = {name :"Never wear Armour"};
-bingoList[1][19] = {name :"Take a Skeleton's Bow"};
-bingoList[1][20] = {name :"9 Bookshelves"};
-bingoList[1][21] = {name :"Diamond Block"};
-bingoList[1][22] = {name :"2 Lapis Lazuli Blocks"};
-bingoList[1][23] = {name :"Destroy a Monster Spawner"};
-bingoList[1][24] = {name :"Level 20"};
-bingoList[1][25] = {name :"4 types of Saplings"};
-bingoList[1][26] = {name :"Tame an ocelot"};
-bingoList[1][27] = {name :"Tame a wolf"};
-bingoList[1][28] = {name :"15 Fire Charges"};
-bingoList[1][29] = {name :"3 Magma Creams"};
-bingoList[1][30] = {name :"Potion of Fire Resistance"};
-bingoList[1][31] = {name :"Potion of Healing"};
-bingoList[1][32] = {name :"Grow a full jungle Tree"};
-bingoList[1][33] = {name :"Potion of Poison"};
-bingoList[1][34] = {name :"Potion of Harming"};
-bingoList[1][35] = {name :"Create an Iron Golem"};
-bingoList[1][36] = {name :"Potion of Regeneration"};
-bingoList[1][37] = {name :"Potion of Slowness"};
-bingoList[1][38] = {name :"Eye of Ender"};
-bingoList[1][39] = {name :"Potion of Strength"};
-bingoList[1][40] = {name :"Potion of Swiftness"};
-bingoList[1][41] = {name :"Music Disc"};
-bingoList[1][42] = {name :"Potion of Weakness"};
+// Hard
+bingoList[2] = 
+[
+	{name :"Grass Block"},
+	{name :"Create a Level 10+ enchantment"},
+	{name :"Sea Lantern"},
+	{name :"3 Sponges"},
+	{name :"Bounce on a Slime Block"},
+	{name :"Rabbit Stew"},
+	{name :"Listen to a Music Disc"},
+	{name :"1 of Every Ore (Silk Touch)"},
+	{name :"Capture a Zombie, Skeleton and a Creeper"},
+	{name :"5 Different Potions"},
+	{name :"Cure a Zombie Villager"},
+	{name :"9 Different Flowers"},
+	{name :"Block of Iron, Gold and Diamond on top each other"},
+	{name :"Take a Zombie Pigman's Sword"},
+	{name :"Every type of Chestplate"},
+]
 
-bingoList[2][0] = {name :"Grass Block"};
-bingoList[2][1] = {name :"Create a Level 10+ enchantment"};
-bingoList[2][2] = {name :"Sea Lantern"};
-bingoList[2][3] = {name :"3 Sponges"};
-bingoList[2][4] = {name :"Bounce on a Slime Block"};
-bingoList[2][5] = {name :"Rabbit Stew"};
-bingoList[2][6] = {name :"Listen to a Music Disc"};
-bingoList[2][7] = {name :"1 of Every Ore (Silk Touch)"};
-bingoList[2][8] = {name :"Captures a Zombie, Skeleton and a Creeper"};
-bingoList[2][9] = {name :"5 Different Potions"};
-bingoList[2][10] = {name :"Cure a Zombie Villager"};
-bingoList[2][11] = {name :"9 Different Flowers"};
-bingoList[2][12] = {name :"Block of Iron, Gold and Diamond ontop each other"};
-bingoList[2][13] = {name :"Take a Zombie Pigman's Sword"};
-bingoList[2][14] = {name :"Every type of Chestplate"};
-
-bingoList[3][0] = {name :"Finish by jumping from top to bottom of the world"};
-bingoList[3][1] = {name :"Finish launching Fireworks of 5 different colors"};
-bingoList[3][2] = {name :"Nametag an Enderman"};
-bingoList[3][3] = {name :"Never Eat Meat (including Fish)"};
-bingoList[3][4] = {name :"Kill yourself with your own arrow"};
-bingoList[3][5] = {name :"Kill yourself with an Ender Pearl"};
-bingoList[3][6] = {name :"Get a '... while trying to escape ...' Death message"};
-bingoList[3][7] = {name :"Kill a mob with an Anvil"};
-bingoList[3][8] = {name :"Burn down a village"};
-bingoList[3][9] = {name :"Kill yourself by starving"};
-bingoList[3][10] = {name :"Finish on top of the world"};
-bingoList[3][11] = {name :"Finish where you spawned (compass)"};
-bingoList[3][12] = {name :"Finish on top of a Blaze spawner"};
+// Silly
+bingoList[3] = 
+[
+	{name :"Finish by jumping from top to bottom of the world"},
+	{name :"Finish launching Fireworks of 5 different colors"},
+	{name :"Nametag an Enderman"},
+	{name :"Never Eat Meat (including Fish)"},
+	{name :"Kill yourself with your own arrow"},
+	{name :"Kill yourself with an Ender Pearl"},
+	{name :"Get a '... while trying to escape ...' Death message"},
+	{name :"Kill a mob with an Anvil"},
+	{name :"Burn down a village"},
+	{name :"Kill yourself by starving"},
+	{name :"Finish on top of the world"},
+	{name :"Finish where you spawned (compass)"},
+	{name :"Finish on top of a Blaze spawner"},
+]
