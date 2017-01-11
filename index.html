@@ -1,52 +1,55 @@
 <html>
-<head>
-	<link rel="stylesheet" href="bingo.css" type="text/css" />
-	
-	<script src="https://code.jquery.com/jquery-latest.js"></script>
-	
-	<script src="goals.js"></script>
-	<script src="bingo.js"></script>
-</head>
-<body>
+	<head>
+		<link rel="stylesheet" href="bingo.css" type="text/css" />
+		
+		<script src="https://code.jquery.com/jquery-latest.js"></script>
+		
+		<script src="goals.js"></script>
+		<script src="bingo.js"></script>
+	</head>
+	<body>
+		<div align="center">
+			<a href="?seed=">Generate new sheet</a>
+			<label><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'>Use Random Layout</label>
+			<label><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'>Hide table</label>
 
-<div id="content"> </div> 
-<div align="center"><a href="?#####">Generate new sheet</a>
-<label><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'>Use Random Layout</label>
-<label><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'>Hide table</label></div>
-
-<table id="bingo" cellspacing="15" cellpadding="5"><tr>
-<td id="slot1"></td> 
-<td id="slot2"></td> 
-<td id="slot3"></td> 
-<td id="slot4"></td> 
-<td id="slot5"></td> 
-</tr><tr> 
-<td id="slot6"></td> 
-<td id="slot7"></td> 
-<td id="slot8"></td> 
-<td id="slot9"></td> 
-<td id="slot10"></td> 
-</tr><tr> 
-<td id="slot11"></td> 
-<td id="slot12"></td> 
-<td id="slot13"></td> 
-<td id="slot14"></td> 
-<td id="slot15"></td> 
-</tr><tr> 
-<td id="slot16"></td> 
-<td id="slot17"></td> 
-<td id="slot18"></td> 
-<td id="slot19"></td> 
-<td id="slot20"></td> 
-</tr><tr> 
-<td id="slot21"></td> 
-<td id="slot22"></td> 
-<td id="slot23"></td> 
-<td id="slot24"></td> 
-<td id="slot25"></td> 
-</tr></table>
-
-
-</div>
-</body>
+			<table id="bingo" cellspacing="15" cellpadding="5">
+				<tr>
+					<td id="slot1"></td> 
+					<td id="slot2"></td> 
+					<td id="slot3"></td> 
+					<td id="slot4"></td> 
+					<td id="slot5"></td> 
+				</tr>
+				<tr> 
+					<td id="slot6"></td> 
+					<td id="slot7"></td> 
+					<td id="slot8"></td> 
+					<td id="slot9"></td> 
+					<td id="slot10"></td> 
+				</tr>
+				<tr> 
+					<td id="slot11"></td> 
+					<td id="slot12"></td> 
+					<td id="slot13"></td> 
+					<td id="slot14"></td> 
+					<td id="slot15"></td> 
+				</tr>
+				<tr> 
+					<td id="slot16"></td> 
+					<td id="slot17"></td> 
+					<td id="slot18"></td> 
+					<td id="slot19"></td> 
+					<td id="slot20"></td> 
+				</tr>
+				<tr> 
+					<td id="slot21"></td> 
+					<td id="slot22"></td> 
+					<td id="slot23"></td> 
+					<td id="slot24"></td> 
+					<td id="slot25"></td> 
+				</tr>
+			</table>
+		</div>
+	</body>
 </html>

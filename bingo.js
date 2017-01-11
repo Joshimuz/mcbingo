@@ -38,9 +38,9 @@ $(document).ready(function()
 		// Making a new 5 digit seed
 		SEED = Math.floor((Math.random() * 90000) + 10000);
 		// Changing the URL to have the seed
-		//window.location = '?seed=' + SEED;
+		window.location = '?seed=' + SEED;
 		// Using history.pushState to avoid reloading the page when changing URL
-		window.history.pushState('', "Sheet", "?seed=" + SEED);
+		//window.history.pushState('', "Sheet", "?seed=" + SEED);
 	}
 	
 	// Setting the random seed
@@ -58,7 +58,6 @@ $(document).ready(function()
 		document.getElementById("HiddenTickbox").checked = true;
 		document.getElementById("bingo").style.display = "none";
 	}
-	
 	
 	generateNewSheet();
 })
