@@ -31,17 +31,6 @@ $(document).ready(function()
 		
 	});
 	
-	// Check the url for a seed value
-	SEED = gup( 'seed' );
-	// If there isn't one, make a new one
-	if (SEED == "") 
-	{
-		newSeed(false);
-	}
-	
-	// Setting the random seed
-	Math.seedrandom(SEED);
-	
 	LAYOUT = gup( 'layout' );
 	
 	if (LAYOUT == "random")
@@ -65,6 +54,14 @@ $(document).ready(function()
 		HIDDEN = "false";
 		document.getElementById("HiddenTickbox").checked = false;
 		document.getElementById("bingo").style.display = "table";
+	}
+	
+	// Check the url for a seed value
+	SEED = gup( 'seed' );
+	// If there isn't one, make a new one
+	if (SEED == "") 
+	{
+		newSeed(false);
 	}
 	
 	generateNewSheet();
@@ -179,12 +176,15 @@ function newSeed(reload)
 	if (reload == true)
 	{
 		// Change the URL and reload the page
-		window.location = '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN;
+		window.location = '?seed=#####' + '&layout=' + LAYOUT + '&hidden=' + HIDDEN;
 	}
 	else
 	{
 		// Change the URL and don't reload the page
 		window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+		
+		// Setting the random seed
+		Math.seedrandom(SEED);
 	}
 }
 
