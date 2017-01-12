@@ -58,11 +58,15 @@ $(document).ready(function()
 	
 	// Check the url for a seed value
 	SEED = gup( 'seed' );
+	
 	// If there isn't one, make a new one
 	if (SEED == "") 
 	{
 		newSeed(false);
 	}
+		
+	// Setting the random seed
+	Math.seedrandom(SEED);
 	
 	generateNewSheet();
 })
@@ -182,9 +186,6 @@ function newSeed(reload)
 	{
 		// Change the URL and don't reload the page
 		window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
-		
-		// Setting the random seed
-		Math.seedrandom(SEED);
 	}
 }
 
