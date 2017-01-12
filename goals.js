@@ -9,7 +9,7 @@ for (i=0; i < 4; i++)
 bingoList[0] = 
 [
 	{name :"4 Different Fish"},
-	{name :"Enter the Nether"},
+	{name :"Grow a tree in the Nether"},
 	{name :"5 Colours of Hardened Clay"},
 	{name :"5 Mushroom Stew"},
 	{name :"Activate a Button with an Arrow"},
@@ -18,7 +18,7 @@ bingoList[0] =
 	{name :"Cake"},
 	{name :"Pumpkin Pie"},
 	{name :"Fish a Treasure and Junk item"},
-	{name :"50 of Andesite, Granite, and/or Diorite"},
+	{name :"50 Andesite, Granite, and/or Diorite"},
 	{name :"30 Coarse Dirt"},
 	{name :"2 Clocks"},
 	{name :"3 Iron Blocks"},
@@ -64,6 +64,7 @@ bingoList[0] =
 	{name :"Magenta Dye"},
 	{name :"Hang up 3 different 4x4 Paintings"},
 	{name :"5 Bone Blocks"},
+	{name :"2 Creepers in a Boat"},
 ]
 // Moderate
 bingoList[1] = 
@@ -124,11 +125,10 @@ bingoList[2] =
 	{name :"Rabbit Stew"},
 	{name :"Listen to a Music Disc"},
 	{name :"1 of Every Ore (Silk Touch)"},
-	{name :"Capture a Zombie, Skeleton and a Creeper"},
 	{name :"5 Different Potions"},
 	{name :"Cure a Zombie Villager"},
 	{name :"9 Different Flowers"},
-	{name :"Block of Iron, Gold and Diamond on top each other"},
+	{name :"Place a block of Iron, Gold and Diamond on top of each other"},
 	{name :"Take a Zombie Pigman's Sword"},
 	{name :"Every type of Chestplate"},
 ]
@@ -144,7 +144,7 @@ bingoList[3] =
 	{name :"Kill yourself with an Ender Pearl"},
 	{name :"Get a '... while trying to escape ...' Death message"},
 	{name :"Kill a mob with an Anvil"},
-	{name :"Burn down a village"},
+	{name :"Set fire to a Villager's House"},
 	{name :"Kill yourself by starving"},
 	{name :"Finish on top of the world"},
 	{name :"Finish where you spawned (compass)"},

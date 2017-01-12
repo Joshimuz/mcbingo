@@ -9,6 +9,7 @@ var amountOfMedium = 10;
 
 var SEED;
 var LAYOUT;
+var HIDDEN;
 
 $(document).ready(function()
 {	
@@ -35,12 +36,7 @@ $(document).ready(function()
 	// If there isn't one, make a new one
 	if (SEED == "") 
 	{
-		// Making a new 5 digit seed
-		SEED = Math.floor((Math.random() * 90000) + 10000).toString();
-		// Changing the URL to have the seed
-		//window.location = '?seed=' + SEED;
-		// Using history.pushState to avoid reloading the page when changing URL
-		window.history.pushState('', "Sheet", "?seed=" + SEED);
+		newSeed(false);
 	}
 	
 	// Setting the random seed
@@ -52,11 +48,23 @@ $(document).ready(function()
 	{
 		document.getElementById("LayoutTickbox").checked = true;
 	}
+	else 
+	{
+		LAYOUT = "set";
+	}
 	
-	if (gup('hidden') == "true")
+	HIDDEN = gup( 'hidden' );
+	
+	if (HIDDEN == "true")
 	{
 		document.getElementById("HiddenTickbox").checked = true;
 		document.getElementById("bingo").style.display = "none";
+	}
+	else
+	{
+		HIDDEN = "false";
+		document.getElementById("HiddenTickbox").checked = false;
+		document.getElementById("bingo").style.display = "table";
 	}
 	
 	generateNewSheet();
@@ -129,18 +137,6 @@ function generateNewSheet()
 			while (cont == false);
 		}
 	}
-	else
-	{
-		LAYOUT = "set";
-		
-		sheetLayout = [ 1, 2, 0, 2, 1,
-						2, 0, 1, 0, 2,
-						0, 1, 3, 1, 0,
-						2, 0, 1, 0, 2,
-						1, 2, 0, 2, 1];
-						
-		//window.location = '?seed=' + SEED + '&layout=' + LAYOUT;
-	}
 	
 	for (var i=0; i<=24; i++) 
 	{		
@@ -150,34 +146,40 @@ function generateNewSheet()
 		{
 			cont = true;
 			
-			var rng = Math.floor((Math.random() * bingoList[sheetLayout[i]].length) + 1);
-			//var rng = Math.floor((Math.random() * 3) + 1);
+			var rng = Math.floor((Math.random() * bingoList[sheetLayout[i]].length - 1) + 1);
 			
-			if (typeof bingoList[sheetLayout[i]][rng] === 'undefined')
+			for (var z=0; z <= 24; z++)
 			{
-				cont = false;
-			}
-			else
-			{
-				for (var z=0; z <= 24; z++)
+				if (currentSheet[z] == bingoList[sheetLayout[i]][rng].name)
 				{
-					if (currentSheet[z] == bingoList[sheetLayout[i]][rng].name)
-					{
-						//$('#slot'+i).append("Loop ");
-						cont = false;
-					}	
-					
-				}
+					cont = false;
+				}	
+				
 			}
  			
 		}
 		while (cont == false);
 		
-		//var rng = Math.floor((Math.random() * bingoList.length - 1) + 1);
-		
 		currentSheet[i] = bingoList[sheetLayout[i]][rng].name;
 		
 		$('#slot'+ (i + 1)).append(bingoList[sheetLayout[i]][rng].name);
+	}
+}
+
+function newSeed(reload)
+{
+	// Making a new 5 digit seed
+	SEED = Math.floor((Math.random() * 90000) + 10000).toString();
+	
+	if (reload == true)
+	{
+		// Change the URL and reload the page
+		window.location = '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN;
+	}
+	else
+	{
+		// Change the URL and don't reload the page
+		window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
 	}
 }
 
@@ -186,13 +188,13 @@ function toggleRandomLayout(cb)
 	if (cb.checked)
 	{
 		LAYOUT = "random";
-		window.location = '?seed=' + SEED + '&layout=' + LAYOUT;
 	}
 	else
 	{
 		LAYOUT = "set";
-		window.location = '?seed=' + SEED + '&layout=' + LAYOUT;
 	}
+	
+	window.location = '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN;
 }
 
 function toggleTableHidden(cb) 
@@ -200,13 +202,15 @@ function toggleTableHidden(cb)
 	if (cb.checked)
 	{
 		document.getElementById("bingo").style.display = "none";
-		window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=true');
+		HIDDEN = "true";
 	}
 	else
 	{
 		document.getElementById("bingo").style.display = "table";
-		window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=false');
+		HIDDEN = "false";
 	}
+	
+	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
 }
 
 // gup source: www.netlobo.com/url_query_string_javascript.html
