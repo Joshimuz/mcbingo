@@ -162,7 +162,12 @@ function generateNewSheet()
 		
 		currentSheet[i] = bingoList[sheetLayout[i]][rng].name;
 		
-		$('#slot'+ (i + 1)).append(bingoList[sheetLayout[i]][rng].name);
+		$('#slot'+ (i + 1)).append(bingoList[sheetLayout[i]][rng].name.replace(/\((\d+)-(\d+)\)/g, function(match, n1, n2, offset, input) 
+		{
+			n1 = parseInt(n1);
+			n2 = parseInt(n2);
+			return Math.floor(Math.random() * (n2-n1+1) + n1);
+		}));
 	}
 }
 
