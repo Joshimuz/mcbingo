@@ -4,8 +4,8 @@ var currentSheet = [24];
 var sheetLayout = [];										
 						
 var amountOfSilly = 1;
-var amountOfHard = 5;
-var amountOfMedium = 10;
+var amountOfHard = 3;
+var amountOfMedium = 6;
 
 var SEED;
 var LAYOUT;
@@ -13,6 +13,8 @@ var HIDDEN;
 
 $(document).ready(function()
 {	
+	$("#tooltip").hide();
+
 	$("#bingo td").click(function()
 	{
 		if ($(this).hasClass('greensquare'))
@@ -28,7 +30,20 @@ $(document).ready(function()
 		{
 			$(this).toggleClass('greensquare');
 		}
-		
+	});
+	
+	$("#bingo td").hover(function()
+	{
+		 $("#tooltip").show();
+		 $("#tooltipimg").attr('src', $(this).data("tooltipimg"));
+		 $("#tooltiptext").text($(this).data("tooltiptext"));
+	},function()
+	{
+		$("#tooltip").hide();
+	});
+	
+	$(document).mousemove(function(e){
+		$("#tooltip").css({left:e.pageX + 2, top:e.pageY + 2});
 	});
 	
 	LAYOUT = gup( 'layout' );
@@ -169,6 +184,15 @@ function generateNewSheet()
 			n2 = parseInt(n2);
 			return Math.floor(Math.random() * (n2-n1+1) + n1);
 		}));
+		
+		if (typeof bingoList[sheetLayout[i]][rng].tooltipimg !== 'undefined')
+		{
+			$('#slot'+ (i + 1)).data("tooltipimg", bingoList[sheetLayout[i]][rng].tooltipimg);
+		}
+		if (typeof bingoList[sheetLayout[i]][rng].tooltiptext !== 'undefined')
+		{
+			$('#slot'+ (i + 1)).data("tooltiptext", bingoList[sheetLayout[i]][rng].tooltiptext);
+		}
 	}
 }
 

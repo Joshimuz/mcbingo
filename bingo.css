@@ -220,6 +220,11 @@ html, body {
 	margin-right: auto;
 	width: 800px;
 }
+#tooltip
+{
+	position:absolute;
+	text-align:center;
+}
 
 #bottom_section p {
 	background-color: #9fdb87;
