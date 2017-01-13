@@ -9,15 +9,21 @@
 		
 		<script src="goals.js"></script>
 		<script src="bingo.js"></script>
-	</head>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</head>
 	<body>
 		<section id="top_section">
-			<div class="top_settings">
-			<p>Settings</p>
-			<ul>
-				<li><label><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'> Use Random Layout</label></li>
-				<li><label><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'> Hide table</label></li>
-			</ul>
+			<div class="dropdown">
+				<button onclick="myFunction()" class="dropbtn">Options...</button>
+				<div id="myDropdown" class="dropdown-content">
+				<div class="layout"><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'> Random Layout</div>
+				<div class="layout"><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'> Hide table</div>
+				</div>
 			</div>
 			<h1>Minecraft Bingo</h1>
 		</section>
@@ -60,7 +66,7 @@
 					<td id="slot25" data-tooltipimg="" data-tooltiptext=""></td> 
 				</tr>
 			</table>
-			<div class="buttonCard"><div class="overlay"><a href="#" onclick='newSeed(true);event.preventDefault();'><p>Generate New Seed</p></a></div><div>
+			<div class="buttoncard"><div class="overlay"><a href="#" onclick='newSeed(true);event.preventDefault();'><p>Generate New Seed</p></a></div><div>
 			
 		</section>
 		<section id="bottom_section">
@@ -95,10 +101,36 @@
 		</ol>
 	
 		</section>
+<<<<<<< HEAD
+		
+		<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+=======
 		<div id="tooltip">
 			<img src="http://www.speedrun.com/themes/gtamarathon/logo.png?v=d7c87947" id="tooltipimg"/>
 			<p><span id="tooltiptext">Hello</span>
 		</div>
 		</div>
+>>>>>>> refs/remotes/origin/master
 	</body>
 </html>
