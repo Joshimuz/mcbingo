@@ -5,12 +5,12 @@ padding: 0;
 
 @font-face {
 	font-family: minecraftFont;
-    src: url(../fonts/MinecrafterAlt.ttf);
+    src: url(MinecrafterAlt.ttf);
 }
 
 @font-face {
 	font-family: settingsFont;
-	src: url(../fonts/Minecraftia.ttf);
+	src: url(Minecraftia.ttf);
 }
 
 html, body {
@@ -80,6 +80,12 @@ html, body {
 	background-color: #C6C6C6;
     border-collapse: separate;
 	position: relative;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 #bingo td { 
@@ -90,17 +96,16 @@ html, body {
 	font-size: .75em;
 	font-family: settingsFont;
 	border: 2px solid #FFF;
-	padding: 5px;
+	padding: 10px;
 	background-color: #8B8B8B;
 	box-shadow: inset 5px 5px 5px 0px rgba(0,0,0,0.75);
-	color: #FFF;
-	font-weight: bold;
+	color: #000;
 }
 
 .buttonCard {
 	background-color: #6F6F6F;
 	color: #000;
-	background-image: url("../images/button-background.png");
+	background-image: url("button-background.png");
 	background-repeat: no-repeat;
 	margin-top: 10px;
 	height: 50px;
