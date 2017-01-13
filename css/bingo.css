@@ -5,7 +5,12 @@ padding: 0;
 
 @font-face {
 	font-family: minecraftFont;
-    src: url(../fonts/Minecrafter.Alt.ttf);
+    src: url(../fonts/MinecrafterAlt.ttf);
+}
+
+@font-face {
+	font-family: settingsFont;
+	src: url(../fonts/Minecraftia.ttf);
 }
 
 html, body {
@@ -23,8 +28,8 @@ html, body {
 #top_section h1 {
 	font-size: 72px;
 	font-family: minecraftFont;
-	color: #bababa;
-	text-shadow: 5px 5px #000;
+	color: #A59C99;
+	text-shadow: 0px 10px #000;
 	width: 50%;
 	height: 80px;
 	text-align:center;
@@ -61,7 +66,7 @@ html, body {
 	padding-bottom: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #FFF;
+	background-color: #C6C6C6;
 }
 
 #bingo {
@@ -70,8 +75,9 @@ html, body {
 	width:700px;
 	height:600px;
 	margin: 0px auto;
-	border: solid 1px #910018;
 	border-spacing: 0px;
+	border: solid 2px #FFF;
+	background-color: #C6C6C6;
     border-collapse: separate;
 	position: relative;
 }
@@ -81,22 +87,25 @@ html, body {
 	width: 100px;
 	height: 100px;
 	text-align:center;  
-	font-size: .85em;
-	font-family: Arial, Helvetica, sans-serif;
-	border: 1px solid #000;
+	font-size: .75em;
+	font-family: settingsFont;
+	border: 2px solid #FFF;
 	padding: 5px;
-	background-color:#FFF;
-	color: #000;
+	background-color: #8B8B8B;
+	box-shadow: inset 5px 5px 5px 0px rgba(0,0,0,0.75);
+	color: #FFF;
 	font-weight: bold;
 }
 
 .buttonCard {
-	background-color: #e0e0e0;
+	background-color: #6F6F6F;
 	color: #000;
+	background-image: url("../images/button-background.png");
+	background-repeat: no-repeat;
 	margin-top: 10px;
 	height: 50px;
-	width: 200px;
-	border-bottom: 5px solid;
+	width: 500px;
+	border: 2px solid #000;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -105,10 +114,28 @@ html, body {
 
 .buttonCard a {
 	text-decoration: none;
-	color: #000;
+	color: #FFF;
+	font-family: settingsFont;
 	font-size: 20px;
 	line-height: 50px;
-	font-weight: bold;
+	font-weight: bold; 
+}
+
+.buttonCard a:hover {
+	color: #FFF787; 
+}
+
+.overlay {
+    z-index: 1;
+    height: 50px;
+    width: 500px;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0); /*can be anything, of course*/
+}
+
+.overlay:hover{
+    background: rgba(115, 173, 255, 0.3); /*can be anything, of course*/
 }
 
 #bottom_section {
@@ -160,16 +187,19 @@ html, body {
 
 #bingo td:hover { 
 background:#f2f2f2; 
+color: #000;
 }
 
 #bingo tr td.greensquare { 
-background:#CAFF70; 
+background:#CAFF70;
+color: #000;
 }
 #bingo tr td.greensquare:hover { 
 background:#A2CD5A; 
 }
 #bingo tr td.redsquare { 
 background:#EE6A50; 
+color: #000;
 }
 #bingo tr td.redsquare:hover { 
 background:#CD5B45; 
