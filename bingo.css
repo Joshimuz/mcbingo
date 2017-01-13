@@ -20,6 +20,12 @@ html, body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+#tooltip
+{
+	position:absolute;
+	text-align:center;
+}
+
 #bingo tr td { background:#D1D1D1; }
 #bingo tr td:hover { background:#DADADA; }
 #bingo tr td.greensquare { background:#CAFF70; }
