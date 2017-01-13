@@ -3,17 +3,27 @@
 		<link rel="stylesheet" href="bingo.css" type="text/css" />
 		
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
+		<style>
+		@import "css/bingo.css";
+		</style>
 		
-		<script src="goals.js"></script>
-		<script src="bingo.js"></script>
+		<script src="js/goals.js"></script>
+		<script src="js/bingo.js"></script>
 	</head>
 	<body>
-		<div align="center">
-			<a href="#" onclick='newSeed(true);event.preventDefault();'>Generate new sheet</a>
-			<label><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'>Use Random Layout</label>
-			<label><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'>Hide table</label>
-
-			<table id="bingo" cellspacing="15" cellpadding="5">
+		<section id="top_section">
+			<div class="top_settings">
+			<p>Settings</p>
+			<ul>
+				<li><label><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'> Use Random Layout</label></li>
+				<li><label><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'> Hide table</label></li>
+			</ul>
+			</div>
+			<h1>Minecraft Bingo</h1>
+		</section>
+		
+		<section id="mid_section">
+			<table id="bingo">
 				<tr>
 					<td id="slot1"></td> 
 					<td id="slot2"></td> 
@@ -50,6 +60,39 @@
 					<td id="slot25"></td> 
 				</tr>
 			</table>
-		</div>
+			<div class="buttonCard"><a href="#" onclick='newSeed(true);event.preventDefault();'><p>NEW CARD</p></a></div>
+		</section>
+		<section id="bottom_section">
+		
+		<h2> Rules and Questions </h2>
+		<br>
+		<h3> Rules </h3>
+		<ul>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<li>Nullam eu velit vel ligula lacinia scelerisque vel euismod urna.. Phasellus at lectus eu turpis 
+			pretium malesuada. Etiam volutpat magna at magna placerat, et auctor nulla placerat.</li>
+			<li>Donec ut urna sit amet ante gravida imperdiet sit amet ut nulla. Nunc aliquet orci in quam mollis, et finibus nibh laoreet. </li>
+			<li>Pellentesque eget massa semper diam tempus interdum vel vel arcu.
+				Pellentesque gravida lectus tristique urna dapibus ullamcorper.</li>
+			<li>Lorem ipsum Nunc aliquet orci in quam mollis,</li>
+			<li>eget massa semper diam tempus interdum vel, consectetur adipiscing elit.</li>
+		</ul>
+		<h3> Questions </h3>
+		<ol>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</ol>
+	
+		</section>
 	</body>
 </html>

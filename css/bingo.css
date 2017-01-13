@@ -1,0 +1,176 @@
+*{
+margin: 0;
+padding: 0;
+}
+
+@font-face {
+	font-family: minecraftFont;
+    src: url(../fonts/Minecrafter.Alt.ttf);
+}
+
+html, body {
+    background-color: #F6F6F6;
+}
+
+#top_section {
+	background-color: #F6F6F6;
+	width: 100%;
+	height: 80px;
+	box-shadow: 0px 10px 5px -10px #575757;
+}
+
+
+#top_section h1 {
+	font-size: 72px;
+	font-family: minecraftFont;
+	color: #bababa;
+	text-shadow: 5px 5px #000;
+	width: 50%;
+	height: 80px;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.top_settings {
+	background-color: #FFF;
+	width: 200px;
+	float: left;
+	height: 80px;
+	margin-left: 50px;
+	padding-left: 10px;
+	padding-right: 10px
+}
+
+.top_settings p {
+	text-align:center;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.top_settings li, ul {
+	list-style: none;
+	border: 1px solidl;
+}
+
+#mid_section {
+	width: 100%;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFF;
+}
+
+#bingo {
+	float:center;
+	margin-top: 50px;
+	width:700px;
+	height:600px;
+	margin: 0px auto;
+	border: solid 1px #910018;
+	border-spacing: 0px;
+    border-collapse: separate;
+	position: relative;
+}
+
+#bingo td { 
+	cursor: pointer;
+	width: 100px;
+	height: 100px;
+	text-align:center;  
+	font-size: .85em;
+	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid #000;
+	padding: 5px;
+	background-color:#FFF;
+	color: #000;
+	font-weight: bold;
+}
+
+.buttonCard {
+	background-color: #e0e0e0;
+	color: #000;
+	margin-top: 10px;
+	height: 50px;
+	width: 200px;
+	border-bottom: 5px solid;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	
+}
+
+.buttonCard a {
+	text-decoration: none;
+	color: #000;
+	font-size: 20px;
+	line-height: 50px;
+	font-weight: bold;
+}
+
+#bottom_section {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFF;
+	height: auto;
+	margin-top: 10px;
+}
+
+#bottom_section ul li {
+	list-style-type: circle;
+	background: #ffe5e5;
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+}
+
+#bottom_section ol li {
+	list-style-type: inside;
+	background: #ffe5e5;
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+}
+
+#bottom_section p {
+	background-color: #9fdb87;
+	width: 810px;
+	height: 25px;
+	line-height: 25px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#bottom_section h2 {
+	text-align:center;
+	padding-top: 10px;
+}
+
+#bottom_section h3 {
+	text-align:center;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#bingo td:hover { 
+background:#f2f2f2; 
+}
+
+#bingo tr td.greensquare { 
+background:#CAFF70; 
+}
+#bingo tr td.greensquare:hover { 
+background:#A2CD5A; 
+}
+#bingo tr td.redsquare { 
+background:#EE6A50; 
+}
+#bingo tr td.redsquare:hover { 
+background:#CD5B45; 
+}
