@@ -10,7 +10,7 @@ bingoList[0] =
 [
 	{name :"(3-4) Different Fish"},
 	{name :"Grow a Tree in the Nether"},
-	{name :"(5-10) Colours of Hardened Clay"},
+	{name :"(4-9) Colours of Hardened Clay"},
 	{name :"(1-5) Mushroom Stew"},
 	{name :"Activate a Button with an Arrow"},
 	{name :"Book and Quill"},
@@ -32,7 +32,7 @@ bingoList[0] =
 	{name :"Build a glass cube and fill the inner with lava"},
 	{name :"(10-30) Mossy Cobblestone"},
 	{name :"(10-30) Cacti"},
-	{name :"(1-3) TNT", tooltiptext:"TNT goes boom"},
+	{name :"(1-3) TNT", tooltiptext:"We won't say whether you should use it or not"},
 	{name :"Light Gray Dye and Light Blue Dye"},
 	{name :"Level (10-20)"},
 	{name :"Power a Redstone Lamp"},
@@ -72,7 +72,7 @@ bingoList[0] =
 bingoList[1] = 
 [
 	{name :"Wither Skull"},
-	{name :"(6-8) Different Edible Items"},
+	{name :"(6-8) Different Edible Items", tooltiptext: "Variety is the spice of life"},
 	{name :"Build a Redstone AND Gate"},
 	{name :"(3-5) Different Gold Items"},
 	{name :"Beetroot Soup"},
@@ -89,7 +89,7 @@ bingoList[1] =
 	{name :"Sleep inside a village"},
 	{name :"Kill a Skeleton with it's own Arrow"},
 	{name :"Never wear any Armour"},
-	{name :"Get a Skeleton's Bow"},
+	{name :"Get a Skeleton's Bow", tooltiptext:"Kill Skeletons until you get a rare drop from one, it being their Bow"},
 	{name :"Diamond Block"},
 	{name :"(2-3) Lapis Lazuli Blocks"},
 	{name :"Destroy a Monster Spawner"},
@@ -101,6 +101,7 @@ bingoList[1] =
 	{name :"Grow a Full Jungle Tree"},
 	{name :"Create an Iron Golem"},
 	{name :"Eye of Ender"},
+	{name :"Rabbit Stew"},
 	{name :"Potion of Fire Resistance"},
 	{name :"Potion of Healing"},
 	{name :"Potion of Poison"},
@@ -110,31 +111,30 @@ bingoList[1] =
 	{name :"Potion of Strength"},
 	{name :"Potion of Swiftness"},
 	{name :"Potion of Weakness"},
-	{name :"Rabbit Stew"},
 ]
 
 // Hard
 bingoList[2] = 
 [
-	{name :"Grass Block"},
+	{name :"Grass Block", tooltiptext:"If you don't have Silk Touch I know a guy who might pick one up for you..."},
 	{name :"Create an Enchantment requiring level 10+"},
 	{name :"Sea Lantern", tooltipimg: "https://hydra-media.cursecdn.com/minecraft.gamepedia.com/0/07/Sea_Lantern.gif?version=e3e7a8781710aae7f5b1070931e6d49a", tooltiptext:"Hello World"},
-	{name :"Sponge"},
-	{name :"Bounce on a Slime Block"},
-	{name :"Listen to a Music Disc"},
-	{name :"(3-6) Different Ores (Silk Touch)"},
-	{name :"(2-3) Different Potions"},
+	{name :"Sponge", tooltiptext:"No we don't mean a sponge cake"},
+	{name :"Bounce on a Slime Block", tooltiptext:"Get a Slime Block, place it on the ground and give it a good old bouncin' on"},
+	{name :"Listen to a Music Disc", tooltiptext:"Try not to waste too much time dancing"},
+	{name :"(3-6) Different Ores (Silk Touch)", tooltiptext:"Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli and Nether Quatz ores"},
+	{name :"(5-6) Different Potions", tooltiptext:"Splash, Extended and Powered up variants all count folks! Even Lingering if you want to get crazy!"},
 	{name :"Cure a Zombie Villager"},
-	{name :"(11-13) Different Flowers"},
+	{name :"(11-13) Different Flowers", tooltiptext:"Sunflower?"},
 	{name :"Place an Iron, Gold and Diamond block on top of each other"},
-	{name :"Get a Zombie Pigman's Sword"},
-	{name :"Every type of Chestplate"},
+	{name :"Get a Zombie Pigman's Sword", tooltiptext:"Kill Pigmen until you get a rare drop from one, it being their Golden Sword"},
+	{name :"Every type of Chestplate", tooltiptext:"Don't forget Leather!"},
 ]
 
 // Silly
 bingoList[3] = 
 [
-	{name :"Finish by jumping from top to bottom of the world", tooltiptext:"A TRUE Vegetarian"},
+	{name :"Finish by jumping from top to bottom of the world", tooltiptext:"Dig a hole to bedrock, then build up to 256 Y (the height limit), and then jump from top to bottom at the end of the game"},
 	{name :"Finish launching Fireworks of (5-10) Colours"},
 	{name :"Nametag an Enderman", tooltiptext:"For bonus points call it 'Dinnerbone'"},
 	{name :"Never Eat Meat (including Fish)", tooltiptext:"But where will you get your Vitamin B?!?"},
@@ -144,7 +144,7 @@ bingoList[3] =
 	{name :"Kill a mob with an Anvil", tooltiptext:"I wonder what the terminal velocity of an Anvil is..."},
 	{name :"Set fire to a Villager's House", tooltiptext:"We don't encourage arson"},
 	{name :"Starve to death"},
-	{name :"Finish on top of the world", tooltiptext:"Build upto 256 Y (the height limit) and stand on the top at the end of the game"},
+	{name :"Finish on top of the world", tooltiptext:"Build up to 256 Y (the height limit) and stand on the top at the end of the game"},
 	{name :"Finish where you spawned (Compass)", tooltiptext:"Be stood close enough to spin your compass within a couple blocks at the end of the game"},
 	{name :"Finish on top of a Blaze spawner", tooltiptext:"Be stood on top of a Blaze spawner at the end of the game"},
 ]
