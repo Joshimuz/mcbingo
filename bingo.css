@@ -1,23 +1,44 @@
 html, body {
-    background-color: #b3ccff;
+	background-color: lightblue;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+}
+
+#navigation {
+	text-align: center;
+}
+
+#main {
+	width: 700px;
+	margin: auto;
 }
 
 #bingo {
-	float:center;
-	padding-top:20px;
-	width:700px;
-	height:700px;
-	margin: 0px auto;
+	width: 700px;
+	height: 700px;
+	margin: 18px auto;
 }
 
-#bingo tr td { 
-	cursor:pointer;
-	width:100px;
-	height:100px;
+#rules {
+	width: 650px;
+	margin: auto;
+}
+
+table#bingo {
+	border-collapse: collapse;
+}
+
+#bingo td { 
+	cursor: pointer;
+	user-select: none;
+	width: 100px;
+	height: 100px;
 	text-align:center;
 	background: #FFFFFF;   
 	font-size: 1em;
 	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid #000;
+	padding: 5px;
 }
 
 #tooltip
