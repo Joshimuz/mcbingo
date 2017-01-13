@@ -3,17 +3,26 @@
 		<link rel="stylesheet" href="bingo.css" type="text/css" />
 		
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
+		<style>
+		@import "bingo.css";
+		</style>
 		
 		<script src="goals.js"></script>
 		<script src="bingo.js"></script>
 	</head>
 	<body>
-		<div id="main">
-			<div id="navigation">
-				<a href="#" onclick='newSeed(true);event.preventDefault();'>Generate new sheet</a>
-				<label><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'>Use Random Layout</label>
-				<label><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'>Hide table</label>
+		<section id="top_section">
+			<div class="top_settings">
+			<p>Settings</p>
+			<ul>
+				<li><label><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'> Use Random Layout</label></li>
+				<li><label><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'> Hide table</label></li>
+			</ul>
 			</div>
+			<h1>Minecraft Bingo</h1>
+		</section>
+		
+		<section id="mid_section">
 			<table id="bingo">
 				<tr>
 					<td id="slot1" data-tooltipimg="" data-tooltiptext=""></td> 
@@ -51,16 +60,45 @@
 					<td id="slot25" data-tooltipimg="" data-tooltiptext=""></td> 
 				</tr>
 			</table>
-			<div id="rules">
-				<p>To complete the Bingo, you must complete all five goals in a line horizontally, vertically or diagonally.</p>
-				<ul>
-					<li>Goals that refer to items that you are able to carry in your inventory, must be in your inventory at the moment you complete the Bingo. For example if it says "Golden Apple", you must have the "Golden Apple" in your inventory at the end.</li>
-				</ul>
-			</div>
-		</div>
+			<div class="buttonCard"><div class="overlay"><a href="#" onclick='newSeed(true);event.preventDefault();'><p>Generate New Seed</p></a></div><div>
+			
+		</section>
+		<section id="bottom_section">
+		
+		<h2> Rules and Questions </h2>
+		<br>
+		<h3> Rules </h3>
+		<ul>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<li>Nullam eu velit vel ligula lacinia scelerisque vel euismod urna.. Phasellus at lectus eu turpis 
+			pretium malesuada. Etiam volutpat magna at magna placerat, et auctor nulla placerat.</li>
+			<li>Donec ut urna sit amet ante gravida imperdiet sit amet ut nulla. Nunc aliquet orci in quam mollis, et finibus nibh laoreet. </li>
+			<li>Pellentesque eget massa semper diam tempus interdum vel vel arcu.
+				Pellentesque gravida lectus tristique urna dapibus ullamcorper.</li>
+			<li>Lorem ipsum Nunc aliquet orci in quam mollis,</li>
+			<li>eget massa semper diam tempus interdum vel, consectetur adipiscing elit.</li>
+		</ul>
+		<h3> Questions </h3>
+		<ol>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</ol>
+	
+		</section>
 		<div id="tooltip">
 			<img src="http://www.speedrun.com/themes/gtamarathon/logo.png?v=d7c87947" id="tooltipimg"/>
 			<p><span id="tooltiptext">Hello</span>
+		</div>
 		</div>
 	</body>
 </html>
