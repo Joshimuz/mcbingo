@@ -8,12 +8,13 @@
 		<script src="bingo.js"></script>
 	</head>
 	<body>
-		<div align="center">
-			<a href="#" onclick='newSeed(true);event.preventDefault();'>Generate new sheet</a>
-			<label><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'>Use Random Layout</label>
-			<label><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'>Hide table</label>
-
-			<table id="bingo" cellspacing="15" cellpadding="5">
+		<div id="main">
+			<div id="navigation">
+				<a href="#" onclick='newSeed(true);event.preventDefault();'>Generate new sheet</a>
+				<label><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'>Use Random Layout</label>
+				<label><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'>Hide table</label>
+			</div>
+			<table id="bingo">
 				<tr>
 					<td id="slot1"></td> 
 					<td id="slot2"></td> 
@@ -50,6 +51,12 @@
 					<td id="slot25"></td> 
 				</tr>
 			</table>
+			<div id="rules">
+				<p>To complete the Bingo, you must complete all five goals in a line horizontally, vertically or diagonally.</p>
+				<ul>
+					<li>Goals that refer to items that you are able to carry in your inventory, must be in your inventory at the moment you complete the Bingo. For example if it says "Golden Apple", you must have the "Golden Apple" in your inventory at the end.</li>
+				</ul>
+			</div>
 		</div>
 	</body>
 </html>
