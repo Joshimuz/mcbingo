@@ -1,6 +1,6 @@
 //var bingoList = [1][34];
 
-var currentSheet = [24];	
+var currentSheet = [];	
 var sheetLayout = [];										
 						
 var amountOfSilly = 1;
@@ -13,10 +13,13 @@ var HIDDEN;
 
 $(document).ready(function()
 {	
+	// By default hide the tooltip
 	$("#tooltip").hide();
 
+	// On clicking a goal square
 	$("#bingo td").click(function()
 	{
+		// Change colours between normal, green and red
 		if ($(this).hasClass('greensquare'))
 		{
 			$(this).toggleClass('greensquare');
@@ -32,24 +35,39 @@ $(document).ready(function()
 		}
 	});
 	
+	// On hovering a goal square
 	$("#bingo td").hover(function()
 	{
-		 $("#tooltip").show();
-		 $("#tooltipimg").attr('src', $(this).data("tooltipimg"));
-		 $("#tooltiptext").text($(this).data("tooltiptext"));
+		// If the tooltip is empty
+		if ($(this).data("tooltiptext") == "" && $(this).data("tooltiptext") == "")
+		{
+			// Do nothing lol
+		}
+		else
+		{
+			// Show the tooltip and fill it with content from the goal
+			 $("#tooltip").show();
+			 $("#tooltipimg").attr('src', $(this).data("tooltipimg"));
+			 $("#tooltiptext").text($(this).data("tooltiptext"));
+		}
 	},function()
 	{
+		// After hovering, hide the tooltip again
 		$("#tooltip").hide();
 	});
 	
-	$(document).mousemove(function(e){
+	// Move the tooltip with the mouse
+	$(document).mousemove(function(e)
+	{
 		$("#tooltip").css({left:e.pageX + 2, top:e.pageY + 2});
 	});
 	
+	// Grab the layout setting from the URL
 	LAYOUT = gup( 'layout' );
 	
 	if (LAYOUT == "random")
 	{
+		// Set the layout settings' text
 		document.getElementById("whatlayout").innerHTML="Set Layout";
 	}
 	else 
@@ -58,16 +76,19 @@ $(document).ready(function()
 		document.getElementById("whatlayout").innerHTML="Random Layout";
 	}
 	
+	// Grab the hidden setting from the URL
 	HIDDEN = gup( 'hidden' );
 	
 	if (HIDDEN == "true")
 	{
+		// Hide the table and change the hidden setting's text
 		document.getElementById("ishidden").innerHTML="Show Table";
 		document.getElementById("bingo").style.display = "none";
 	}
 	else
 	{
 		HIDDEN = "false";
+		// Don't hide the table and change the hidden setting's text
 		document.getElementById("ishidden").innerHTML="Hide Table";
 		document.getElementById("bingo").style.display = "table";
 	}
@@ -80,16 +101,26 @@ $(document).ready(function()
 	{
 		newSeed(false);
 	}
-		
-	// Setting the random seed
-	Math.seedrandom(SEED);
 	
 	generateNewSheet();
 })
 
 function generateNewSheet() 
 {
-  if (LAYOUT == "set")
+	// Reset the random seed
+	Math.seedrandom(SEED);
+	
+	// Reset the current sheet
+	currentSheet = [];
+	
+	for (var i=0; i<=24; i++) 
+	{
+		$('#slot'+ (i + 1)).text("");
+		$('#slot'+ (i + 1)).data("tooltipimg", "");
+		$('#slot'+ (i + 1)).data("tooltiptext", "");
+	}
+	
+	if (LAYOUT == "set")
 	{		
 		sheetLayout = [ 1, 2, 0, 2, 1,
 						2, 0, 1, 0, 2,
@@ -197,56 +228,73 @@ function generateNewSheet()
 	}
 }
 
-function newSeed(reload)
+// Create a new seed
+function newSeed(remakeSheet)
 {
+	// Remove the current seed
+	Math.seedrandom();
+	
 	// Making a new 5 digit seed
 	SEED = Math.floor((Math.random() * 90000) + 10000).toString();
 	
-	if (reload == true)
+	// Set the new seed
+	Math.seedrandom(SEED);
+	
+	// Update the seed in the URL
+	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+	
+	// If a new sheet is required, generate one
+	if (remakeSheet == true)
 	{
-		// Change the URL and reload the page
-		window.location = '?seed=#####' + '&layout=' + LAYOUT + '&hidden=' + HIDDEN;
-	}
-	else
-	{
-		// Change the URL and don't reload the page
-		window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+		generateNewSheet();
 	}
 }
 
-function setLayout() 
+// Change the layout
+function changeLayout() 
 {	
-	if(LAYOUT == "set"){
+	// Change the layout based on the current layout
+	if (LAYOUT == "set")
+	{
 		LAYOUT = "random";
-	} else {
+		
+		// Update the button's text
+		document.getElementById("whatlayout").innerHTML="Set Layout";
+	} 
+	else 
+	{
 		LAYOUT = "set";
-	}
-	window.location = '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN;
-}
-
-function setHidden() 
-{	
-	if(HIDDEN == "false"){
-		HIDDEN = "true";
-	} else {
-		HIDDEN = "false";
-	}
-	window.location = '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN;
-}
-
-function toggleTableHidden(cb) 
-{
-	if (cb.checked)
-	{
-		document.getElementById("bingo").style.display = "none";
-		HIDDEN = "true";
-	}
-	else
-	{
-		document.getElementById("bingo").style.display = "table";
-		HIDDEN = "false";
+		
+		document.getElementById("whatlayout").innerHTML="Random Layout";
 	}
 	
+	// Update the URL
+	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+	
+	// Generate a new sheet
+	generateNewSheet();
+}
+
+function changeHidden() 
+{	
+	// Hide or show the table based on the current setting
+	if (HIDDEN == "false")
+	{
+		HIDDEN = "true";
+		
+		// Update the button's text
+		document.getElementById("ishidden").innerHTML="Show Table";
+		
+		
+		document.getElementById("bingo").style.display = "none";
+	} 
+	else 
+	{
+		HIDDEN = "false";
+		
+		document.getElementById("ishidden").innerHTML="Hide Table";
+		document.getElementById("bingo").style.display = "table";
+	}
 	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
 }
 
