@@ -39,7 +39,7 @@ $(document).ready(function()
 	$("#bingo td img").hover(function()
 	{
 		// If the tooltip is empty
-		if ($(this).parent().data("tooltiptext") == "" && $(this).parent().data("tooltiptext") == "")
+		if ($(this).parent().data("tooltiptext") == "" && $(this).parent().data("tooltipimg") == "")
 		{
 			// Do nothing lol
 		}
