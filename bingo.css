@@ -1,59 +1,3 @@
-@keyframes fadein {
-    0% {
-        opacity: 0;
-    }
-    99% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@-webkit-keyframes fadein {
-    0% {
-        opacity: 0;
-    }
-    99% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@-moz-keyframes fadein {
-    0% {
-        opacity: 0;
-    }
-    99% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@-o-keyframes fadein {
-    0% {
-        opacity: 0;
-    }
-    99% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes fadein {
-    0% {
-        opacity: 0;
-    }
-    99% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 *{
 margin: 0;
 padding: 0;
@@ -182,18 +126,12 @@ html, body {
 	background-color: rgba(0,0,0,.9);
 	font-family: settingsFont;
 	padding: 10px;
-	-webkit-animation: fadein 1s; 
-    -moz-animation: fadein 1s; 
-    -ms-animation: fadein 1s; 
-    -o-animation: fadein 1s; 
-     animation: fadein 1s;
 }
 
 #tooltipimg {
 	margin-bottom: 10px;
 	width: 64px;
 	height: 64px;
-	padding: 5px;
 	float: left;
 	border: 2px solid #EBEBEB;
 	background-color: #C6C6C6;
@@ -242,6 +180,10 @@ html, body {
 	color: #000;
 	padding: 5px;
 	position: relative;
+}
+
+#bingo td img{
+	visibility: hidden;
 }
 
 #tooltipQ { 
@@ -296,18 +238,17 @@ html, body {
 }
 
 #bottom_section {
-	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFF;
-	height: 100%;
 	margin-top: 10px;
 	border-top: 5px solid;
+	font-family: settingsFont;
+	font-size:0.75em;
 }
 
 #bottom_section ul li {
 	list-style-type: circle;
-	background: #ffe5e5;
 	padding: 5px;
 	margin-left: auto;
 	margin-right: auto;
@@ -316,7 +257,6 @@ html, body {
 
 #bottom_section ol li {
 	list-style-type: inside;
-	background: #ffe5e5;
 	padding: 5px;
 	margin-left: auto;
 	margin-right: auto;
@@ -329,7 +269,6 @@ html, body {
 }
 
 #bottom_section p {
-	background-color: #9fdb87;
 	width: 810px;
 	height: 25px;
 	line-height: 25px;

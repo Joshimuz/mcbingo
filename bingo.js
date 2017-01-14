@@ -36,10 +36,10 @@ $(document).ready(function()
 	});
 	
 	// On hovering a goal square
-	$("#bingo td").hover(function()
+	$("#bingo td img").hover(function()
 	{
 		// If the tooltip is empty
-		if ($(this).data("tooltiptext") == "" && $(this).data("tooltiptext") == "")
+		if ($(this).parent().data("tooltiptext") == "" && $(this).parent().data("tooltipimg") == "")
 		{
 			// Do nothing lol
 		}
@@ -47,8 +47,8 @@ $(document).ready(function()
 		{
 			// Show the tooltip and fill it with content from the goal
 			 $("#tooltip").show();
-			 $("#tooltipimg").attr('src', $(this).data("tooltipimg"));
-			 $("#tooltiptext").text($(this).data("tooltiptext"));
+			 $("#tooltipimg").attr('src', $(this).parent().data("tooltipimg"));
+			 $("#tooltiptext").text($(this).parent().data("tooltiptext"));
 		}
 	},function()
 	{
@@ -115,9 +115,11 @@ function generateNewSheet()
 	
 	for (var i=0; i<=24; i++) 
 	{
-		$('#slot'+ (i + 1)).text("");
+		$('#slot'+ (i + 1)).contents().filter(function(){ return this.nodeType == 3; }).remove();
+		//$('#slot'+ (i + 1)).text("");
 		$('#slot'+ (i + 1)).data("tooltipimg", "");
 		$('#slot'+ (i + 1)).data("tooltiptext", "");
+		$('#slot'+ (i + 1)).children().css("visibility", "hidden");
 	}
 	
 	if (LAYOUT == "set")
@@ -220,10 +222,12 @@ function generateNewSheet()
 		if (typeof bingoList[sheetLayout[i]][rng].tooltipimg !== 'undefined')
 		{
 			$('#slot'+ (i + 1)).data("tooltipimg", bingoList[sheetLayout[i]][rng].tooltipimg);
+			$('#slot'+ (i + 1)).children().css("visibility", "visible");
 		}
 		if (typeof bingoList[sheetLayout[i]][rng].tooltiptext !== 'undefined')
 		{
 			$('#slot'+ (i + 1)).data("tooltiptext", bingoList[sheetLayout[i]][rng].tooltiptext);
+			$('#slot'+ (i + 1)).children().css("visibility", "visible");
 		}
 	}
 }
