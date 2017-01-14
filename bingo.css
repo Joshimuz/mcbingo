@@ -1,3 +1,32 @@
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 *{
 margin: 0;
 padding: 0;
@@ -66,6 +95,7 @@ html, body {
     border: 2px solid black;
     cursor: pointer;
 	margin-bottom: 5px;
+	background-size: 248px 48px;
 }
 
 /* Dropdown button on hover & focus */
@@ -114,28 +144,42 @@ html, body {
 	border: 4px solid;
 }
 
+#tooltip {
+	margin: 20px;
+    position: relative;
+    display: inline-block;
+	width: 300px;
+	height: auto;
+	border: 2px solid purple;
+	background-color: rgba(0,0,0,.9);
+	font-family: settingsFont;
+	padding: 10px;
+	-webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 4s; /* Firefox < 16 */
+        -ms-animation: fadein 4s; /* Internet Explorer */
+         -o-animation: fadein 4s; /* Opera < 12.1 */
+            animation: fadein 4s;
+}
+
 #tooltipimg {
 	margin-bottom: 10px;
-	margin-left: 20px;
-	width: 100px;
-	height: 100px;
+	width: 64px;
+	height: 64px;
 	padding: 5px;
+	float: left;
 	border: 2px solid #EBEBEB;
 	background-color: #C6C6C6;
 	box-shadow: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
 }
 
 #tooltiptext {
-	border: 2px solid purple;
-	font-family: settingsFont;
 	border-radius: 5px;
 	text-shadow: 2px 2px #000;
-	background-color: rgba(0,0,0,.9);
+	margin-bottom: 40px;
+	font-size: 12px;
+	margin-left: 10px;
 	color: #FFF;
-	padding: 5px;
-	width: 2000px;
-	height: 50px;
-	margin-left: 20px;
+	width: 120px;
 }
 
 #bingo {
@@ -218,7 +262,7 @@ html, body {
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFF;
-	height: auto;
+	height: 100%;
 	margin-top: 10px;
 	border-top: 5px solid;
 }
