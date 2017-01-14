@@ -104,6 +104,7 @@ html, body {
 }
 
 #mid_section {
+	width: 720px;
 	margin-top: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
