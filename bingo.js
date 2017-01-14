@@ -50,24 +50,25 @@ $(document).ready(function()
 	
 	if (LAYOUT == "random")
 	{
-		document.getElementById("LayoutTickbox").checked = true;
+		document.getElementById("whatlayout").innerHTML="Set Layout";
 	}
 	else 
 	{
 		LAYOUT = "set";
+		document.getElementById("whatlayout").innerHTML="Random Layout";
 	}
 	
 	HIDDEN = gup( 'hidden' );
 	
 	if (HIDDEN == "true")
 	{
-		document.getElementById("HiddenTickbox").checked = true;
+		document.getElementById("ishidden").innerHTML="Show Table";
 		document.getElementById("bingo").style.display = "none";
 	}
 	else
 	{
 		HIDDEN = "false";
-		document.getElementById("HiddenTickbox").checked = false;
+		document.getElementById("ishidden").innerHTML="Hide Table";
 		document.getElementById("bingo").style.display = "table";
 	}
 	
@@ -213,17 +214,23 @@ function newSeed(reload)
 	}
 }
 
-function toggleRandomLayout(cb) 
-{
-	if (cb.checked)
-	{
+function setLayout() 
+{	
+	if(LAYOUT == "set"){
 		LAYOUT = "random";
-	}
-	else
-	{
+	} else {
 		LAYOUT = "set";
 	}
-	
+	window.location = '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN;
+}
+
+function setHidden() 
+{	
+	if(HIDDEN == "false"){
+		HIDDEN = "true";
+	} else {
+		HIDDEN = "false";
+	}
 	window.location = '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN;
 }
 
