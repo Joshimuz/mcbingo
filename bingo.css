@@ -239,18 +239,17 @@ html, body {
 }
 
 #bottom_section {
-	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #FFF;
-	height: 100%;
 	margin-top: 10px;
 	border-top: 5px solid;
+	font-family: settingsFont;
+	font-size:0.75em;
 }
 
 #bottom_section ul li {
 	list-style-type: circle;
-	background: #ffe5e5;
 	padding: 5px;
 	margin-left: auto;
 	margin-right: auto;
@@ -259,7 +258,6 @@ html, body {
 
 #bottom_section ol li {
 	list-style-type: inside;
-	background: #ffe5e5;
 	padding: 5px;
 	margin-left: auto;
 	margin-right: auto;
@@ -272,7 +270,6 @@ html, body {
 }
 
 #bottom_section p {
-	background-color: #9fdb87;
 	width: 810px;
 	height: 25px;
 	line-height: 25px;
