@@ -6,20 +6,23 @@
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
 		
 		<script src="goals.js"></script>
+<<<<<<< HEAD
 		<script src="bingo.js"></script>	
+=======
+		<script src="bingo.js"></script>
+>>>>>>> refs/remotes/origin/develop-wayno717
 </head>
 	<body>
 		<section id="top_section">
 			<div class="dropdown">
 				<button onclick="myFunction()" class="dropbtn">Options...</button>
 				<div id="myDropdown" class="dropdown-content">
-				<div class="layout"><input type='checkbox' id="LayoutTickbox" onclick='toggleRandomLayout(this);'> Random Layout</div>
-				<div class="layout"><input type='checkbox' id="HiddenTickbox" onclick='toggleTableHidden(this);'> Hide table</div>
+				<button onclick='setLayout();' class="dropbtn"><p id="whatlayout"></p></button>
+				<button onclick='setHidden();' class="dropbtn"><p id="ishidden"></p></div>
 				</div>
 			</div>
 			<h1>Minecraft Bingo</h1>
 		</section>
-		
 		<section id="mid_section">
 			<table id="bingo">
 				<tr>
@@ -98,11 +101,9 @@ toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
-
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
