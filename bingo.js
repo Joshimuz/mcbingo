@@ -16,6 +16,18 @@ $(document).ready(function()
 	// By default hide the tooltip
 	$("#tooltip").hide();
 
+	// By default hide tooltip questionmarks
+	$(".tooltipQ").addClass("tooltipQhidden");
+
+	// On hovering the sheet show the tooltip questionmarks
+	$("#bingo").hover(function()
+	{
+		$(".tooltipQ").removeClass("tooltipQhidden");
+	}, function()
+	{
+		$(".tooltipQ").addClass("tooltipQhidden");
+	});
+
 	// On clicking a goal square
 	$("#bingo td").click(function()
 	{
@@ -59,7 +71,19 @@ $(document).ready(function()
 	// Move the tooltip with the mouse
 	$(document).mousemove(function(e)
 	{
-		$("#tooltip").css({left:e.pageX + 2, top:e.pageY + 2});
+		var x = e.pageX + 2;
+		var y = e.pageY + 2;
+		var width = $("#tooltip").outerWidth() + 25;
+		var height = $("#tooltip").height() + 50;
+		var maxX = $(window).width() + window.pageXOffset;
+		var maxY = $(window).height() + window.pageYOffset;
+		if (x + width > maxX) {
+			x = maxX - width;
+		}
+		if (y + height > maxY) {
+			y = y - height;
+		}
+		$("#tooltip").css({left:x, top:y});
 	});
 	
 	
