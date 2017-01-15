@@ -1,4 +1,4 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 }
@@ -27,7 +27,6 @@ html, body {
 	/* background-image: url("stonetile.png"); */
 	border-bottom: 5px solid;
 }
-
 
 #top_section h1 {
 	font-size: 4em;
@@ -96,11 +95,11 @@ html, body {
 }
 
 .show {
-	display:block;
+	display: block;
 }
 
 .top_settings p {
-	text-align:center;
+	text-align: center;
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 5px;
@@ -118,14 +117,15 @@ html, body {
 }
 
 #tooltip {
+	position: absolute;
 	margin: 20px;
-	position: relative;
 	display: inline-block;
 	width: 300px;
 	border: 2px solid purple;
 	background-color: rgba(0,0,0,.9);
-	font-family: settingsFont;
 	padding: 10px;
+	font-family: settingsFont;
+	text-align: center;
 	line-height: 1.2em;
 }
 
@@ -221,7 +221,6 @@ html, body {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	
 }
 
 .buttoncard a {
@@ -239,20 +238,18 @@ html, body {
 }
 
 .newseedoverlay {
-    height: 45px;
-    width: 500px;
-    top: 0px;
-    left: 0px;
-    background: rgba(0, 0, 0, 0); 
+	height: 45px;
+	width: 500px;
+	top: 0px;
+	left: 0px;
+	background: rgba(0, 0, 0, 0); 
 }
 
 .newseedoverlay:hover{
-    background: rgba(115, 173, 255, 0.3); 
+	background: rgba(115, 173, 255, 0.3); 
 }
 
 #bottom_section {
-	margin-left: auto;
-	margin-right: auto;
 	background-color: #FFF;
 	margin-top: 10px;
 	border-top: 5px solid;
@@ -260,33 +257,30 @@ html, body {
 	font-size:0.75em;
 }
 
+#bottom_section_text {
+	max-width: 800px;
+	padding: 12px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#bottom_section ul {
+	margin-left: 20px;
+}
+
 #bottom_section ul li {
 	list-style-type: circle;
 	padding: 5px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 800px;
 }
 
 #bottom_section ol li {
 	list-style-type: inside;
 	padding: 5px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 800px;
-}
-#tooltip
-{
-	position:absolute;
-	text-align:center;
 }
 
 #bottom_section p {
-	width: 810px;
-	height: 25px;
-	line-height: 25px;
-	margin-left: auto;
-	margin-right: auto;
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 
 #bottom_section h2 {
@@ -301,23 +295,23 @@ html, body {
 }
 
 #bingo td:hover { 
-background-color: rgba(256, 256, 256, 0.5); 
-color: #000;
+	background-color: rgba(256, 256, 256, 0.5); 
+	color: #000;
 }
 
 #bingo tr td.greensquare { 
-background:#CAFF70;
-color: #000;
+	background:#CAFF70;
+	color: #000;
 }
 #bingo tr td.greensquare:hover { 
-background:#A2CD5A; 
+	background:#A2CD5A; 
 }
 #bingo tr td.redsquare { 
-background:#EE6A50; 
-color: #000;
+	background:#EE6A50; 
+	color: #000;
 }
 #bingo tr td.redsquare:hover { 
-background:#CD5B45; 
+	background:#CD5B45; 
 }
 
 .squaredTwo {
