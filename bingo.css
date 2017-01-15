@@ -195,7 +195,7 @@ html, body {
 	visibility: hidden;
 }
 
-#tooltipQ { 
+.tooltipQ { 
 	width: 15px;
 	height: 15px;
 	float: right;
