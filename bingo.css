@@ -274,6 +274,10 @@ html, body {
 	padding: 5px;
 }
 
+#bottom_section ol {
+	margin-left: 20px;
+}
+
 #bottom_section ol li {
 	list-style-type: inside;
 	padding: 5px;
