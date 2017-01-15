@@ -73,6 +73,7 @@ html, body {
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
     background-color: #3e8e41;
+	color: #FFF787;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -121,21 +122,29 @@ html, body {
     position: relative;
     display: inline-block;
 	width: 300px;
-	height: auto;
+	height: 75px;
 	border: 2px solid purple;
 	background-color: rgba(0,0,0,.9);
 	font-family: settingsFont;
 	padding: 10px;
 }
 
-#tooltipimg {
+#tooltip img {
+	border: 2px solid #EBEBEB;
 	margin-bottom: 10px;
 	width: 64px;
 	height: 64px;
 	float: left;
-	border: 2px solid #EBEBEB;
 	background-color: #C6C6C6;
+}
+
+.box-shadow{
 	box-shadow: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
+	border: 2px solid white;
+	width: 64px;
+	height: 64px;
+	float: left;
+	position: absolute;
 }
 
 #tooltiptext {
@@ -224,8 +233,7 @@ html, body {
 	text-decoration: none;
 }
 
-.overlay {
-    z-index: 1;
+.newseedoverlay {
     height: 45px;
     width: 500px;
     top: 0px;
@@ -233,7 +241,7 @@ html, body {
     background: rgba(0, 0, 0, 0); 
 }
 
-.overlay:hover{
+.newseedoverlay:hover{
     background: rgba(115, 173, 255, 0.3); 
 }
 
