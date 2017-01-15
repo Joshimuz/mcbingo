@@ -121,8 +121,7 @@ html, body {
 	margin: 20px;
     position: relative;
     display: inline-block;
-	width: 300px;
-	height: 75px;
+	width: 400px;
 	border: 2px solid purple;
 	background-color: rgba(0,0,0,.9);
 	font-family: settingsFont;
@@ -131,7 +130,6 @@ html, body {
 
 #tooltip img {
 	border: 2px solid #EBEBEB;
-	margin-bottom: 10px;
 	width: 64px;
 	height: 64px;
 	float: left;
@@ -154,7 +152,8 @@ html, body {
 	font-size: 12px;
 	margin-left: 10px;
 	color: #FFF;
-	width: 120px;
+	position: relative;
+	top: -5px;
 }
 
 #bingo {
@@ -195,14 +194,14 @@ html, body {
 	visibility: hidden;
 }
 
-#tooltipQ { 
+.tooltipQ { 
 	width: 15px;
 	height: 15px;
 	float: right;
 	position: absolute;
 	padding-top: 4px;
-    right: 5;
-    top: 5;
+    right: 5px;
+    top: 5px;
 }
 
 .buttoncard {
