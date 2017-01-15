@@ -13,6 +13,9 @@ var HIDDEN;
 
 $(document).ready(function()
 {	
+	// Set the background to a random image
+	document.body.style.backgroundImage = "url('Backgrounds/background" + (Math.floor(Math.random() * 10) + 1) + ".jpg')";
+
 	// By default hide the tooltip
 	$("#tooltip").hide();
 
