@@ -142,6 +142,9 @@ function getSettingsFromURL()
 
 function generateNewSheet() 
 {
+	$("#seed_for_copying").val(SEED);
+	$("#seed_for_copying").attr("size", SEED.length);
+
 	// Reset the random seed
 	Math.seedrandom(SEED);
 	
