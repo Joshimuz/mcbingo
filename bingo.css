@@ -1,11 +1,11 @@
-*{
-margin: 0;
-padding: 0;
+* {
+	margin: 0;
+	padding: 0;
 }
 
 @font-face {
 	font-family: minecraftFont;
-    src: url(MinecrafterAlt.ttf);
+	src: url(MinecrafterAlt.ttf);
 }
 
 @font-face {
@@ -14,7 +14,7 @@ padding: 0;
 }
 
 html, body {
-    background-color: #F6F6F6;
+	background-color: #F6F6F6;
 	background-image: url("background.png");
 	background-size: 1920px 1080px;
 }
@@ -27,7 +27,6 @@ html, body {
 	/* background-image: url("stonetile.png"); */
 	border-bottom: 5px solid;
 }
-
 
 #top_section h1 {
 	font-size: 4em;
@@ -42,13 +41,13 @@ html, body {
 	margin-left: auto;
 	margin-right: auto;
 	-webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+	-webkit-text-stroke-color: black;
 }
 
 .dropdown  {
 	float: left;
 	position: relative;
-    display: inline-block;
+	display: inline-block;
 	margin-left: 5%;
 	margin-top: 25px;
 }
@@ -63,16 +62,16 @@ html, body {
 	width: 250px;
 	line-height: 20px;
 	text-align: center;
-    font-size:1.2em;
-    border: 2px solid black;
-    cursor: pointer;
+	font-size:1.2em;
+	border: 2px solid black;
+	cursor: pointer;
 	margin-bottom: 2px;
 	background-size: 248px 48px;
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
+    	background-color: #3e8e41;
 	color: #FFF787;
 }
 
@@ -80,6 +79,7 @@ html, body {
 .dropdown-content {
     display: none;
     position: absolute;
+    z-index: 3;
 }
 
 /* Links inside the dropdown */
@@ -96,11 +96,11 @@ html, body {
 }
 
 .show {
-	display:block;
+	display: block;
 }
 
 .top_settings p {
-	text-align:center;
+	text-align: center;
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 5px;
@@ -118,18 +118,22 @@ html, body {
 }
 
 #tooltip {
+	position: absolute;
 	margin: 20px;
-    position: relative;
-    display: inline-block;
-	width: 400px;
+	display: inline-block;
+	width: 300px;
 	border: 2px solid purple;
 	background-color: rgba(0,0,0,.9);
-	font-family: settingsFont;
 	padding: 10px;
+	font-family: settingsFont;
+	text-align: center;
+	line-height: 1.2em;
 }
 
 #tooltip img {
 	border: 2px solid #EBEBEB;
+	margin-bottom: 10px;
+	margin-right: 5px;
 	width: 64px;
 	height: 64px;
 	float: left;
@@ -165,7 +169,7 @@ html, body {
 	border-spacing: 0px;
 	border: solid 4px #FFF;
 	background-color: #C6C6C6;
-    border-collapse: separate;
+    	border-collapse: separate;
 	border-radius: 5px;
 	position: relative;
 	-webkit-touch-callout: none;
@@ -186,7 +190,7 @@ html, body {
 	border: 2px solid #EBEBEB;
 	box-shadow: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
 	color: #000;
-	padding: 5px;
+	padding: 5px 5px 5px 7px;
 	position: relative;
 }
 
@@ -194,14 +198,18 @@ html, body {
 	visibility: hidden;
 }
 
-.tooltipQ { 
+.tooltipQ {
+	opacity: 0.5;
 	width: 15px;
 	height: 15px;
-	float: right;
 	position: absolute;
 	padding-top: 4px;
-    right: 5px;
-    top: 5px;
+    	right: 5px;
+    	top: 5px;
+}
+
+.tooltipQhidden {
+	visibility: hidden !important;
 }
 
 .buttoncard {
@@ -215,7 +223,6 @@ html, body {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	
 }
 
 .buttoncard a {
@@ -233,20 +240,18 @@ html, body {
 }
 
 .newseedoverlay {
-    height: 45px;
-    width: 500px;
-    top: 0px;
-    left: 0px;
-    background: rgba(0, 0, 0, 0); 
+	height: 45px;
+	width: 500px;
+	top: 0px;
+	left: 0px;
+	background: rgba(0, 0, 0, 0); 
 }
 
 .newseedoverlay:hover{
-    background: rgba(115, 173, 255, 0.3); 
+	background: rgba(115, 173, 255, 0.3); 
 }
 
 #bottom_section {
-	margin-left: auto;
-	margin-right: auto;
 	background-color: #FFF;
 	margin-top: 10px;
 	border-top: 5px solid;
@@ -254,33 +259,30 @@ html, body {
 	font-size:0.75em;
 }
 
+#bottom_section_text {
+	max-width: 800px;
+	padding: 12px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#bottom_section ul {
+	margin-left: 20px;
+}
+
 #bottom_section ul li {
 	list-style-type: circle;
 	padding: 5px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 800px;
 }
 
 #bottom_section ol li {
 	list-style-type: inside;
 	padding: 5px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 800px;
-}
-#tooltip
-{
-	position:absolute;
-	text-align:center;
 }
 
 #bottom_section p {
-	width: 810px;
-	height: 25px;
-	line-height: 25px;
-	margin-left: auto;
-	margin-right: auto;
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 
 #bottom_section h2 {
@@ -295,23 +297,23 @@ html, body {
 }
 
 #bingo td:hover { 
-background-color: rgba(256, 256, 256, 0.5); 
-color: #000;
+	background-color: rgba(256, 256, 256, 0.5); 
+	color: #000;
 }
 
 #bingo tr td.greensquare { 
-background:#CAFF70;
-color: #000;
+	background:#CAFF70;
+	color: #000;
 }
 #bingo tr td.greensquare:hover { 
-background:#A2CD5A; 
+	background:#A2CD5A; 
 }
 #bingo tr td.redsquare { 
-background:#EE6A50; 
-color: #000;
+	background:#EE6A50; 
+	color: #000;
 }
 #bingo tr td.redsquare:hover { 
-background:#CD5B45; 
+	background:#CD5B45; 
 }
 
 .squaredTwo {
