@@ -79,6 +79,7 @@ html, body {
 .dropdown-content {
     display: none;
     position: absolute;
+    z-index: 3;
 }
 
 /* Links inside the dropdown */
@@ -188,7 +189,7 @@ html, body {
 	border: 2px solid #EBEBEB;
 	box-shadow: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
 	color: #000;
-	padding: 5px;
+	padding: 5px 5px 5px 7px;
 	position: relative;
 }
 
