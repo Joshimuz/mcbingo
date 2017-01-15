@@ -116,7 +116,7 @@ bingoList[1] =
 // Hard
 bingoList[2] = 
 [
-	{name :"Grass Block", tooltiptext:"If you don't have Silk Touch I know a guy who might pick one up for you..."},
+	{name :"Grass Block", tooltiptext:"If you don't have Silk Touch I know a guy who might pick one up for you...",tooltipimg:"Goal Tooltip Images/GrassBlock.png"},
 	{name :"Create an Enchantment requiring level 10+"},
 	{name :"Sea Lantern"},
 	{name :"Sponge", tooltiptext:"DRY Sponge, not a wet one"},
@@ -133,7 +133,7 @@ bingoList[2] =
 // Silly
 bingoList[3] = 
 [
-	{name :"Finish by jumping from top to bottom of the world", tooltiptext:"Dig a hole to bedrock, then build up to 256 Y (the height limit), and then jump from top to bottom at the end of the game"},
+	{name :"Finish by jumping from top to bottom of the world", tooltiptext:"Dig a hole to bedrock, build up to 256 Y (height limit), and then jump from top to bottom at the end of the game", tooltipimg:"Goal Tooltip Images/FinishTopToBottom.png"},
 	{name :"Finish launching Fireworks of (5-10) Colours"},
 	{name :"Nametag an Enderman"},
 	{name :"Never Eat Meat (including Fish)"},
@@ -143,7 +143,7 @@ bingoList[3] =
 	{name :"Kill a mob with an Anvil"},
 	{name :"Set fire to a Villager's House"},
 	{name :"Starve to death"},
-	{name :"Finish on top of the world", tooltiptext:"Build up to 256 Y (the height limit) and stand on the top at the end of the game"},
-	{name :"Finish where you spawned (Compass)", tooltiptext:"Be stood close enough to spin your compass within a couple blocks at the end of the game"},
-	{name :"Finish on top of a Blaze spawner", tooltiptext:"Be stood on top of a Blaze spawner at the end of the game"},
+	{name :"Finish on top of the world", tooltiptext:"Build up to 256 Y (the height limit) and stand on the top at the end of the game", tooltipimg:"Goal Tooltip Images/FinishTop.png"},
+	{name :"Finish where you spawned (Compass)", tooltiptext:"Be stood close enough to spin your compass within a couple blocks at the end of the game", tooltipimg:"Goal Tooltip Images/Compass.png"},
+	{name :"Finish on top of a Blaze spawner", tooltiptext:"Be stood on top of a Blaze spawner at the end of the game", tooltipimg:"Goal Tooltip Images/BlazeSpawner.png"},
 ]
