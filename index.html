@@ -12,13 +12,6 @@
 </head>
 	<body>
 		<section id="top_section">
-			<div class="dropdown">
-				<button onclick="myFunction()" class="dropbtn">Options...</button>
-				<div id="myDropdown" class="dropdown-content">
-				<button onclick='changeLayout();' class="dropbtn"><p id="whatlayout"></p></button>
-				<button onclick='changeHidden();' class="dropbtn"><p id="ishidden"></p></div>
-				</div>
-			</div>
 			<h1>Minecraft Bingo</h1>
 		</section>
 		<section id="mid_section">
@@ -59,7 +52,15 @@
 					<td id="slot25" data-tooltipimg="" data-tooltiptext=""><img class="tooltipQ" src="question_mark.png"></td>  
 				</tr>
 			</table>
-			<div class="buttoncard"><div class="newseedoverlay"><a href="#" onclick='newSeed(true);event.preventDefault();'><p>Generate New Seed</p></a></div><div>
+			<div class="button-holder">
+			<div class="newseedbutton"><a href="#" onclick='newSeed(true);event.preventDefault();'><div class="newseedoverlay"><p>Generate New Seed</p></a></div></div>
+			<div class="dropdown">
+				<button onclick="myFunction()" class="dropbtn">Options...</button>
+				<div id="myDropdown" class="dropdown-content">
+				<button onclick='changeLayout();' class="dropbtn"><p id="whatlayout"></p></button>
+				<button onclick='changeHidden();' class="dropbtn"><p id="ishidden"></p></div>
+				</div>
+			</div>
 		</section>
 		<section id="bottom_section">
 			<div id="bottom_section_text">
