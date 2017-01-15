@@ -122,7 +122,7 @@ bingoList[2] =
 	{name :"Sponge", tooltiptext:"DRY Sponge, not a wet one"},
 	{name :"Bounce on a Slime Block", tooltiptext:"Get a Slime Block, place it on the ground and give it a good old bouncin' on"},
 	{name :"Listen to a Music Disc"},
-	{name :"(3-6) Different Ores (Silk Touch)", tooltiptext:"Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli and Nether Quatz ores are your choices"},
+	{name :"(3-6) Different Ores (Silk Touch)", tooltiptext:"Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quatz and Redstone ores are your choices", tooltipimg:"Goal Tooltip Images/Ores.png"},
 	{name :"(5-6) Different Potions", tooltiptext:"Splash, Extended and Powered up variants all count! Even Lingering if you want to get crazy."},
 	{name :"Cure a Zombie Villager"},
 	{name :"(11-13) Different Flowers"},

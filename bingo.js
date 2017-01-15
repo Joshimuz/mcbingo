@@ -62,6 +62,17 @@ $(document).ready(function()
 		$("#tooltip").css({left:e.pageX + 2, top:e.pageY + 2});
 	});
 	
+	
+	window.onpopstate = function(event) 
+	{ 
+		getSettingsFromURL();
+	};
+	
+	getSettingsFromURL();
+})
+
+function getSettingsFromURL()
+{
 	// Grab the layout setting from the URL
 	LAYOUT = gup( 'layout' );
 	
@@ -103,7 +114,7 @@ $(document).ready(function()
 	}
 	
 	generateNewSheet();
-})
+}
 
 function generateNewSheet() 
 {
