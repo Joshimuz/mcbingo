@@ -3,9 +3,9 @@
 var currentSheet = [];	
 var sheetLayout = [];										
 						
-var amountOfSilly = 1;
-var amountOfHard = 3;
-var amountOfMedium = 6;
+var amountOfVeryHard;
+var amountOfHard;
+var amountOfMedium;
 
 var SEED;
 var LAYOUT;
@@ -179,7 +179,16 @@ function generateNewSheet()
 						0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0];
 						
-		for (var i = 0; i < amountOfSilly; i++) 
+		// Between 0-1 (with more likely being 0) Very Hard Goals
+		amountOfVeryHard = Math.floor((Math.random() * 1.5));
+		
+		// Between 2-4 Hard Goals
+		amountOfHard = Math.floor(Math.random() * (4-2) + 2);
+		
+		// Between 6-8 Medium Goals
+		amountOfMedium = Math.floor(Math.random() * (8-6) + 6);
+						
+		for (var i = 0; i < amountOfVeryHard; i++) 
 		{
 			sheetLayout[Math.floor((Math.random() * 24))] = 3;
 		}
@@ -241,17 +250,27 @@ function generateNewSheet()
 			
 			for (var z=0; z <= 24; z++)
 			{
-				if (currentSheet[z] == bingoList[sheetLayout[i]][rng].name)
+				if (typeof currentSheet[z] !== 'undefined')
 				{
-					cont = false;
-				}	
-				
+					// Check if the goal generated is already on the sheet
+					if (currentSheet[z].name == bingoList[sheetLayout[i]][rng].name)
+					{
+						// If it is get a new goal
+						cont = false;
+					}
+					// Check if the goal generated has any anti synergy with anything already on the sheet
+					else if (currentSheet[z].antisynergy == bingoList[sheetLayout[i]][rng].antisynergy && typeof currentSheet[z].antisynergy !== 'undefined')
+					{
+						// If it is get a new goal
+						cont = false;
+					}
+				}
 			}
  			
 		}
 		while (cont == false);
 		
-		currentSheet[i] = bingoList[sheetLayout[i]][rng].name;
+		currentSheet[i] = bingoList[sheetLayout[i]][rng];
 		
 		$('#slot'+ (i + 1)).append(bingoList[sheetLayout[i]][rng].name.replace(/\((\d+)-(\d+)\)/g, function(match, n1, n2, offset, input) 
 		{
