@@ -95,6 +95,10 @@ html, body {
 	position: absolute;
 }
 
+#tooltip p {
+	overflow: hidden;
+}
+
 #tooltiptext {
 	border-radius: 5px;
 	text-shadow: 2px 2px #000;
@@ -150,8 +154,8 @@ html, body {
 	height: 15px;
 	position: absolute;
 	padding-top: 4px;
-    right: 5px;
-    top: 5px;
+	right: 5px;
+	top: 5px;
 }
 
 .tooltipQhidden {
@@ -166,7 +170,8 @@ html, body {
 
 /* Dropdown Button */
 .dropbtn {
-    background-color: #6F6F6F;
+	cursor: pointer;
+    	background-color: #6F6F6F;
 	color: #FFF;
 	background-image: url("button-background.png");
 	background-repeat: no-repeat;
@@ -181,23 +186,23 @@ html, body {
 }
 
 /* Dropdown button on hover & focus */
-.dropbtn:hover{
-    background-color: #3e8e41;
+.dropbtn:hover {
+	background-color: #3e8e41;
 	color: #FFF787;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 3;
+	display: none;
+	position: absolute;
+	z-index: 3;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    text-decoration: none;
-    display: block;
+	color: black;
+	text-decoration: none;
+	display: block;
 }
 
 
