@@ -66,8 +66,7 @@ bingoList[0] =
 	{name: "(5-10) Bone Blocks"},
 	{name: "2 Creepers in the same Boat", tooltiptext: "The 2 Creepers must be in the same boat at the same time", tooltipimg: "Goal Tooltip Images/2creepers1boat.jpg"},
 	{name: "Trade with a Villager"},
-	{name: "Starve to death"},
-	{name: "(2-3) Different Pattern/Colour Shields"},
+	{name: "(2-3) Different Pattern / Colour Shields"},
 	{name: "Dead Bush"},
 	{name: "Cyan Dye", antisynergy: "Dyes"},
 	{name: "Light Gray Dye and Light Blue Dye", antisynergy: "Dyes"},
@@ -136,6 +135,7 @@ bingoList[1] =
 	{name: "(5-10) Obsidian"},
 	{name: "(5-7) Iron Blocks", antisynergy: "IronBlocks"},
 	{name: "(3-4) Gold Blocks", antisynergy: "GoldBlocks"},
+	{name: "Daylight Sensor"},
 ]
 
 // Hard
@@ -161,7 +161,7 @@ bingoList[2] =
 bingoList[3] = 
 [
 	{name: "(3-6) Different Ores (Silk Touch)", tooltiptext: "Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quatz and Redstone ores are your choices", tooltipimg: "Goal Tooltip Images/Ores.jpg"},
-	{name: "(5-6) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy.", tooltipimg: "Goal Tooltip Images/Potions.jpg", antisynergy: "Potions"},
+	{name: "(7-9) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy.", tooltipimg: "Goal Tooltip Images/Potions.jpg", antisynergy: "Potions"},
 	{name: "Cure a Zombie Villager"},
 	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Iron, Diamond and yes even Chainmail"},
 ]

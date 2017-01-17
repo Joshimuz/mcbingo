@@ -289,6 +289,9 @@ function generateNewSheet()
 			$('#slot'+ (i + 1)).data("tooltiptext", bingoList[sheetLayout[i]][rng].tooltiptext);
 			$('#slot'+ (i + 1)).children().css("visibility", "visible");
 		}
+		
+		$('#slot'+ (i + 1)).removeClass('greensquare');
+		$('#slot'+ (i + 1)).removeClass('redsquare');
 	}
 }
 
