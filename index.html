@@ -54,13 +54,20 @@
 					<td id="slot25" data-tooltipimg="" data-tooltiptext=""><img class="tooltipQ" src="question_mark.png"></td>  
 				</tr>
 			</table>
+			<div id="hiddenTable">
+				<p id="hiddenTableSeed">Bingo Seed:<br /><input class="seed_for_copying" type="text" value="12345" readonly="readonly" />
+				<p>Use this seed to create a new world in Minecraft. Remember to adjust game settings like difficulty, if necessary.</p>
+				<p>If you've been linked this page for a race, you are not allowed to change the seed/goals. See the full rules below.</p>
+				<div class="showTableButton"><a href="#" onclick='toggleHidden();event.preventDefault();'><p>Show Table</p></a></div>
+				<p>The table is currently hidden, you may show it when the Bingo starts (unless otherwise agreed upon by the players).</p>
+			</div>
 			<div class="button-holder">
 			<div class="newseedbutton"><a href="#" onclick='newSeed(true);event.preventDefault();'><div class="newseedoverlay"><p>Generate New Seed</p></a></div></div>
 			<div class="dropdown">
 				<button onclick="toggleDropdown();" class="dropbtn">Options...</button>
 				<div id="optionsDropdown" class="dropdown-content">
 					<!-- <button onclick='changeLayout();' class="dropbtn"><p id="whatlayout"></p></button> -->
-					<button onclick='changeHidden();' class="dropbtn"><p id="ishidden"></p></button>
+					<button onclick='toggleHidden();' class="dropbtn"><p id="ishidden"></p></button>
 					<div class="diffsliderimg" id="difficultyText">Difficulty</div>
 					<input type="range" id="difficultyRange" value="3" max="5" min="1" class="diffslider"
 					oninput="changeDifficulty(this.value);" onchange="changeDifficulty(this.value);"/>
@@ -89,11 +96,12 @@
 				<p>If you got linked this sheet for a race, you are not allowed to change it in any way.</p>
 
 				<ul>
-					<li>Use <input id="seed_for_copying" type="text" value="" size="6" /> as Seed when creating the new world for the race in Minecraft (this is the same random seed used to generate this sheet). Make sure that all the racers are using the same ingame difficulty setting.</li>
+					<li>Use <input class="seed_for_copying" type="text" value="" size="6" readonly="readonly" /> as Seed when creating the new world for the race in Minecraft (this is the same random seed used to generate this sheet). Make sure that all the racers are using the same ingame difficulty setting.</li>
 					<li>You may pre-load the world, but not start playing until the race starts.</li>
-					<li>Third-party applications or mods like MCEdit that will help you gain an advantage are not allowed.</li>
+					<li>Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</li>
 					<li>Stream the race!</li>
 				</ul>
+				<p><em>Note:</em> These rules are the recommended rules to play this Bingo. If everyone in the race agrees, then of course a modified set of rules can be used.</p>
 			</div>
 		</section>
 		<div id="tooltip">

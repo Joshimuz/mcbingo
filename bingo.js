@@ -26,7 +26,9 @@ $(document).ready(function()
 	// On hovering the sheet show the tooltip questionmarks
 	$("#bingo").hover(function()
 	{
-		$(".tooltipQ").removeClass("tooltipQhidden");
+		if (HIDDEN != "true") {
+			$(".tooltipQ").removeClass("tooltipQhidden");
+		}
 	}, function()
 	{
 		$(".tooltipQ").addClass("tooltipQhidden");
@@ -119,20 +121,7 @@ function getSettingsFromURL()
 	
 	// Grab the hidden setting from the URL
 	HIDDEN = gup( 'hidden' );
-	
-	if (HIDDEN == "true")
-	{
-		// Hide the table and change the hidden setting's text
-		document.getElementById("ishidden").innerHTML="Show Table";
-		document.getElementById("bingo").style.display = "none";
-	}
-	else
-	{
-		HIDDEN = "false";
-		// Don't hide the table and change the hidden setting's text
-		document.getElementById("ishidden").innerHTML="Hide Table";
-		document.getElementById("bingo").style.display = "table";
-	}
+	updateHidden();
 	
 	DIFFICULTY = gup( 'difficulty' );
 	
@@ -155,8 +144,8 @@ function getSettingsFromURL()
 
 function generateNewSheet() 
 {
-	$("#seed_for_copying").val(SEED);
-	$("#seed_for_copying").attr("size", SEED.length);
+	$(".seed_for_copying").val(SEED);
+	$(".seed_for_copying").attr("size", SEED.length);
 
 	// Reset the random seed
 	Math.seedrandom(SEED);
@@ -353,7 +342,7 @@ function newSeed(remakeSheet)
 	Math.seedrandom(SEED);
 	
 	// Update the seed in the URL
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&difficulty=' + DIFFICULTY + '&hidden=' + HIDDEN);
+	pushNewUrl();
 	
 	// If a new sheet is required, generate one
 	if (remakeSheet == true)
@@ -381,33 +370,45 @@ function changeLayout()
 	}
 	
 	// Update the URL
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+	pushNewUrl();
 	
 	// Generate a new sheet
 	generateNewSheet();
 }
 
-function changeHidden() 
+function updateHidden()
+{
+	if (HIDDEN == "true")
+	{
+		// Hide the goals and change the hidden setting's text
+		document.getElementById("ishidden").innerHTML = "Show Table";
+		$("#bingo td").css("visibility", "hidden");
+		$("#hiddenTable").css("display","block");
+	}
+	else
+	{
+		HIDDEN = "false";
+		// Show the goals and change the hidden setting's text
+		document.getElementById("ishidden").innerHTML = "Hide Table";
+		$("#bingo td").css("visibility", "visible");
+		$("#hiddenTable").css("display","none");
+	}
+}
+
+function toggleHidden() 
 {	
 	// Hide or show the table based on the current setting
 	if (HIDDEN == "false")
 	{
 		HIDDEN = "true";
-		
-		// Update the button's text
-		document.getElementById("ishidden").innerHTML="Show Table";
-		
-		
-		document.getElementById("bingo").style.display = "none";
 	} 
 	else 
 	{
 		HIDDEN = "false";
-		
-		document.getElementById("ishidden").innerHTML="Hide Table";
-		document.getElementById("bingo").style.display = "table";
 	}
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&difficulty=' + DIFFICULTY + '&hidden=' + HIDDEN);
+
+	updateHidden();
+	pushNewUrl();
 }
 
 function toggleDropdown()
@@ -421,9 +422,13 @@ function changeDifficulty(value)
 	
 	$("#difficultyText").text("Difficulty: " + DIFFICULTY);
 	
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&difficulty=' + DIFFICULTY + '&hidden=' + HIDDEN);
-	
 	generateNewSheet();
+	pushNewUrl();
+}
+
+function pushNewUrl()
+{
+	window.history.pushState('', "Sheet", '?seed=' + SEED + '&difficulty=' + DIFFICULTY + '&hidden=' + HIDDEN);
 }
 
 // gup source: www.netlobo.com/url_query_string_javascript.html

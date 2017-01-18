@@ -166,6 +166,6 @@ bingoList[3] =
 	{name: "(4-6) Different Ores (Silk Touch)", tooltiptext: "Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quatz and Redstone ores are your choices", tooltipimg: "Goal Tooltip Images/Ores.jpg"},
 	{name: "(7-9) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy.", tooltipimg: "Goal Tooltip Images/Potions.jpg"},
 	{name: "Cure a Zombie Villager"},
-	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Iron, Diamond and yes even Chainmail"},
+	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Iron, Diamond and yes, even Chainmail"},
 	{name: "Nether Star"},
 ]
