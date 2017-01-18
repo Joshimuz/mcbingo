@@ -92,7 +92,7 @@ $(document).ready(function()
 		$("#tooltip").css({left:x, top:y});
 	});
 	
-	
+
 	window.onpopstate = function(event) 
 	{ 
 		getSettingsFromURL();
@@ -101,6 +101,7 @@ $(document).ready(function()
 	getSettingsFromURL();
 	
 	$("#difficultyText").text("Difficulty: " + DIFFICULTY);
+	$("#difficultyRange").val(DIFFICULTY);
 })
 
 function getSettingsFromURL()
