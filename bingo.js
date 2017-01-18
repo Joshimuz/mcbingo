@@ -7,6 +7,7 @@ var amountOfVeryHard;
 var amountOfHard;
 var amountOfMedium;
 
+var DIFFICULTY;
 var SEED;
 var LAYOUT;
 var HIDDEN;
@@ -96,6 +97,8 @@ $(document).ready(function()
 	};
 	
 	getSettingsFromURL();
+	
+	$("#difficultyText").text("Difficulty: " + DIFFICULTY);
 })
 
 function getSettingsFromURL()
@@ -103,15 +106,15 @@ function getSettingsFromURL()
 	// Grab the layout setting from the URL
 	LAYOUT = gup( 'layout' );
 	
-	if (LAYOUT == "random")
+	if (LAYOUT == "set")
 	{
 		// Set the layout settings' text
-		document.getElementById("whatlayout").innerHTML="Set Layout";
+		// document.getElementById("whatlayout").innerHTML="Set Layout";
 	}
 	else 
 	{
-		LAYOUT = "set";
-		document.getElementById("whatlayout").innerHTML="Random Layout";
+		LAYOUT = "random";
+		// document.getElementById("whatlayout").innerHTML="Random Layout";
 	}
 	
 	// Grab the hidden setting from the URL
@@ -131,6 +134,13 @@ function getSettingsFromURL()
 		document.getElementById("bingo").style.display = "table";
 	}
 	
+	DIFFICULTY = gup( 'difficulty' );
+	
+	if (DIFFICULTY == "")
+	{
+		DIFFICULTY = "3";
+	}
+	
 	// Check the url for a seed value
 	SEED = gup( 'seed' );
 	
@@ -139,7 +149,7 @@ function getSettingsFromURL()
 	{
 		newSeed(false);
 	}
-	
+
 	generateNewSheet();
 }
 
@@ -154,13 +164,15 @@ function generateNewSheet()
 	// Reset the current sheet
 	currentSheet = [];
 	
+	// Reset every goal square
 	for (var i=0; i<=24; i++) 
 	{
 		$('#slot'+ (i + 1)).contents().filter(function(){ return this.nodeType == 3; }).remove();
-		//$('#slot'+ (i + 1)).text("");
 		$('#slot'+ (i + 1)).data("tooltipimg", "");
 		$('#slot'+ (i + 1)).data("tooltiptext", "");
 		$('#slot'+ (i + 1)).children().css("visibility", "hidden");
+		$('#slot'+ (i + 1)).removeClass('greensquare');
+		$('#slot'+ (i + 1)).removeClass('redsquare');
 	}
 	
 	if (LAYOUT == "set")
@@ -178,15 +190,38 @@ function generateNewSheet()
 						0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0];
-						
-		// Between 0-1 (with more likely being 0) Very Hard Goals
-		amountOfVeryHard = Math.floor((Math.random() * 1.5));
 		
-		// Between 2-4 Hard Goals
-		amountOfHard = Math.floor(Math.random() * (4-2) + 2);
-		
-		// Between 6-8 Medium Goals
-		amountOfMedium = Math.floor(Math.random() * (8-6) + 6);
+		switch(DIFFICULTY)
+		{
+			case "2":
+				amountOfVeryHard = 0;
+				amountOfHard = 2;
+				amountOfMedium = 5;
+				break;
+				
+			case "3":
+				amountOfVeryHard = Math.floor((Math.random() * 1.5));
+				amountOfHard = Math.floor(Math.random() * (4-2) + 2);
+				amountOfMedium = Math.floor(Math.random() * (8-6) + 6);
+				break;
+				
+			case "4":
+				amountOfVeryHard = Math.floor((Math.random() * 2));
+				amountOfHard = Math.floor(Math.random() * (5-3) + 3);
+				amountOfMedium = Math.floor(Math.random() * (10-8) + 8);
+				break;
+				
+			case "5":
+				amountOfVeryHard = 3;
+				amountOfHard = 6;
+				amountOfMedium = 13;
+				break;
+				
+			default:
+				amountOfVeryHard = 0;
+				amountOfHard = 0;
+				amountOfMedium = 0;
+		}
 						
 		for (var i = 0; i < amountOfVeryHard; i++) 
 		{
@@ -248,6 +283,17 @@ function generateNewSheet()
 			
 			var rng = Math.floor((Math.random() * bingoList[sheetLayout[i]].length - 1) + 1);
 			
+			// Check if the goal has a frequency modifier
+			if (typeof bingoList[sheetLayout[i]][rng].frequency !== 'undefined')
+			{
+				// If it does, make it less likely to appear based on the value of frequency
+				if (Math.floor((Math.random() * bingoList[sheetLayout[i]][rng].frequency) + 1) < 
+				bingoList[sheetLayout[i]][rng].frequency)
+				{
+					cont = false;
+				}
+			}
+			
 			for (var z=0; z <= 24; z++)
 			{
 				if (typeof currentSheet[z] !== 'undefined')
@@ -279,6 +325,8 @@ function generateNewSheet()
 			return Math.floor(Math.random() * (n2-n1+1) + n1);
 		}));
 		
+		// $('#slot'+ (i + 1)).append(" " + sheetLayout[i]);
+		
 		if (typeof bingoList[sheetLayout[i]][rng].tooltipimg !== 'undefined')
 		{
 			$('#slot'+ (i + 1)).data("tooltipimg", bingoList[sheetLayout[i]][rng].tooltipimg);
@@ -289,9 +337,6 @@ function generateNewSheet()
 			$('#slot'+ (i + 1)).data("tooltiptext", bingoList[sheetLayout[i]][rng].tooltiptext);
 			$('#slot'+ (i + 1)).children().css("visibility", "visible");
 		}
-		
-		$('#slot'+ (i + 1)).removeClass('greensquare');
-		$('#slot'+ (i + 1)).removeClass('redsquare');
 	}
 }
 
@@ -308,7 +353,7 @@ function newSeed(remakeSheet)
 	Math.seedrandom(SEED);
 	
 	// Update the seed in the URL
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+	window.history.pushState('', "Sheet", '?seed=' + SEED + '&difficulty=' + DIFFICULTY + '&hidden=' + HIDDEN);
 	
 	// If a new sheet is required, generate one
 	if (remakeSheet == true)
@@ -362,7 +407,23 @@ function changeHidden()
 		document.getElementById("ishidden").innerHTML="Hide Table";
 		document.getElementById("bingo").style.display = "table";
 	}
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+	window.history.pushState('', "Sheet", '?seed=' + SEED + '&difficulty=' + DIFFICULTY + '&hidden=' + HIDDEN);
+}
+
+function toggleDropdown()
+{
+	document.getElementById("optionsDropdown").classList.toggle("show");
+}
+
+function changeDifficulty(value)
+{
+	DIFFICULTY = "" + value;
+	
+	$("#difficultyText").text("Difficulty: " + DIFFICULTY);
+	
+	window.history.pushState('', "Sheet", '?seed=' + SEED + '&difficulty=' + DIFFICULTY + '&hidden=' + HIDDEN);
+	
+	generateNewSheet();
 }
 
 // gup source: www.netlobo.com/url_query_string_javascript.html
