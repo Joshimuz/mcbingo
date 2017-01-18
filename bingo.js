@@ -26,7 +26,9 @@ $(document).ready(function()
 	// On hovering the sheet show the tooltip questionmarks
 	$("#bingo").hover(function()
 	{
-		$(".tooltipQ").removeClass("tooltipQhidden");
+		if (!HIDDEN) {
+			$(".tooltipQ").removeClass("tooltipQhidden");
+		}
 	}, function()
 	{
 		$(".tooltipQ").addClass("tooltipQhidden");
@@ -90,7 +92,15 @@ $(document).ready(function()
 		$("#tooltip").css({left:x, top:y});
 	});
 	
-	
+	// Hide Options dropdown when clicking outside of it
+	$(document).click(function(e)
+	{
+		if (!$(e.target).closest(".dropdown").length) {
+			hideDropdown();
+		}
+	});
+
+
 	window.onpopstate = function(event) 
 	{ 
 		getSettingsFromURL();
@@ -99,10 +109,39 @@ $(document).ready(function()
 	getSettingsFromURL();
 	
 	$("#difficultyText").text("Difficulty: " + DIFFICULTY);
+	$("#difficultyRange").val(DIFFICULTY);
 })
 
 function getSettingsFromURL()
 {
+	/**
+	 * URL Format: ?s=[difficulty],[hideTable];[seed]
+	 *
+	 * The seed should always be last, so in order to be able to add more settings,
+	 * settings and the seed are separated from eachother.
+	 */
+	var split = gup("s").split(";");
+	if (split.length == 2)
+	{
+		var settings = split[0].split(",");
+		SEED = split[1];
+
+		DIFFICULTY = parseInt(settings[0]);
+		HIDDEN = settings[1] == "1";
+	}
+
+	// Set default values
+	if (isNaN(DIFFICULTY) || DIFFICULTY < 1 || DIFFICULTY > 5)
+	{
+		DIFFICULTY = 3;
+	}
+
+	// If there isn't a seed, make a new one
+	if (!SEED)
+	{
+		newSeed(false);
+	}
+
 	// Grab the layout setting from the URL
 	LAYOUT = gup( 'layout' );
 	
@@ -117,46 +156,14 @@ function getSettingsFromURL()
 		// document.getElementById("whatlayout").innerHTML="Random Layout";
 	}
 	
-	// Grab the hidden setting from the URL
-	HIDDEN = gup( 'hidden' );
-	
-	if (HIDDEN == "true")
-	{
-		// Hide the table and change the hidden setting's text
-		document.getElementById("ishidden").innerHTML="Show Table";
-		document.getElementById("bingo").style.display = "none";
-	}
-	else
-	{
-		HIDDEN = "false";
-		// Don't hide the table and change the hidden setting's text
-		document.getElementById("ishidden").innerHTML="Hide Table";
-		document.getElementById("bingo").style.display = "table";
-	}
-	
-	DIFFICULTY = gup( 'difficulty' );
-	
-	if (DIFFICULTY == "")
-	{
-		DIFFICULTY = "3";
-	}
-	
-	// Check the url for a seed value
-	SEED = gup( 'seed' );
-	
-	// If there isn't one, make a new one
-	if (SEED == "") 
-	{
-		newSeed(false);
-	}
-
+	updateHidden();
 	generateNewSheet();
 }
 
 function generateNewSheet() 
 {
-	$("#seed_for_copying").val(SEED);
-	$("#seed_for_copying").attr("size", SEED.length);
+	$(".seed_for_copying").val(SEED);
+	$(".seed_for_copying").attr("size", SEED.length);
 
 	// Reset the random seed
 	Math.seedrandom(SEED);
@@ -193,25 +200,25 @@ function generateNewSheet()
 		
 		switch(DIFFICULTY)
 		{
-			case "2":
+			case 2:
 				amountOfVeryHard = 0;
 				amountOfHard = 2;
 				amountOfMedium = 5;
 				break;
 				
-			case "3":
+			case 3:
 				amountOfVeryHard = Math.floor((Math.random() * 1.5));
 				amountOfHard = Math.floor(Math.random() * (4-2) + 2);
 				amountOfMedium = Math.floor(Math.random() * (8-6) + 6);
 				break;
 				
-			case "4":
+			case 4:
 				amountOfVeryHard = Math.floor((Math.random() * 2));
 				amountOfHard = Math.floor(Math.random() * (5-3) + 3);
 				amountOfMedium = Math.floor(Math.random() * (10-8) + 8);
 				break;
 				
-			case "5":
+			case 5:
 				amountOfVeryHard = 3;
 				amountOfHard = 6;
 				amountOfMedium = 13;
@@ -353,10 +360,10 @@ function newSeed(remakeSheet)
 	Math.seedrandom(SEED);
 	
 	// Update the seed in the URL
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&difficulty=' + DIFFICULTY + '&hidden=' + HIDDEN);
+	pushNewUrl();
 	
 	// If a new sheet is required, generate one
-	if (remakeSheet == true)
+	if (remakeSheet)
 	{
 		generateNewSheet();
 	}
@@ -381,33 +388,37 @@ function changeLayout()
 	}
 	
 	// Update the URL
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+	pushNewUrl();
 	
 	// Generate a new sheet
 	generateNewSheet();
 }
 
-function changeHidden() 
-{	
-	// Hide or show the table based on the current setting
-	if (HIDDEN == "false")
+function updateHidden()
+{
+	if (HIDDEN)
 	{
-		HIDDEN = "true";
-		
-		// Update the button's text
-		document.getElementById("ishidden").innerHTML="Show Table";
-		
-		
-		document.getElementById("bingo").style.display = "none";
-	} 
-	else 
-	{
-		HIDDEN = "false";
-		
-		document.getElementById("ishidden").innerHTML="Hide Table";
-		document.getElementById("bingo").style.display = "table";
+		// Hide the goals and change the hidden setting's text
+		document.getElementById("ishidden").innerHTML = "Show Table";
+		$("#bingo td").css("visibility", "hidden");
+		$("#hiddenTable").css("display","block");
 	}
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&difficulty=' + DIFFICULTY + '&hidden=' + HIDDEN);
+	else
+	{
+		HIDDEN = false;
+		// Show the goals and change the hidden setting's text
+		document.getElementById("ishidden").innerHTML = "Hide Table";
+		$("#bingo td").css("visibility", "visible");
+		$("#hiddenTable").css("display","none");
+	}
+}
+
+function toggleHidden() 
+{
+	// Invert HIDDEN setting, then update
+	HIDDEN = !HIDDEN;
+	updateHidden();
+	pushNewUrl();
 }
 
 function toggleDropdown()
@@ -415,15 +426,25 @@ function toggleDropdown()
 	document.getElementById("optionsDropdown").classList.toggle("show");
 }
 
+function hideDropdown()
+{
+	$("#optionsDropdown").removeClass("show");
+}
+
 function changeDifficulty(value)
 {
-	DIFFICULTY = "" + value;
+	DIFFICULTY = parseInt(value);
 	
 	$("#difficultyText").text("Difficulty: " + DIFFICULTY);
 	
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&difficulty=' + DIFFICULTY + '&hidden=' + HIDDEN);
-	
 	generateNewSheet();
+	pushNewUrl();
+}
+
+function pushNewUrl()
+{
+	var hidden = HIDDEN ? "1" : "0";
+	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "," + hidden + ";" + SEED);
 }
 
 // gup source: www.netlobo.com/url_query_string_javascript.html

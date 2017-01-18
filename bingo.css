@@ -111,10 +111,9 @@ html, body {
 }
 
 #bingo {
-	float:center;
 	margin-top: 50px;
-	width:700px;
-	height:600px;
+	width: 700px;
+	height: 600px;
 	margin: 0px auto;
 	border-spacing: 0px;
 	border: solid 4px #FFF;
@@ -142,10 +141,62 @@ html, body {
 	color: #000;
 	padding: 5px 5px 5px 7px;
 	position: relative;
+	visibility: hidden;
 }
 
 #bingo td img{
 	visibility: hidden;
+}
+
+#hiddenTable {
+	font-family: settingsFont;
+	position: absolute;
+	top: 40px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 540px;
+	background-color: white;
+	border: 2px solid #000;
+	padding: 20px;
+	text-align: center;
+	font-size: 0.75em;
+	display: none;
+}
+
+#hiddenTable p {
+	margin-top: 10px;
+}
+
+#hiddenTableSeed {
+	font-size: 1.5em;
+}
+
+#hiddenTableSeed input {
+	font-size: 1em;
+	width: 200px;
+}
+
+.showTableButton {
+	background-color: #6F6F6F;
+	color: #000;
+	background-image: url("button-background.png");
+	background-repeat: no-repeat;
+	height: 50px;
+	width: 440px;
+	border: 2px solid #000;
+	text-align: center;
+	margin: 40px auto 20px auto;
+}
+
+.showTableButton a {
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+}
+
+.showTableButton a:hover {
+	color: #FFF787;
 }
 
 .tooltipQ {
@@ -177,7 +228,7 @@ html, body {
 	-webkit-appearance: none;
 }
 
-input[type=range]::-webkit-slider-thumb{
+input[type=range]::-webkit-slider-thumb {
 	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 	border: 1px solid #000000;
 	height: 50px;
@@ -198,6 +249,10 @@ input[type=range]::-moz-range-thumb {
 	background-repeat: no-repeat;
 	cursor: pointer;
 	border-radius: 0px;
+}
+
+input[type=range]::-moz-range-track {
+	visibility: hidden;
 }
 
 input[type=range]::-ms-thumb {
