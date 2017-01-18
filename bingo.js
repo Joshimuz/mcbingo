@@ -92,6 +92,14 @@ $(document).ready(function()
 		$("#tooltip").css({left:x, top:y});
 	});
 	
+	// Hide Options dropdown when clicking outside of it
+	$(document).click(function(e)
+	{
+		if (!$(e.target).closest(".dropdown").length) {
+			hideDropdown();
+		}
+	});
+
 
 	window.onpopstate = function(event) 
 	{ 
@@ -415,6 +423,11 @@ function toggleHidden()
 function toggleDropdown()
 {
 	document.getElementById("optionsDropdown").classList.toggle("show");
+}
+
+function hideDropdown()
+{
+	$("#optionsDropdown").removeClass("show");
 }
 
 function changeDifficulty(value)
