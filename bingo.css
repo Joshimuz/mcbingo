@@ -382,6 +382,13 @@ input[type=range]::-ms-thumb {
 	margin-right: auto;
 }
 
+#bottomlinks {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align:center;
+}
+
 #bottom_section ul {
 	margin-left: 20px;
 }
