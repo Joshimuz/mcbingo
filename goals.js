@@ -97,7 +97,7 @@ bingoList[1] =
 	{name: "Skull and Crossbones Banner"},
 	{name: "Cookie"},
 	{name: "Very Damaged Anvil"},
-	{name: "(16-64) Melons"},
+	{name: "(16-64) Melons (Slices)"},
 	{name: "Sleep inside a village", antisynergy: "Sleep"},
 	{name: "Kill a Skeleton with it's own Arrow"},
 	{name: "Never wear any Armour"},
