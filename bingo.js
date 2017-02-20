@@ -230,9 +230,41 @@ function generateNewSheet()
 				amountOfMedium = 0;
 		}
 						
+		if (amountOfVeryHard > bingoList[3].length)
+		{
+			amountOfVeryHard = bingoList[3].length;
+		}
+		if (amountOfHard > bingoList[2].length)
+		{
+			amountOfHard = bingoList[2].length;
+		}
+		if (amountOfMedium > bingoList[1].length)
+		{
+			amountOfMedium = bingoList[1].length;
+		}
+						
 		for (var i = 0; i < amountOfVeryHard; i++) 
 		{
-			sheetLayout[Math.floor((Math.random() * 24))] = 3;
+			var cont = true;
+			
+			do
+			{
+				cont = true;
+				
+				var rng = Math.floor((Math.random() * 24));
+			
+				if (sheetLayout[rng] == 0)
+				{
+					sheetLayout[rng] = 3;
+				}
+				else
+				{
+					cont = false;
+				}
+			}
+			while (cont == false);
+			
+			//sheetLayout[Math.floor((Math.random() * 24))] = 3;
 		}
 		
 		for (var i = 0; i < amountOfHard; i++) 
