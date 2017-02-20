@@ -31,7 +31,7 @@ bingoList[0] =
 	{name: "Jukebox"},
 	{name: "(5-25) Poppies & (5-25) Dandelions"},
 	{name: "Build a glass cube and fill the inner with lava"},
-	{name: "(10-30) Mossy Cobblestone"},
+	{name: "(10-30) Moss Stone"},
 	{name: "(10-30) Cacti"},
 	{name: "(1-3) TNT"},
 	{name: "Level (10-20)"},
