@@ -58,6 +58,7 @@ html, body {
 
 #streamer_mode p input {
 	font-family: settingsFont;
+	font-weight: bold;
 }
 
 #streamer_mode .exit_link {
