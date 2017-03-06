@@ -26,6 +26,7 @@ html, body {
 	box-shadow: 0px 10px 5px -10px #575757;
 	/* background-image: url("stonetile.png"); */
 	border-bottom: 5px solid;
+	margin-bottom: 10px;
 }
 
 #top_section h1 {
@@ -44,6 +45,27 @@ html, body {
 	-webkit-text-stroke-color: black;
 }
 
+#streamer_mode {
+	//border-bottom: 5px solid;
+	display: none;
+}
+
+#streamer_mode p {
+	padding: 10px;
+	font-family: settingsFont;
+	text-align: center;
+}
+
+#streamer_mode p input {
+	font-family: settingsFont;
+}
+
+#streamer_mode .exit_link {
+	margin-top: 20px;
+	font-size: 0.7em;
+	text-align: right;
+}
+
 .top_settings p {
 	text-align: center;
 	font-weight: bold;
@@ -54,7 +76,6 @@ html, body {
 #mid_section {
 	width: 720px;
 	height: 650px;
-	margin-top: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	margin-left: auto;

@@ -68,11 +68,16 @@
 				<div id="optionsDropdown" class="dropdown-content">
 					<!-- <button onclick='changeLayout();' class="dropbtn"><p id="whatlayout"></p></button> -->
 					<button onclick='toggleHidden();' class="dropbtn"><p id="ishidden"></p></button>
-					<div class="diffsliderimg" id="difficultyText">Difficulty</div>
+					<button onclick='toggleStreamerMode();' class="dropbtn"><p>Streamer Mode</p></button>
+					<div class="diffsliderimg difficultyText">Difficulty</div>
 					<input type="range" id="difficultyRange" value="3" max="5" min="1" class="diffslider"
 					oninput="changeDifficulty(this.value);" onchange="changeDifficulty(this.value);"/>
 					</div>
 				</div>
+			</div>
+			<div id="streamer_mode">
+				<p>Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /> <span class="difficultyText">1</span>/5</p>
+				<p class="exit_link"><a href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a></p>
 			</div>
 		</section>
 		<section id="bottom_section">
