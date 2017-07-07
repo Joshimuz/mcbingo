@@ -83,13 +83,14 @@ bingoList[0] =
 	{name: "(3-6) Colours of Concrete", antisynergy: "BlockColour", frequency: 4},
 	{name: "(3-6) Colours of Glazed Terracotta", antisynergy: "BlockColour", frequency: 4},
 	{name: "(3-6) Colours of Beds", antisynergy: "BlockColour", frequency: 4},
+	{name: "Finish where you spawned using a Compass", tooltiptext: "Be stood close enough to spin your compass within a couple blocks at the end of the game", tooltipimg: "Goal Tooltip Images/Compass.jpg", antisynergy: "Finish"},
+	{name: "Build a Redstone AND Gate"},
 ]
 // Medium
 bingoList[1] = 
 [
 	{name: "Wither Skull"},
 	{name: "(6-8) Different Edible Items"},
-	{name: "Build a Redstone AND Gate"},
 	{name: "(3-5) Different Gold Items"},
 	{name: "Beetroot Soup"},
 	{name: "Emerald"},
@@ -132,7 +133,6 @@ bingoList[1] =
 	{name: "Get a '... while trying to escape ...' Death message", tooltiptext: "Example: 'PLAYER' drowned while trying to escape a Skeleton", antisynergy: "Death"},
 	{name: "Set fire to a Villager's House"},
 	{name: "Finish on top of the world", tooltiptext: "Build up to 256 Y (the height limit) and stand on the top at the end of the game", tooltipimg: "Goal Tooltip Images/FinishTop.jpg", antisynergy: "Finish"},
-	{name: "Finish where you spawned (Compass)", tooltiptext: "Be stood close enough to spin your compass within a couple blocks at the end of the game", tooltipimg: "Goal Tooltip Images/Compass.jpg", antisynergy: "Finish"},
 	{name: "Kill a mob with Gravel/Sand"},
 	{name: "Put a Carpet on a Llama"},
 	{name: "Activate a (4-6)x(4-6) Nether Portal (not counting corners)", tooltiptext: "Width/height of the obsidian frame, disregarding corners (or in other words, width/height of the - once activated - purple portal area).", tooltipimg: "Goal Tooltip Images/Portal.jpg"},
