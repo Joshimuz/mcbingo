@@ -10,7 +10,7 @@ bingoList[0] =
 [
 	{name: "(2-4) Different Fish"},
 	{name: "Grow a Tree in the Nether"},
-	{name: "(5-8) Colours of Hardened Clay", antisynergy: "BlockColour", frequency: 3},
+	{name: "(5-8) Colours of Terracotta", antisynergy: "BlockColour", frequency: 4},
 	{name: "(1-5) Mushroom Stew"},
 	{name: "Activate a Button with an Arrow"},
 	{name: "Book and Quill"},
@@ -40,7 +40,7 @@ bingoList[0] =
 	{name: "Build a (2-4)x(2-4)x(2-4) leaf cube", tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/LeafCube.jpg"},
 	{name: "(10-30) Ink Sacks"},
 	{name: "(10-30) Bread"},
-	{name: "(5-8) colours of Wool", antisynergy: "BlockColour", frequency: 3},
+	{name: "(5-8) colours of Wool", antisynergy: "BlockColour", frequency: 4},
 	{name: "(5-10) Pistons"},
 	{name: "Full Iron Armour"},
 	{name: "Full Leather Armour"},
@@ -80,6 +80,9 @@ bingoList[0] =
 	{name: "Grow a Huge Mushroom"},
 	{name: "Water Bucket, Lava Bucket and Milk Bucket"},
 	{name: "(3-6) Different Flowers", antisynergy: "Flowers", frequency: 3},
+	{name: "(3-6) Colours of Concrete", antisynergy: "BlockColour", frequency: 4},
+	{name: "(3-6) Colours of Glazed Terracotta", antisynergy: "BlockColour", frequency: 4},
+	{name: "(3-6) Colours of Beds", antisynergy: "BlockColour", frequency: 4},
 ]
 // Medium
 bingoList[1] = 
@@ -124,7 +127,7 @@ bingoList[1] =
 	{name: "Potion of Swiftness", frequency: 9},
 	{name: "Potion of Weakness", frequency: 9},
 	{name: "Finish by jumping from top to bottom of the world", tooltiptext: "Dig a hole to bedrock, build up to 256 Y (height limit), and then jump from top to bottom at the end of the game", tooltipimg: "Goal Tooltip Images/FinishTopToBottom.jpg", antisynergy: "Finish"},
-	{name: "Never Eat Meat", tooltiptext: "Including Fish", tooltipimg: "Goal Tooltip Images/NoFish.jpg"},
+	{name: "Vegetation", tooltiptext: "Never eat meat, including fish", tooltipimg: "Goal Tooltip Images/NoFish.jpg"},
 	{name: "Kill yourself with your own arrow"},
 	{name: "Get a '... while trying to escape ...' Death message", tooltiptext: "Example: 'PLAYER' drowned while trying to escape a Skeleton", antisynergy: "Death"},
 	{name: "Set fire to a Villager's House"},
@@ -138,8 +141,11 @@ bingoList[1] =
 	{name: "(3-4) Gold Blocks", antisynergy: "GoldBlocks", frequency: 2},
 	{name: "Daylight Sensor"},
 	{name: "Enchanted Golden Sword"},
-	{name: "(9-12) colours of Wool", antisynergy: "BlockColour", frequency: 3},
-	{name: "(9-12) Colours of Hardened Clay", antisynergy: "BlockColour", frequency: 3},
+	{name: "(9-12) colours of Wool", antisynergy: "BlockColour", frequency: 4},
+	{name: "(9-12) Colours of Terracotta", antisynergy: "BlockColour", frequency: 4},
+	{name: "(7-10) Colours of Glazed Terracotta", antisynergy: "BlockColour", frequency: 4},
+	{name: "(7-10) Colours of Concrete", antisynergy: "BlockColour", frequency: 4},
+	{name: "(7-10) Colours of Beds", antisynergy: "BlockColour", frequency: 4},
 	{name: "Power a Redstone Lamp"},
 	{name: "(7-10) Different Flowers", antisynergy: "Flowers", frequency: 3},
 ]
@@ -162,16 +168,23 @@ bingoList[2] =
 	{name: "Kill a hostile mob with an Anvil"},
 	{name: "Finish on top of a Blaze spawner", tooltiptext: "Be stood on top of a Blaze spawner at the end of the game", tooltipimg: "Goal Tooltip Images/BlazeSpawner.jpg", antisynergy: "Finish"},
 	{name: "Never Die", antisynergy: "Death"},
-	{name: "(13-16) colours of Wool", antisynergy: "BlockColour", frequency: 3},
-	{name: "(13-16) Colours of Hardened Clay", antisynergy: "BlockColour", frequency: 3},
+	{name: "(13-16) colours of Wool", antisynergy: "BlockColour", frequency: 4},
+	{name: "(13-16) Colours of Terracotta", antisynergy: "BlockColour", frequency: 4},
+	{name: "(11-14) Colours of Glazed Terracotta", antisynergy: "BlockColour", frequency: 4},
+	{name: "(11-14) Colours of Concrete", antisynergy: "BlockColour", frequency: 4},
+	{name: "(11-14) Colours of Beds", antisynergy: "BlockColour", frequency: 4},
+	{name: "Poison a Parrot", antisynergy: "Parrot", frequency: 2},
+	{name: "Tame a Parrot", antisynergy: "Parrot", frequency: 2},
 ]
 
 // Very Hard
 bingoList[3] = 
 [
 	{name: "(4-6) Different Ores (Silk Touch)", tooltiptext: "Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quatz and Redstone ores are your choices", tooltipimg: "Goal Tooltip Images/Ores.jpg"},
-	{name: "(7-9) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy.", tooltipimg: "Goal Tooltip Images/Potions.jpg"},
+	{name: "(7-9) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy", tooltipimg: "Goal Tooltip Images/Potions.jpg"},
 	{name: "Cure a Zombie Villager"},
 	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Iron, Diamond and yes, even Chainmail"},
 	{name: "Nether Star"},
+	{name: "Dragon Egg"},
+	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count", tooltipimg: "Goal Tooltip Images/NoWitherSkull.jpg"},
 ]
