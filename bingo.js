@@ -11,6 +11,7 @@ var DIFFICULTY;
 var SEED;
 var LAYOUT;
 var HIDDEN;
+var STREAMER_MODE;
 
 $(document).ready(function()
 {	
@@ -108,7 +109,7 @@ $(document).ready(function()
 	
 	getSettingsFromURL();
 	
-	$("#difficultyText").text("Difficulty: " + DIFFICULTY);
+	$(".difficultyText").text("Difficulty: " + DIFFICULTY);
 	$("#difficultyRange").val(DIFFICULTY);
 })
 
@@ -128,6 +129,7 @@ function getSettingsFromURL()
 
 		DIFFICULTY = parseInt(settings[0]);
 		HIDDEN = settings[1] == "1";
+		STREAMER_MODE = settings[2] == "1";
 	}
 
 	// Set default values
@@ -157,6 +159,7 @@ function getSettingsFromURL()
 	}
 	
 	updateHidden();
+	updateStreamerMode();
 	generateNewSheet();
 }
 
@@ -453,6 +456,33 @@ function toggleHidden()
 	pushNewUrl();
 }
 
+function toggleStreamerMode()
+{
+	STREAMER_MODE = !STREAMER_MODE;
+	updateStreamerMode();
+	pushNewUrl();
+}
+
+function updateStreamerMode()
+{
+	if (STREAMER_MODE)
+	{
+		$("#top_section").css("display", "none");
+		$("#streamer_mode").css("display", "block");
+		$(".button-holder").css("display", "none");
+		$("#bottom_section").css("display", "none");
+		$("body").css("background-size", "0, 0");
+	}
+	else
+	{
+		$("#top_section").css("display", "block");
+		$("#streamer_mode").css("display", "none");
+		$(".button-holder").css("display", "block");
+		$("#bottom_section").css("display", "block");
+		$("body").css("background-size", "auto");
+	}
+}
+
 function toggleDropdown()
 {
 	document.getElementById("optionsDropdown").classList.toggle("show");
@@ -467,7 +497,7 @@ function changeDifficulty(value)
 {
 	DIFFICULTY = parseInt(value);
 	
-	$("#difficultyText").text("Difficulty: " + DIFFICULTY);
+	$(".difficultyText").text("Difficulty: " + DIFFICULTY);
 	
 	generateNewSheet();
 	pushNewUrl();
@@ -476,7 +506,8 @@ function changeDifficulty(value)
 function pushNewUrl()
 {
 	var hidden = HIDDEN ? "1" : "0";
-	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "," + hidden + ";" + SEED);
+	var streamerMode = STREAMER_MODE ? "1" : "0";
+	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "," + hidden + "," + streamerMode + ";" + SEED);
 }
 
 // gup source: www.netlobo.com/url_query_string_javascript.html
