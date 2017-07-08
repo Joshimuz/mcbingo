@@ -85,6 +85,9 @@ bingoList[0] =
 	{name: "(3-6) Colours of Beds", antisynergy: "BlockColour", frequency: 4},
 	{name: "Finish where you spawned using a Compass", tooltiptext: "Be stood close enough to spin your compass within a couple blocks at the end of the game", tooltipimg: "Goal Tooltip Images/Compass.jpg", antisynergy: "Finish"},
 	{name: "Build a Redstone AND Gate"},
+	{name: "(32-64) Stone", tooltiptext: "NOT Cobblestone, normal Stone", tooltipimg: "Goal Tooltip Images/Stone.jpg"},
+	{name: "Kill (2-5) Animals with only fire"},
+	{name: "Kill a Creeper with only fire"},
 ]
 // Medium
 bingoList[1] = 
@@ -98,7 +101,7 @@ bingoList[1] =
 	{name: "Place a Cactus in a Flower Pot"},
 	{name: "Ignite a TNT-Minecart"},
 	{name: "(10-30) Magma Blocks"},
-	{name: "Skull and Crossbones Banner"},
+	{name: "Skull Charge Banner"},
 	{name: "Cookie"},
 	{name: "Very Damaged Anvil"},
 	{name: "(16-64) Melons (Slices)"},
@@ -106,7 +109,7 @@ bingoList[1] =
 	{name: "Kill a Skeleton with it's own Arrow"},
 	{name: "Never wear any Armour"},
 	{name: "Get a Skeleton's Bow", tooltiptext: "Kill Skeletons until you get a rare drop from one, it being their Bow", tooltipimg: "Goal Tooltip Images/Bow.jpg"},
-	{name: "Diamond Block"},
+	{name: "Diamond Block", antisynergy: "DiamondBlock", frequency: 2},
 	{name: "(2-3) Lapis Lazuli Blocks"},
 	{name: "Destroy a Monster Spawner"},
 	{name: "(2-5) Different Saplings"},
@@ -128,7 +131,7 @@ bingoList[1] =
 	{name: "Potion of Swiftness", frequency: 9},
 	{name: "Potion of Weakness", frequency: 9},
 	{name: "Finish by jumping from top to bottom of the world", tooltiptext: "Dig a hole to bedrock, build up to 256 Y (height limit), and then jump from top to bottom at the end of the game", tooltipimg: "Goal Tooltip Images/FinishTopToBottom.jpg", antisynergy: "Finish"},
-	{name: "Vegetation", tooltiptext: "Never eat meat, including fish", tooltipimg: "Goal Tooltip Images/NoFish.jpg"},
+	{name: "Vegetarian", tooltiptext: "Never eat meat, including fish", tooltipimg: "Goal Tooltip Images/NoFish.jpg"},
 	{name: "Kill yourself with your own arrow"},
 	{name: "Get a '... while trying to escape ...' Death message", tooltiptext: "Example: 'PLAYER' drowned while trying to escape a Skeleton", antisynergy: "Death"},
 	{name: "Set fire to a Villager's House"},
@@ -148,6 +151,10 @@ bingoList[1] =
 	{name: "(7-10) Colours of Beds", antisynergy: "BlockColour", frequency: 4},
 	{name: "Power a Redstone Lamp"},
 	{name: "(7-10) Different Flowers", antisynergy: "Flowers", frequency: 3},
+	{name: "Put a Pigman in Water"},
+	{name: "Place an Iron, Gold and Diamond block on top of each other"},
+	{name: "Kill a hostile mob with an Anvil"},
+	{name: "Never Die", antisynergy: "Death"},
 ]
 
 // Hard
@@ -160,21 +167,20 @@ bingoList[2] =
 	{name: "Bounce on a Slime Block", tooltiptext: "Get a Slime Block, place it on the ground and give it a good old bouncin' on", tooltipimg: "Goal Tooltip Images/SlimeBlock.jpg"},
 	{name: "Listen to a Music Disc"},
 	{name: "(11-14) Different Flowers", antisynergy: "Flowers", frequency: 3},
-	{name: "Place an Iron, Gold and Diamond block on top of each other"},
+	{name: "3 Diamond Blocks", antisynergy: "DiamondBlock", frequency: 2},
 	{name: "Get a Zombie Pigman's Sword", tooltiptext: "Kill Pigmen until you get a rare drop from one, it being their Golden Sword", tooltipimg: "Goal Tooltip Images/GoldenSword.jpg"},
 	{name: "Finish by launching Fireworks of (5-10) Different Colours", antisynergy: "Finish"},
 	{name: "Nametag an Enderman"},
 	{name: "Kill yourself with an Ender Pearl", tooltiptext: "Need to die to the small fall damage taken from using a pearl", tooltipimg: "Goal Tooltip Images/EnderPearl.jpg", antisynergy: "Death"},
-	{name: "Kill a hostile mob with an Anvil"},
 	{name: "Finish on top of a Blaze spawner", tooltiptext: "Be stood on top of a Blaze spawner at the end of the game", tooltipimg: "Goal Tooltip Images/BlazeSpawner.jpg", antisynergy: "Finish"},
-	{name: "Never Die", antisynergy: "Death"},
 	{name: "(13-16) colours of Wool", antisynergy: "BlockColour", frequency: 4},
 	{name: "(13-16) Colours of Terracotta", antisynergy: "BlockColour", frequency: 4},
 	{name: "(11-14) Colours of Glazed Terracotta", antisynergy: "BlockColour", frequency: 4},
 	{name: "(11-14) Colours of Concrete", antisynergy: "BlockColour", frequency: 4},
 	{name: "(11-14) Colours of Beds", antisynergy: "BlockColour", frequency: 4},
-	{name: "Poison a Parrot", antisynergy: "Parrot", frequency: 2},
-	{name: "Tame a Parrot", antisynergy: "Parrot", frequency: 2},
+	{name: "Poison a Parrot"},
+	{name: "Tame a Parrot"},
+	{name: "Kill an Iron Golem"},
 ]
 
 // Very Hard
@@ -183,8 +189,8 @@ bingoList[3] =
 	{name: "(4-6) Different Ores (Silk Touch)", tooltiptext: "Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quatz and Redstone ores are your choices", tooltipimg: "Goal Tooltip Images/Ores.jpg"},
 	{name: "(7-9) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy", tooltipimg: "Goal Tooltip Images/Potions.jpg"},
 	{name: "Cure a Zombie Villager"},
-	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Iron, Diamond and yes, even Chainmail"},
+	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Iron, Diamond and yes, even Chainmail", tooltipimg: "Goal Tooltip Images/chainmail chest.jpg"},
 	{name: "Nether Star"},
 	{name: "Dragon Egg"},
-	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count", tooltipimg: "Goal Tooltip Images/NoWitherSkull.jpg"},
+	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count", tooltipimg: "NoWitherSkull.jpg"},
 ]
