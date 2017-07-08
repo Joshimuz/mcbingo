@@ -121,10 +121,10 @@ function getSettingsFromURL()
 	 * The seed should always be last, so in order to be able to add more settings,
 	 * settings and the seed are separated from eachother.
 	 */
-	var split = gup("s").split(";");
+	var split = gup("s").split("_");
 	if (split.length == 2)
 	{
-		var settings = split[0].split(",");
+		var settings = split[0].split("-");
 		SEED = split[1];
 
 		DIFFICULTY = parseInt(settings[0]);
@@ -507,7 +507,7 @@ function pushNewUrl()
 {
 	var hidden = HIDDEN ? "1" : "0";
 	var streamerMode = STREAMER_MODE ? "1" : "0";
-	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "," + hidden + "," + streamerMode + ";" + SEED);
+	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "_" + SEED);
 }
 
 // gup source: www.netlobo.com/url_query_string_javascript.html
