@@ -152,6 +152,18 @@ var generator_v2 = function(layout, difficulty, bingoList)
 						// If it is get a new goal
 						cont = false;
 					}
+					// Check if the goal generated is a catalyst for anything already on the sheet
+					else if (currentSheet[z].reactant == goalCandidate.catalyst && typeof currentSheet[z].reactant !== 'undefined')
+					{
+						// If it is get a new goal
+						cont = false;
+					}
+					// Check if the goal generated is a reactant for anything already on the sheet
+					else if (currentSheet[z].catalyst == goalCandidate.reactant && typeof currentSheet[z].catalyst !== 'undefined')
+					{
+						// If it is get a new goal
+						cont = false;
+					}
 				}
 			}
  			
@@ -169,6 +181,7 @@ var generator_v2 = function(layout, difficulty, bingoList)
 		});
 		currentSheet[i] = goal;
 		
+		// TESTING PURPOSES
 		goal.difficulty = sheetLayout[i];
 	}
 
