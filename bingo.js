@@ -215,7 +215,8 @@ function generateNewSheet()
 		var slotId = "#slot"+ (i + 1);
 		var goal = result[i];
 
-		$(slotId).append(goal.generatedName + " " + goal.difficulty);
+		//$(slotId).append(goal.generatedName + " " + goal.difficulty);
+		$(slotId).append(goal.generatedName);
 		
 		if (typeof goal.tooltipimg !== 'undefined')
 		{
