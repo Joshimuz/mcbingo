@@ -13,6 +13,8 @@ var LAYOUT;
 var HIDDEN;
 var STREAMER_MODE;
 
+var difficultyText = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"]
+
 $(document).ready(function()
 {	
 	// Set the background to a random image
@@ -109,7 +111,8 @@ $(document).ready(function()
 	
 	getSettingsFromURL();
 	
-	$(".difficultyText").text("Difficulty: " + DIFFICULTY);
+	$(".difficulty-text").text(difficultyText[DIFFICULTY - 1]);
+	$(".stream-difficulty-text").text(difficultyText[DIFFICULTY - 1]);
 	$("#difficultyRange").val(DIFFICULTY);
 })
 
@@ -436,7 +439,7 @@ function updateHidden()
 		// Hide the goals and change the hidden setting's text
 		document.getElementById("ishidden").innerHTML = "Show Table";
 		$("#bingo td").css("visibility", "hidden");
-		$("#hiddenTable").css("display","block");
+		$("#hidden-table").css("display","block");
 	}
 	else
 	{
@@ -444,7 +447,7 @@ function updateHidden()
 		// Show the goals and change the hidden setting's text
 		document.getElementById("ishidden").innerHTML = "Hide Table";
 		$("#bingo td").css("visibility", "visible");
-		$("#hiddenTable").css("display","none");
+		$("#hidden-table").css("display","none");
 	}
 }
 
@@ -469,16 +472,21 @@ function updateStreamerMode()
 	{
 		$("#top_section").css("display", "none");
 		$("#streamer_mode").css("display", "block");
-		$(".button-holder").css("display", "none");
-		$("#bottom_section").css("display", "none");
+		$(".options").css("display", "none");
+		$(".options").css("display", "none");
+		$(".stream-exit-text").css("display", "block");
+		$(".new-seed-button").css("display", "none");
+		$(".container").css("display", "none");
 		$("body").css("background-size", "0, 0");
 	}
 	else
 	{
 		$("#top_section").css("display", "block");
 		$("#streamer_mode").css("display", "none");
-		$(".button-holder").css("display", "block");
-		$("#bottom_section").css("display", "block");
+		$(".options").css("display", "inline-block");
+		$(".stream-exit-text").css("display", "none");
+		$(".new-seed-button").css("display", "inline-block");
+		$(".container").css("display", "block");
 		$("body").css("background-size", "auto");
 	}
 }
@@ -497,8 +505,8 @@ function changeDifficulty(value)
 {
 	DIFFICULTY = parseInt(value);
 	
-	$(".difficultyText").text("Difficulty: " + DIFFICULTY);
-	
+	$(".difficulty-text").text(difficultyText[DIFFICULTY - 1]);
+	$(".stream-difficulty-text").text(difficultyText[DIFFICULTY - 1]);
 	generateNewSheet();
 	pushNewUrl();
 }
