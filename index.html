@@ -7,7 +7,10 @@
 		
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
 		
-		<script src="goals.js"></script>
+		<script src="generator_v1.js"></script>
+		<script src="generator_v2.js"></script>
+		<script src="goals_v1.js"></script>
+		<script src="goals_v2.js"></script>
 		<script src="bingo.js"></script>	
 		
 		<link rel="icon" type="image/png" href="icon.png" />
@@ -76,12 +79,14 @@
 				</div>
 			</div>
 			<div id="streamer_mode">
-				<p>Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /> <span class="difficultyText">1</span>/5</p>
+				<p>Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /> <span class="difficultyText">1</span>/5 <span class="versionText"></span></p>
 				<p class="exit_link"><a href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a></p>
 			</div>
 		</section>
 		<section id="bottom_section">
 			<div id="bottom_section_text">
+				<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked Sheet, however if you want to generate a new Bingo Sheet <a href="#version_selection">consider changing version</a>.</p>
+				<p id="version_notice_unstable">You are using an in-development version, which may change at any time. If you don't know what you're doing and want to generate a new Bingo Sheet <a href="#version_selection">consider changing version</a>.</p>
 				<h2>Rules and How to Race</h2>
 				<h3>Rules</h3>
 				<p>To complete the Bingo, you must complete all five goals in a line horizontally, vertically or diagonally.</p>
@@ -107,6 +112,15 @@
 					<li>Stream the race!</li>
 				</ul>
 				<p><em>Note:</em> These rules are the recommended rules to play this Bingo. If everyone in the race agrees, then of course a modified set of rules can be used.</p>
+
+				<h2>Version</h2>
+				<p>To ensure that each created Bingo Sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL. If you got linked this page for a race you should not change the version since this will most likely result in different goals.</p>
+				<p>In-development versions may change at any time, use at your own risk.</p>
+				<p>Selected Version: <select id="version_selection"></select></p>
+			</div>
+
+			<div>
+				
 			</div>
 			
 			<div id="bottomlinks">

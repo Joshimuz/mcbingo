@@ -1,17 +1,30 @@
-//var bingoList = [1][34];
-
-var currentSheet = [];	
-var sheetLayout = [];										
-						
-var amountOfVeryHard;
-var amountOfHard;
-var amountOfMedium;
 
 var DIFFICULTY;
 var SEED;
 var LAYOUT;
 var HIDDEN;
 var STREAMER_MODE;
+var VERSION;
+
+// Defines which version uses which goals array/algorithm function
+// (by convention `bingoList_v1` is defined in the file goals_v1.js,
+// but it could be different of course).
+//
+// Of course you wouldn't want to create a new version for every change,
+// just when you feel like you want to "release" a stable state. For that
+// either rename the current unstable version (and then maybe create files
+// for a new unstable version) or create new files/a new entry for the
+// release.
+// 
+// The version is a string, so theoretically it doesn't have to just be
+// numbers (although may just numbers would be better).
+var VERSIONS = [
+	{ id:"1", goals: bingoList_v1, generator: generator_v1, stable: true },
+	{ id:"dev", goals: bingoList_v2, generator: generator_v2, stable: false }, // Dev version
+];
+
+// This is the newest stable version that users not specifying a version will get
+var LATEST_VERSION = "1";
 
 $(document).ready(function()
 {	
@@ -101,6 +114,11 @@ $(document).ready(function()
 		}
 	});
 
+	fillVersionSelection();
+	$("#version_selection").change(function() {
+		changeVersion($("#version_selection").val());
+	});
+
 
 	window.onpopstate = function(event) 
 	{ 
@@ -116,7 +134,7 @@ $(document).ready(function()
 function getSettingsFromURL()
 {
 	/**
-	 * URL Format: ?s=[difficulty],[hideTable];[seed]
+	 * URL Format: ?s=[difficulty]-[hideTable]_[seed]
 	 *
 	 * The seed should always be last, so in order to be able to add more settings,
 	 * settings and the seed are separated from eachother.
@@ -130,12 +148,18 @@ function getSettingsFromURL()
 		DIFFICULTY = parseInt(settings[0]);
 		HIDDEN = settings[1] == "1";
 		STREAMER_MODE = settings[2] == "1";
+		var selectedVersion = settings[3];
 	}
 
 	// Set default values
 	if (isNaN(DIFFICULTY) || DIFFICULTY < 1 || DIFFICULTY > 5)
 	{
 		DIFFICULTY = 3;
+	}
+
+	VERSION = getVersion(selectedVersion);
+	if (VERSION == undefined) {
+		VERSION = getVersion(LATEST_VERSION);
 	}
 
 	// If there isn't a seed, make a new one
@@ -160,6 +184,7 @@ function getSettingsFromURL()
 	
 	updateHidden();
 	updateStreamerMode();
+	updateVersion();
 	generateNewSheet();
 }
 
@@ -171,213 +196,36 @@ function generateNewSheet()
 	// Reset the random seed
 	Math.seedrandom(SEED);
 	
-	// Reset the current sheet
-	currentSheet = [];
-	
 	// Reset every goal square
 	for (var i=0; i<=24; i++) 
 	{
-		$('#slot'+ (i + 1)).contents().filter(function(){ return this.nodeType == 3; }).remove();
-		$('#slot'+ (i + 1)).data("tooltipimg", "");
-		$('#slot'+ (i + 1)).data("tooltiptext", "");
-		$('#slot'+ (i + 1)).children().css("visibility", "hidden");
-		$('#slot'+ (i + 1)).removeClass('greensquare');
-		$('#slot'+ (i + 1)).removeClass('redsquare');
+		var slotId = "#slot"+ (i + 1);
+		$(slotId).contents().filter(function(){ return this.nodeType == 3; }).remove();
+		$(slotId).data("tooltipimg", "");
+		$(slotId).data("tooltiptext", "");
+		$(slotId).children().css("visibility", "hidden");
+		$(slotId).removeClass('greensquare');
+		$(slotId).removeClass('redsquare');
 	}
+
+	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
 	
-	if (LAYOUT == "set")
-	{		
-		sheetLayout = [ 1, 2, 0, 2, 1,
-						2, 0, 1, 0, 2,
-						0, 1, 3, 1, 0,
-						2, 0, 1, 0, 2,
-						1, 2, 0, 2, 1];
-	}
-	else if (LAYOUT == "random")
+	for (var i=0; i<25; i++)
 	{
-		sheetLayout = [ 0, 0, 0, 0, 0,
-						0, 0, 0, 0, 0,
-						0, 0, 0, 0, 0,
-						0, 0, 0, 0, 0,
-						0, 0, 0, 0, 0];
+		var slotId = "#slot"+ (i + 1);
+		var goal = result[i];
+
+		$(slotId).append(goal.generatedName);
 		
-		switch(DIFFICULTY)
+		if (typeof goal.tooltipimg !== 'undefined')
 		{
-			case 2:
-				amountOfVeryHard = 0;
-				amountOfHard = 2;
-				amountOfMedium = 5;
-				break;
-				
-			case 3:
-				amountOfVeryHard = Math.floor((Math.random() * 1.5));
-				amountOfHard = Math.floor(Math.random() * (4-2) + 2);
-				amountOfMedium = Math.floor(Math.random() * (8-6) + 6);
-				break;
-				
-			case 4:
-				amountOfVeryHard = Math.floor((Math.random() * 2));
-				amountOfHard = Math.floor(Math.random() * (5-3) + 3);
-				amountOfMedium = Math.floor(Math.random() * (10-8) + 8);
-				break;
-				
-			case 5:
-				amountOfVeryHard = 3;
-				amountOfHard = 6;
-				amountOfMedium = 13;
-				break;
-				
-			default:
-				amountOfVeryHard = 0;
-				amountOfHard = 0;
-				amountOfMedium = 0;
+			$(slotId).data("tooltipimg", goal.tooltipimg);
+			$(slotId).children().css("visibility", "visible");
 		}
-						
-		if (amountOfVeryHard > bingoList[3].length)
+		if (typeof goal.tooltiptext !== 'undefined')
 		{
-			amountOfVeryHard = bingoList[3].length;
-		}
-		if (amountOfHard > bingoList[2].length)
-		{
-			amountOfHard = bingoList[2].length;
-		}
-		if (amountOfMedium > bingoList[1].length)
-		{
-			amountOfMedium = bingoList[1].length;
-		}
-						
-		for (var i = 0; i < amountOfVeryHard; i++) 
-		{
-			var cont = true;
-			
-			do
-			{
-				cont = true;
-				
-				var rng = Math.floor((Math.random() * 24));
-			
-				if (sheetLayout[rng] == 0)
-				{
-					sheetLayout[rng] = 3;
-				}
-				else
-				{
-					cont = false;
-				}
-			}
-			while (cont == false);
-			
-			//sheetLayout[Math.floor((Math.random() * 24))] = 3;
-		}
-		
-		for (var i = 0; i < amountOfHard; i++) 
-		{
-			var cont = true;
-			
-			do
-			{
-				cont = true;
-				
-				var rng = Math.floor((Math.random() * 24));
-			
-				if (sheetLayout[rng] == 0)
-				{
-					sheetLayout[rng] = 2;
-				}
-				else
-				{
-					cont = false;
-				}
-			}
-			while (cont == false);
-		}
-		
-		for (var i = 0; i < amountOfMedium; i++) 
-		{
-			var cont = true;
-			
-			do
-			{
-				cont = true;
-				
-				var rng = Math.floor((Math.random() * 24));
-			
-				if (sheetLayout[rng] == 0)
-				{
-					sheetLayout[rng] = 1;
-				}
-				else
-				{
-					cont = false;
-				}
-			}
-			while (cont == false);
-		}
-	}
-	
-	for (var i=0; i<=24; i++) 
-	{		
-		var cont = true;
-		
-		do 
-		{
-			cont = true;
-			
-			var rng = Math.floor((Math.random() * bingoList[sheetLayout[i]].length - 1) + 1);
-			
-			// Check if the goal has a frequency modifier
-			if (typeof bingoList[sheetLayout[i]][rng].frequency !== 'undefined')
-			{
-				// If it does, make it less likely to appear based on the value of frequency
-				if (Math.floor((Math.random() * bingoList[sheetLayout[i]][rng].frequency) + 1) < 
-				bingoList[sheetLayout[i]][rng].frequency)
-				{
-					cont = false;
-				}
-			}
-			
-			for (var z=0; z <= 24; z++)
-			{
-				if (typeof currentSheet[z] !== 'undefined')
-				{
-					// Check if the goal generated is already on the sheet
-					if (currentSheet[z].name == bingoList[sheetLayout[i]][rng].name)
-					{
-						// If it is get a new goal
-						cont = false;
-					}
-					// Check if the goal generated has any anti synergy with anything already on the sheet
-					else if (currentSheet[z].antisynergy == bingoList[sheetLayout[i]][rng].antisynergy && typeof currentSheet[z].antisynergy !== 'undefined')
-					{
-						// If it is get a new goal
-						cont = false;
-					}
-				}
-			}
- 			
-		}
-		while (cont == false);
-		
-		currentSheet[i] = bingoList[sheetLayout[i]][rng];
-		
-		$('#slot'+ (i + 1)).append(bingoList[sheetLayout[i]][rng].name.replace(/\((\d+)-(\d+)\)/g, function(match, n1, n2, offset, input) 
-		{
-			n1 = parseInt(n1);
-			n2 = parseInt(n2);
-			return Math.floor(Math.random() * (n2-n1+1) + n1);
-		}));
-		
-		// $('#slot'+ (i + 1)).append(" " + sheetLayout[i]);
-		
-		if (typeof bingoList[sheetLayout[i]][rng].tooltipimg !== 'undefined')
-		{
-			$('#slot'+ (i + 1)).data("tooltipimg", bingoList[sheetLayout[i]][rng].tooltipimg);
-			$('#slot'+ (i + 1)).children().css("visibility", "visible");
-		}
-		if (typeof bingoList[sheetLayout[i]][rng].tooltiptext !== 'undefined')
-		{
-			$('#slot'+ (i + 1)).data("tooltiptext", bingoList[sheetLayout[i]][rng].tooltiptext);
-			$('#slot'+ (i + 1)).children().css("visibility", "visible");
+			$(slotId).data("tooltiptext", goal.tooltiptext);
+			$(slotId).children().css("visibility", "visible");
 		}
 	}
 }
@@ -507,7 +355,60 @@ function pushNewUrl()
 {
 	var hidden = HIDDEN ? "1" : "0";
 	var streamerMode = STREAMER_MODE ? "1" : "0";
-	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "_" + SEED);
+	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED);
+}
+
+function getVersion(versionId)
+{
+	for (var i=0; i<VERSIONS.length; i++)
+	{
+		if (versionId == VERSIONS[i].id)
+		{
+			return VERSIONS[i];
+		}
+	}
+	return undefined;
+}
+
+function updateVersion()
+{
+	$("#version_selection").val(VERSION.id);
+	$(".versionText").html("Version: "+VERSION.id);
+	if (VERSION.id != LATEST_VERSION && VERSION.stable)
+	{
+		$("#version_notice").css("display", "block");
+	} else {
+		$("#version_notice").css("display", "none");
+	}
+	if (!VERSION.stable) {
+		$("#version_notice_unstable").css("display", "block");
+	} else {
+		$("#version_notice_unstable").css("display", "none");
+	}
+}
+
+function changeVersion(versionId)
+{
+	VERSION = getVersion(versionId);
+	generateNewSheet();
+	updateVersion();
+	pushNewUrl();
+}
+
+function fillVersionSelection()
+{
+	$.each(VERSIONS, function(index, value) {
+		var label = "Version: "+value.id;
+		if (value.stable)
+		{
+			label += " (stable)";
+		}
+		else
+		{
+			label += " (in development)";
+		}
+		$("#version_selection").append($('<option></option>').val(value.id).html(label))
+	});
 }
 
 // gup source: www.netlobo.com/url_query_string_javascript.html
