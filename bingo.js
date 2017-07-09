@@ -3,16 +3,21 @@
 var currentSheet = [];	
 var sheetLayout = [];										
 						
-var amountOfSilly = 1;
-var amountOfHard = 3;
-var amountOfMedium = 6;
+var amountOfVeryHard;
+var amountOfHard;
+var amountOfMedium;
 
+var DIFFICULTY;
 var SEED;
 var LAYOUT;
 var HIDDEN;
+var STREAMER_MODE;
 
 $(document).ready(function()
 {	
+	// Set the background to a random image
+	document.body.style.backgroundImage = "url('Backgrounds/background" + (Math.floor(Math.random() * 10) + 1) + ".jpg')";
+
 	// By default hide the tooltip
 	$("#tooltip").hide();
 
@@ -22,7 +27,9 @@ $(document).ready(function()
 	// On hovering the sheet show the tooltip questionmarks
 	$("#bingo").hover(function()
 	{
-		$(".tooltipQ").removeClass("tooltipQhidden");
+		if (!HIDDEN) {
+			$(".tooltipQ").removeClass("tooltipQhidden");
+		}
 	}, function()
 	{
 		$(".tooltipQ").addClass("tooltipQhidden");
@@ -86,75 +93,96 @@ $(document).ready(function()
 		$("#tooltip").css({left:x, top:y});
 	});
 	
-	
+	// Hide Options dropdown when clicking outside of it
+	$(document).click(function(e)
+	{
+		if (!$(e.target).closest(".dropdown").length) {
+			hideDropdown();
+		}
+	});
+
+
 	window.onpopstate = function(event) 
 	{ 
 		getSettingsFromURL();
 	};
 	
 	getSettingsFromURL();
+	
+	$(".difficultyText").text("Difficulty: " + DIFFICULTY);
+	$("#difficultyRange").val(DIFFICULTY);
 })
 
 function getSettingsFromURL()
 {
-	// Grab the layout setting from the URL
-	LAYOUT = gup( 'layout' );
-	
-	if (LAYOUT == "random")
+	/**
+	 * URL Format: ?s=[difficulty],[hideTable];[seed]
+	 *
+	 * The seed should always be last, so in order to be able to add more settings,
+	 * settings and the seed are separated from eachother.
+	 */
+	var split = gup("s").split(";");
+	if (split.length == 2)
 	{
-		// Set the layout settings' text
-		document.getElementById("whatlayout").innerHTML="Set Layout";
+		var settings = split[0].split(",");
+		SEED = split[1];
+
+		DIFFICULTY = parseInt(settings[0]);
+		HIDDEN = settings[1] == "1";
+		STREAMER_MODE = settings[2] == "1";
 	}
-	else 
+
+	// Set default values
+	if (isNaN(DIFFICULTY) || DIFFICULTY < 1 || DIFFICULTY > 5)
 	{
-		LAYOUT = "set";
-		document.getElementById("whatlayout").innerHTML="Random Layout";
+		DIFFICULTY = 3;
 	}
-	
-	// Grab the hidden setting from the URL
-	HIDDEN = gup( 'hidden' );
-	
-	if (HIDDEN == "true")
-	{
-		// Hide the table and change the hidden setting's text
-		document.getElementById("ishidden").innerHTML="Show Table";
-		document.getElementById("bingo").style.display = "none";
-	}
-	else
-	{
-		HIDDEN = "false";
-		// Don't hide the table and change the hidden setting's text
-		document.getElementById("ishidden").innerHTML="Hide Table";
-		document.getElementById("bingo").style.display = "table";
-	}
-	
-	// Check the url for a seed value
-	SEED = gup( 'seed' );
-	
-	// If there isn't one, make a new one
-	if (SEED == "") 
+
+	// If there isn't a seed, make a new one
+	if (!SEED)
 	{
 		newSeed(false);
 	}
+
+	// Grab the layout setting from the URL
+	LAYOUT = gup( 'layout' );
 	
+	if (LAYOUT == "set")
+	{
+		// Set the layout settings' text
+		// document.getElementById("whatlayout").innerHTML="Set Layout";
+	}
+	else 
+	{
+		LAYOUT = "random";
+		// document.getElementById("whatlayout").innerHTML="Random Layout";
+	}
+	
+	updateHidden();
+	updateStreamerMode();
 	generateNewSheet();
 }
 
 function generateNewSheet() 
 {
+	$(".seed_for_copying").val(SEED);
+	$(".seed_for_copying").attr("size", SEED.length);
+
 	// Reset the random seed
 	Math.seedrandom(SEED);
 	
 	// Reset the current sheet
 	currentSheet = [];
 	
+	// Reset every goal square
 	for (var i=0; i<=24; i++) 
 	{
 		$('#slot'+ (i + 1)).contents().filter(function(){ return this.nodeType == 3; }).remove();
-		//$('#slot'+ (i + 1)).text("");
 		$('#slot'+ (i + 1)).data("tooltipimg", "");
 		$('#slot'+ (i + 1)).data("tooltiptext", "");
 		$('#slot'+ (i + 1)).children().css("visibility", "hidden");
+		$('#slot'+ (i + 1)).removeClass('greensquare');
+		$('#slot'+ (i + 1)).removeClass('redsquare');
 	}
 	
 	if (LAYOUT == "set")
@@ -172,10 +200,74 @@ function generateNewSheet()
 						0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0];
-						
-		for (var i = 0; i < amountOfSilly; i++) 
+		
+		switch(DIFFICULTY)
 		{
-			sheetLayout[Math.floor((Math.random() * 24))] = 3;
+			case 2:
+				amountOfVeryHard = 0;
+				amountOfHard = 2;
+				amountOfMedium = 5;
+				break;
+				
+			case 3:
+				amountOfVeryHard = Math.floor((Math.random() * 1.5));
+				amountOfHard = Math.floor(Math.random() * (4-2) + 2);
+				amountOfMedium = Math.floor(Math.random() * (8-6) + 6);
+				break;
+				
+			case 4:
+				amountOfVeryHard = Math.floor((Math.random() * 2));
+				amountOfHard = Math.floor(Math.random() * (5-3) + 3);
+				amountOfMedium = Math.floor(Math.random() * (10-8) + 8);
+				break;
+				
+			case 5:
+				amountOfVeryHard = 3;
+				amountOfHard = 6;
+				amountOfMedium = 13;
+				break;
+				
+			default:
+				amountOfVeryHard = 0;
+				amountOfHard = 0;
+				amountOfMedium = 0;
+		}
+						
+		if (amountOfVeryHard > bingoList[3].length)
+		{
+			amountOfVeryHard = bingoList[3].length;
+		}
+		if (amountOfHard > bingoList[2].length)
+		{
+			amountOfHard = bingoList[2].length;
+		}
+		if (amountOfMedium > bingoList[1].length)
+		{
+			amountOfMedium = bingoList[1].length;
+		}
+						
+		for (var i = 0; i < amountOfVeryHard; i++) 
+		{
+			var cont = true;
+			
+			do
+			{
+				cont = true;
+				
+				var rng = Math.floor((Math.random() * 24));
+			
+				if (sheetLayout[rng] == 0)
+				{
+					sheetLayout[rng] = 3;
+				}
+				else
+				{
+					cont = false;
+				}
+			}
+			while (cont == false);
+			
+			//sheetLayout[Math.floor((Math.random() * 24))] = 3;
 		}
 		
 		for (var i = 0; i < amountOfHard; i++) 
@@ -233,19 +325,40 @@ function generateNewSheet()
 			
 			var rng = Math.floor((Math.random() * bingoList[sheetLayout[i]].length - 1) + 1);
 			
-			for (var z=0; z <= 24; z++)
+			// Check if the goal has a frequency modifier
+			if (typeof bingoList[sheetLayout[i]][rng].frequency !== 'undefined')
 			{
-				if (currentSheet[z] == bingoList[sheetLayout[i]][rng].name)
+				// If it does, make it less likely to appear based on the value of frequency
+				if (Math.floor((Math.random() * bingoList[sheetLayout[i]][rng].frequency) + 1) < 
+				bingoList[sheetLayout[i]][rng].frequency)
 				{
 					cont = false;
-				}	
-				
+				}
+			}
+			
+			for (var z=0; z <= 24; z++)
+			{
+				if (typeof currentSheet[z] !== 'undefined')
+				{
+					// Check if the goal generated is already on the sheet
+					if (currentSheet[z].name == bingoList[sheetLayout[i]][rng].name)
+					{
+						// If it is get a new goal
+						cont = false;
+					}
+					// Check if the goal generated has any anti synergy with anything already on the sheet
+					else if (currentSheet[z].antisynergy == bingoList[sheetLayout[i]][rng].antisynergy && typeof currentSheet[z].antisynergy !== 'undefined')
+					{
+						// If it is get a new goal
+						cont = false;
+					}
+				}
 			}
  			
 		}
 		while (cont == false);
 		
-		currentSheet[i] = bingoList[sheetLayout[i]][rng].name;
+		currentSheet[i] = bingoList[sheetLayout[i]][rng];
 		
 		$('#slot'+ (i + 1)).append(bingoList[sheetLayout[i]][rng].name.replace(/\((\d+)-(\d+)\)/g, function(match, n1, n2, offset, input) 
 		{
@@ -253,6 +366,8 @@ function generateNewSheet()
 			n2 = parseInt(n2);
 			return Math.floor(Math.random() * (n2-n1+1) + n1);
 		}));
+		
+		// $('#slot'+ (i + 1)).append(" " + sheetLayout[i]);
 		
 		if (typeof bingoList[sheetLayout[i]][rng].tooltipimg !== 'undefined')
 		{
@@ -280,10 +395,10 @@ function newSeed(remakeSheet)
 	Math.seedrandom(SEED);
 	
 	// Update the seed in the URL
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+	pushNewUrl();
 	
 	// If a new sheet is required, generate one
-	if (remakeSheet == true)
+	if (remakeSheet)
 	{
 		generateNewSheet();
 	}
@@ -308,33 +423,91 @@ function changeLayout()
 	}
 	
 	// Update the URL
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+	pushNewUrl();
 	
 	// Generate a new sheet
 	generateNewSheet();
 }
 
-function changeHidden() 
-{	
-	// Hide or show the table based on the current setting
-	if (HIDDEN == "false")
+function updateHidden()
+{
+	if (HIDDEN)
 	{
-		HIDDEN = "true";
-		
-		// Update the button's text
-		document.getElementById("ishidden").innerHTML="Show Table";
-		
-		
-		document.getElementById("bingo").style.display = "none";
-	} 
-	else 
-	{
-		HIDDEN = "false";
-		
-		document.getElementById("ishidden").innerHTML="Hide Table";
-		document.getElementById("bingo").style.display = "table";
+		// Hide the goals and change the hidden setting's text
+		document.getElementById("ishidden").innerHTML = "Show Table";
+		$("#bingo td").css("visibility", "hidden");
+		$("#hiddenTable").css("display","block");
 	}
-	window.history.pushState('', "Sheet", '?seed=' + SEED + '&layout=' + LAYOUT + '&hidden=' + HIDDEN);
+	else
+	{
+		HIDDEN = false;
+		// Show the goals and change the hidden setting's text
+		document.getElementById("ishidden").innerHTML = "Hide Table";
+		$("#bingo td").css("visibility", "visible");
+		$("#hiddenTable").css("display","none");
+	}
+}
+
+function toggleHidden() 
+{
+	// Invert HIDDEN setting, then update
+	HIDDEN = !HIDDEN;
+	updateHidden();
+	pushNewUrl();
+}
+
+function toggleStreamerMode()
+{
+	STREAMER_MODE = !STREAMER_MODE;
+	updateStreamerMode();
+	pushNewUrl();
+}
+
+function updateStreamerMode()
+{
+	if (STREAMER_MODE)
+	{
+		$("#top_section").css("display", "none");
+		$("#streamer_mode").css("display", "block");
+		$(".button-holder").css("display", "none");
+		$("#bottom_section").css("display", "none");
+		$("body").css("background-size", "0, 0");
+	}
+	else
+	{
+		$("#top_section").css("display", "block");
+		$("#streamer_mode").css("display", "none");
+		$(".button-holder").css("display", "block");
+		$("#bottom_section").css("display", "block");
+		$("body").css("background-size", "auto");
+	}
+}
+
+function toggleDropdown()
+{
+	document.getElementById("optionsDropdown").classList.toggle("show");
+}
+
+function hideDropdown()
+{
+	$("#optionsDropdown").removeClass("show");
+}
+
+function changeDifficulty(value)
+{
+	DIFFICULTY = parseInt(value);
+	
+	$(".difficultyText").text("Difficulty: " + DIFFICULTY);
+	
+	generateNewSheet();
+	pushNewUrl();
+}
+
+function pushNewUrl()
+{
+	var hidden = HIDDEN ? "1" : "0";
+	var streamerMode = STREAMER_MODE ? "1" : "0";
+	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "," + hidden + "," + streamerMode + ";" + SEED);
 }
 
 // gup source: www.netlobo.com/url_query_string_javascript.html
