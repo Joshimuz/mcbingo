@@ -68,33 +68,18 @@ var generator_v2 = function(layout, difficulty, bingoList)
 				amountOfMedium = 0;
 				amountOfEasy = 0;
 		}
-
-		if (amountOfVeryHard > bingoList[4].length)
-		{
-			amountOfVeryHard = bingoList[4].length;
-		}
-		if (amountOfHard > bingoList[3].length)
-		{
-			amountOfHard = bingoList[3].length;
-		}
-		if (amountOfMedium > bingoList[2].length)
-		{
-			amountOfMedium = bingoList[2].length;
-		}
-		if (amountOfEasy > bingoList[1].length)
-		{
-			amountOfEasy = bingoList[1].length;
-		}
 						
 		function distributeDifficulty(amountOfDifficulty, difficulty)
 		{
 			for (var i = 0; i < amountOfDifficulty; i++) 
 			{
 				var cont = true;
+				var failSafe = 0;
 				
 				do
 				{
 					cont = true;
+					failSafe++;
 					
 					var rng = Math.floor((Math.random() * 25));
 				
@@ -105,6 +90,10 @@ var generator_v2 = function(layout, difficulty, bingoList)
 					else
 					{
 						cont = false;
+						if (failSafe >= 500)
+						{
+							break;
+						}
 					}
 				}
 				while (cont == false);
@@ -138,9 +127,7 @@ var generator_v2 = function(layout, difficulty, bingoList)
 					cont = false;
 				}
 			}
-			
-			
-			
+
 			for (var z=0; z <= 24; z++)
 			{				
 				if (typeof currentSheet[z] !== 'undefined')
@@ -172,8 +159,17 @@ var generator_v2 = function(layout, difficulty, bingoList)
 				}
 			}
  			
+			// If the loop is stuck because no more suitable goals
 			if (failSafe >= 500)
 			{
+				// Check for a non-broken goal list
+				if (sheetLayout[i] == 0)
+				{
+					window.alert("Invalid Goal List");
+					break;
+				}
+				
+				// Move the difficulty down by one
 				sheetLayout[i]--;
 				failSafe = 0;
 			}
