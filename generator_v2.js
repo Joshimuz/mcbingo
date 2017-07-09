@@ -6,6 +6,8 @@ var generator_v2 = function(layout, difficulty, bingoList)
 	var amountOfVeryHard;
 	var amountOfHard;
 	var amountOfMedium;
+	var amountOfEasy;
+	
 	var currentSheet = [];
 	var sheetLayout = [];
 
@@ -27,47 +29,61 @@ var generator_v2 = function(layout, difficulty, bingoList)
 		
 		switch(difficulty)
 		{
+			// Easy with some Very Easy
 			case 2:
 				amountOfVeryHard = 0;
-				amountOfHard = 2;
-				amountOfMedium = 5;
+				amountOfHard = 0;
+				amountOfMedium = 0;
+				amountOfEasy = Math.min(getRandomInt(15, 19), bingoList[1].length - 10);
 				break;
 				
+			// Medium with some Easy
 			case 3:
-				amountOfVeryHard = Math.floor((Math.random() * 1.5));
-				amountOfHard = Math.floor(Math.random() * (4-2) + 2);
-				amountOfMedium = Math.floor(Math.random() * (8-6) + 6);
+				amountOfVeryHard = 0;
+				amountOfHard = 0;
+				amountOfMedium = Math.min(getRandomInt(15, 19), bingoList[2].length - 10);
+				amountOfEasy = Math.min(25 - amountOfMedium, bingoList[1].length - 10);
 				break;
 				
+			// Hard with some Medium
 			case 4:
-				amountOfVeryHard = Math.floor((Math.random() * 2));
-				amountOfHard = Math.floor(Math.random() * (5-3) + 3);
-				amountOfMedium = Math.floor(Math.random() * (10-8) + 8);
+				amountOfVeryHard = 0;
+				amountOfHard = Math.min(getRandomInt(15, 19), bingoList[3].length - 7);
+				amountOfMedium = Math.min(25 - amountOfHard, bingoList[2].length - 10);
+				amountOfEasy = Math.min(25 - amountOfHard - amountOfMedium, bingoList[1].length - 10);
 				break;
 				
+			// Very Hard with some Hard
 			case 5:
-				amountOfVeryHard = 3;
-				amountOfHard = 6;
-				amountOfMedium = 13;
+				amountOfVeryHard = Math.min(getRandomInt(15, 19), bingoList[4].length);
+				amountOfHard = Math.min(25 - amountOfVeryHard, bingoList[3].length - 7);
+				amountOfMedium = Math.min(25 - amountOfVeryHard - amountOfHard, bingoList[2].length - 10);
+				amountOfEasy = Math.min(25 - amountOfVeryHard- amountOfHard - amountOfMedium, bingoList[1].length - 10);
 				break;
 				
+			// Very Easy
 			default:
 				amountOfVeryHard = 0;
 				amountOfHard = 0;
 				amountOfMedium = 0;
+				amountOfEasy = 0;
 		}
 
-		if (amountOfVeryHard > bingoList[3].length)
+		if (amountOfVeryHard > bingoList[4].length)
 		{
-			amountOfVeryHard = bingoList[3].length;
+			amountOfVeryHard = bingoList[4].length;
 		}
-		if (amountOfHard > bingoList[2].length)
+		if (amountOfHard > bingoList[3].length)
 		{
-			amountOfHard = bingoList[2].length;
+			amountOfHard = bingoList[3].length;
 		}
-		if (amountOfMedium > bingoList[1].length)
+		if (amountOfMedium > bingoList[2].length)
 		{
-			amountOfMedium = bingoList[1].length;
+			amountOfMedium = bingoList[2].length;
+		}
+		if (amountOfEasy > bingoList[1].length)
+		{
+			amountOfEasy = bingoList[1].length;
 		}
 						
 		function distributeDifficulty(amountOfDifficulty, difficulty)
@@ -80,7 +96,7 @@ var generator_v2 = function(layout, difficulty, bingoList)
 				{
 					cont = true;
 					
-					var rng = Math.floor((Math.random() * 24));
+					var rng = Math.floor((Math.random() * 25));
 				
 					if (sheetLayout[rng] == 0)
 					{
@@ -95,9 +111,10 @@ var generator_v2 = function(layout, difficulty, bingoList)
 			}
 		}
 		
-		distributeDifficulty(amountOfVeryHard, 3);
-		distributeDifficulty(amountOfHard, 2);
-		distributeDifficulty(amountOfMedium, 1);
+		distributeDifficulty(amountOfVeryHard, 4);
+		distributeDifficulty(amountOfHard, 3);
+		distributeDifficulty(amountOfMedium, 2);
+		distributeDifficulty(amountOfEasy, 1);
 	}
 	
 	for (var i=0; i<=24; i++) 
@@ -151,6 +168,8 @@ var generator_v2 = function(layout, difficulty, bingoList)
 			return Math.floor(Math.random() * (n2-n1+1) + n1);
 		});
 		currentSheet[i] = goal;
+		
+		goal.difficulty = sheetLayout[i];
 	}
 
 	return currentSheet;

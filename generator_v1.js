@@ -79,7 +79,7 @@ var generator_v1 = function(layout, difficulty, bingoList)
 				{
 					cont = true;
 					
-					var rng = Math.floor((Math.random() * 24));
+					var rng = Math.floor((Math.random() * 25));
 				
 					if (sheetLayout[rng] == 0)
 					{
@@ -150,6 +150,8 @@ var generator_v1 = function(layout, difficulty, bingoList)
 			return Math.floor(Math.random() * (n2-n1+1) + n1);
 		});
 		currentSheet[i] = goal;
+		
+		//goal.difficulty = sheetLayout[i];
 	}
 
 	return currentSheet;

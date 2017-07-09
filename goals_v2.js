@@ -3,7 +3,45 @@
 
 var bingoList_v2 = [
 
-// Simple (0)
+// Very Easy (0)
+[
+	{name: "(32-64) Cobblestone"},
+	{name: "(32-64) Dirt"},
+	{name: "(32-64) Oak Wood Planks", frequency: 3},
+	{name: "(32-64) Spruce Wood Planks", frequency: 3},
+	{name: "(32-64) Birch Wood Planks", frequency: 3},
+	{name: "(5-15) Oak Wood", frequency: 3},
+	{name: "(5-15) Spruce Wood", frequency: 3},
+	{name: "(5-15) Birch Wood", frequency: 3},
+	{name: "(32-64) Redstone"},
+	{name: "Lava Bucket"},
+	{name: "(32-64) Andesite", frequency: 3},
+	{name: "(32-64) Granite", frequency: 3},
+	{name: "(32-64) Diorite", frequency: 3},
+	{name: "Iron Block", antisynergy: "IronBlocks", frequency: 2},
+	{name: "Gold Block", antisynergy: "GoldBlocks", frequency: 2},
+	{name: "(5-25) Poppies & (5-25) Dandelions"},
+	{name: "Level (5-10)", antisynergy: "Level", frequency: 4},
+	{name: "(1-5) Note Blocks", antisynergy: "NoteBlocks", frequency: 2},
+	{name: "(32-64) Leaves"},
+	{name: "Build a (2-4)x(2-4)x(2-4) leaf cube", tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/LeafCube.jpg"},
+	{name: "(2-4) colours of Wool", antisynergy: "BlockColour", frequency: 4},
+	{name: "16 Snowballs"},
+	{name: "(2-4) Different Slabs", antisynergy: "Slabs", frequency: 2},
+	{name: "(2-4) Different Stairs", antisynergy: "Stairs", frequency: 2},
+	{name: "Diamond"},
+	{name: "(5-15) Rotten Flesh"},
+	{name: "(10-32) Stone", tooltiptext: "NOT Cobblestone, normal Stone", tooltipimg: "Goal Tooltip Images/Stone.jpg", antisynergy: "Stone", frequency: 2},
+	{name: "(1-5) Bread", antisynergy: "Bread", frequency: 2},
+	{name: "Hay Bale", antisynergy: "HayBale", frequency: 2},
+	{name: "Flower Pot"},
+	{name: "(2-10) Feathers"},
+	{name: "Sleep in a bed", antisynergy: "Sleep"},
+	{name: "(5-15) Charcoal"},
+	
+],
+
+// Easy (1)
 [
 	{name: "(2-4) Different Fish"},
 	{name: "Grow a Tree in the Nether"},
@@ -15,9 +53,6 @@ var bingoList_v2 = [
 	{name: "Cake"},
 	{name: "Pumpkin Pie"},
 	{name: "Fish a Treasure and Junk item"},
-	{name: "(10-64) Andesite", frequency: 3},
-	{name: "(10-64) Granite", frequency: 3},
-	{name: "(10-64) Diorite", frequency: 3},
 	{name: "(16-64) Coarse Dirt"},
 	{name: "(2-3) Clocks"},
 	{name: "(2-4) Iron Blocks", antisynergy: "IronBlocks", frequency: 2},
@@ -25,18 +60,18 @@ var bingoList_v2 = [
 	{name: "Golden Apple"},
 	{name: "(2-4) Bookshelves"},
 	{name: "Never wear Chestplates"},
+	{name: "Never use a Shield"},
 	{name: "Jukebox"},
-	{name: "(5-25) Poppies & (5-25) Dandelions"},
 	{name: "Build a glass cube and fill the inner with lava"},
 	{name: "(10-30) Moss Stone"},
-	{name: "(10-30) Cacti"},
+	{name: "(5-15) Cacti"},
 	{name: "(1-3) TNT"},
-	{name: "Level (10-20)"},
+	{name: "Level (11-20)", antisynergy: "Level", frequency: 4},
 	{name: "Create a Snow Golem"},
-	{name: "(10-30) Note Blocks"},
-	{name: "Build a (2-4)x(2-4)x(2-4) leaf cube", tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/LeafCube.jpg"},
+	{name: "(5-15) Note Blocks", antisynergy: "NoteBlocks", frequency: 2},
 	{name: "(10-30) Ink Sacks"},
-	{name: "(10-30) Bread"},
+	{name: "(10-30) Bread", antisynergy: "Bread", frequency: 2},
+	{name: "(3-10) Hay Bales", antisynergy: "HayBale", frequency: 2},
 	{name: "(5-8) colours of Wool", antisynergy: "BlockColour", frequency: 4},
 	{name: "(5-10) Pistons"},
 	{name: "Full Iron Armour"},
@@ -47,14 +82,14 @@ var bingoList_v2 = [
 	{name: "(16-64) Soul Sand"},
 	{name: "(10-30) Pumpkins"},
 	{name: "(10-30) Vines"},
-	{name: "(6-8) Different Slabs"},
+	{name: "(6-8) Different Slabs", antisynergy: "Slabs", frequency: 2},
 	{name: "Every type of Sword"},
 	{name: "Every type of Pickaxe"},
 	{name: "(16-64) Brick Blocks"},
 	{name: "(16-64) Arrows"},
 	{name: "Sleep in the Nether", antisynergy: "Sleep"},
 	{name: "Fermented Spider Eye"},
-	{name: "(5-7) Different Stairs"},
+	{name: "(5-7) Different Stairs", antisynergy: "Stairs", frequency: 2},
 	{name: "(2-4) Ender Pearls"},
 	{name: "16 Chicken Eggs"},
 	{name: "Hang up 3 Different 4x4 Paintings"},
@@ -82,12 +117,12 @@ var bingoList_v2 = [
 	{name: "(3-6) Colours of Beds", antisynergy: "BlockColour", frequency: 4},
 	{name: "Finish where you spawned using a Compass", tooltiptext: "Be stood close enough to spin your compass within a couple blocks at the end of the game", tooltipimg: "Goal Tooltip Images/Compass.jpg", antisynergy: "Finish"},
 	{name: "Build a Redstone AND Gate"},
-	{name: "(32-64) Stone", tooltiptext: "NOT Cobblestone, normal Stone", tooltipimg: "Goal Tooltip Images/Stone.jpg"},
+	{name: "(32-64) Stone", tooltiptext: "NOT Cobblestone, normal Stone", tooltipimg: "Goal Tooltip Images/Stone.jpg", antisynergy: "Stone", frequency: 2},
 	{name: "Kill (2-5) Animals with only fire"},
 	{name: "Kill a Creeper with only fire"},
 ],
 
-// Medium (1) 
+// Medium (2) 
 [
 	{name: "Wither Skull"},
 	{name: "(6-8) Different Edible Items"},
@@ -152,9 +187,10 @@ var bingoList_v2 = [
 	{name: "Place an Iron, Gold and Diamond block on top of each other"},
 	{name: "Kill a hostile mob with an Anvil"},
 	{name: "Never Die", antisynergy: "Death"},
+	{name: "Level (21-30)", antisynergy: "Level", frequency: 4},
 ],
 
-// Hard (2)
+// Hard (3)
 [
 	{name: "Grass Block", tooltiptext: "If you don't have Silk Touch I know a guy who might pick one up for you...",tooltipimg: "Goal Tooltip Images/GrassBlock.jpg"},
 	{name: "Create an Enchantment requiring level 10+"},
@@ -177,9 +213,10 @@ var bingoList_v2 = [
 	{name: "Poison a Parrot"},
 	{name: "Tame a Parrot"},
 	{name: "Kill an Iron Golem"},
+	{name: "Level (31-40)", antisynergy: "Level", frequency: 4},
 ],
 
-// Very Hard (3)
+// Very Hard (4)
 [
 	{name: "(4-6) Different Ores (Silk Touch)", tooltiptext: "Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quatz and Redstone ores are your choices", tooltipimg: "Goal Tooltip Images/Ores.jpg"},
 	{name: "(7-9) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy", tooltipimg: "Goal Tooltip Images/Potions.jpg"},
