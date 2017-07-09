@@ -235,7 +235,7 @@ var bingoList_v2 = [
 	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Iron, Diamond and yes, even Chainmail", tooltipimg: "Goal Tooltip Images/chainmail chest.jpg"},
 	{name: "Nether Star"},
 	{name: "Dragon Egg"},
-	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count", tooltipimg: "NoWitherSkull.jpg"},
+	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count", tooltipimg: "Goal Tooltip Images/NoWitherSkull.jpg"},
 	{name: "(5-10) Popped Chorus Fruit"},
 	{name: "Every colour of Dye"},
 	{name: "Level 50", antisynergy: "Level", frequency: 4},
