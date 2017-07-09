@@ -1,12 +1,9 @@
-// Create two dimensional array
-var bingoList=new Array()
-for (i=0; i < 4; i++)
-{
-	bingoList[i]=new Array()
-}
+// This is part of a version currently in development and may be changed at any time.
 
-// Simple
-bingoList[0] = 
+
+var bingoList_v2 = [
+
+// Simple (0)
 [
 	{name: "(2-4) Different Fish"},
 	{name: "Grow a Tree in the Nether"},
@@ -88,9 +85,9 @@ bingoList[0] =
 	{name: "(32-64) Stone", tooltiptext: "NOT Cobblestone, normal Stone", tooltipimg: "Goal Tooltip Images/Stone.jpg"},
 	{name: "Kill (2-5) Animals with only fire"},
 	{name: "Kill a Creeper with only fire"},
-]
-// Medium
-bingoList[1] = 
+],
+
+// Medium (1) 
 [
 	{name: "Wither Skull"},
 	{name: "(6-8) Different Edible Items"},
@@ -155,10 +152,9 @@ bingoList[1] =
 	{name: "Place an Iron, Gold and Diamond block on top of each other"},
 	{name: "Kill a hostile mob with an Anvil"},
 	{name: "Never Die", antisynergy: "Death"},
-]
+],
 
-// Hard
-bingoList[2] = 
+// Hard (2)
 [
 	{name: "Grass Block", tooltiptext: "If you don't have Silk Touch I know a guy who might pick one up for you...",tooltipimg: "Goal Tooltip Images/GrassBlock.jpg"},
 	{name: "Create an Enchantment requiring level 10+"},
@@ -181,10 +177,9 @@ bingoList[2] =
 	{name: "Poison a Parrot"},
 	{name: "Tame a Parrot"},
 	{name: "Kill an Iron Golem"},
-]
+],
 
-// Very Hard
-bingoList[3] = 
+// Very Hard (3)
 [
 	{name: "(4-6) Different Ores (Silk Touch)", tooltiptext: "Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quatz and Redstone ores are your choices", tooltipimg: "Goal Tooltip Images/Ores.jpg"},
 	{name: "(7-9) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy", tooltipimg: "Goal Tooltip Images/Potions.jpg"},
@@ -194,3 +189,5 @@ bingoList[3] =
 	{name: "Dragon Egg"},
 	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count", tooltipimg: "NoWitherSkull.jpg"},
 ]
+
+];
