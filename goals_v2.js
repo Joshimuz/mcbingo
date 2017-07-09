@@ -86,6 +86,7 @@ var bingoList_v2 = [
 	{name: "Every type of Sword"},
 	{name: "Every type of Pickaxe"},
 	{name: "(16-64) Brick Blocks"},
+	{name: "(16-32) Nether Brick Blocks"},
 	{name: "(16-64) Arrows"},
 	{name: "Sleep in the Nether", reactant: "Sleep"},
 	{name: "Fermented Spider Eye"},
@@ -121,6 +122,8 @@ var bingoList_v2 = [
 	{name: "(32-64) Stone", tooltiptext: "NOT Cobblestone, normal Stone", tooltipimg: "Goal Tooltip Images/Stone.jpg", antisynergy: "Stone", frequency: 2},
 	{name: "Kill (2-5) Animals with only fire"},
 	{name: "Kill a Creeper with only fire"},
+	{name: "(32-64) Iron Nuggets"},
+	{name: "(32-64) Gold Nuggets"},
 ],
 
 // Medium (2) 
@@ -140,7 +143,7 @@ var bingoList_v2 = [
 	{name: "(16-64) Melons (Slices)"},
 	{name: "Sleep inside a village", reactant: "Sleep"},
 	{name: "Kill a Skeleton with it's own Arrow"},
-	{name: "Never wear any Armour"},
+	{name: "Never wear any Armour", catalyst: "WearArmour"},
 	{name: "Get a Skeleton's Bow", tooltiptext: "Kill Skeletons until you get a rare drop from one, it being their Bow", tooltipimg: "Goal Tooltip Images/Bow.jpg"},
 	{name: "Diamond Block", antisynergy: "DiamondBlock", frequency: 2},
 	{name: "(2-3) Lapis Lazuli Blocks"},
@@ -192,6 +195,10 @@ var bingoList_v2 = [
 	{name: "Level (21-30)", antisynergy: "Level", frequency: 4},
 	{name: "(2-3) Different Seeds", antisynergy: "Seeds", tooltiptext: "Includes Nether Wart and Cocoa Beans", tooltipimg: "Goal Tooltip Images/Seeds.jpg"},
 	{name: "Dig a 1x1 hole to bedrock (from sea level)"},
+	{name: "Wear 4 Different Armour types at the same time",  tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet", tooltipimg: "Goal Tooltip Images/4Armour.jpg", reactant: "WearArmour"},
+	{name: "Fill a Hopper with 320 items"},
+	{name: "(16-32) Red Nether Brick Blocks"},
+	{name: "(16-32) Spectral Arrows"},
 ],
 
 // Hard (3)
@@ -225,6 +232,7 @@ var bingoList_v2 = [
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/IceCube.jpg"},
 	{name: "(4-5) Different Seeds", antisynergy: "Seeds", tooltiptext: "Includes Nether Wart and Cocoa Beans", tooltipimg: "Goal Tooltip Images/Seeds.jpg"},
 	{name: "Finish on top of a stairway to Heaven", tooltiptext: "Using Stairs, build up to 256 Y (the height limit) and stand on the top at the end of the game (If you need to jump over a block to go from bottom to top, it's not a finished stairway)", tooltipimg: "Goal Tooltip Images/FinishStairs.jpg", antisynergy: "Finish"},
+	{name: "Blow up an End Crystal"},
 ],
 
 // Very Hard (4)
@@ -240,6 +248,8 @@ var bingoList_v2 = [
 	{name: "Every colour of Dye"},
 	{name: "Level 50", antisynergy: "Level", frequency: 4},
 	{name: "Fill a Double Chest with 3456 items"},
+	{name: "(16-32) Tipped Arrows"},
+	{name: "Place 1 of each Mineral block on top of each other", tooltiptext: "Coal, Iron, Gold, Diamond, Redstone, Lapis, Emerald and Quartz blocks", tooltipimg: "Goal Tooltip Images/MineralBlocks.jpg"},
 ]
 
 ];
