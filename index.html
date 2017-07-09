@@ -7,7 +7,10 @@
 		
 		<script src="https://code.jquery.com/jquery-latest.js"></script>
 		
-		<script src="goals.js"></script>
+		<script src="generator_v1.js"></script>
+		<script src="generator_v2.js"></script>
+		<script src="goals_v1.js"></script>
+		<script src="goals_v2.js"></script>
 		<script src="bingo.js"></script>	
 		
 		<link rel="icon" type="image/png" href="icon.png" />
@@ -74,9 +77,9 @@
 				</div>
 			</div>
 			<div id="streamer_mode">
-				Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /><span class="stream-difficulty-text">test</span><br>
+				Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /><span class="stream-difficulty-text">test</span><span class="versionText"></span><br>
 			</div>
-		</section> 
+		</section>
 		<a class="stream-exit-text" href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a>
 		<section id="rules-section">
 			<h2>Rules and How to Race</h2>
@@ -105,6 +108,10 @@
 			</ul>
 			<p><em>Note:</em> These rules are the recommended rules to play this Bingo. If everyone in the race agrees, then of course a modified set of rules can be used.</p>
 			<a href="https://github.com/Joshimuz/mcbingo"><img src="github-img.png" width='200px'></a>
+			<h2>Version</h2>
+			<p>To ensure that each created Bingo Sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL. If you got linked this page for a race you should not change the version since this will most likely result in different goals.</p>
+			<p>In-development versions may change at any time, use at your own risk.</p>
+			<p>Selected Version: <select id="version_selection"></select></p>
 		</section>
 		<div id="tooltip">
 			<img src="" id="tooltipimg"><div class="box-shadow"></div></img>
