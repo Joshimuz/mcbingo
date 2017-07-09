@@ -34,31 +34,31 @@ var generator_v2 = function(layout, difficulty, bingoList)
 				amountOfVeryHard = 0;
 				amountOfHard = 0;
 				amountOfMedium = 0;
-				amountOfEasy = Math.min(getRandomInt(15, 19), bingoList[1].length - 10);
+				amountOfEasy = getRandomInt(15, 19);
 				break;
 				
 			// Medium with some Easy
 			case 3:
 				amountOfVeryHard = 0;
 				amountOfHard = 0;
-				amountOfMedium = Math.min(getRandomInt(15, 19), bingoList[2].length - 10);
-				amountOfEasy = Math.min(25 - amountOfMedium, bingoList[1].length - 10);
+				amountOfMedium = getRandomInt(15, 19);
+				amountOfEasy = 25 - amountOfMedium;
 				break;
 				
 			// Hard with some Medium
 			case 4:
 				amountOfVeryHard = 0;
-				amountOfHard = Math.min(getRandomInt(15, 19), bingoList[3].length - 7);
-				amountOfMedium = Math.min(25 - amountOfHard, bingoList[2].length - 10);
-				amountOfEasy = Math.min(25 - amountOfHard - amountOfMedium, bingoList[1].length - 10);
+				amountOfHard = getRandomInt(15, 19);
+				amountOfMedium = 25 - amountOfHard;
+				amountOfEasy = 25 - amountOfHard - amountOfMedium;
 				break;
 				
 			// Very Hard with some Hard
 			case 5:
-				amountOfVeryHard = Math.min(getRandomInt(15, 19), bingoList[4].length);
-				amountOfHard = Math.min(25 - amountOfVeryHard, bingoList[3].length - 7);
-				amountOfMedium = Math.min(25 - amountOfVeryHard - amountOfHard, bingoList[2].length - 10);
-				amountOfEasy = Math.min(25 - amountOfVeryHard- amountOfHard - amountOfMedium, bingoList[1].length - 10);
+				amountOfVeryHard = getRandomInt(15, 19);
+				amountOfHard = 25 - amountOfVeryHard;
+				amountOfMedium = 25 - amountOfHard - amountOfVeryHard;
+				amountOfEasy = 25 - amountOfHard - amountOfMedium- amountOfVeryHard;
 				break;
 				
 			// Very Easy
@@ -119,9 +119,12 @@ var generator_v2 = function(layout, difficulty, bingoList)
 	
 	for (var i=0; i<=24; i++) 
 	{		
+		var failSafe = 0;
+		
 		do 
 		{
 			var cont = true;
+			failSafe++;
 			
 			var rng = Math.floor((Math.random() * bingoList[sheetLayout[i]].length - 1) + 1);
 			var goalCandidate = bingoList[sheetLayout[i]][rng];
@@ -136,8 +139,10 @@ var generator_v2 = function(layout, difficulty, bingoList)
 				}
 			}
 			
+			
+			
 			for (var z=0; z <= 24; z++)
-			{
+			{				
 				if (typeof currentSheet[z] !== 'undefined')
 				{
 					// Check if the goal generated is already on the sheet
@@ -167,6 +172,11 @@ var generator_v2 = function(layout, difficulty, bingoList)
 				}
 			}
  			
+			if (failSafe >= 500)
+			{
+				sheetLayout[i]--;
+				failSafe = 0;
+			}
 		}
 		while (!cont);
 
