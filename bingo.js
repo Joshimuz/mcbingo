@@ -215,7 +215,7 @@ function generateNewSheet()
 		var slotId = "#slot"+ (i + 1);
 		var goal = result[i];
 
-		$(slotId).append(goal.generatedName);
+		$(slotId).append(goal.generatedName + " " + goal.difficulty);
 		
 		if (typeof goal.tooltipimg !== 'undefined')
 		{
@@ -409,6 +409,12 @@ function fillVersionSelection()
 		}
 		$("#version_selection").append($('<option></option>').val(value.id).html(label))
 	});
+}
+
+// Made this a function for readability and ease of use
+function getRandomInt(min, max) 
+{
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 // gup source: www.netlobo.com/url_query_string_javascript.html
