@@ -5,6 +5,7 @@ var LAYOUT;
 var HIDDEN;
 var STREAMER_MODE;
 var VERSION;
+var difficultyText = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"]
 
 // Defines which version uses which goals array/algorithm function
 // (by convention `bingoList_v1` is defined in the file goals_v1.js,
@@ -127,7 +128,8 @@ $(document).ready(function()
 	
 	getSettingsFromURL();
 	
-	$(".difficultyText").text("Difficulty: " + DIFFICULTY);
+	$(".difficulty-text").text(difficultyText[DIFFICULTY - 1]);
+	$(".stream-difficulty-text").text(difficultyText[DIFFICULTY - 1]);
 	$("#difficultyRange").val(DIFFICULTY);
 })
 
@@ -285,7 +287,7 @@ function updateHidden()
 		// Hide the goals and change the hidden setting's text
 		document.getElementById("ishidden").innerHTML = "Show Table";
 		$("#bingo td").css("visibility", "hidden");
-		$("#hiddenTable").css("display","block");
+		$("#hidden-table").css("display","block");
 	}
 	else
 	{
@@ -293,7 +295,7 @@ function updateHidden()
 		// Show the goals and change the hidden setting's text
 		document.getElementById("ishidden").innerHTML = "Hide Table";
 		$("#bingo td").css("visibility", "visible");
-		$("#hiddenTable").css("display","none");
+		$("#hidden-table").css("display","none");
 	}
 }
 
@@ -316,37 +318,33 @@ function updateStreamerMode()
 {
 	if (STREAMER_MODE)
 	{
-		$("#top_section").css("display", "none");
+		$("#nav_section").css("display", "none");
 		$("#streamer_mode").css("display", "block");
-		$(".button-holder").css("display", "none");
-		$("#bottom_section").css("display", "none");
+		$(".options").css("display", "none");
+		$(".options").css("display", "none");
+		$(".stream-exit-text").css("display", "block");
+		$(".new-seed-button").css("display", "none");
+		$("#rules-section").css("display", "none");
 		$("body").css("background-size", "0, 0");
 	}
 	else
 	{
-		$("#top_section").css("display", "block");
+		$("#nav_section").css("display", "block");
 		$("#streamer_mode").css("display", "none");
-		$(".button-holder").css("display", "block");
-		$("#bottom_section").css("display", "block");
+		$(".options").css("display", "inline-block");
+		$(".stream-exit-text").css("display", "none");
+		$(".new-seed-button").css("display", "inline-block");
+		$("#rules-section").css("display", "block");
 		$("body").css("background-size", "auto");
 	}
-}
-
-function toggleDropdown()
-{
-	document.getElementById("optionsDropdown").classList.toggle("show");
-}
-
-function hideDropdown()
-{
-	$("#optionsDropdown").removeClass("show");
 }
 
 function changeDifficulty(value)
 {
 	DIFFICULTY = parseInt(value);
 	
-	$(".difficultyText").text("Difficulty: " + DIFFICULTY);
+	$(".difficulty-text").text(difficultyText[DIFFICULTY - 1]);
+	$(".stream-difficulty-text").text(difficultyText[DIFFICULTY - 1]);
 	
 	generateNewSheet();
 	pushNewUrl();

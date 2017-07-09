@@ -16,10 +16,10 @@
 		<link rel="icon" type="image/png" href="icon.png" />
 </head>
 	<body>
-		<section id="top_section">
+		<section id="nav_section">
 			<h1>Minecraft Bingo</h1>
 		</section>
-		<section id="mid_section">
+		<section id="bingo-section">
 			<table id="bingo">
 				<tr>
 					<td id="slot1" data-tooltipimg="" data-tooltiptext=""><img class="tooltipQ" src="question_mark.png"></td> 
@@ -57,83 +57,65 @@
 					<td id="slot25" data-tooltipimg="" data-tooltiptext=""><img class="tooltipQ" src="question_mark.png"></td>  
 				</tr>
 			</table>
-			<div id="hiddenTable">
-				<p id="hiddenTableSeed">Bingo Seed:<br /><input class="seed_for_copying" type="text" value="12345" readonly="readonly" />
+			<div id="hidden-table">
+				<span id="hidden-table-seed">Bingo Seed:<br><input class="seed_for_copying" type="text" value="12345" readonly="readonly"></span>
 				<p>Use this seed to create a new world in Minecraft. Remember to adjust game settings like difficulty, if necessary.</p>
 				<p>If you've been linked this page for a race, you are not allowed to change the seed/goals. See the full rules below.</p>
-				<div class="showTableButton"><a href="#" onclick='toggleHidden();event.preventDefault();'><p>Show Table</p></a></div>
+				<button class="show-table-button" onclick='toggleHidden();event.preventDefault();'>Show Table</button>
 				<p>The table is currently hidden, you may show it when the Bingo starts (unless otherwise agreed upon by the players).</p>
 			</div>
-			<div class="button-holder">
-			<div class="newseedbutton"><a href="#" onclick='newSeed(true);event.preventDefault();'><div class="newseedoverlay"><p>Generate New Seed</p></a></div></div>
-			<div class="dropdown">
-				<button onclick="toggleDropdown();" class="dropbtn">Options...</button>
-				<div id="optionsDropdown" class="dropdown-content">
-					<!-- <button onclick='changeLayout();' class="dropbtn"><p id="whatlayout"></p></button> -->
-					<button onclick='toggleHidden();' class="dropbtn"><p id="ishidden"></p></button>
-					<button onclick='toggleStreamerMode();' class="dropbtn"><p>Streamer Mode</p></button>
-					<div class="diffsliderimg difficultyText">Difficulty</div>
-					<input type="range" id="difficultyRange" value="3" max="5" min="1" class="diffslider"
-					oninput="changeDifficulty(this.value);" onchange="changeDifficulty(this.value);"/>
+			<button onclick='newSeed(true);event.preventDefault();' class="new-seed-button">Generate New Seed</button>
+			<div class="options">
+				<button class="options-button">Options...</button>
+				<div class="options-dropdown">
+					<button class="options-button" onclick='toggleHidden();' ><span id="ishidden"></p></button>
+					<button class="options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
+					<div class="difficulty">
+						<input type="range" id="difficultyRange" value="3" max="5" min="1" class="difficulty-slider" oninput="changeDifficulty(this.value);" onchange="changeDifficulty(this.value);"/>
+						<span class="difficulty-text"></span>
 					</div>
 				</div>
 			</div>
 			<div id="streamer_mode">
-				<p>Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /> <span class="difficultyText">1</span>/5 <span class="versionText"></span></p>
-				<p class="exit_link"><a href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a></p>
+				Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /><span class="stream-difficulty-text">test</span><span class="versionText"></span><br>
 			</div>
 		</section>
-		<section id="bottom_section">
-			<div id="bottom_section_text">
-				<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked Sheet, however if you want to generate a new Bingo Sheet <a href="#version_selection">consider changing version</a>.</p>
-				<p id="version_notice_unstable">You are using an in-development version, which may change at any time. If you don't know what you're doing and want to generate a new Bingo Sheet <a href="#version_selection">consider changing version</a>.</p>
-				<h2>Rules and How to Race</h2>
-				<h3>Rules</h3>
-				<p>To complete the Bingo, you must complete all five goals in a line horizontally, vertically or diagonally.</p>
-				<ul>
-					<li>Goals referring to items that you are able to carry in your inventory (without any action specified), require you to have those items in your inventory at the moment you complete the Bingo. For example if a goal says "Golden Apple", you must have the "Golden Apple" in your inventory at the end.</li>
-					<li>If the goal describes an action, for example "Tame a Wolf", then the goal is completed once you completed the actual action, in this case "taming", so it doesn't matter what happens to the Dog afterwards.</li>
-					<li>For goals that ask you to place something in the Minecraft World, for example "Build a glass cube and fill the inner with lava", you must make sure that the build does not get destroyed for the duration of the Bingo. However, you don't have to show it at the end, so if it wasn't witnessed being destroyed in the meantime it counts as intact.</li>
-				</ul>
-				<p><em>Tip:</em> You can click on the squares to change their colour, which may be useful for planning or to mark off completed goals.</p>
-				<p><em>Tip:</em> Hover over a "?" to get more information about that goal.</p>
+		<a class="stream-exit-text" href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a>
+		<section id="rules-section">
+			<h2>Rules and How to Race</h2>
+			<h3>Rules</h3>
+			<p>To complete the Bingo, you must complete all five goals in a line horizontally, vertically or diagonally.</p>
+			<ul>
+				<li>Goals referring to items that you are able to carry in your inventory (without any action specified), require you to have those items in your inventory at the moment you complete the Bingo. For example if a goal says "Golden Apple", you must have the "Golden Apple" in your inventory at the end.</li>
+				<li>If the goal describes an action, for example "Tame a Wolf", then the goal is completed once you completed the actual action, in this case "taming", so it doesn't matter what happens to the Dog afterwards.</li>
+				<li>For goals that ask you to place something in the Minecraft World, for example "Build a glass cube and fill the inner with lava", you must make sure that the build does not get destroyed for the duration of the Bingo. However, you don't have to show it at the end, so if it wasn't witnessed being destroyed in the meantime it counts as intact.</li>
+			</ul>
+			<p><em>Tip:</em> You can click on the squares to change their colour, which may be useful for planning or to mark off completed goals.</p>
+			<p><em>Tip:</em> Hover over a "?" to get more information about that goal.</p>
 
-				<h3>How to Race</h3>
-				<p>To do a race, get together with some people and try to finish the Bingo as quickly as possible.</p>
+			<h3>How to Race</h3>
+			<p>To do a race, get together with some people and try to finish the Bingo as quickly as possible.</p>
 
-				<p>If you're the one setting up the race, generate a Bingo Sheet and then link it to the other players, so that everyone has the same goals. You can hide the table in the Options menu before generating the seed, so that you and everyone else will see the sheet only when the race starts.</p>
+			<p>If you're the one setting up the race, generate a Bingo Sheet and then link it to the other players, so that everyone has the same goals. You can hide the table in the Options menu before generating the seed, so that you and everyone else will see the sheet only when the race starts.</p>
 
-				<p>If you got linked this sheet for a race, you are not allowed to change it in any way.</p>
+			<p>If you got linked this sheet for a race, you are not allowed to change it in any way.</p>
 
-				<ul>
-					<li>Use <input class="seed_for_copying" type="text" value="" size="6" readonly="readonly" /> as Seed when creating the new world for the race in Minecraft (this is the same random seed used to generate this sheet). Make sure that all the racers are using the same ingame difficulty setting.</li>
-					<li>You may pre-load the world, but not start playing until the race starts.</li>
-					<li>Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</li>
-					<li>Stream the race!</li>
-				</ul>
-				<p><em>Note:</em> These rules are the recommended rules to play this Bingo. If everyone in the race agrees, then of course a modified set of rules can be used.</p>
-
-				<h2>Version</h2>
-				<p>To ensure that each created Bingo Sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL. If you got linked this page for a race you should not change the version since this will most likely result in different goals.</p>
-				<p>In-development versions may change at any time, use at your own risk.</p>
-				<p>Selected Version: <select id="version_selection"></select></p>
-			</div>
-
-			<div>
-				
-			</div>
-			
-			<div id="bottomlinks">
-				<a href="https://github.com/Joshimuz/mcbingo">GitHub</a>
-			</div>
+			<ul>
+				<li>Use <input class="seed_for_copying" type="text" value="" size="6" readonly="readonly" /> as Seed when creating the new world for the race in Minecraft (this is the same random seed used to generate this sheet). Make sure that all the racers are using the same ingame difficulty setting.</li>
+				<li>You may pre-load the world, but not start playing until the race starts.</li>
+				<li>Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</li>
+				<li>Stream the race!</li>
+			</ul>
+			<p><em>Note:</em> These rules are the recommended rules to play this Bingo. If everyone in the race agrees, then of course a modified set of rules can be used.</p>
+			<a href="https://github.com/Joshimuz/mcbingo"><img src="github-img.png" width='200px'></a>
+			<h2>Version</h2>
+			<p>To ensure that each created Bingo Sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL. If you got linked this page for a race you should not change the version since this will most likely result in different goals.</p>
+			<p>In-development versions may change at any time, use at your own risk.</p>
+			<p>Selected Version: <select id="version_selection"></select></p>
 		</section>
-		
-		
-		
 		<div id="tooltip">
 			<img src="" id="tooltipimg"><div class="box-shadow"></div></img>
-			<p><span id="tooltiptext"></span></p>
-		</div>
+			<span id="tooltiptext"></span>
 		</div>
 	</body>
 </html>
