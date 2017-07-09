@@ -31,6 +31,7 @@ html, body {
 	background-color: #F6F6F6;
 	width: auto;
 	height: 100px;
+	margin-bottom: 10px;
 	box-shadow: 0px 10px 5px -10px #575757;
 	border-bottom: 5px solid;
 }
@@ -59,7 +60,7 @@ html, body {
 	display: none;
 	padding: none;
 	margin-top: 10px;
-	font-size: 20px;
+	font-size: 24px;
 	text-align:center;
 }
 
@@ -87,8 +88,6 @@ html, body {
 	padding-bottom: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10px;
-	margin-bottom: 10px;
 	background-color: #EBEBEB;
 	border: 4px solid;
 	position: relative;
@@ -414,6 +413,7 @@ input[type=range]::-ms-thumb {
 /* Rules And Bottom Styling */
 
 #rules-section {
+	margin-top: 10px;
 	background-color: #FFF;
 	padding: 10px 0px 10px 0px;
 	border-top: 5px solid;
