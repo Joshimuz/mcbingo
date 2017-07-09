@@ -6,7 +6,6 @@ var HIDDEN;
 var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
-var ISOPTIONSOPEN = false;
 
 // Defines which version uses which goals array/algorithm function
 // (by convention `bingoList_v1` is defined in the file goals_v1.js,
@@ -28,15 +27,11 @@ var VERSIONS = [
 // This is the newest stable version that users not specifying a version will get
 var LATEST_VERSION = "1";
 
+// Button Functions, Open when clicked checks if the element is part of the parent tree, if not closes.
 $(document).click(function(event) {
-    if (event.target.className == 'options-button-main' && ISOPTIONSOPEN == false) {
-		ISOPTIONSOPEN = true
+    if (event.target.className == 'options-button') {
 		document.getElementById('options-dropdown-main').style.display = "block"
-	}else if(event.target.className == 'options-button-main' && ISOPTIONSOPEN == true){
-		ISOPTIONSOPEN = false
-		document.getElementById('options-dropdown-main').style.display = "none"
-	}else{
-		ISOPTIONSOPEN = false
+	}else if(!$(event.target).closest(".options").length) {
 		document.getElementById('options-dropdown-main').style.display = "none"
 	}
 });
