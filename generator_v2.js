@@ -182,7 +182,7 @@ var generator_v2 = function(layout, difficulty, bingoList)
 		currentSheet[i] = goal;
 		
 		// TESTING PURPOSES
-		//goal.difficulty = sheetLayout[i];
+		goal.difficulty = sheetLayout[i];
 	}
 
 	return currentSheet;
