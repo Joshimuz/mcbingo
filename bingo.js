@@ -5,7 +5,8 @@ var LAYOUT;
 var HIDDEN;
 var STREAMER_MODE;
 var VERSION;
-var difficultyText = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"]
+var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
+var ISOPTIONSOPEN = false;
 
 // Defines which version uses which goals array/algorithm function
 // (by convention `bingoList_v1` is defined in the file goals_v1.js,
@@ -27,8 +28,22 @@ var VERSIONS = [
 // This is the newest stable version that users not specifying a version will get
 var LATEST_VERSION = "1";
 
+$(document).click(function(event) {
+    if (event.target.className == 'options-button-main' && ISOPTIONSOPEN == false) {
+		ISOPTIONSOPEN = true
+		document.getElementById('options-dropdown-main').style.display = "block"
+	}else if(event.target.className == 'options-button-main' && ISOPTIONSOPEN == true){
+		ISOPTIONSOPEN = false
+		document.getElementById('options-dropdown-main').style.display = "none"
+	}else{
+		ISOPTIONSOPEN = false
+		document.getElementById('options-dropdown-main').style.display = "none"
+	}
+});
+
 $(document).ready(function()
 {	
+
 	// Set the background to a random image
 	document.body.style.backgroundImage = "url('Backgrounds/background" + (Math.floor(Math.random() * 10) + 1) + ".jpg')";
 
@@ -106,14 +121,6 @@ $(document).ready(function()
 		}
 		$("#tooltip").css({left:x, top:y});
 	});
-	
-	// Hide Options dropdown when clicking outside of it
-	$(document).click(function(e)
-	{
-		if (!$(e.target).closest(".dropdown").length) {
-			hideDropdown();
-		}
-	});
 
 	fillVersionSelection();
 	$("#version_selection").change(function() {
@@ -128,10 +135,14 @@ $(document).ready(function()
 	
 	getSettingsFromURL();
 	
-	$(".difficulty-text").text(difficultyText[DIFFICULTY - 1]);
-	$(".stream-difficulty-text").text(difficultyText[DIFFICULTY - 1]);
+	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
+	$(".stream-difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
 	$("#difficultyRange").val(DIFFICULTY);
 })
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+
 
 function getSettingsFromURL()
 {
@@ -343,8 +354,8 @@ function changeDifficulty(value)
 {
 	DIFFICULTY = parseInt(value);
 	
-	$(".difficulty-text").text(difficultyText[DIFFICULTY - 1]);
-	$(".stream-difficulty-text").text(difficultyText[DIFFICULTY - 1]);
+	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
+	$(".stream-difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
 	
 	generateNewSheet();
 	pushNewUrl();

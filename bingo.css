@@ -277,6 +277,20 @@ html, body {
 }
 
 
+.options-button-main {
+	cursor: pointer;
+    background-color: #6F6F6F;
+	color: #FFF;
+	background-image: url("button-background.png");
+	background-repeat: no-repeat;
+	font-family: settingsFont;
+	height: 50px;
+	width: 250px;
+	font-size: 20px;
+	border: 2px solid #000;
+	text-align: center;
+}
+
 .options-button {
 	cursor: pointer;
     background-color: #6F6F6F;
@@ -302,11 +316,6 @@ html, body {
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-}
-
-.options:hover .options-dropdown {
-    display: block;
-	background-image: url("slider-background.png");
 }
 
 .difficulty {

@@ -65,14 +65,14 @@
 				<p>The table is currently hidden, you may show it when the Bingo starts (unless otherwise agreed upon by the players).</p>
 			</div>
 			<button onclick='newSeed(true);event.preventDefault();' class="new-seed-button">Generate New Seed</button>
-			<div class="options">
-				<button class="options-button">Options...</button>
-				<div class="options-dropdown">
+			<div class="options" >
+				<button class="options-button-main" >Options...</button>
+				<div id="options-dropdown-main" class="options-dropdown">
 					<button class="options-button" onclick='toggleHidden();' ><span id="ishidden"></p></button>
 					<button class="options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
 					<div class="difficulty">
 						<input type="range" id="difficultyRange" value="3" max="5" min="1" class="difficulty-slider" oninput="changeDifficulty(this.value);" onchange="changeDifficulty(this.value);"/>
-						<span class="difficulty-text"></span>
+						<p class="difficulty-text"></p>
 					</div>
 				</div>
 			</div>
