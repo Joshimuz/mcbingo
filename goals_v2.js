@@ -199,6 +199,7 @@ var bingoList_v2 = [
 	{name: "Fill a Hopper with 320 items"},
 	{name: "(16-32) Red Nether Brick Blocks"},
 	{name: "(16-32) Spectral Arrows"},
+	{name: "Activate a Nether Portal inside of a Village"},
 ],
 
 // Hard (3)
@@ -250,6 +251,7 @@ var bingoList_v2 = [
 	{name: "Fill a Double Chest with 3456 items"},
 	{name: "(16-32) Tipped Arrows"},
 	{name: "Place 1 of each Mineral block on top of each other", tooltiptext: "Coal, Iron, Gold, Diamond, Redstone, Lapis, Emerald and Quartz blocks", tooltipimg: "Goal Tooltip Images/MineralBlocks.jpg"},
+	{name: "Save yourself with a Totem of Undying"},
 ]
 
 ];

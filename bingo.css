@@ -196,6 +196,13 @@ html, body {
 #bingo tr td.redsquare:hover { 
 	background:#CD5B45; 
 }
+#bingo tr td.bluesquare { 
+	background:#9ae8ff; 
+	color: #000;
+}
+#bingo tr td.bluesquare:hover { 
+	background:#57d9ff; 
+}
 
 #bingo td img{
 	visibility: hidden;
