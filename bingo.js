@@ -18,10 +18,12 @@ var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 // release.
 // 
 // The version is a string, so theoretically it doesn't have to just be
-// numbers (although may just numbers would be better).
+// numbers (although maybe just numbers would be better).
+//
+// The name is used for display purposes only.
 var VERSIONS = [
-	{ id:"1", goals: bingoList_v1, generator: generator_v1, stable: true },
-	{ id:"dev", goals: bingoList_v2, generator: generator_v2, stable: false }, // Dev version
+	{ id:"1", name:"v1",			goals: bingoList_v1, generator: generator_v1, stable: true },
+	{ id:"dev", name:"dev-version", 	goals: bingoList_v2, generator: generator_v2, stable: false }, // Dev version
 ];
 
 // This is the newest stable version that users not specifying a version will get
@@ -384,7 +386,7 @@ function getVersion(versionId)
 function updateVersion()
 {
 	$("#version_selection").val(VERSION.id);
-	$(".versionText").html("Version: "+VERSION.id);
+	$(".versionText").html(VERSION.name);
 	if (VERSION.id != LATEST_VERSION && VERSION.stable)
 	{
 		$("#version_notice").css("display", "block");
@@ -409,7 +411,7 @@ function changeVersion(versionId)
 function fillVersionSelection()
 {
 	$.each(VERSIONS, function(index, value) {
-		var label = "Version: "+value.id;
+		var label = value.name;
 		if (value.stable)
 		{
 			label += " (stable)";

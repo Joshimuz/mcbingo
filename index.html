@@ -77,11 +77,15 @@
 				</div>
 			</div>
 			<div id="streamer_mode">
-				Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /><span class="stream-difficulty-text"></span> - <span class="versionText"></span><br>
+				Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /> (<span class="stream-difficulty-text"></span>, <span class="versionText"></span>)<br>
 			</div>
 		</section>
 		<a class="stream-exit-text" href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a>
 		<section id="rules-section">
+			<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked Sheet, however if you want to generate a new Bingo Sheet <a href="#version_selection">consider changing version</a>.</p>
+			<p id="version_notice_unstable">You are using an in-development version, which may change at any time causing the same link to produce different goals. This is good if you want make use of the latest updates to goals and to look at a Sheet someone just linked to you, otherwise <a href="#version_selection">consider changing to a stable version</a>.</p>
+
+
 			<h2>Rules and How to Race</h2>
 			<h3>Rules</h3>
 			<p>To complete the Bingo, you must complete all five goals in a line horizontally, vertically or diagonally.</p>
