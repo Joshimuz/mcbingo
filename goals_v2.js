@@ -169,7 +169,7 @@ var bingoList_v2 = [
 	{name: "Finish by jumping from top to bottom of the world", tooltiptext: "Dig a hole to bedrock, build up to 256 Y (height limit), and then jump from top to bottom at the end of the game", tooltipimg: "Goal Tooltip Images/FinishTopToBottom.jpg", antisynergy: "Finish"},
 	{name: "Vegetarian", tooltiptext: "Never eat meat, including fish", tooltipimg: "Goal Tooltip Images/NoFish.jpg", antisynergy: "Food"},
 	{name: "Carnivore", tooltiptext: "Only eat meat", tooltipimg: "Goal Tooltip Images/NoBread.jpg", antisynergy: "Food"},
-	{name: "Kill yourself with your own arrow"},
+	{name: "Kill yourself with your own arrow", reactant: "Death"},
 	{name: "Get a '... while trying to escape ...' Death message", tooltiptext: "Example: 'PLAYER' drowned while trying to escape a Skeleton", reactant: "Death"},
 	{name: "Set fire to a Villager's House"},
 	{name: "Finish on top of the world", tooltiptext: "Build up to 256 Y (the height limit) and stand on the top at the end of the game", tooltipimg: "Goal Tooltip Images/FinishTop.jpg", antisynergy: "Finish"},
