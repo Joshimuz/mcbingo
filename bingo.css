@@ -245,6 +245,7 @@ html, body {
 }
 
 .show-table-button {
+	cursor: pointer;
 	background-color: #6F6F6F;
 	color: #fff;
 	background-image: url("button-background.png");
