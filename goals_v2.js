@@ -135,7 +135,7 @@ var bingoList_v2 = [
 	{name: "Emerald"},
 	{name: "Tame a Horse"},
 	{name: "Place a Cactus in a Flower Pot"},
-	{name: "Ignite a TNT-Minecart"},
+	{name: "Detonate a TNT-Minecart"},
 	{name: "(10-30) Magma Blocks"},
 	{name: "Skull Charge Banner"},
 	{name: "Cookie"},
