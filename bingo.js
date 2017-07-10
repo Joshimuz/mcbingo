@@ -72,9 +72,14 @@ $(document).ready(function()
 		{
 			$(this).toggleClass('redsquare');
 		}
-		else
+		else if ($(this).hasClass('bluesquare'))
 		{
+			$(this).toggleClass('bluesquare');
 			$(this).toggleClass('greensquare');
+		}
+		else 
+		{
+			$(this).toggleClass('bluesquare');
 		}
 	});
 	
@@ -214,6 +219,7 @@ function generateNewSheet()
 		$(slotId).children().css("visibility", "hidden");
 		$(slotId).removeClass('greensquare');
 		$(slotId).removeClass('redsquare');
+		$(slotId).removeClass('bluesquare');
 	}
 
 	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
