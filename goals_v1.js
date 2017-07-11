@@ -12,7 +12,7 @@ var bingoList_v1 = [
 	{name: "Grow a Tree in the Nether"},
 	{name: "(5-8) Colours of Terracotta", antisynergy: "BlockColour", frequency: 4},
 	{name: "(1-5) Mushroom Stew"},
-	{name: "Activate a Button with an Arrow"},
+	{name: "Shoot a Button with an Arrow"},
 	{name: "Book and Quill"},
 	{name: "(16-64) Flint"},
 	{name: "Cake"},
