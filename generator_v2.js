@@ -183,7 +183,7 @@ var generator_v2 = function(layout, difficulty, bingoList)
 		{
 			n1 = parseInt(n1);
 			n2 = parseInt(n2);
-			return Math.floor(Math.random() * (n2-n1+1) + n1);
+			return getRandomInt(n1, n2);
 		});
 		currentSheet[i] = goal;
 		
