@@ -77,11 +77,15 @@
 				</div>
 			</div>
 			<div id="streamer_mode">
-				Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /><span class="stream-difficulty-text"></span> - <span class="versionText"></span><br>
+				Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" /> (<span class="stream-difficulty-text"></span>, <span class="versionText"></span>)<br>
 			</div>
 		</section>
 		<a class="stream-exit-text" href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a>
 		<section id="rules-section">
+			<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked Sheet, however if you want to generate a new Bingo Sheet <a href="#version_selection">consider changing version</a>.</p>
+			<p id="version_notice_unstable">You are using an in-development version, which may change at any time causing the same link to produce different goals. This is good if you want to make use of the latest updates to goals and for looking at a Sheet someone else just linked to you, otherwise <a href="#version_selection">consider changing to a stable version</a>.</p>
+
+
 			<h2>Rules and How to Race</h2>
 			<h3>Rules</h3>
 			<p>To complete the Bingo, you must complete all five goals in a line horizontally, vertically or diagonally.</p>
@@ -90,7 +94,7 @@
 				<li>If the goal describes an action, for example "Tame a Wolf", then the goal is completed once you completed the actual action, in this case "taming", so it doesn't matter what happens to the Dog afterwards.</li>
 				<li>For goals that ask you to place something in the Minecraft World, for example "Build a glass cube and fill the inner with lava", you must make sure that the build does not get destroyed for the duration of the Bingo. However, you don't have to show it at the end, so if it wasn't witnessed being destroyed in the meantime it counts as intact.</li>
 			</ul>
-			<p><em>Tip:</em> You can click on the squares to change their colour, which may be useful for planning or to mark off completed goals.</p>
+			<p><em>Tip:</em> You can click on the squares (or hover and use 1-4) to change their colour, which may be useful for planning or to mark off completed goals.</p>
 			<p><em>Tip:</em> Hover over a "?" to get more information about that goal.</p>
 
 			<h3>How to Race</h3>
