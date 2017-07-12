@@ -463,6 +463,28 @@ function setSquareColor(square, colorClass)
 	square.addClass(colorClass);
 }
 
+function copySeedToClipboard()
+{
+	var input = document.querySelector('.seed_for_copying');
+	input.select();
+
+	try
+	{
+		var successful = document.execCommand('copy');
+		if (!successful)
+		{
+			alert("Failed to copy seed to clipboard :/");
+		}
+	}
+	catch (err)
+	{
+		alert("Failed to copy seed to clipboard :/");
+	}
+
+	// Deselect
+	input.selectionStart = input.selectionEnd = -1;
+}
+
 // Made this a function for readability and ease of use
 function getRandomInt(min, max) 
 {

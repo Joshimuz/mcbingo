@@ -68,7 +68,11 @@
 				</tr>
 			</table>
 			<div id="hidden-table">
-				<span id="hidden-table-seed">Bingo Seed:<br><input class="seed_for_copying" type="text" value="12345" readonly="readonly"></span>
+				<div id="hidden-table-seed">
+					Bingo Seed:<br>
+					<input class="seed_for_copying" type="text" value="12345" readonly="readonly"><br />
+					<button onclick='copySeedToClipboard();'>Copy Seed to Clipboard</button>
+				</div>
 				<p>Use this seed to create a new world in Minecraft. Remember to adjust game settings like difficulty, if necessary.</p>
 				<p>If you've been linked this page for a race, you are not allowed to change the seed/goals. See the full rules below.</p>
 				<button class="show-table-button" onclick='toggleHidden();event.preventDefault();'>Show Table</button>
@@ -115,7 +119,7 @@
 			<p>If you got linked this sheet for a race, you are not allowed to change it in any way.</p>
 
 			<ul>
-				<li>Use <input class="seed_for_copying" type="text" value="" size="6" readonly="readonly" /> as Seed when creating the new world for the race in Minecraft (this is the same random seed used to generate this sheet). Make sure that all the racers are using the same ingame difficulty setting.</li>
+				<li>Use <input class="seed_for_copying" type="text" value="" size="6" readonly="readonly" /><button onclick='copySeedToClipboard();'>Copy</button> as Seed when creating the new world for the race in Minecraft (this is the same random seed used to generate this sheet). Make sure that all the racers are using the same ingame difficulty setting.</li>
 				<li>You may pre-load the world, but not start playing until the race starts.</li>
 				<li>Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</li>
 				<li>Stream the race!</li>
