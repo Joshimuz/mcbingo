@@ -33,10 +33,11 @@ var LATEST_VERSION = "1";
 
 // Button Functions, Open when clicked checks if the element is part of the parent tree, if not closes.
 $(document).click(function(event) {
-    if (event.target.className == 'options-button') {
-		document.getElementById('options-dropdown-main').style.display = "block"
-	}else if(!$(event.target).closest(".options").length) {
-		document.getElementById('options-dropdown-main').style.display = "none"
+	if (event.target.id == 'options-toggle-button') {
+		$('#options-dropdown-main').toggle(100);
+	} else if (!$(event.target).closest(".options").length) {
+		// Hide if click was anywhere BUT on the options menu
+		$('#options-dropdown-main').hide(100);
 	}
 });
 
