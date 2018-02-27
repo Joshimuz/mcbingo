@@ -1,8 +1,7 @@
-// This file should not be edited anymore since a stable version refers to it (except
-// maybe for purely visual things that don't change the goals, like typos).
+// This is part of a version currently in development and may be changed at any time.
 
 
-var bingoList_v2 = [
+var bingoList_v3 = [
 
 // Very Easy (0)
 [
@@ -138,6 +137,7 @@ var bingoList_v2 = [
 	{name: "Beetroot Soup"},
 	{name: "Emerald"},
 	{name: "Tame a Horse"},
+	{name: "Tame a Donkey"},
 	{name: "Place a Cactus in a Flower Pot"},
 	{name: "Detonate a TNT-Minecart"},
 	{name: "(10-30) Magma Blocks"},
@@ -198,7 +198,6 @@ var bingoList_v2 = [
 	{name: "Never Die", catalyst: "Death"},
 	{name: "Level (16-26)", antisynergy: "Level", frequency: 4},
 	{name: "(2-3) Different Seeds", antisynergy: "Seeds", tooltiptext: "Includes Nether Wart and Cocoa Beans", tooltipimg: "Goal Tooltip Images/Seeds.jpg"},
-	{name: "Dig a 1x1 hole to bedrock (from sea level)"},
 	{name: "Wear 4 Different Armour types at the same time",  tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet", tooltipimg: "Goal Tooltip Images/4Armour.jpg", reactant: "WearArmour"},
 	{name: "Fill a Hopper with 320 items"},
 	{name: "(16-32) Red Nether Brick Blocks"},
