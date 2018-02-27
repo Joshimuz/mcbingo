@@ -251,7 +251,7 @@ var bingoList_v3 = [
 	{name: "(10-32) Mycelium"},
 	{name: "Milk a Mooshroom"},
 	{name: "Shear a Mooshroom"},
-	{name: "(2- 5) Sea Lanterns"},
+	{name: "(2-5) Sea Lanterns"},
 	{name: "Sponge", tooltiptext: "DRY Sponge, not a wet one", tooltipimg: "Goal Tooltip Images/Sponge.jpg"},
 	{name: "Bounce on a Slime Block", tooltiptext: "Get a Slime Block, place it on the ground and give it a good old bouncin' on", tooltipimg: "Goal Tooltip Images/SlimeBlock.jpg"},
 	{name: "Listen to a Music Disc"},
