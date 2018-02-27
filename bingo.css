@@ -61,13 +61,18 @@ html, body {
 	display: none;
 	padding: none;
 	margin-top: 10px;
-	font-size: 24px;
+	font-family: settingsFont;
 	text-align:center;
+}
+
+#streamer_mode .seed_for_copying {
+	font-family: settingsFont;
+	font-size: 1.01em;
+	text-align: center;
 }
 
 .stream-difficulty-text {
 	color: #000;
-	margin-left: 10px;
 }
 
 .stream-exit-text {
@@ -204,7 +209,7 @@ html, body {
 	background:#57d9ff; 
 }
 
-#bingo td img{
+#bingo td img {
 	visibility: hidden;
 }
 
@@ -240,6 +245,7 @@ html, body {
 }
 
 .show-table-button {
+	cursor: pointer;
 	background-color: #6F6F6F;
 	color: #fff;
 	background-image: url("button-background.png");
@@ -393,6 +399,7 @@ input[type=range]::-ms-thumb {
 }
 
 .new-seed-button {
+	cursor: pointer;
 	background-color: #6F6F6F;
 	background-image: url("button-background.png");
 	background-repeat: no-repeat;
@@ -430,7 +437,7 @@ input[type=range]::-ms-thumb {
 	text-align: center;
 }
 
-#rules-section p, h2, h3, ul, li{
+#rules-section p, h2, h3, ul, li {
 	max-width: 800px;
 	text-align: left;
 	margin-left: auto;
@@ -439,10 +446,18 @@ input[type=range]::-ms-thumb {
 	list-style-type: circle;
 }
 
-#rules-section a{
+#rules-section ul {
+	padding-left: 60px;
+}
+
+#rules-section a {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#rules-section h2, h3 {
+	text-align: center;
 }
 
 /* End Rules And Bottom */

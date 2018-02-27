@@ -7,6 +7,8 @@ var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 
+var hoveredSquare;
+
 // Defines which version uses which goals array/algorithm function
 // (by convention `bingoList_v1` is defined in the file goals_v1.js,
 // but it could be different of course).
@@ -18,10 +20,12 @@ var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 // release.
 // 
 // The version is a string, so theoretically it doesn't have to just be
-// numbers (although may just numbers would be better).
+// numbers (although maybe just numbers would be better).
+//
+// The name is used for display purposes only.
 var VERSIONS = [
-	{ id:"1", goals: bingoList_v1, generator: generator_v1, stable: true },
-	{ id:"dev", goals: bingoList_v2, generator: generator_v2, stable: false }, // Dev version
+	{ id:"1", name:"v1",			goals: bingoList_v1, generator: generator_v1, stable: true },
+	{ id:"dev", name:"dev-version", 	goals: bingoList_v2, generator: generator_v2, stable: false }, // Dev version
 ];
 
 // This is the newest stable version that users not specifying a version will get
@@ -65,21 +69,19 @@ $(document).ready(function()
 		// Change colours between normal, green and red
 		if ($(this).hasClass('greensquare'))
 		{
-			$(this).toggleClass('greensquare');
-			$(this).toggleClass('redsquare');
+			setSquareColor($(this), 'redsquare');
 		}
 		else if ($(this).hasClass('redsquare'))
 		{
-			$(this).toggleClass('redsquare');
+			setSquareColor($(this), '');
 		}
 		else if ($(this).hasClass('bluesquare'))
 		{
-			$(this).toggleClass('bluesquare');
-			$(this).toggleClass('greensquare');
+			setSquareColor($(this), 'greensquare');
 		}
 		else 
 		{
-			$(this).toggleClass('bluesquare');
+			setSquareColor($(this), 'bluesquare');
 		}
 	});
 	
@@ -120,6 +122,36 @@ $(document).ready(function()
 			y = y - height;
 		}
 		$("#tooltip").css({left:x, top:y});
+	});
+
+	$("#bingo td").hover(function(e)
+	{
+		hoveredSquare = $(this);
+	},function(e)
+	{
+		hoveredSquare = null;
+	});
+	$(document).on("keydown", function(e)
+	{
+		if (hoveredSquare)
+		{
+			if (e.which == 49) // 1
+			{
+				setSquareColor(hoveredSquare, "bluesquare");
+			}
+			else if (e.which == 50) // 2
+			{
+				setSquareColor(hoveredSquare, "greensquare");
+			}
+			else if (e.which == 51) // 3
+			{
+				setSquareColor(hoveredSquare, "redsquare");
+			}
+			else if (e.which == 52) // 4
+			{
+				setSquareColor(hoveredSquare, "");
+			}
+		}
 	});
 
 	fillVersionSelection();
@@ -384,7 +416,7 @@ function getVersion(versionId)
 function updateVersion()
 {
 	$("#version_selection").val(VERSION.id);
-	$(".versionText").html("Version: "+VERSION.id);
+	$(".versionText").html(VERSION.name);
 	if (VERSION.id != LATEST_VERSION && VERSION.stable)
 	{
 		$("#version_notice").css("display", "block");
@@ -409,7 +441,7 @@ function changeVersion(versionId)
 function fillVersionSelection()
 {
 	$.each(VERSIONS, function(index, value) {
-		var label = "Version: "+value.id;
+		var label = value.name;
 		if (value.stable)
 		{
 			label += " (stable)";
@@ -420,6 +452,14 @@ function fillVersionSelection()
 		}
 		$("#version_selection").append($('<option></option>').val(value.id).html(label))
 	});
+}
+
+function setSquareColor(square, colorClass)
+{
+	square.removeClass('bluesquare');
+	square.removeClass('greensquare');
+	square.removeClass('redsquare');
+	square.addClass(colorClass);
 }
 
 // Made this a function for readability and ease of use
