@@ -173,7 +173,6 @@ var bingoList_v3 = [
 	{name: "(2-3) Lapis Lazuli Blocks"},
 	{name: "Destroy a Monster Spawner"},
 	{name: "(2-5) Different Saplings"},
-	{name: "Tame an Ocelot"},
 	{name: "Tame a Wolf"},
 	{name: "6 Fire Charges"},
 	{name: "(1-3) Magma Cream"},
@@ -242,6 +241,7 @@ var bingoList_v3 = [
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)"},
 	{name: "Never use a Sword", catalyst: "SwordUse", tooltiptext: "Never use a Sword for Combat or Block Breaking. Holding or crafting is fine.", tooltipimg: "Goal Tooltip Images/NoSword.jpg"},
 	{name: "Deplete an Iron Sword", reactant: "SwordUse", tooltiptext: "Use an Iron Sword until it breaks, if you are unsure if you did check the Statistics screen!" ,tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg"},
+	{name: "(16-32) Jungle Wood", frequency: 5},
 ],
 
 // Hard (3)
@@ -279,6 +279,7 @@ var bingoList_v3 = [
 	{name: "Get a Ghast into the Overworld"},
 	{name: "Enchanted Golden Apple"},
 	{name: "(2-10) Dragon's Breath"},
+	{name: "Tame an Ocelot"},
 ],
 
 // Very Hard (4)
