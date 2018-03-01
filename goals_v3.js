@@ -18,9 +18,9 @@ var bingoList_v3 = [
 	{name: "(5-15) Dark Oak Wood", antisynergy: "DarkOakWood", frequency: 5},
 	{name: "(5-15) Acacia Wood", antisynergy: "AcaciaWood", frequency: 5},
 	{name: "(5-15) Redstone", antisynergy: "Redstone", frequency: 2},
-	{name: "Lava Bucket", frequency: 3},
-	{name: "Milk Bucket", frequency: 3},
-	{name: "Water Bucket", frequency: 3},
+	{name: "Lava Bucket", reactant: "UseBuckets", frequency: 3},
+	{name: "Milk Bucket", reactant: "UseBuckets", frequency: 3},
+	{name: "Water Bucket", reactant: "UseBuckets", frequency: 3},
 	{name: "(16-32) Andesite", frequency: 3},
 	{name: "(16-32) Granite", frequency: 3},
 	{name: "(16-32) Diorite", frequency: 3},
@@ -69,7 +69,7 @@ var bingoList_v3 = [
 	{name: "(2-3) Gold Blocks", antisynergy: "GoldBlocks", frequency: 2},
 	{name: "Golden Apple"},
 	{name: "(2-4) Bookshelves"},
-	{name: "Never wear Chestplates"},
+	{name: "Never wear Chestplates", catalyst: "WearArmour"},
 	{name: "Never use a Shield"},
 	{name: "Jukebox"},
 	{name: "Build a glass cube and fill the inner with lava"},
@@ -122,7 +122,7 @@ var bingoList_v3 = [
 	{name: "Lime Dye", frequency: 10},
 	{name: "Never Sleep", catalyst: "Sleep"},
 	{name: "Grow a Huge Mushroom"},
-	{name: "Water Bucket, Lava Bucket and Milk Bucket"},
+	{name: "Water Bucket, Lava Bucket and Milk Bucket", reactant: "UseBuckets"},
 	{name: "(3-6) Different Flowers", antisynergy: "Flowers", frequency: 3},
 	{name: "(3-6) Colours of Concrete", antisynergy: "ConcreteColour", frequency: 4},
 	{name: "(3-6) Colours of Glazed Terracotta", antisynergy: "GlazedColour", frequency: 4},
@@ -151,6 +151,7 @@ var bingoList_v3 = [
 	{name: "(16-32) Dark Oak Wood", antisynergy: "DarkOakWood", frequency: 5},
 	{name: "(16-32) Acacia Wood", antisynergy: "AcaciaWood", frequency: 5},
 	{name: "(65-128) Sticks", antisynergy: "Sticks", frequency: 2},
+	{name: "Wear 4 different colour Leather Armour at the same time", reactant: "WearArmour"},
 ],
 
 // Medium (2) 
@@ -247,6 +248,8 @@ var bingoList_v3 = [
 	{name: "(16-32) Jungle Wood", frequency: 5},
 	{name: "Full Diamond Armour"},
 	{name: "Saddle"},
+	{name: "Give a Hostile mob a Hat"},
+	{name: "Clean a Pattern off of a Banner"},
 ],
 
 // Hard (3)
@@ -285,6 +288,10 @@ var bingoList_v3 = [
 	{name: "(2-10) Dragon's Breath"},
 	{name: "Tame an Ocelot"},
 	{name: "Tame a Donkey"},
+	{name: "Never wear Armour or use Shields", catalyst: "WearArmour"},
+	{name: "Kill a mob that is wearing Full Iron Armour"},
+	{name: "Enchant 5 different items"},
+	{name: "Never use Buckets", catalyst: "UseBuckets"},
 ],
 
 // Very Hard (4)
@@ -305,6 +312,7 @@ var bingoList_v3 = [
 	{name: "Save yourself with a Totem of Undying"},
 	{name: "Sleep in a Woodland Mansion"},
 	{name: "(10-32) Mycelium"},
+	{name: "Get a villager into The End"},
 ]
 
 ];
