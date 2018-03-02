@@ -194,11 +194,11 @@ var bingoList_v3 = [
 	{name: "Potion of Swiftness", frequency: 10},
 	{name: "Potion of Weakness", frequency: 10},
 	{name: "Potion of Leaping", frequency: 10},
-	{name: "Finish by jumping from top to bottom of the world", tooltiptext: "Dig a hole to bedrock, build up to 256 Y (height limit), and then jump from top to bottom at the end of the game", tooltipimg: "Goal Tooltip Images/FinishTopToBottom.jpg", antisynergy: "Finish"},
+	{name: "Finish by jumping from top to bottom of the world", tooltiptext: "Dig a hole to bedrock, build to 256 Y (height limit), then jump from top to bottom at the end of the game", tooltipimg: "Goal Tooltip Images/FinishTopToBottom.jpg", antisynergy: "Finish"},
 	{name: "Vegetarian", tooltiptext: "Never eat meat, including fish", tooltipimg: "Goal Tooltip Images/NoFish.jpg", antisynergy: "Food"},
 	{name: "Carnivore", tooltiptext: "Only eat meat", tooltipimg: "Goal Tooltip Images/NoBread.jpg", antisynergy: "Food"},
 	{name: "Kill yourself with your own arrow", reactant: "Death"},
-	{name: "Get a '... while trying to escape ...' Death message", tooltiptext: "Example: 'PLAYER' drowned while trying to escape a Skeleton", reactant: "Death"},
+	{name: "Get a '... while trying to escape ...' Death message", tooltiptext: "Example: 'PLAYER' drowned while trying to escape a Skeleton", tooltipimg: "Goal Tooltip Images/EscapeMessage.jpg", reactant: "Death"},
 	{name: "Set fire to a Villager's House"},
 	{name: "Finish on top of the world", tooltiptext: "Build up to 256 Y (the height limit) and stand on the top at the end of the game", tooltipimg: "Goal Tooltip Images/FinishTop.jpg", antisynergy: "Finish"},
 	{name: "Kill a hostile mob with Gravel/Sand"},
@@ -277,7 +277,7 @@ var bingoList_v3 = [
 	{name: "Poison a Parrot", frequency: 2},
 	{name: "Tame a Parrot", frequency: 2},
 	{name: "Kill an Iron Golem"},
-	{name: "Place an Ice Block on top of a Magma Block"},
+	{name: "Ice Block on top of a Magma Block"},
 	{name: "Level (27-37)", antisynergy: "Level", frequency: 4},
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/IceCube.jpg"},
 	{name: "(4-5) Different Seeds", antisynergy: "Seeds", tooltiptext: "Includes Nether Wart and Cocoa Beans", tooltipimg: "Goal Tooltip Images/Seeds.jpg"},
@@ -285,7 +285,6 @@ var bingoList_v3 = [
 	{name: "Never place Torches"},
 	{name: "Get a Ghast into the Overworld"},
 	{name: "Enchanted Golden Apple"},
-	{name: "(2-10) Dragon's Breath"},
 	{name: "Tame an Ocelot"},
 	{name: "Tame a Donkey"},
 	{name: "Never wear Armour or use Shields", catalyst: "WearArmour"},
@@ -313,6 +312,7 @@ var bingoList_v3 = [
 	{name: "Sleep in a Woodland Mansion"},
 	{name: "(10-32) Mycelium"},
 	{name: "Get a villager into The End"},
+	{name: "(2-10) Dragon's Breath"},
 ]
 
 ];

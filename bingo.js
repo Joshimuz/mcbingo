@@ -50,7 +50,7 @@ $(document).ready(function()
 	// By default hide the tooltip
 	$("#tooltip").hide();
 
-	// By default hide tooltip questionmarks
+/* 	// By default hide tooltip questionmarks
 	$(".tooltipQ").addClass("tooltipQhidden");
 
 	// On hovering the sheet show the tooltip questionmarks
@@ -62,7 +62,7 @@ $(document).ready(function()
 	}, function()
 	{
 		$(".tooltipQ").addClass("tooltipQhidden");
-	});
+	}); */
 
 	// On clicking a goal square
 	$("#bingo td").click(function()
