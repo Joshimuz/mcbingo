@@ -80,7 +80,7 @@
 			<div class="options" >
 				<button class="options-button" >Options...</button>
 				<div id="options-dropdown-main" class="options-dropdown">
-					<button class="options-button" onclick='toggleHidden();' ><span id="ishidden"></p></button>
+					<button class="options-button" onclick='toggleHidden();' ><span id="ishidden"></p></span></button>
 					<button class="options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
 					<div class="difficulty">
 						<input type="range" id="difficultyRange" value="3" max="5" min="1" class="difficulty-slider" oninput="changeDifficulty(this.value);" onchange="changeDifficulty(this.value);"/>
@@ -93,6 +93,7 @@
 			</div>
 		</section>
 		<a class="stream-exit-text" href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a>
+		<a class="stream-exit-text" href="#" onclick='popoutBingoCard();'>Popout Bingo Card</a>
 		<section id="rules-section">
 			<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked Sheet, however if you want to generate a new Bingo Sheet <a href="#version_selection">consider changing version</a>.</p>
 			<p id="version_notice_unstable">You are using an in-development version, which may change at any time causing the same link to produce different goals. This is good if you want to make use of the latest updates to goals and for looking at a Sheet someone else just linked to you, otherwise <a href="#version_selection">consider changing to a stable version</a>.</p>
