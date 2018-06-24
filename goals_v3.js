@@ -18,9 +18,10 @@ var bingoList_v3 = [
 	{name: "(5-15) Dark Oak Wood", antisynergy: "DarkOakWood", frequency: 25},
 	{name: "(5-15) Acacia Wood", antisynergy: "AcaciaWood", frequency: 25},
 	{name: "(5-15) Redstone", antisynergy: "Redstone", frequency: 2},
-	{name: "Lava Bucket", reactant: "UseBuckets", frequency: 3},
-	{name: "Milk Bucket", reactant: "UseBuckets", frequency: 3},
-	{name: "Water Bucket", reactant: "UseBuckets", frequency: 3},
+	{name: "Lava Bucket", reactant: "UseBuckets", frequency: 4},
+	{name: "Milk Bucket", reactant: "UseBuckets", frequency: 4},
+	{name: "Water Bucket", reactant: "UseBuckets", frequency: 4},
+	{name: "Fish Bucket", reactant: "UseBuckets", frequency: 4, tooltiptext: "Can be any of the types of Fish", tooltipimg: "Goal Tooltip Images/FishBucket.jpg"},
 	{name: "(16-32) Andesite", frequency: 3},
 	{name: "(16-32) Granite", frequency: 3},
 	{name: "(16-32) Diorite", frequency: 3},
@@ -46,7 +47,6 @@ var bingoList_v3 = [
 	{name: "(5-15) Charcoal"},
 	{name: "(5-15) Coal"},
 	{name: "Fishing Rod"},
-	{name: "(2-10) Raw Fish"},
 	{name: "(2-5) Apples"},
 	{name: "(32-64) Sticks", antisynergy: "Sticks", frequency: 2},
 	{name: "(32-64) Kelp"},
@@ -65,6 +65,8 @@ var bingoList_v3 = [
 	{name: "(5-15) Stripped Birch Logs", antisynergy: "StrippedBirchLog", frequency: 25},
 	{name: "(5-15) Stripped Dark Oak Logs", antisynergy: "StrippedDarkOakLog", frequency: 25},
 	{name: "(5-15) Stripped Acacia Logs", antisynergy: "StrippedAcaciaLog", frequency: 25},
+	{name: "(2-10) Raw Cod", antisynergy: "RawCod", frequency: 2},
+	{name: "(2-5) Raw Salmon", antisynergy: "RawSalmon", frequency: 2},
 
 ],
 
@@ -79,7 +81,7 @@ var bingoList_v3 = [
 	{name: "(16-64) Flint"},
 	{name: "Cake"},
 	{name: "Pumpkin Pie"},
-	{name: "Fish a Treasure and a Junk item"},
+	{name: "Fish a Treasure and a Junk item", reactant: "Fishing"},
 	{name: "(16-64) Coarse Dirt"},
 	{name: "(2-3) Clocks"},
 	{name: "(2-4) Iron Blocks", antisynergy: "IronBlocks", frequency: 2},
@@ -116,7 +118,7 @@ var bingoList_v3 = [
 	{name: "(16-64) Brick Blocks"},
 	{name: "(16-32) Nether Brick Blocks"},
 	{name: "(16-64) Arrows"},
-	{name: "Sleep in the Nether"},
+	{name: "(Try to) Sleep in the Nether"},
 	{name: "Fermented Spider Eye"},
 	{name: "(5-7) Different Stairs", antisynergy: "Stairs", frequency: 2},
 	{name: "(2-4) Ender Pearls"},
@@ -140,7 +142,7 @@ var bingoList_v3 = [
 	{name: "Lime Dye", frequency: 10},
 	{name: "Never Sleep", catalyst: "Sleep"},
 	{name: "Grow a Huge Mushroom"},
-	{name: "Water Bucket, Lava Bucket and Milk Bucket", reactant: "UseBuckets"},
+	{name: "Water Bucket, Lava Bucket and Milk Bucket", antisynergy: "BucketTypes", reactant: "UseBuckets"},
 	{name: "(3-6) Different Flowers", antisynergy: "Flowers", frequency: 3},
 	{name: "(3-6) Colours of Concrete", antisynergy: "ConcreteColour", frequency: 4},
 	{name: "(3-6) Colours of Glazed Terracotta", antisynergy: "GlazedColour", frequency: 4},
@@ -186,6 +188,15 @@ var bingoList_v3 = [
 	{name: "(16-32) Stripped Dark Oak Logs", antisynergy: "StrippedDarkOakLog", frequency: 25},
 	{name: "(16-32) Stripped Acacia Logs", antisynergy: "StrippedAcaciaLog", frequency: 25},
 	{name: "(15-32) Seagrass"},
+	{name: "(2-5) Tropical Fish"},
+	{name: "(2-5) Pufferfish"},
+	{name: "(15-32) Raw Cod", antisynergy: "RawCod", frequency: 2},
+	{name: "(11-20) Raw Salmon", antisynergy: "RawSalmon", frequency: 2},
+	{name: "Never use a Fishing Rod", catalyst: "Fishing"},
+	{name: "Never use a Boat"},
+	{name: "Get a Fish into Nether"},
+	{name: "(11-20) Dried Kelp Blocks", antisynergy: "KelpBlocks"},
+	{name: "Drown a Zombie"},
 ],
 
 // Medium (2) 
@@ -292,6 +303,10 @@ var bingoList_v3 = [
 	{name: "Heart of the Sea"},
 	{name: "Phantom Membrane"},
 	{name: "Turtle Shell"},
+	{name: "Add a Marker to a Map"},
+	{name: "Water Bucket, Lava Bucket, Milk Bucket, Fish Bucket", antisynergy: "BucketTypes", reactant: "UseBuckets", tooltiptext: "Can be any of the types of Fish", tooltipimg: "Goal Tooltip Images/FishBucket.jpg"},
+	{name: "Leash a Dolphin to a Fence"},
+	{name: "(21-32) Dried Kelp Blocks", antisynergy: "KelpBlocks"},
 ],
 
 // Hard (3)
@@ -337,6 +352,7 @@ var bingoList_v3 = [
 	{name: "(2-5) types of Dead Coral Blocks"},
 	{name: "(16-32) Sea Pickles"},
 	{name: "Trident"},
+	{name: "Get a '... didn't want to live in the same world as ...' Death message"},
 ],
 
 // Very Hard (4)
@@ -360,6 +376,8 @@ var bingoList_v3 = [
 	{name: "Get a villager into The End"},
 	{name: "(2-10) Dragon's Breath"},
 	{name: "5 types of Coral Blocks", tooltiptext: "The alive stuff, not the Dead Coral Blocks", tooltipimg: "Goal Tooltip Images/CoralBlocks.jpg"},
+	{name: "(32-64) Blue Ice"},
+	{name: "Fully power a Conduit"},
 ]
 
 ];
