@@ -268,12 +268,18 @@ function generateNewSheet()
 		if (typeof goal.tooltipimg !== 'undefined')
 		{
 			$(slotId).data("tooltipimg", goal.tooltipimg);
-			$(slotId).children().css("visibility", "visible");
+			if (!HIDDEN)
+			{
+				$(slotId).children().css("visibility", "visible");
+			}
 		}
 		if (typeof goal.tooltiptext !== 'undefined')
 		{
 			$(slotId).data("tooltiptext", goal.tooltiptext);
-			$(slotId).children().css("visibility", "visible");
+			if (!HIDDEN)
+			{
+				$(slotId).children().css("visibility", "visible");
+			}
 		}
 	}
 }
@@ -333,6 +339,7 @@ function updateHidden()
 		document.getElementById("ishidden").innerHTML = "Show Table";
 		$("#bingo td").css("visibility", "hidden");
 		$("#hidden-table").css("display","block");
+		$("#bingo td img").css("visibility", "hidden");
 	}
 	else
 	{
@@ -341,6 +348,23 @@ function updateHidden()
 		document.getElementById("ishidden").innerHTML = "Hide Table";
 		$("#bingo td").css("visibility", "visible");
 		$("#hidden-table").css("display","none");
+		
+		for (var i=0; i<25; i++)
+		{
+			var slotId = "#slot"+ (i + 1);
+			
+			if ($(slotId).data("tooltipimg") !== '')
+			{
+				//$(slotId).data("tooltipimg", goal.tooltipimg);
+				$(slotId).children().css("visibility", "visible");
+			}
+			if ($(slotId).data("tooltiptext") !== '')
+			{
+				//$(slotId).data("tooltiptext", goal.tooltiptext);
+				$(slotId).children().css("visibility", "visible");
+			}
+		}
+		//$("#bingo td img").css("visibility", "visible");
 	}
 }
 

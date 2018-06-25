@@ -298,7 +298,7 @@ var bingoList_v3 = [
 	{name: "(11-20) Stripped Jungle Logs", frequency: 7},
 	{name: "Full Diamond Armour"},
 	{name: "Saddle"},
-	{name: "Give a Hostile mob a Hat"},
+	{name: "Give a mob a Hat"},
 	{name: "Clean a Pattern off of a Banner"},
 	{name: "Heart of the Sea"},
 	{name: "Phantom Membrane"},
