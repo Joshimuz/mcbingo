@@ -376,6 +376,10 @@ function toggleHidden()
 	pushNewUrl();
 }
 
+function popoutBingoCard(){
+    window.open(window.location.href, "_blank", "toolbar=no, status=no, menubar=no, scrollbars=no, width=728, height=665");
+}
+
 function toggleStreamerMode()
 {
 	STREAMER_MODE = !STREAMER_MODE;
