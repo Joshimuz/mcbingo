@@ -67,6 +67,7 @@ var bingoList_v3 = [
 	{name: "(5-15) Stripped Acacia Logs", antisynergy: "StrippedAcaciaLog", reactant: "AxeUse", frequency: 25},
 	{name: "(2-10) Raw Cod", antisynergy: "RawCod", frequency: 2},
 	{name: "(2-5) Raw Salmon", antisynergy: "RawSalmon", frequency: 2},
+	{name: "(2-3) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2},
 
 ],
 
@@ -199,12 +200,13 @@ var bingoList_v3 = [
 	{name: "Drown a Zombie"},
 	{name: "(2-5) Gunpowder", antisynergy: "Gunpowder", frequency: 2},
 	{name: "(2-5) Spider Eyes", antisynergy: "SpiderEye", frequency: 2},
+	{name: "(4-5) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2},
 ],
 
 // Medium (2) 
 [
 	{name: "Wither Skull"},
-	{name: "(6-8) Different Edible Items"},
+	{name: "(6-7) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2},
 	{name: "(3-5) Different Gold Items"},
 	{name: "Beetroot Soup"},
 	{name: "Emerald"},
@@ -353,7 +355,7 @@ var bingoList_v3 = [
 	{name: "(2-5) types of Dead Coral Blocks"},
 	{name: "(16-32) Sea Pickles"},
 	{name: "Trident"},
-	{name: "Get a '... didn't want to live in the same world as ...' Death message"},
+	{name: "Get a '... didn't want to live in the same world as ...' Death message", reactant: "Death"},
 	{name: "Cookie"},
 	{name: "Grow a Full Jungle Tree"},
 	{name: "(2-10) Prismarine Shards", frequency: 2},
