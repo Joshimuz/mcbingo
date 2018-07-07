@@ -25,11 +25,12 @@ var hoveredSquare;
 // The name is used for display purposes only.
 var VERSIONS = [
 	{ id:"1", name:"v1",			goals: bingoList_v1, generator: generator_v1, stable: true },
-	{ id:"dev", name:"dev-version", 	goals: bingoList_v2, generator: generator_v2, stable: false }, // Dev version
+	{ id:"2", name:"v2",			goals: bingoList_v2, generator: generator_v2, stable: true },
+	{ id:"dev", name:"dev-version", 	goals: bingoList_v3, generator: generator_v3, stable: false }, // Dev version
 ];
 
 // This is the newest stable version that users not specifying a version will get
-var LATEST_VERSION = "1";
+var LATEST_VERSION = "2";
 
 // Button Functions, Open when clicked checks if the element is part of the parent tree, if not closes.
 $(document).click(function(event) {
@@ -50,7 +51,7 @@ $(document).ready(function()
 	// By default hide the tooltip
 	$("#tooltip").hide();
 
-	// By default hide tooltip questionmarks
+/* 	// By default hide tooltip questionmarks
 	$(".tooltipQ").addClass("tooltipQhidden");
 
 	// On hovering the sheet show the tooltip questionmarks
@@ -62,7 +63,7 @@ $(document).ready(function()
 	}, function()
 	{
 		$(".tooltipQ").addClass("tooltipQhidden");
-	});
+	}); */
 
 	// On clicking a goal square
 	$("#bingo td").click(function()
@@ -268,12 +269,18 @@ function generateNewSheet()
 		if (typeof goal.tooltipimg !== 'undefined')
 		{
 			$(slotId).data("tooltipimg", goal.tooltipimg);
-			$(slotId).children().css("visibility", "visible");
+			if (!HIDDEN)
+			{
+				$(slotId).children().css("visibility", "visible");
+			}
 		}
 		if (typeof goal.tooltiptext !== 'undefined')
 		{
 			$(slotId).data("tooltiptext", goal.tooltiptext);
-			$(slotId).children().css("visibility", "visible");
+			if (!HIDDEN)
+			{
+				$(slotId).children().css("visibility", "visible");
+			}
 		}
 	}
 }
@@ -333,6 +340,7 @@ function updateHidden()
 		document.getElementById("ishidden").innerHTML = "Show Table";
 		$("#bingo td").css("visibility", "hidden");
 		$("#hidden-table").css("display","block");
+		$("#bingo td img").css("visibility", "hidden");
 	}
 	else
 	{
@@ -341,6 +349,23 @@ function updateHidden()
 		document.getElementById("ishidden").innerHTML = "Hide Table";
 		$("#bingo td").css("visibility", "visible");
 		$("#hidden-table").css("display","none");
+		
+		for (var i=0; i<25; i++)
+		{
+			var slotId = "#slot"+ (i + 1);
+			
+			if ($(slotId).data("tooltipimg") !== '')
+			{
+				//$(slotId).data("tooltipimg", goal.tooltipimg);
+				$(slotId).children().css("visibility", "visible");
+			}
+			if ($(slotId).data("tooltiptext") !== '')
+			{
+				//$(slotId).data("tooltiptext", goal.tooltiptext);
+				$(slotId).children().css("visibility", "visible");
+			}
+		}
+		//$("#bingo td img").css("visibility", "visible");
 	}
 }
 
@@ -350,6 +375,10 @@ function toggleHidden()
 	HIDDEN = !HIDDEN;
 	updateHidden();
 	pushNewUrl();
+}
+
+function popoutBingoCard(){
+    window.open(window.location.href, "_blank", "toolbar=no, status=no, menubar=no, scrollbars=no, width=728, height=665");
 }
 
 function toggleStreamerMode()

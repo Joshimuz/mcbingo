@@ -1,7 +1,7 @@
-// This file should not be edited anymore since a stable version refers to it
+// This is part of a version currently in development and may be changed at any time.
 
 
-var generator_v2 = function(layout, difficulty, bingoList)
+var generator_v3 = function(layout, difficulty, bingoList)
 {
 	var amountOfVeryHard;
 	var amountOfHard;
