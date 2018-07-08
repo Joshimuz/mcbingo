@@ -241,7 +241,11 @@ html, body {
 #hidden-table-seed input {
 	font-size: 1em;
 	width: 200px;
-	text-align: center
+	text-align: center;
+}
+
+#hidden-table-seed button {
+	width: 200px;
 }
 
 .show-table-button {

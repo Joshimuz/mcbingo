@@ -70,7 +70,11 @@
 				</tr>
 			</table>
 			<div id="hidden-table">
-				<span id="hidden-table-seed">Bingo Seed:<br><input class="seed_for_copying" type="text" value="12345" readonly="readonly"></span>
+				<div id="hidden-table-seed">
+					Bingo Seed:<br>
+					<input class="seed_for_copying" id="seed_for_copying_hidden" type="text" value="12345" readonly="readonly"><br />
+					<button onclick='copySeedToClipboard("seed_for_copying_hidden");'>Copy Seed to Clipboard</button>
+				</div>
 				<p>Use this seed to create a new world in Minecraft. Remember to adjust game settings like difficulty, if necessary.</p>
 				<p>If you've been linked this page for a race, you are not allowed to change the seed/goals. See the full rules below.</p>
 				<button class="show-table-button" onclick='toggleHidden();event.preventDefault();'>Show Table</button>
@@ -78,7 +82,7 @@
 			</div>
 			<button onclick='newSeed(true);event.preventDefault();' class="new-seed-button">Generate New Seed</button>
 			<div class="options" >
-				<button class="options-button" >Options...</button>
+				<button class="options-button" id="options-toggle-button">Options...</button>
 				<div id="options-dropdown-main" class="options-dropdown">
 					<button class="options-button" onclick='toggleHidden();' ><span id="ishidden"></p></span></button>
 					<button class="options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
@@ -103,7 +107,7 @@
 			<h3>Rules</h3>
 			<p>To complete the Bingo, you must complete all five goals in a line horizontally, vertically or diagonally.</p>
 			<ul>
-				<li>Goals referring to items that you are able to carry in your inventory (without any action specified), require you to have those items in your inventory at the moment you complete the Bingo. For example if a goal says "Golden Apple", you must have the "Golden Apple" in your inventory at the end.</li>
+				<li>Goals referring to items that you are able to carry in your inventory (without any action specified), require you to have those items in your inventory at the moment you complete the Bingo. For example if a goal says "Golden Apple", you must have the "Golden Apple" in your inventory at the end. Completing the Bingo by dying (e.g. "Kill yourself with an Ender Pearl" as last goal) has no bearing on this, because the Bingo is considered completed before the items are dropped.</li>
 				<li>If the goal describes an action, for example "Tame a Wolf", then the goal is completed once you completed the actual action, in this case "taming", so it doesn't matter what happens to the Dog afterwards.</li>
 				<li>For goals that ask you to place something in the Minecraft World, for example "Build a glass cube and fill the inner with lava", you must make sure that the build does not get destroyed for the duration of the Bingo. However, you don't have to show it at the end, so if it wasn't witnessed being destroyed in the meantime it counts as intact.</li>
 			</ul>
@@ -118,7 +122,7 @@
 			<p>If you got linked this sheet for a race, you are not allowed to change it in any way.</p>
 
 			<ul>
-				<li>Use <input class="seed_for_copying" type="text" value="" size="6" readonly="readonly" /> as Seed when creating the new world for the race in Minecraft (this is the same random seed used to generate this sheet). Make sure that all the racers are using the same ingame difficulty setting.</li>
+				<li>Use <input class="seed_for_copying" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button onclick='copySeedToClipboard("seed_for_copying_howto");'>Copy</button> as Seed when creating the new world for the race in Minecraft (this is the same random seed used to generate this sheet). Make sure that all the racers are using the same ingame difficulty setting.</li>
 				<li>You may pre-load the world, but not start playing until the race starts.</li>
 				<li>Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</li>
 				<li>Stream the race!</li>
@@ -131,7 +135,7 @@
 			<p>Selected Version: <select id="version_selection"></select></p>
 		</section>
 		<div id="tooltip">
-			<img src="" id="tooltipimg"><div class="box-shadow"></div></img>
+			<img src="" id="tooltipimg" />
 			<span id="tooltiptext"></span>
 		</div>
 	</body>

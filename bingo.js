@@ -34,10 +34,11 @@ var LATEST_VERSION = "2";
 
 // Button Functions, Open when clicked checks if the element is part of the parent tree, if not closes.
 $(document).click(function(event) {
-    if (event.target.className == 'options-button') {
-		document.getElementById('options-dropdown-main').style.display = "block"
-	}else if(!$(event.target).closest(".options").length) {
-		document.getElementById('options-dropdown-main').style.display = "none"
+	if (event.target.id == 'options-toggle-button') {
+		$('#options-dropdown-main').toggle(100);
+	} else if (!$(event.target).closest(".options").length) {
+		// Hide if click was anywhere BUT on the options menu
+		$('#options-dropdown-main').hide(100);
 	}
 });
 
@@ -89,8 +90,9 @@ $(document).ready(function()
 	// On hovering a goal square
 	$("#bingo td img").hover(function()
 	{
+		var tooltipImg = $(this).parent().data("tooltipimg");
 		// If the tooltip is empty
-		if ($(this).parent().data("tooltiptext") == "" && $(this).parent().data("tooltipimg") == "")
+		if ($(this).parent().data("tooltiptext") == "" && tooltipImg == "")
 		{
 			// Do nothing lol
 		}
@@ -98,7 +100,8 @@ $(document).ready(function()
 		{
 			// Show the tooltip and fill it with content from the goal
 			 $("#tooltip").show();
-			 $("#tooltipimg").attr('src', $(this).parent().data("tooltipimg"));
+			 $("#tooltipimg").attr('src', tooltipImg);
+			 $("#tooltipimg").toggle(tooltipImg != "");
 			 $("#tooltiptext").text($(this).parent().data("tooltiptext"));
 		}
 	},function()
@@ -489,6 +492,38 @@ function setSquareColor(square, colorClass)
 	square.removeClass('greensquare');
 	square.removeClass('redsquare');
 	square.addClass(colorClass);
+}
+
+function copySeedToClipboard(id)
+{
+	var id = "#"+id;
+	if (navigator.clipboard)
+	{
+		navigator.clipboard.writeText($(id).val()).catch(err => {
+    			console.error('Async: Could not copy text: ', err);
+    			alert("Failed to copy seed to clipboard :/");
+		});
+	}
+	else
+	{
+		$(id).select();
+
+		try
+		{
+			var successful = document.execCommand('copy');
+			if (!successful)
+			{
+				alert("Failed to copy seed to clipboard :/");
+			}
+		}
+		catch (err)
+		{
+			alert("Failed to copy seed to clipboard :/");
+		}
+	
+		// Deselect
+		$(id).blur();
+	}
 }
 
 // Made this a function for readability and ease of use
