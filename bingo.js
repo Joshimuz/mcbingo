@@ -90,8 +90,9 @@ $(document).ready(function()
 	// On hovering a goal square
 	$("#bingo td img").hover(function()
 	{
+		var tooltipImg = $(this).parent().data("tooltipimg");
 		// If the tooltip is empty
-		if ($(this).parent().data("tooltiptext") == "" && $(this).parent().data("tooltipimg") == "")
+		if ($(this).parent().data("tooltiptext") == "" && tooltipImg == "")
 		{
 			// Do nothing lol
 		}
@@ -99,7 +100,8 @@ $(document).ready(function()
 		{
 			// Show the tooltip and fill it with content from the goal
 			 $("#tooltip").show();
-			 $("#tooltipimg").attr('src', $(this).parent().data("tooltipimg"));
+			 $("#tooltipimg").attr('src', tooltipImg);
+			 $("#tooltipimg").toggle(tooltipImg != "");
 			 $("#tooltiptext").text($(this).parent().data("tooltiptext"));
 		}
 	},function()
