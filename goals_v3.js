@@ -268,7 +268,7 @@ var bingoList_v3 = [
 	{name: "Put a Pigman in Water"},
 	{name: "Place an Iron, Gold and Diamond block on top of each other"},
 	{name: "Kill a hostile mob with an Anvil"},
-	{name: "Never Die", catalyst: "Death"},
+	{name: "Never Die", tooltiptext: "No death allowed, including if directly caused by completing the last goal (e.g. inadvertently dying to the explosion of \"Detonate a TNT-Minecart\")", catalyst: "Death"},
 	{name: "Level (16-26)", antisynergy: "Level", frequency: 2},
 	{name: "(2-3) Different Seeds", antisynergy: "Seeds", tooltiptext: "Includes Nether Wart and Cocoa Beans", tooltipimg: "Goal Tooltip Images/Seeds.jpg"},
 	{name: "Wear 4 Different Armour types at the same time",  tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet", tooltipimg: "Goal Tooltip Images/4Armour.jpg", reactant: "WearArmour"},
@@ -310,6 +310,7 @@ var bingoList_v3 = [
 	{name: "Never use an Axe", catalyst: "AxeUse"},
 	{name: "Enchant an item"},
 	{name: "Complete a full size Map", antisynergy: "CompleteMap"},
+	{name: "Blue Shield with White Flower Charge"},
 ],
 
 // Hard (3)
