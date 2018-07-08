@@ -494,26 +494,36 @@ function setSquareColor(square, colorClass)
 	square.addClass(colorClass);
 }
 
-function copySeedToClipboard()
+function copySeedToClipboard(id)
 {
-	var input = document.querySelector('.seed_for_copying');
-	input.select();
-
-	try
+	var id = "#"+id;
+	if (navigator.clipboard)
 	{
-		var successful = document.execCommand('copy');
-		if (!successful)
+		navigator.clipboard.writeText($(id).val()).catch(err => {
+    			console.error('Async: Could not copy text: ', err);
+    			alert("Failed to copy seed to clipboard :/");
+		});
+	}
+	else
+	{
+		$(id).select();
+
+		try
+		{
+			var successful = document.execCommand('copy');
+			if (!successful)
+			{
+				alert("Failed to copy seed to clipboard :/");
+			}
+		}
+		catch (err)
 		{
 			alert("Failed to copy seed to clipboard :/");
 		}
+	
+		// Deselect
+		$(id).blur();
 	}
-	catch (err)
-	{
-		alert("Failed to copy seed to clipboard :/");
-	}
-
-	// Deselect
-	input.selectionStart = input.selectionEnd = -1;
 }
 
 // Made this a function for readability and ease of use
