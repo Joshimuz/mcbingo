@@ -1,8 +1,7 @@
-// This file should not be edited anymore since a stable version refers to it (except
-// maybe for purely visual things that don't change the goals, like typos).
+// This is part of a version currently in development and may be changed at any time.
 
 
-var bingoList_v3 = [
+var bingoList_v4 = [
 
 // Very Easy (0)
 [
