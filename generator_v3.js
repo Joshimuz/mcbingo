@@ -133,7 +133,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				}
 			}
 			
-			var tagCount = [0, 0, 0, 0, 0];
+			var tagCount = [1, 1, 1, 1, 1];
 
 			for (var z=0; z <= 24; z++)
 			{				
@@ -178,7 +178,6 @@ var generator_v3 = function(layout, difficulty, bingoList)
 								if (goalCandidate.tags[x].name == currentSheet[z].tags[y].name)
 								{
 									tagCount[x]++;
-									console.log("wot");
 								}
 							}
 						}

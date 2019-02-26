@@ -191,7 +191,7 @@ var bingoList_v4 = [
 	{name: "(16-32) Stripped Dark Oak Logs", antisynergy: "StrippedDarkOakLog", reactant: "AxeUse", frequency: 25, tags: [Item]},
 	{name: "(16-32) Stripped Acacia Logs", antisynergy: "StrippedAcaciaLog", reactant: "AxeUse", frequency: 25, tags: [Item]},
 	{name: "(15-32) Seagrass", tags: [Item, Ocean]},
-	{name: "(2-5) Tropical Fish", tags: [Item, Ocean, RareBiome]},
+	{name: "(2-5) Tropical Fish", tags: [Item, Ocean]},
 	{name: "(2-5) Pufferfish", tags: [Item, Ocean, RareBiome]},
 	{name: "(15-32) Raw Cod", antisynergy: "RawCod", frequency: 2, tags: [Item, Ocean]},
 	{name: "(11-20) Raw Salmon", antisynergy: "RawSalmon", frequency: 2, tags: [Item, Ocean]},
