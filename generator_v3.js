@@ -132,7 +132,6 @@ var generator_v3 = function(layout, difficulty, bingoList)
 					cont = false;
 				}
 			}
-			
 			var tagCount = [1, 1, 1, 1, 1];
 
 			for (var z=0; z <= 24; z++)

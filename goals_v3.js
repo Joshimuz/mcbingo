@@ -1,4 +1,5 @@
-// This is part of a version currently in development and may be changed at any time.
+// This file should not be edited anymore since a stable version refers to it (except
+// maybe for purely visual things that don't change the goals, like typos).
 
 
 var bingoList_v3 = [
@@ -268,7 +269,7 @@ var bingoList_v3 = [
 	{name: "Put a Pigman in Water"},
 	{name: "Place an Iron, Gold and Diamond block on top of each other"},
 	{name: "Kill a hostile mob with an Anvil"},
-	{name: "Never Die", tooltiptext: "No death allowed, including if directly caused by completing the last goal (e.g. inadvertently dying to the explosion of \"Detonate a TNT-Minecart\")", catalyst: "Death"},
+	{name: "Never Die", tooltiptext: "No death allowed, including if immediately caused by completing the last goal (e.g. inadvertently dying to the explosion of \"Detonate a TNT-Minecart\")", catalyst: "Death"},
 	{name: "Level (16-26)", antisynergy: "Level", frequency: 2},
 	{name: "(2-3) Different Seeds", antisynergy: "Seeds", tooltiptext: "Includes: Beetroot Seeds, Melon Seeds, Nether Wart, Pumpkin Seeds and (Wheat) Seeds. As per the 'A Seedy Place' advancement."},
 	{name: "Wear 4 Different Armour types at the same time",  tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet", tooltipimg: "Goal Tooltip Images/4Armour.jpg", reactant: "WearArmour"},
