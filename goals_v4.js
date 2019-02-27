@@ -2,7 +2,7 @@
 
 // Tags
 var Item = {name: "Item", max: 25}, Stat = {name: "Stat", max: 25}, Action = {name: "Action", max: 25}
-, Build = {name: "Build", max: 25}, RareBiome = {name: "RareBiome", max: 2}, Ocean = {name: "Ocean", max: 5}, Village = {name: "Village", max: 3}, Nether = {name: "Nether", max: 5}, Colour = {name: "Colour", max: 2}, Never = {name: "Never", max: 3}, Combat = {name: "Combat", max: 25}, End = {name: "End", max: 2};
+, Build = {name: "Build", max: 25}, RareBiome = {name: "RareBiome", max: 2}, Ocean = {name: "Ocean", max: 5}, Village = {name: "Village", max: 3}, Nether = {name: "Nether", max: 5}, Colour = {name: "Colour", max: 2}, Never = {name: "Never", max: 3}, Combat = {name: "Combat", max: 25}, End = {name: "End", max: 3};
 
 var bingoList_v4 = [
 

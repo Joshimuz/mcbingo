@@ -231,8 +231,19 @@ var generator_v3 = function(layout, difficulty, bingoList)
 		
 		// TESTING PURPOSES
 		goal.difficulty = sheetLayout[i];
+		
+		console.log(goal);
 	}
+	
+	shuffle(currentSheet);
 
 	return currentSheet;
 }
 
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
