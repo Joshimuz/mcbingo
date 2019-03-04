@@ -97,7 +97,7 @@ var bingoList_v4 = [
 	{name: "Never use a Shield", tags: [Never]},
 	{name: "Jukebox", tags: [Item]},
 	{name: "Build a glass cube and fill the inner with lava", tags: [Action, Build]},
-	{name: "(16-32) Moss Stone", tags: [Item]},
+	{name: "(16-32) Mossy Cobblestone", tags: [Item]},
 	{name: "(5-15) Cacti", tags: [Item, RareBiome]},
 	{name: "(1-3) TNT", tags: [Item]},
 	{name: "Level (8-15)", antisynergy: "Level", frequency: 2, tags: [Stat]},
