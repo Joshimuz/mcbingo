@@ -209,7 +209,7 @@ var bingoList_v4 = [
 [
 	{name: "Wither Skull", tags: [Item, Nether, Combat, RareBiome]},
 	{name: "(6-7) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2, tags: [Item]},
-	{name: "(3-5) Different Gold Items", tags: [Item]},
+	{name: "(4-6) Different Gold Items", antisynergy: "GoldItems", tooltiptext: "Gold Ingots, Ores and Nuggets count as a Gold Item", tags: [Item]},
 	{name: "Beetroot Soup", tags: [Item]},
 	{name: "Emerald", tags: [Item]},
 	{name: "Tame a Horse", tags: [Action]},
@@ -272,7 +272,7 @@ var bingoList_v4 = [
 	{name: "Kill a hostile mob with an Anvil", tags: [Action]},
 	{name: "Never Die", tooltiptext: "No death allowed, including if immediately caused by completing the last goal (e.g. inadvertently dying to the explosion of \"Detonate a TNT-Minecart\")", catalyst: "Death", tags: [Never]},
 	{name: "Level (16-26)", antisynergy: "Level", frequency: 2, tags: [Stat]},
-	{name: "(2-3) Different Seeds", antisynergy: "Seeds", tooltiptext: "Includes Nether Wart and Cocoa Beans", tooltipimg: "Goal Tooltip Images/Seeds.jpg", tags: [Item, RareBiome]},
+	{name: "(2-3) Different Seeds", antisynergy: "Seeds", tooltiptext: "Includes Nether Wart and Cocoa Beans", tags: [Item, RareBiome]},
 	{name: "Wear 4 Different Armour types at the same time",  tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet", tooltipimg: "Goal Tooltip Images/4Armour.jpg", reactant: "WearArmour", tags: [Action]},
 	{name: "Fill a Hopper with 320 items", tags: [Action, Item]},
 	{name: "(16-32) Red Nether Brick Blocks", tags: [Item, Nether]},
@@ -289,7 +289,7 @@ var bingoList_v4 = [
 	{name: "Never use Coal", tooltiptext: "Never use Coal for any crafting recipes or fuel in a furnace, CAN use Charcoal", tooltipimg: "Goal Tooltip Images/NoCoal.jpg", tags: [Never]},
 	{name: "(32-64) Glowstone Dust", tags: [Item, Nether]},
 	{name: "(10-32) Item Frames", tags: [Item]},
-	{name: "(2-3) Different Diamond Items", tags: [Item]},
+	{name: "(3-4) Different Diamond Items", antisynergy: "DiamondItems", tooltiptext: "Diamonds and Ores count as a Diamond Item", tags: [Item]},
 	{name: "Blow up an End Crystal", tags: [Item, Nether, Combat, Action]},
 	{name: "(2-5) Prismarine Crystals", frequency: 2, tags: [Item, Ocean]},
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)", tags: [Action]},
@@ -366,6 +366,8 @@ var bingoList_v4 = [
 	{name: "(11-20) Jungle Wood", frequency: 4, tags: [Item, RareBiome]},
 	{name: "(11-20) Stripped Jungle Wood", reactant: "AxeUse", frequency: 4, tags: [Item, RareBiome]},
 	{name: "(11-20) Stripped Jungle Logs", reactant: "AxeUse", frequency: 4, tags: [Item, RareBiome]},
+	{name: "(5-7) Different Diamond Items", antisynergy: "DiamondItems", tooltiptext: "Diamonds and Ores count as a Diamond Item", tags: [Item]},
+	{name: "(7-8) Different Gold Items", antisynergy: "GoldItems", tooltiptext: "Gold Ingots, Ores and Nuggets count as a Gold Item", tags: [Item]},
 ],
 
 // Very Hard (4)
@@ -392,6 +394,7 @@ var bingoList_v4 = [
 	{name: "(32-64) Blue Ice", tags: [Item]},
 	{name: "Fully power a Conduit", tags: [Item, Ocean, Action]},
 	{name: "Never Craft Sticks", tags: [Never]},
+	{name: "Every item Diamonds are used to Craft", antisynergy: "DiamondItems", tooltiptext: "Block, Axe, Boots, Chestplate, Helmet, Hoe, Leggings, Pickaxe, Shovel, Sword, Enchantment Table, Firework Star and Jukebox", tags: [Item]},
 ]
 
 ];
