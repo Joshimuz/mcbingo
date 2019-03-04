@@ -1,7 +1,7 @@
 // This is part of a version currently in development and may be changed at any time.
 
 // Tags
-var Item = {name: "Item", max: 25}, Stat = {name: "Stat", max: 25}, Action = {name: "Action", max: 25}
+var Item = {name: "Item", max: 25}, Stat = {name: "Stat", max: 5}, Action = {name: "Action", max: 25}
 , Build = {name: "Build", max: 25}, RareBiome = {name: "RareBiome", max: 2}, Ocean = {name: "Ocean", max: 5}, Village = {name: "Village", max: 3}, Nether = {name: "Nether", max: 5}, Colour = {name: "Colour", max: 2}, Never = {name: "Never", max: 3}, Combat = {name: "Combat", max: 25}, End = {name: "End", max: 3};
 
 var bingoList_v4 = [
@@ -71,6 +71,8 @@ var bingoList_v4 = [
 	{name: "(2-10) Raw Cod", antisynergy: "RawCod", frequency: 2, tags: [Item, Ocean]},
 	{name: "(2-5) Raw Salmon", antisynergy: "RawSalmon", frequency: 2, tags: [Item, Ocean]},
 	{name: "(2-3) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2, tags: [Item]},
+	{name: "Breed 1 set of Animals", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "BreedAnimals", frequency: 2, tags: [Action, Stat]},
+	{name: "Crouch a distance of (10-25) meters", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "CrouchDistance", frequency: 2, tags: [Action, Stat]},
 ],
 
 // Easy (1)
@@ -203,6 +205,8 @@ var bingoList_v4 = [
 	{name: "(2-5) Gunpowder", antisynergy: "Gunpowder", frequency: 2, tags: [Item]},
 	{name: "(2-5) Spider Eyes", antisynergy: "SpiderEye", frequency: 2, tags: [Item]},
 	{name: "(4-5) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2, tags: [Item]},
+	{name: "Breed (2-4) sets of Animals", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "BreedAnimals", frequency: 2, tags: [Action, Stat]},
+	{name: "Crouch a distance of (25-50) meters", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "CrouchDistance", frequency: 2, tags: [Action, Stat]},
 ],
 
 // Medium (2) 
@@ -222,7 +226,7 @@ var bingoList_v4 = [
 	{name: "Sleep inside a village", reactant: "Sleep", tags: [Action, Village]},
 	{name: "Kill a Skeleton with it's own Arrow", tags: [Action, Combat]},
 	{name: "Never wear any Armour", catalyst: "WearArmour", tags: [Never]},
-	{name: "Get a Skeleton's Bow", tooltiptext: "Kill Skeletons until you get a rare drop from one, it being their Bow", tooltipimg: "Goal Tooltip Images/Bow.jpg", tags: [Item, Combat]},
+	{name: "Get a Skeleton's Bow", tooltiptext: "Kill Skeletons until you get a rare drop from one, it being their Bow", tags: [Item, Combat]},
 	{name: "Diamond Block", antisynergy: "DiamondBlock", frequency: 2, tags: [Item]},
 	{name: "(2-3) Lapis Lazuli Blocks", tags: [Item]},
 	{name: "Destroy a Monster Spawner", tags: [Action, Combat]},
@@ -294,7 +298,7 @@ var bingoList_v4 = [
 	{name: "(2-5) Prismarine Crystals", frequency: 2, tags: [Item, Ocean]},
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)", tags: [Action]},
 	{name: "Never use a Sword", catalyst: "SwordUse", tooltiptext: "Never use a Sword for Combat or Block Breaking. Holding or crafting is fine.", tooltipimg: "Goal Tooltip Images/NoSword.jpg", tags: [Never]},
-	{name: "Deplete an Iron Sword", reactant: "SwordUse", tooltiptext: "Use an Iron Sword until it breaks, if you are unsure if you did check the Statistics screen!" ,tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg", tags: [Action, Stat]},
+	{name: "Deplete an Iron Sword", reactant: "SwordUse", tooltiptext: "Use an Iron Sword until it breaks, check the 'items' statistics screen!" ,tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg", tags: [Action, Stat]},
 	{name: "Full Diamond Armour", tags: [Item]},
 	{name: "Saddle", tags: [Item]},
 	{name: "Give a mob a Hat", tags: [Action, Combat]},
@@ -314,6 +318,9 @@ var bingoList_v4 = [
 	{name: "Complete a full size Map", antisynergy: "CompleteMap", tags: [Action]},
 	{name: "Blue Shield with White Flower Charge", tags: [Item]},
 	{name: "Tame a Cat", tags: [Action, Village]},
+	{name: "Breed (5-7) sets of Animals", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "BreedAnimals", frequency: 2, tags: [Action, Stat]},
+	{name: "Crouch a distance of (50-100) meters", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "CrouchDistance", frequency: 2, tags: [Action, Stat]},
+	{name: "Kill (75-100) mobs", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "MobKills", tags: [Action, Combat, Stat]},
 ],
 
 // Hard (3)
@@ -345,7 +352,7 @@ var bingoList_v4 = [
 	{name: "Level (27-37)", antisynergy: "Level", frequency: 2, tags: [Stat]},
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/IceCube.jpg", tags: [Action, Build]},
 	{name: "(4-5) Different Seeds", antisynergy: "Seeds", tooltiptext: "Includes Nether Wart and Cocoa Beans", tooltipimg: "Goal Tooltip Images/Seeds.jpg", tags: [Item, RareBiome]},
-	{name: "Finish on top of a stairway to Heaven", tooltiptext: "Using Stairs, build up to 256 Y (the height limit) and stand on the top at the end of the game (If you need to jump over a block to go from bottom to top, it's not a finished stairway)", tooltipimg: "Goal Tooltip Images/FinishStairs.jpg", antisynergy: "Finish", tags: [Action]},
+	{name: "Finish on top of a stairway to Heaven", tooltiptext: "Using Stairs, build up to 256 Y (height limit) and stand on top at the end of the game (If you need to jump over a block it's not a finished stairway)", tooltipimg: "Goal Tooltip Images/FinishStairs.jpg", antisynergy: "Finish", tags: [Action]},
 	{name: "Never place Torches", tags: [Never]},
 	{name: "Get a Ghast into the Overworld", tags: [Action, Nether]},
 	{name: "Enchanted Golden Apple", tags: [Item]},
@@ -378,7 +385,7 @@ var bingoList_v4 = [
 	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Iron, Diamond and yes, even Chainmail", tooltipimg: "Goal Tooltip Images/chainmail chest.jpg", tags: [Item, Combat]},
 	{name: "Nether Star", tags: [Item, Nether, Combat]},
 	{name: "Dragon Egg", tags: [Item, Combat, End]},
-	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count", tooltipimg: "Goal Tooltip Images/NoWitherSkull.jpg", tags: [Item, Combat]},
+	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count", tags: [Item, Combat]},
 	{name: "(5-10) Popped Chorus Fruit", tags: [Item, End]},
 	{name: "Every colour of Dye", tags: [Item, Colour]},
 	{name: "Level (38-50)", antisynergy: "Level", frequency: 2, tags: [Stat]},
