@@ -72,7 +72,7 @@ var bingoList_v4 = [
 	{name: "(2-5) Raw Salmon", antisynergy: "RawSalmon", frequency: 2, tags: [Item, Ocean]},
 	{name: "(2-3) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2, tags: [Item]},
 	{name: "Breed 1 set of Animals", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "BreedAnimals", frequency: 2, tags: [Action, Stat]},
-	{name: "Crouch a distance of (10-25) meters", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "CrouchDistance", frequency: 2, tags: [Action, Stat]},
+	{name: "Crouch a distance of (25-50) meters", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "CrouchDistance", frequency: 2, tags: [Action, Stat]},
 ],
 
 // Easy (1)
@@ -206,14 +206,14 @@ var bingoList_v4 = [
 	{name: "(2-5) Spider Eyes", antisynergy: "SpiderEye", frequency: 2, tags: [Item]},
 	{name: "(4-5) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2, tags: [Item]},
 	{name: "Breed (2-4) sets of Animals", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "BreedAnimals", frequency: 2, tags: [Action, Stat]},
-	{name: "Crouch a distance of (25-50) meters", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "CrouchDistance", frequency: 2, tags: [Action, Stat]},
+	{name: "Crouch a distance of (50-100) meters", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "CrouchDistance", frequency: 2, tags: [Action, Stat]},
 ],
 
 // Medium (2) 
 [
 	{name: "Wither Skull", tags: [Item, Nether, Combat, RareBiome]},
 	{name: "(6-7) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2, tags: [Item]},
-	{name: "(4-6) Different Gold Items", antisynergy: "GoldItems", tooltiptext: "Gold Ingots, Ores and Nuggets count as a Gold Item", tags: [Item]},
+	{name: "(4-6) Different Gold Items", antisynergy: "GoldItems", tooltiptext: "Any item with 'Gold' in it's name (yes even ingots and ores)", tags: [Item]},
 	{name: "Beetroot Soup", tags: [Item]},
 	{name: "Emerald", tags: [Item]},
 	{name: "Tame a Horse", tags: [Action]},
@@ -262,7 +262,7 @@ var bingoList_v4 = [
 	{name: "(5-15) Obsidian", tags: [Item]},
 	{name: "(5-7) Iron Blocks", antisynergy: "IronBlocks", frequency: 2, tags: [Item]},
 	{name: "(3-4) Gold Blocks", antisynergy: "GoldBlocks", frequency: 2, tags: [Item]},
-	{name: "Daylight Sensor", tags: [Item]},
+	{name: "Daylight Detector", tags: [Item]},
 	{name: "Enchanted Golden Sword", tags: [Item]},
 	{name: "(8-11) colours of Wool", antisynergy: "WoolColour", frequency: 4, tags: [Item, Colour]},
 	{name: "(8-11) Colours of Terracotta", antisynergy: "TerracottaColour", frequency: 4, tags: [Item, Colour]},
@@ -293,7 +293,7 @@ var bingoList_v4 = [
 	{name: "Never use Coal", tooltiptext: "Never use Coal for any crafting recipes or fuel in a furnace, CAN use Charcoal", tooltipimg: "Goal Tooltip Images/NoCoal.jpg", tags: [Never]},
 	{name: "(32-64) Glowstone Dust", tags: [Item, Nether]},
 	{name: "(10-32) Item Frames", tags: [Item]},
-	{name: "(3-4) Different Diamond Items", antisynergy: "DiamondItems", tooltiptext: "Diamonds and Ores count as a Diamond Item", tags: [Item]},
+	{name: "(3-4) Different Diamond Items", antisynergy: "DiamondItems", tooltiptext: "Any item with 'Diamond' in it's name (yes even itself)", tags: [Item]},
 	{name: "Blow up an End Crystal", tags: [Item, Nether, Combat, Action]},
 	{name: "(2-5) Prismarine Crystals", frequency: 2, tags: [Item, Ocean]},
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)", tags: [Action]},
@@ -319,8 +319,9 @@ var bingoList_v4 = [
 	{name: "Blue Shield with White Flower Charge", tags: [Item]},
 	{name: "Tame a Cat", tags: [Action, Village]},
 	{name: "Breed (5-7) sets of Animals", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "BreedAnimals", frequency: 2, tags: [Action, Stat]},
-	{name: "Crouch a distance of (50-100) meters", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "CrouchDistance", frequency: 2, tags: [Action, Stat]},
+	{name: "Crouch a distance of (100-200) meters", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "CrouchDistance", frequency: 2, tags: [Action, Stat]},
 	{name: "Kill (75-100) mobs", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "MobKills", tags: [Action, Combat, Stat]},
+	{name: "Enchanted item", tags: [Item]},
 ],
 
 // Hard (3)
@@ -373,8 +374,8 @@ var bingoList_v4 = [
 	{name: "(11-20) Jungle Wood", frequency: 4, tags: [Item, RareBiome]},
 	{name: "(11-20) Stripped Jungle Wood", reactant: "AxeUse", frequency: 4, tags: [Item, RareBiome]},
 	{name: "(11-20) Stripped Jungle Logs", reactant: "AxeUse", frequency: 4, tags: [Item, RareBiome]},
-	{name: "(5-7) Different Diamond Items", antisynergy: "DiamondItems", tooltiptext: "Diamonds and Ores count as a Diamond Item", tags: [Item]},
-	{name: "(7-8) Different Gold Items", antisynergy: "GoldItems", tooltiptext: "Gold Ingots, Ores and Nuggets count as a Gold Item", tags: [Item]},
+	{name: "(5-7) Different Diamond Items", antisynergy: "DiamondItems", tooltiptext: "Any item with 'Diamond' in it's name (yes even itself)", tags: [Item]},
+	{name: "(7-8) Different Gold Items", antisynergy: "GoldItems", tooltiptext: "Any item with 'Gold' in it's name (yes even ingots and ores)", tags: [Item]},
 ],
 
 // Very Hard (4)
