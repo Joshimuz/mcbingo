@@ -229,7 +229,6 @@ var bingoList_v4 = [
 	{name: "Get a Skeleton's Bow", tooltiptext: "Kill Skeletons until you get a rare drop from one, it being their Bow", tags: [Item, Combat]},
 	{name: "Diamond Block", antisynergy: "DiamondBlock", frequency: 2, tags: [Item]},
 	{name: "(2-3) Lapis Lazuli Blocks", tags: [Item]},
-	{name: "Destroy a Monster Spawner", tags: [Action, Combat]},
 	{name: "(2-5) Different Saplings", tags: [Item]},
 	{name: "Tame a Wolf", tags: [Action, RareBiome]},
 	{name: "6 Fire Charges", tags: [Item, Nether, Combat]},
@@ -376,6 +375,8 @@ var bingoList_v4 = [
 	{name: "(11-20) Stripped Jungle Logs", reactant: "AxeUse", frequency: 4, tags: [Item, RareBiome]},
 	{name: "(5-7) Different Diamond Items", antisynergy: "DiamondItems", tooltiptext: "Any item with 'Diamond' in it's name (yes even itself)", tags: [Item]},
 	{name: "(7-8) Different Gold Items", antisynergy: "GoldItems", tooltiptext: "Any item with 'Gold' in it's name (yes even ingots and ores)", tags: [Item]},
+	{name: "Destroy a Monster Spawner", tags: [Action, Combat]},
+	{name: "Never Craft Sticks", tags: [Never]},
 ],
 
 // Very Hard (4)
@@ -401,8 +402,8 @@ var bingoList_v4 = [
 	{name: "5 types of Coral Blocks", tooltiptext: "The alive stuff, not the Dead Coral Blocks", tooltipimg: "Goal Tooltip Images/CoralBlocks.jpg", tags: [Item, RareBiome, Ocean]},
 	{name: "(32-64) Blue Ice", tags: [Item]},
 	{name: "Fully power a Conduit", tags: [Item, Ocean, Action]},
-	{name: "Never Craft Sticks", tags: [Never]},
 	{name: "Every item Diamonds are used to Craft", antisynergy: "DiamondItems", tooltiptext: "Block, Axe, Boots, Chestplate, Helmet, Hoe, Leggings, Pickaxe, Shovel, Sword, Enchantment Table, Firework Star and Jukebox", tags: [Item]},
+	{name: "Get a Shulker into the Overworld", tags: [Action, Combat, End]},
 ]
 
 ];
