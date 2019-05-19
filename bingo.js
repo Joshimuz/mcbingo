@@ -66,6 +66,8 @@ $(document).ready(function()
 		$(".tooltipQ").addClass("tooltipQhidden");
 	}); */
 
+	$("#export").hide();
+
 	// On clicking a goal square
 	$("#bingo td").click(function()
 	{
@@ -525,6 +527,26 @@ function copySeedToClipboard(id)
 		// Deselect
 		$(id).blur();
 	}
+}
+
+function createGoalExport()
+{
+	let result = [];
+	for (var i=0; i<25; i++)
+	{
+		var slotId = "#slot"+ (i + 1);
+		result.push({
+			name: $(slotId).text(),
+			tooltip: $(slotId).data("tooltiptext")
+		});
+	}
+	$("#export textarea").text(JSON.stringify(result));
+	$("#export").show();
+}
+
+function hideGoalExport()
+{
+	$("#export").hide();
 }
 
 // Made this a function for readability and ease of use

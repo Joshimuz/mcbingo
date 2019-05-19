@@ -129,7 +129,8 @@
 				<li>Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</li>
 				<li>Stream the race!</li>
 			</ul>
-			<p><em>Note:</em> These rules are the recommended rules to play this Bingo. If everyone in the race agrees, then of course a modified set of rules can be used.</p>
+			<p><em>Note:</em> This is the recommended way to play Minecraft Bingo, however if everyone in the race agrees, then of course a modified set of rules can be used.</p>
+			<p><em>Tip:</em> You can <a href="javascript:createGoalExport()">export the current sheet as JSON</a>.</p>
 			<a href="https://github.com/Joshimuz/mcbingo"><img src="github-img.png" width='200px'></a>
 			<h2>Version</h2>
 			<p>To ensure that each created Bingo Sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL. If you got linked this page for a race you should not change the version since this will most likely result in different goals.</p>
@@ -139,6 +140,11 @@
 		<div id="tooltip">
 			<img src="" id="tooltipimg" />
 			<span id="tooltiptext"></span>
+		</div>
+		<div id="export">
+			<p>The goals of the current sheet as JSON:</p>
+			<textarea readonly="readonly"></textarea>
+			<a href="javascript:hideGoalExport()">Hide</a>
 		</div>
 	</body>
 </html>
