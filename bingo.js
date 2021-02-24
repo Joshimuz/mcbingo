@@ -26,8 +26,8 @@ var hoveredSquare;
 var VERSIONS = [
 	{ id:"1", name:"v1",			goals: bingoList_v1, generator: generator_v1, stable: true },
 	{ id:"2", name:"v2",			goals: bingoList_v2, generator: generator_v2, stable: true },
-	{ id:"3", name:"v3 [1.13]", 		goals: bingoList_v3, generator: generator_v2, stable: true },
-	{ id:"dev", name:"dev-version", 	goals: bingoList_v4, generator: generator_v3, stable: false }, // Dev version
+	{ id:"3", name:"v3 [1.13.2]", 		goals: bingoList_v3, generator: generator_v2, stable: true },
+	{ id:"dev", name:"dev-version [1.13.2]", 	goals: bingoList_v4, generator: generator_v3, stable: false }, // Dev version
 ];
 
 // This is the newest stable version that users not specifying a version will get
@@ -65,6 +65,8 @@ $(document).ready(function()
 	{
 		$(".tooltipQ").addClass("tooltipQhidden");
 	}); */
+
+	$("#export").hide();
 
 	// On clicking a goal square
 	$("#bingo td").click(function()
@@ -525,6 +527,26 @@ function copySeedToClipboard(id)
 		// Deselect
 		$(id).blur();
 	}
+}
+
+function createGoalExport()
+{
+	let result = [];
+	for (var i=0; i<25; i++)
+	{
+		var slotId = "#slot"+ (i + 1);
+		result.push({
+			name: $(slotId).text(),
+			tooltip: $(slotId).data("tooltiptext")
+		});
+	}
+	$("#export textarea").text(JSON.stringify(result));
+	$("#export").show();
+}
+
+function hideGoalExport()
+{
+	$("#export").hide();
 }
 
 // Made this a function for readability and ease of use
