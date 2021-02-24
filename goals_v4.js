@@ -1,8 +1,18 @@
 // This is part of a version currently in development and may be changed at any time.
 
 // Tags
-var Item = {name: "Item", max: 25}, Stat = {name: "Stat", max: 5}, Action = {name: "Action", max: 25}
-, Build = {name: "Build", max: 25}, RareBiome = {name: "RareBiome", max: 2}, Ocean = {name: "Ocean", max: 5}, Village = {name: "Village", max: 3}, Nether = {name: "Nether", max: 5}, Colour = {name: "Colour", max: 2}, Never = {name: "Never", max: 3}, Combat = {name: "Combat", max: 25}, End = {name: "End", max: 3};
+var Item = {name: "Item", max: 25}, 
+Stat = {name: "Stat", max: 5}, 
+Action = {name: "Action", max: 25}, 
+Build = {name: "Build", max: 25}, 
+RareBiome = {name: "RareBiome", max: 2}, 
+Ocean = {name: "Ocean", max: 5}, 
+Village = {name: "Village", max: 3}, 
+Nether = {name: "Nether", max: 5}, 
+Colour = {name: "Colour", max: 2}, 
+Never = {name: "Never", max: 3}, 
+Combat = {name: "Combat", max: 25}, 
+End = {name: "End", max: 3};
 
 var bingoList_v4 = [
 
