@@ -391,7 +391,7 @@ var bingoList_v4 = [
 
 // Very Hard (4)
 [
-	{name: "(4-6) Different Ores (Silk Touch)", tooltiptext: "Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quatz and Redstone ores are your choices", tooltipimg: "Goal Tooltip Images/Ores.jpg", tags: [Item]},
+	{name: "(4-6) Different Ores (Silk Touch)", tooltiptext: "Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quartz and Redstone ores are your choices", tooltipimg: "Goal Tooltip Images/Ores.jpg", tags: [Item]},
 	{name: "(7-9) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy", tooltipimg: "Goal Tooltip Images/Potions.jpg", tags: [Item, Nether, Combat]},
 	{name: "Cure a Zombie Villager", tags: [Action]},
 	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Iron, Diamond and yes, even Chainmail", tooltipimg: "Goal Tooltip Images/chainmail chest.jpg", tags: [Item, Combat]},
