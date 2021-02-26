@@ -157,7 +157,7 @@ var bingoList_v4 = [
 	{name: "Lime Dye", frequency: 10, tags: [Item]},
 	{name: "Never Sleep", catalyst: "Sleep", tags: [Never, Action]},
 	{name: "Grow a Huge Mushroom", tags: [Action]},
-	{name: "Water Bucket, Lava Bucket and Milk Bucket", antisynergy: "BucketTypes", reactant: "UseBuckets", tags: [Item]},
+	{name: "Water, Lava and Milk Bucket", antisynergy: "BucketTypes", reactant: "UseBuckets", tags: [Item]},
 	{name: "(3-6) Different Flowers", antisynergy: "Flowers", frequency: 3, tags: [Item]},
 	{name: "(3-6) Colours of Concrete", antisynergy: "ConcreteColour", frequency: 4, tags: [Item, Colour]},
 	{name: "(3-6) Colours of Glazed Terracotta", antisynergy: "GlazedColour", frequency: 4, tags: [Item, Colour]},
@@ -316,7 +316,7 @@ var bingoList_v4 = [
 	{name: "Phantom Membrane", tags: [Item, Combat]},
 	{name: "Turtle Shell", tags: [Item, Ocean]},
 	{name: "Add a Marker to a Map", tags: [Action]},
-	{name: "Water Bucket, Lava Bucket, Milk Bucket, Bucket of Fish", antisynergy: "BucketTypes", reactant: "UseBuckets", tooltiptext: "Can be any of the types of Fish", tooltipimg: "Goal Tooltip Images/FishBucket.jpg", tags: [Item]},
+	{name: "Water, Lava, Milk and Fish Bucket", antisynergy: "BucketTypes", reactant: "UseBuckets", tooltiptext: "Can be any of the types of Fish", tooltipimg: "Goal Tooltip Images/FishBucket.jpg", tags: [Item]},
 	{name: "Leash a Dolphin to a Fence", tags: [Action, Ocean, RareBiome]},
 	{name: "(21-32) Dried Kelp Blocks", antisynergy: "KelpBlocks", tags: [Item, Ocean]},
 	{name: "(6-15) Gunpowder", antisynergy: "Gunpowder", frequency: 2, tags: [Item, Combat]},
@@ -331,6 +331,7 @@ var bingoList_v4 = [
 	{name: "Crouch a distance of (100-200) meters", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "CrouchDistance", frequency: 2, tags: [Action, Stat]},
 	{name: "Kill (75-100) mobs", tooltiptext: "Check the 'general' statistics screen!", antisynergy: "MobKills", tags: [Action, Combat, Stat]},
 	{name: "Enchanted item", tags: [Item]},
+	{name: "(33-64) Seagrass", tags: [Item, Ocean]},
 ],
 
 // Hard (3)
@@ -414,6 +415,7 @@ var bingoList_v4 = [
 	{name: "Fully power a Conduit", tags: [Item, Ocean, Action]},
 	{name: "Every item Diamonds are used to Craft", antisynergy: "DiamondItems", tooltiptext: "Block, Axe, Boots, Chestplate, Helmet, Hoe, Leggings, Pickaxe, Shovel, Sword, Enchantment Table, Firework Star and Jukebox", tags: [Item]},
 	{name: "Get a Shulker into the Overworld", tags: [Action, Combat, End]},
+	{name: "(10-20) Diamond Blocks", antisynergy: "DiamondBlock", frequency: 2, tags: [Item]},
 ]
 
 ];
