@@ -1,3 +1,11 @@
+---
+name: New Goal Suggestion
+about: Suggest a new goal to be added
+title: "[NEW GOAL]"
+labels: New Goal
+assignees: Joshimuz
+
+---
 **Name of the Goal**
 What should the name of the Goal be? This is the text that is used inside the squares on the sheet
 
