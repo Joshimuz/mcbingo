@@ -6,13 +6,13 @@ The name should also be as short as possible for ease of reading as well as size
 Goals that require gathering of items can simply be the Items Name with a number (or a range) if it should be multiple. Like: "(2-10) Feathers"*
 
 **Tooltip for the Goal**
-*What should the Tooltip for this Goal be, if anything?
+What should the Tooltip for this Goal be, if anything?
 
-The Tooltip should be purely factual, and only explain details that can't be explained within the name.
+*The Tooltip should be purely factual, and only explain details that can't be explained within the name.
 Try to keep the wording as short as possible.*
 
 **Tooltip Image**
-*What should the Image for the Tooltip be? Either link or attach an image here.*
+What should the Image for the Tooltip be? Either link or attach an image here.
 
 *Every Tooltip should have an image.
 The image should be 64x64 and a .jpg, and help explain the goal visually.*
