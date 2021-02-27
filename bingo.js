@@ -555,17 +555,19 @@ function getRandomInt(min, max)
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// gup source: www.netlobo.com/url_query_string_javascript.html
+// https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
 function gup( name )
 {
-  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-  var regexS = "[\\?&]"+name+"=([^&#]*)";
-  var regex = new RegExp( regexS );
-  var results = regex.exec( window.location.href );
-  if( results == null )
-    return "";
-  else
-    return results[1];
+	let params = new URLSearchParams(document.location.search.substring(1));
+	let result = params.get(name);
+	if (result == null)
+	{
+		return "";
+	}
+	else
+	{
+		return result;
+	}
 }
 
 // random source: www.engin33r.net/bingo/random.js
