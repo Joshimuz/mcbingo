@@ -39,6 +39,7 @@ What other preexisting Goals shouldn't be on the same sheet as this Goal?
 What do you think is good about this Goal?
 
 *Is it cool or funny? Like: "Kill yourself with your own arrow"
-Does it teach the player about an interesting or niche game mechanic? Like:
+Does it teach the player about an interesting or niche game mechanic? Like: "Kill a hostile mob with an Anvil"
 Will it force players to think carefully about their plan? Like: "Never Use Coal"
+Can it give knowledgeable players an edge? Like going to the Nether without getting a Diamond Pickaxe
 Or is it just a simple goal that fits the Difficulty well? Like: "Iron Block" for Very Easy*
