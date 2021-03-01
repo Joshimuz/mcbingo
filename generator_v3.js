@@ -146,24 +146,27 @@ var generator_v3 = function(layout, difficulty, bingoList)
 						cont = false;
 					}
 					// Check if the goal generated has any anti synergy with anything already on the sheet
-					else if (currentSheet[z].antisynergy == goalCandidate.antisynergy && typeof currentSheet[z].antisynergy !== 'undefined')
+					else if (typeof currentSheet[z].antisynergy !== 'undefined' && typeof goalCandidate.antisynergy !== 'undefined'
+						&& currentSheet[z].antisynergy.some(r=> goalCandidate.antisynergy.includes(r)))
 					{
 						// If it is get a new goal
-						//console.log("cont = false, antisynergy on sheet");
+						console.log("antisynergy between: " + goalCandidate.name + " and " + currentSheet[z].name);
 						cont = false;
 					}
 					// Check if the goal generated is a catalyst for anything already on the sheet
-					else if (currentSheet[z].reactant == goalCandidate.catalyst && typeof currentSheet[z].reactant !== 'undefined')
+					else if (typeof currentSheet[z].reactant !== 'undefined' && typeof goalCandidate.catalyst !== 'undefined'
+						&& currentSheet[z].reactant.some(r=> goalCandidate.catalyst.includes(r)))
 					{
 						// If it is get a new goal
-						//console.log("cont = false, goal is catalyst for one on sheet");
+						console.log("catalyst/reactant between: " + goalCandidate.name + " and " + currentSheet[z].name);
 						cont = false;
 					}
 					// Check if the goal generated is a reactant for anything already on the sheet
-					else if (currentSheet[z].catalyst == goalCandidate.reactant && typeof currentSheet[z].catalyst !== 'undefined')
+					else if (typeof currentSheet[z].catalyst !== 'undefined' && typeof goalCandidate.reactant !== 'undefined'
+						&& currentSheet[z].catalyst.some(r=> goalCandidate.reactant.includes(r)))
 					{
 						// If it is get a new goal
-						//console.log("cont = false, goal is reactant for one on sheet");
+						console.log("catalyst/reactant between: " + goalCandidate.name + " and " + currentSheet[z].name);
 						cont = false;
 					}
 					
