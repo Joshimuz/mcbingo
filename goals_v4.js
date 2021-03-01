@@ -353,7 +353,7 @@ var bingoList_v4 = [
 	{name: "Finish by launching Fireworks of (5-10) Different Colours", antisynergy: ["Finish"], tags: [Action, Item, Colour, Overworld]},
 	{name: "Nametag an Enderman", tags: [Action, Combat, Overworld]},
 	{name: "Kill yourself with an Ender Pearl", tooltiptext: "Need to die to the small fall damage taken from using a pearl", tooltipimg: "Goal Tooltip Images/EnderPearl.jpg", reactant: ["Death", "Pacifist"], tags: [Action]},
-	{name: "Finish on top of a Blaze spawner", tooltiptext: "Be stood on top of a Blaze spawner at the end of the game", tooltipimg: "Goal Tooltip Images/BlazeSpawner.jpg", antisynergy: ["Finish"], tags: [Action, Nether, Combat]},
+	{name: "Finish on top of a Blaze spawner", tooltiptext: "Be stood on top of a Blaze spawner at the end of the game", antisynergy: ["Finish"], tags: [Action, Nether, Combat]},
 	{name: "(12-15) colours of Wool", antisynergy: ["WoolColour"], frequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(12-15) Colours of Terracotta", antisynergy: ["TerracottaColour"], frequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(11-14) Colours of Glazed Terracotta", antisynergy: ["GlazedColour"], frequency: 4, tags: [Item, Colour, Overworld]},
