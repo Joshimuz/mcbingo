@@ -27,7 +27,7 @@ var VERSIONS = [
 	{ id:"1", name:"v1",			goals: bingoList_v1, generator: generator_v1, stable: true },
 	{ id:"2", name:"v2",			goals: bingoList_v2, generator: generator_v2, stable: true },
 	{ id:"3", name:"v3 [1.13.2]", 		goals: bingoList_v3, generator: generator_v2, stable: true },
-	{ id:"dev", name:"dev-version [1.13.2]", 	goals: bingoList_v4, generator: generator_v3, stable: false }, // Dev version
+	{ id:"dev", name:"dev [1.16.5]", 	goals: bingoList_v4, generator: generator_v3, stable: false }, // Dev version
 ];
 
 // This is the newest stable version that users not specifying a version will get
