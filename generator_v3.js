@@ -191,9 +191,9 @@ var generator_v3 = function(layout, difficulty, bingoList)
 			{
 				for (var x = 0, len = goalCandidate.tags.length; x < len; x++)
 				{
-					if (tagCount[x] > goalCandidate.tags[x].max)
+					if (tagCount[x] >= goalCandidate.tags[x].max[difficulty - 1])
 					{
-						//console.log("cont = false, tag count is " + tagCount[x]);
+						console.log(goalCandidate.tags[x].name + " max reached with " + tagCount[x] + " on the board");
 						cont = false;
 					}
 					
@@ -214,6 +214,8 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				// Move the difficulty down by one
 				sheetLayout[i]--;
 				failSafe = 0;
+
+				console.log("failSafe occurred on " + (i + 1) + "/25, reducing goal difficulty to " + sheetLayout[i]);
 			}
 		}
 		while (!cont);
@@ -230,12 +232,14 @@ var generator_v3 = function(layout, difficulty, bingoList)
 		currentSheet[i] = goal;
 		
 		// TESTING PURPOSES
-		goal.difficulty = sheetLayout[i];
+		//goal.difficulty = sheetLayout[i];
 		
-		console.log(goal);
+		//console.log(goal);
 	}
 	
 	shuffle(currentSheet);
+
+	console.log("Completed sheet generation");
 
 	return currentSheet;
 }
