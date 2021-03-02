@@ -166,7 +166,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 						&& currentSheet[z].catalyst.some(r=> goalCandidate.reactant.includes(r)))
 					{
 						// If it is get a new goal
-						console.log("catalyst/reactant between: " + goalCandidate.name + " and " + currentSheet[z].name);
+						console.log("reactant/catalyst between: " + goalCandidate.name + " and " + currentSheet[z].name);
 						cont = false;
 					}
 					
