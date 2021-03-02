@@ -219,7 +219,7 @@ var bingoList_v3 = [
 	{name: "Damaged Anvil"},
 	{name: "(16-64) Melons (Slices)"},
 	{name: "Sleep inside a village", reactant: "Sleep"},
-	{name: "Kill a Skeleton with it's own Arrow"},
+	{name: "Kill a Skeleton with its own Arrow"},
 	{name: "Never wear any Armour", catalyst: "WearArmour"},
 	{name: "Get a Skeleton's Bow", tooltiptext: "Get the rare Bow item drop from a Skeleton"},
 	{name: "Diamond Block", antisynergy: "DiamondBlock", frequency: 2},
