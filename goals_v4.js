@@ -260,7 +260,7 @@ var bingoList_v4 = [
 	{name: "Damaged Anvil", tags: [Item]},
 	{name: "(16-64) Melons (Slices)", tags: [Item, Overworld]},
 	{name: "Sleep in a Villager's bed", reactant: ["Sleep"], tags: [Action, Village, Overworld]},
-	{name: "Kill a Skeleton with it's own Arrow", reactant: ["Pacifist"], tags: [Action, Combat]},
+	{name: "Kill a Skeleton with its own Arrow", reactant: ["Pacifist"], tags: [Action, Combat]},
 	{name: "Never wear any Armour", catalyst: ["WearArmour"], tags: [Never]},
 	{name: "Get a Skeleton's Bow", reactant: ["Pacifist"], tooltiptext: "Kill Skeletons until you get a rare drop from one, it being their Bow", tags: [Item, Combat]},
 	{name: "Diamond Block", antisynergy: ["DiamondBlock"], frequency: 2, tags: [Item]},
@@ -300,7 +300,7 @@ var bingoList_v4 = [
 	{name: "(3-4) Gold Blocks", antisynergy: ["GoldBlocks"], frequency: 2, tags: [Item]},
 	{name: "Daylight Detector", tags: [Item, Overworld]},
 	{name: "Enchanted Golden Sword", tags: [Item]},
-	{name: "(8-11) colours of Wool", antisynergy: ["WoolColour"], frequency: 4, tags: [Item, Colour, Overworld]},
+	{name: "(8-11) Colours of Wool", antisynergy: ["WoolColour"], frequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(8-11) Colours of Terracotta", antisynergy: ["TerracottaColour"], frequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(7-10) Colours of Glazed Terracotta", antisynergy: ["GlazedColour"], frequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(7-10) Colours of Concrete", antisynergy: ["ConcreteColour"], frequency: 4, tags: [Item, Colour, Overworld]},
@@ -407,7 +407,7 @@ var bingoList_v4 = [
 	{name: "Nametag an Enderman", tags: [Action, Combat, Overworld]},
 	{name: "Kill yourself with an Ender Pearl", tooltiptext: "Need to die to the small fall damage taken from using a pearl", tooltipimg: "Goal Tooltip Images/EnderPearl.jpg", reactant: ["Death", "Pacifist"], tags: [Action]},
 	{name: "Finish on top of a Blaze spawner", tooltiptext: "Be stood on top of a Blaze spawner at the end of the game", antisynergy: ["Finish"], tags: [Action, Nether, Combat]},
-	{name: "(12-15) colours of Wool", antisynergy: ["WoolColour"], frequency: 4, tags: [Item, Colour, Overworld]},
+	{name: "(12-15) Colours of Wool", antisynergy: ["WoolColour"], frequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(12-15) Colours of Terracotta", antisynergy: ["TerracottaColour"], frequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(11-14) Colours of Glazed Terracotta", antisynergy: ["GlazedColour"], frequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(11-14) Colours of Concrete", antisynergy: ["ConcreteColour"], frequency: 4, tags: [Item, Colour, Overworld]},
@@ -497,6 +497,7 @@ var bingoList_v4 = [
 	{name: "Kill a Wandering Trader", reactant: ["Pacifist"], tags: [Action, Overworld, Combat]},
 	{name: "2 Blocks of Netherite", tags: [Item, Nether]},
 	{name: "Full Netherite Armour and Tools", tags: [Item, Nether]},
+	{name: "Convert a Pig into a Zombified Piglin", tags: [Action, Overworld]},
 ]
 
 ];
