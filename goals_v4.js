@@ -249,7 +249,7 @@ var bingoList_v4 = [
 // Medium (2) 
 [
 	{name: "(6-7) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: ["EdibleItems"], frequency: 2, tags: [Item, Overworld]},
-	{name: "(4-6) Different Gold Items", antisynergy: ["GoldItems"], tooltiptext: "Any item with 'Gold' in it's name (yes even ingots and ores)", tags: [Item]},
+	{name: "(4-6) Different Gold Items", antisynergy: ["GoldItems"], tooltiptext: "Any item with 'Gold' in its name (yes even ingots and ores)", tags: [Item]},
 	{name: "Beetroot Soup", tags: [Item, Overworld]},
 	{name: "Emerald", tags: [Item, Overworld]},
 	{name: "Tame a Horse", tags: [Action, Overworld]},
@@ -328,7 +328,7 @@ var bingoList_v4 = [
 	{name: "Never use Coal", tooltiptext: "Never use Coal for any crafting recipes or fuel in a furnace, CAN use Charcoal", tooltipimg: "Goal Tooltip Images/NoCoal.jpg", tags: [Never]},
 	{name: "(32-64) Glowstone Dust", tags: [Item, Nether]},
 	{name: "(10-32) Item Frames", tags: [Item]},
-	{name: "(3-4) Different Diamond Items", antisynergy: ["DiamondItems"], tooltiptext: "Any item with 'Diamond' in it's name (yes even itself)", tags: [Item]},
+	{name: "(3-4) Different Diamond Items", antisynergy: ["DiamondItems"], tooltiptext: "Any item with 'Diamond' in its name (yes even itself)", tags: [Item]},
 	{name: "(2-5) Prismarine Crystals", frequency: 2, tags: [Item, Ocean, Overworld]},
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)", tooltiptext: "Sea Level is Y = 63, but starting from higher is fine", tags: [Action, Overworld]},
 	{name: "Never use a Sword", catalyst: ["SwordUse"], tooltiptext: "Never use a Sword for Combat or Block Breaking. Holding or crafting is fine", tooltipimg: "Goal Tooltip Images/NoSword.jpg", tags: [Never]},
@@ -439,8 +439,8 @@ var bingoList_v4 = [
 	{name: "(11-20) Jungle Wood", frequency: 4, tags: [Item, RareBiome, Overworld]},
 	{name: "(11-20) Stripped Jungle Wood", reactant: ["AxeUse"], frequency: 4, tags: [Item, RareBiome, Overworld]},
 	{name: "(11-20) Stripped Jungle Logs", reactant: ["AxeUse"], frequency: 4, tags: [Item, RareBiome, Overworld]},
-	{name: "(5-7) Different Diamond Items", antisynergy: ["DiamondItems"], tooltiptext: "Any item with 'Diamond' in it's name (yes even itself)", tags: [Item]},
-	{name: "(7-8) Different Gold Items", antisynergy: ["GoldItems"], tooltiptext: "Any item with 'Gold' in it's name (yes even ingots and ores)", tags: [Item]},
+	{name: "(5-7) Different Diamond Items", antisynergy: ["DiamondItems"], tooltiptext: "Any item with 'Diamond' in its name (yes even itself)", tags: [Item]},
+	{name: "(7-8) Different Gold Items", antisynergy: ["GoldItems"], tooltiptext: "Any item with 'Gold' in its name (yes even ingots and ores)", tags: [Item]},
 	{name: "Destroy a Monster Spawner", tags: [Action, Combat]},
 	{name: "(32-64) Popped Chorus Fruit", tags: [Item, End]},
 	{name: "Get a villager into The End", tags: [Action, End, Village]},
