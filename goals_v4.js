@@ -95,7 +95,7 @@ var bingoList_v4 = [
 // Easy (1)
 [
 	{name: "(2-4) Different Fish", reactant: ["Pacifist"], tags: [Item, Overworld]},
-	{name: "Grow a Tree in the Nether", tooltiptext: "The Huge Crimson/Warped fungi don't count", tags: [Action, Nether, Overworld]},
+	{name: "Grow a Tree in the Nether", tooltiptext: "The Huge Crimson/Warped Fungi don't count", tags: [Action, Nether, Overworld]},
 	{name: "(4-7) Colours of Terracotta", antisynergy: ["TerracottaColour"], frequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(1-5) Mushroom Stew", tags: [Item]},
 	{name: "Shoot a Button with an Arrow", tags: [Action]},
@@ -369,7 +369,7 @@ var bingoList_v4 = [
 	{name: "(2-3) Honeycomb Blocks", antisynergy: ["Honeycomb"], frequency: 2, tags: [Action, Overworld]},
 	{name: "Repair an Iron Golem", tags: [Action, Overworld, Village]},
 	{name: "Grow a Tree with a Bee Nest attached", tags: [Action, Overworld]},
-	{name: "Grow a Huge Fungi in the Overworld", tags: [Action, Overworld, Nether]},
+	{name: "Grow a Huge Fungus in the Overworld", tags: [Action, Overworld, Nether]},
 	{name: "(16-32) Warped Stem", frequency: 25, tags: [Item, Nether]},
 	{name: "(16-32) Stripped Warped Stem", frequency: 25, tags: [Item, Nether]},
 	{name: "(16-32) Warped Hyphae", frequency: 25, tags: [Item, Nether]},
