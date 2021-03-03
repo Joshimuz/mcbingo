@@ -478,7 +478,7 @@ var bingoList_v4 = [
 	{name: "Cure a Zombie Villager", tags: [Action, Overworld]},
 	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Chainmail, Iron, Diamond and yes, even Netherite", tooltipimg: "Goal Tooltip Images/chainmail chest.jpg", tags: [Item, Combat]},
 	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count", tags: [Item, Combat, Overworld]},
-	{name: "Every colour of Dye", reactant: ["Pacifist"], tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tags: [Item, Colour, Overworld]},
+	{name: "Every colour of Dye", reactant: ["Pacifist"], tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tooltipimg: "Goal Tooltip Images/EveryColourOfDye.png", tags: [Item, Colour, Overworld]},
 	{name: "Level (38-50)", antisynergy: ["Level"], frequency: 2, tags: [Stat]},
 	{name: "Fill a Double Chest with 3456 items", reactant: ["UseChests"], tags: [Item, Action]},
 	{name: "(16-32) Tipped Arrows", tags: [Item, Nether, Overworld]},
