@@ -456,7 +456,7 @@ var bingoList_v4 = [
 	{name: "Finish by building a Scaffolding tower, then removing it", tooltiptext: "Build a 1x1 Scaffolding Tower from Bedrock to the Height Limit (256 Y) and then knock it all down, as the final goal", antisynergy: ["Finish"], tags: [Build, Overworld]},
 	{name: "Feed a Panda a Cake", tags: [Action, Overworld, RareBiome]},
 	{name: "Make two Pandas breed", tags: [Action, Overworld, RareBiome]},
-	{name: "Disarm a Pillager", tooltiptext: "Get a PIllager to not be holding any Weapons", tags: [Action, Overworld, Combat]},
+	{name: "Disarm a Pillager", tooltiptext: "Get a Pillager to not be holding any Weapons", tags: [Action, Overworld, Combat]},
 	{name: "Stun a Ravager", tags: [Action, Overworld, Combat, Village]},
 	{name: "Become Hero of the Village", tags: [Action, Overworld, Combat, Village]},
 	{name: "Gain an Ocelot's Trust", tags: [Action, Overworld, RareBiome]},
