@@ -391,7 +391,6 @@ input[type=range]::-ms-thumb {
 	position:relative;
 	float: left;
 	text-decoration: none;
-	line-height: 50px;
 	margin-top: 10px;
 }
 
