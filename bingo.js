@@ -209,7 +209,7 @@ $(document).ready(function()
 
 	fillVersionSelection();
 	$("#version_selection").change(function() {
-		changeVersion($("#version_selection").val());
+		changeVersion($(this).val());
 	});
 
 
