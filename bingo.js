@@ -35,13 +35,18 @@ var VERSIONS = [
 // This is the newest stable version that users not specifying a version will get
 var LATEST_VERSION = "3";
 
-// Button Functions, Open when clicked checks if the element is part of the parent tree, if not closes.
+// Dropdown menu handling.
 $(document).click(function(event) {
-	if (event.target.id == 'options-toggle-button') {
-		$('#options-dropdown-main').toggle(100);
-	} else if (!$(event.target).closest(".dropdown-holder").length) {
-		// Hide if click was anywhere BUT on the options menu
-		$('#options-dropdown-main').hide(100);
+	if (event.target.className.includes('dropdown-button')) {
+		// if a button was clicked, toggle nearby dropdown
+		$(event.target).siblings('.dropdown').toggle(100);
+	} else {
+		if (!$(event.target).closest(".dropdown-holder").length) {
+			// Hide if click was anywhere BUT on a dropdown menu
+			$('.dropdown').each(function() {
+				$(this).hide(100);
+			});
+		}
 	}
 });
 
