@@ -311,6 +311,12 @@ html, body {
 	font-family: settingsFont;
 	text-align: center;
 }
+.versions-button {
+	width: 50px;
+}
+.version-button {
+	width: 300px;
+}
 
 .options-button,
 .slider-holder,
@@ -389,10 +395,9 @@ input[type=range]::-ms-thumb {
 }
 
 .new-seed-button {
-	width: 440px;
+	width: 382px;
 	text-decoration: none;
 }
-
 
 /* End Buttons Styling */
 

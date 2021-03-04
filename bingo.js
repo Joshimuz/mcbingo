@@ -508,6 +508,13 @@ function getVersion(versionId)
 function updateVersion()
 {
 	$("#version_selection").val(VERSION.id);
+	var mainButtonText;
+	if (VERSION.id == 'dev') {
+		mainButtonText = 'dev';
+	} else {
+		mainButtonText = "v" + VERSION.id;
+	}
+	$("#versions-toggle-button").html(mainButtonText);
 	$(".versionText").html(VERSION.name);
 	if (VERSION.id != LATEST_VERSION && VERSION.stable)
 	{
@@ -540,9 +547,15 @@ function fillVersionSelection()
 		}
 		else
 		{
-			label += " (in development)";
+			label += " (WIP)";
 		}
 		$("#version_selection").append($('<option></option>').val(value.id).html(label))
+		var button = $('<button class="button version-button"></button>');
+		$("#versions-dropdown-main").append(button);
+		button.html(label);
+		button.click(function() {
+			changeVersion(value.id);
+		});
 	});
 }
 
