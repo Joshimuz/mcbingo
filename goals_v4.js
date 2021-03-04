@@ -244,6 +244,8 @@ var bingoList_v4 = [
 	{name: "Become Nauseas", reactant: ["Pacifist", "EatMeat"], tags: [Item, Ocean, Overworld]},
 	{name: "Enchanted item", tags: [Item]},
 	{name: "Remove an Enchantment with a Grindstone", tags: [Action]},
+	{name: "Never use a Sword", catalyst: ["SwordUse"], tooltiptext: "Never use a Sword for Combat or Block Breaking. Holding or crafting is fine", tooltipimg: "Goal Tooltip Images/NoSword.jpg", tags: [Never]},
+	{name: "Carnivore", tooltiptext: "Only eat meat", tooltipimg: "Goal Tooltip Images/NoBread.jpg", antisynergy: ["Food"], tags: [Never, Action], catalyst: ["EatNonMeat"]},
 ],
 
 // Medium (2) 
@@ -286,7 +288,6 @@ var bingoList_v4 = [
 	{name: "Potion of the Turtle Master", frequency: 12, tags: [Item, Nether, Ocean, Overworld]},
 	{name: "Finish by jumping from top to bottom of the world", tooltiptext: "Dig a hole to bedrock, build to 256 Y (height limit), then jump from top to bottom at the end of the game", tooltipimg: "Goal Tooltip Images/FinishTopToBottom.jpg", antisynergy: ["Finish"], tags: [Action, Build, Overworld]},
 	{name: "Vegetarian", tooltiptext: "Never eat meat, including fish", tooltipimg: "Goal Tooltip Images/NoFish.jpg", antisynergy: ["Food"], tags: [Never, Action], catalyst: ["EatMeat"]},
-	{name: "Carnivore", tooltiptext: "Only eat meat", tooltipimg: "Goal Tooltip Images/NoBread.jpg", antisynergy: ["Food"], tags: [Never, Action], catalyst: ["EatNonMeat"]},
 	{name: "Kill yourself with your own arrow", reactant: ["Death", "Pacifist"], tags: [Action]},
 	{name: "Get a '... while trying to escape ...' Death message", tooltiptext: "Example: 'PLAYER' drowned while trying to escape a Skeleton", tooltipimg: "Goal Tooltip Images/EscapeMessage.jpg", reactant: ["Death"], tags: [Action]},
 	{name: "Set fire to a Villager's House", tags: [Action, Village, Overworld]},
@@ -331,9 +332,8 @@ var bingoList_v4 = [
 	{name: "(3-4) Different Diamond Items", antisynergy: ["DiamondItems"], tooltiptext: "Any item with 'Diamond' in its name (yes even itself)", tags: [Item]},
 	{name: "(2-5) Prismarine Crystals", frequency: 2, tags: [Item, Ocean, Overworld]},
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)", tooltiptext: "Sea Level is Y = 63, but starting from higher is fine", tags: [Action, Overworld]},
-	{name: "Never use a Sword", catalyst: ["SwordUse"], tooltiptext: "Never use a Sword for Combat or Block Breaking. Holding or crafting is fine", tooltipimg: "Goal Tooltip Images/NoSword.jpg", tags: [Never]},
 	{name: "Deplete an Iron Sword", reactant: ["SwordUse"], tooltiptext: "Use an Iron Sword until it breaks, check the 'items' statistics screen!" ,tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg", tags: [Action, Stat]},
-	{name: "Full Diamond Armour", tags: [Item]},
+	// {name: "Full Diamond Armour", tags: [Item]}, // Too hard for Medium, too easy for Hard, not the best goal
 	{name: "Saddle", tags: [Item]},
 	{name: "Give a mob a Hat", tags: [Action, Combat]},
 	{name: "Clean a Pattern off a Banner", tags: [Action, Overworld]},
