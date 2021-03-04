@@ -260,24 +260,9 @@ html, body {
 }
 
 .show-table-button {
-	cursor: pointer;
-	background-color: #6F6F6F;
-	color: #fff;
-	background-image: url("button-background.png");
 	background-size: 500px 50px;
-	background-repeat: no-repeat;
-	height: 50px;
 	width: 450px;
-	border: 2px solid #000;
-	font-size: 20px;
-	font-family: settingsFont;
-	text-align: center;
 	margin: 20px auto 20px auto;
-}
-
-.show-table-button:hover {
-	color: #FFF787;
-	background-image: url("button-background-blue.png");
 }
 
 .tooltipQ {
@@ -294,6 +279,26 @@ html, body {
 
 /* Buttons Styling */
 
+.button {
+	cursor: pointer;
+
+	border: 2px solid #000;
+	height: 50px;
+
+	background-color: #6F6F6F;
+	background-image: url("button-background.png");
+	background-repeat: no-repeat;
+
+	color: #FFF;
+	font-size: 20px;
+	font-family: settingsFont;
+	text-align: center;
+}
+.button:hover {
+	color: #FFF787;
+	background-image: url("button-background-blue.png");
+}
+
 .options  {
 	position: relative;
     display: inline-block;
@@ -301,22 +306,7 @@ html, body {
 }
 
 .options-button {
-	cursor: pointer;
-    background-color: #6F6F6F;
-	color: #FFF;
-	background-image: url("button-background.png");
-	background-repeat: no-repeat;
-	font-family: settingsFont;
-	height: 50px;
 	width: 250px;
-	font-size: 20px;
-	border: 2px solid #000;
-	text-align: center;
-}
-
-.options-button:hover{
-	background-image: url("button-background-blue.png");
-	color: #FFF787; 
 }
 
 .options-dropdown{
@@ -426,29 +416,15 @@ input[type=range]::-ms-thumb {
 }
 
 .new-seed-button {
-	cursor: pointer;
-	background-color: #6F6F6F;
-	background-image: url("button-background.png");
-	background-repeat: no-repeat;
-	height: 50px;
 	width: 440px;
 	margin-right: 8px;
-	border: 2px solid #000;
-	text-align: center;
 	position:relative;
 	float: left;
-	color: #FFF;
 	text-decoration: none;
-	font-family: settingsFont;
-	font-size: 20px;
 	line-height: 50px;
 	margin-top: 10px;
 }
 
-.new-seed-button:hover {
-	background-image: url("button-background-blue.png");
-	color: #FFF787; 
-}
 
 /* End Buttons Styling */
 

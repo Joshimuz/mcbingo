@@ -77,22 +77,22 @@
 				</div>
 				<p>Use this seed to create a new world in Minecraft. Remember to adjust ingame settings such as difficulty if necessary.</p>
 				<p>If you've been linked this page for a race, you are not allowed to change the seed/goals. See the full rules below.</p>
-				<button class="show-table-button" onclick='toggleHidden();event.preventDefault();'>Show Table</button>
+				<button class="button show-table-button" onclick='toggleHidden();event.preventDefault();'>Show Table</button>
 				<p>The table is currently hidden, you may show it when the Bingo starts (unless otherwise agreed upon by the players).</p>
 			</div>
 			<div id="info_bar">
 				Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" />&emsp;Difficulty: <span class="stream-difficulty-text"></span>&emsp;Version: <span class="versionText"></span><br>
 			</div>
-			<button onclick='newSeed(true);event.preventDefault();' class="new-seed-button">Generate New Seed</button>
+			<button onclick='newSeed(true);event.preventDefault();' class="button new-seed-button">Generate New Seed</button>
 			<div class="options">
-				<button class="options-button" id="options-toggle-button">Options...</button>
+				<button class="button options-button" id="options-toggle-button">Options...</button>
 				<div id="options-dropdown-main" class="options-dropdown">
 					<div class="colourCount">
 						<input type="range" id="colourCountRange" value="1" max="2" min="0" class="colourCount-slider" oninput="changeColourCount(this.value);" onchange="changeColourCount(this.value);"/>
 						<p class="colourCount-text"></p>
 					</div>
-					<button class="options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
-					<button class="options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
+					<button class="button options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
+					<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
 					<div class="difficulty">
 						<input type="range" id="difficultyRange" value="3" max="5" min="1" class="difficulty-slider" oninput="changeDifficulty(this.value);" onchange="changeDifficulty(this.value);"/>
 						<p class="difficulty-text"></p>
