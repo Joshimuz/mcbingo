@@ -57,15 +57,14 @@ html, body {
 
 /* Bingo Card Styling */
 
-#streamer_mode {
-	display: none;
+#info_bar {
 	padding: none;
 	margin-top: 10px;
 	font-family: settingsFont;
 	text-align:center;
 }
 
-#streamer_mode .seed_for_copying {
+#info_bar .seed_for_copying {
 	font-family: settingsFont;
 	font-size: 1.01em;
 	text-align: center;
@@ -290,6 +289,7 @@ html, body {
 .options  {
 	position: relative;
     display: inline-block;
+    margin-top: 10px;
 }
 
 
@@ -420,6 +420,7 @@ input[type=range]::-ms-thumb {
 	font-family: settingsFont;
 	font-size: 20px;
 	line-height: 50px;
+	margin-top: 10px;
 }
 
 .new-seed-button:hover {
@@ -488,4 +489,3 @@ input[type=range]::-ms-thumb {
 }
 
 /* End Export Popup */
-

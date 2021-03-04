@@ -398,7 +398,7 @@ function updateStreamerMode()
 	if (STREAMER_MODE)
 	{
 		$("#nav_section").css("display", "none");
-		$("#streamer_mode").css("display", "block");
+		//$("#streamer_mode").css("display", "block");
 		$(".options").css("display", "none");
 		$(".options").css("display", "none");
 		$(".stream-exit-text").css("display", "block");
@@ -409,7 +409,7 @@ function updateStreamerMode()
 	else
 	{
 		$("#nav_section").css("display", "block");
-		$("#streamer_mode").css("display", "none");
+		//$("#streamer_mode").css("display", "none");
 		$(".options").css("display", "inline-block");
 		$(".stream-exit-text").css("display", "none");
 		$(".new-seed-button").css("display", "inline-block");
