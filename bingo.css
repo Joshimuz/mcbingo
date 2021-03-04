@@ -313,21 +313,6 @@ html, body {
     margin-top: 10px;
 }
 
-
-.options-button-main {
-	cursor: pointer;
-    background-color: #6F6F6F;
-	color: #FFF;
-	background-image: url("button-background.png");
-	background-repeat: no-repeat;
-	font-family: settingsFont;
-	height: 50px;
-	width: 250px;
-	font-size: 20px;
-	border: 2px solid #000;
-	text-align: center;
-}
-
 .options-button {
 	cursor: pointer;
     background-color: #6F6F6F;
