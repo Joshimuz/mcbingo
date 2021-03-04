@@ -58,7 +58,7 @@ html, body {
 /* Bingo Card Styling */
 
 #info_bar {
-	padding: none;
+	padding: 0;
 	margin-top: 10px;
 	font-family: settingsFont;
 	text-align:center;
