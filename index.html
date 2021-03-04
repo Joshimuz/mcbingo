@@ -100,9 +100,13 @@
 		<a class="stream-exit-text" href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a>
 		<a class="stream-exit-text" href="#" onclick='popoutBingoCard();'>Popout Bingo Card</a>
 		<section id="rules-section">
-			<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked Sheet, however if you want to generate a new Bingo Sheet <a href="#version_selection">consider changing version</a>.</p>
-			<p id="version_notice_unstable">You are using an in-development version, which may change at any time causing the same link to produce different goals. This is good if you want to make use of the latest updates to goals and for looking at a Sheet someone else just linked to you, otherwise <a href="#version_selection">consider changing to a stable version</a>.</p>
+			<h2>Version</h2>
+			<p>Versions of the Bingo are designed for certain versions of Vanilla Minecraft. Try to match versions whenever possible for the best experience.</p>
+			<p>To ensure that each created Bingo Sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL. If you got linked this page for a race you should not change the version since this will most likely result in different goals.</p>
+			<p>Selected Version: <select id="version_selection"></select></p>
 
+			<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked Sheet, however if you want to generate a new Bingo Sheet consider changing version.</p>
+			<p id="version_notice_unstable">You are using an in-development version, which may change at any time causing the same link to produce different goals. This is good if you want to make use of the latest updates to goals and for looking at a Sheet someone else just linked to you, otherwise consider changing to a stable version.</p>
 
 			<h2>Rules and How to Race</h2>
 			<h3>Rules</h3>
@@ -132,10 +136,6 @@
 			<p><em>Note:</em> This is the recommended way to play Minecraft Bingo, however if everyone in the race agrees, then of course a modified set of rules can be used.</p>
 			<p><em>Tip:</em> You can <a href="javascript:createGoalExport()">export the current sheet as JSON</a>.</p>
 			<a href="https://github.com/Joshimuz/mcbingo"><img src="github-img.png" width='200px'></a>
-			<h2>Version</h2>
-			<p>To ensure that each created Bingo Sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL. If you got linked this page for a race you should not change the version since this will most likely result in different goals.</p>
-			<p>In-development versions may change at any time, use at your own risk.</p>
-			<p>Selected Version: <select id="version_selection"></select></p>
 		</section>
 		<div id="tooltip">
 			<img src="" id="tooltipimg" />
