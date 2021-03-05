@@ -279,6 +279,12 @@ html, body {
 
 /* Buttons Styling */
 
+.buttons-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
 .button {
 	cursor: pointer;
 
@@ -387,9 +393,6 @@ input[type=range]::-ms-thumb {
 
 .new-seed-button {
 	width: 440px;
-	margin-right: 8px;
-	position:relative;
-	float: left;
 	text-decoration: none;
 	margin-top: 10px;
 }
