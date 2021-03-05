@@ -287,30 +287,39 @@ html, body {
 }
 
 .button {
-	cursor: pointer;
-
 	border: 2px solid #000;
-	height: 50px;
 
 	background-color: #6F6F6F;
 	background-image: url("button-background.png");
 	background-repeat: no-repeat;
-
-	color: #FFF;
-	font-size: 20px;
-	font-family: settingsFont;
-	text-align: center;
 }
 .button:hover {
 	color: #FFF787;
 	background-image: url("button-background-blue.png");
 }
 
+.button,
+.slider-holder,
+.slider {
+	cursor: pointer;
+	height: 50px;
+}
+.button,
+.slider-text {
+	color: #FFF;
+	font-size: 20px;
+	font-family: settingsFont;
+	text-align: center;
+}
+
 .options  {
 	position: relative;
 }
 
-.options-button {
+.options-button,
+.slider-holder,
+.slider,
+.slider-text {
 	width: 250px;
 }
 
@@ -323,17 +332,12 @@ html, body {
 }
 
 .slider-holder {
-	cursor: pointer;
-	height: 50px;
-	width: 250px;
 	background-image: url("slider-background.png");
 	position: relative;
 	-webkit-appearance: none;
 }
 
 .slider {
-	cursor: pointer;
-	height: 50px;
 	width: 250px;
 	position: relative;
 	z-index: 100;
@@ -342,13 +346,8 @@ html, body {
 }
 
 .slider-text {
-	font-size: 20px;
-	font-family: settingsFont;
-	width: 250px;
 	line-height: 50px;
-	color: #fff;
 	top: 0;
-	text-align: center;
 	position: absolute;
 }
 
