@@ -64,7 +64,7 @@ html, body {
 	text-align:center;
 }
 
-#info_bar .seed_for_copying {
+.seed_for_copying {
 	font-family: settingsFont;
 	font-size: 1.01em;
 	text-align: center;
@@ -494,12 +494,6 @@ input[type=range]::-ms-thumb {
 }
 
 #rules-section h2, h3 {
-	text-align: center;
-}
-
-.seed_for_copying {
-	font-family: settingsFont;
-	font-size: 1.01em;
 	text-align: center;
 }
 
