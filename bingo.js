@@ -53,20 +53,6 @@ $(document).ready(function()
 	// By default hide the tooltip
 	$("#tooltip").hide();
 
-/* 	// By default hide tooltip questionmarks
-	$(".tooltipQ").addClass("tooltipQhidden");
-
-	// On hovering the sheet show the tooltip questionmarks
-	$("#bingo").hover(function()
-	{
-		if (!HIDDEN) {
-			$(".tooltipQ").removeClass("tooltipQhidden");
-		}
-	}, function()
-	{
-		$(".tooltipQ").addClass("tooltipQhidden");
-	}); */
-
 	$("#export").hide();
 
 	// On clicking a goal square
