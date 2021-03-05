@@ -108,7 +108,7 @@ var bingoList_v1 = [
 	{name: "Sleep inside a village", antisynergy: "Sleep"},
 	{name: "Kill a Skeleton with its own Arrow"},
 	{name: "Never wear any Armour"},
-	{name: "Get a Skeleton's Bow", tooltiptext: "Kill Skeletons until you get a rare drop from one, it being their Bow", tooltipimg: "Goal Tooltip Images/Bow.jpg"},
+	{name: "Get a Skeleton's Bow", tooltiptext: "Kill Skeletons until you get a rare drop from one, it being their Bow"},
 	{name: "Diamond Block", antisynergy: "DiamondBlock", frequency: 2},
 	{name: "(2-3) Lapis Lazuli Blocks"},
 	{name: "Destroy a Monster Spawner"},
@@ -171,7 +171,7 @@ var bingoList_v1 = [
 	{name: "Finish by launching Fireworks of (5-10) Different Colours", antisynergy: "Finish"},
 	{name: "Nametag an Enderman"},
 	{name: "Kill yourself with an Ender Pearl", tooltiptext: "Need to die to the small fall damage taken from using a pearl", tooltipimg: "Goal Tooltip Images/EnderPearl.jpg", antisynergy: "Death"},
-	{name: "Finish on top of a Blaze spawner", tooltiptext: "Be stood on top of a Blaze spawner at the end of the game", tooltipimg: "Goal Tooltip Images/BlazeSpawner.jpg", antisynergy: "Finish"},
+	{name: "Finish on top of a Blaze spawner", tooltiptext: "Be stood on top of a Blaze spawner at the end of the game", antisynergy: "Finish"},
 	{name: "(13-16) Colours of Wool", antisynergy: "BlockColour", frequency: 4},
 	{name: "(13-16) Colours of Terracotta", antisynergy: "BlockColour", frequency: 4},
 	{name: "(11-14) Colours of Glazed Terracotta", antisynergy: "BlockColour", frequency: 4},
@@ -190,7 +190,7 @@ var bingoList_v1 = [
 	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Iron, Diamond and yes, even Chainmail", tooltipimg: "Goal Tooltip Images/chainmail chest.jpg"},
 	{name: "Nether Star"},
 	{name: "Dragon Egg"},
-	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count", tooltipimg: "NoWitherSkull.jpg"},
+	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count"},
 ]
 
 ];
