@@ -87,8 +87,6 @@ var bingoList_v4 = [
 	//{name: "Never use Chests", tooltiptext: "You'll have to find some alternate storage solution", catalyst: ["UseChests"], tags: [Never]},
 	{name: "Fill all 4 slots of a Campfire", tags: [Action]},
 	{name: "Change the colour of text on a Sign", tags: [Action]},
-	{name: "Honey Bottle", antisynergy: ["Honey"], frequency: 2, tags: [Item, Overworld]},
-	{name: "Honeycomb", antisynergy: ["Honeycomb"], frequency: 2, tags: [Item, Overworld]},
 	{name: "Extinguish a Campfire", tags: [Action]},
 	{name: "Never Pick up Crafting Tables", tooltiptext: "Never break and pick up Crafting Tables. You can make, place and use, but not collect.", tags: [Never]},
 	{name: "(2-4) Different Gold Items", antisynergy: ["GoldItems"], tooltiptext: "Any item with 'Gold' in its name (yes even ingots and ores)", tags: [Item]},
