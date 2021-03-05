@@ -312,7 +312,7 @@ html, body {
 	text-align: center;
 }
 
-.options  {
+.dropdown-holder  {
 	position: relative;
 }
 
@@ -323,7 +323,7 @@ html, body {
 	width: 250px;
 }
 
-.options-dropdown{
+.dropdown {
 	display: none;
     position: absolute;
     background-color: #f9f9f9;

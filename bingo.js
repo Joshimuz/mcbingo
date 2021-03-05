@@ -39,7 +39,7 @@ var LATEST_VERSION = "3";
 $(document).click(function(event) {
 	if (event.target.id == 'options-toggle-button') {
 		$('#options-dropdown-main').toggle(100);
-	} else if (!$(event.target).closest(".options").length) {
+	} else if (!$(event.target).closest(".dropdown-holder").length) {
 		// Hide if click was anywhere BUT on the options menu
 		$('#options-dropdown-main').hide(100);
 	}
