@@ -88,6 +88,10 @@
 			<div class="options" >
 				<button class="options-button" id="options-toggle-button">Options...</button>
 				<div id="options-dropdown-main" class="options-dropdown">
+					<div class="colourCount">
+						<input type="range" id="colourCountRange" value="1" max="2" min="0" class="colourCount-slider" oninput="changeColourCount(this.value);" onchange="changeColourCount(this.value);"/>
+						<p class="colourCount-text"></p>
+					</div>
 					<button class="options-button" onclick='toggleHidden();' ><span id="ishidden"></p></span></button>
 					<button class="options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
 					<div class="difficulty">
@@ -102,39 +106,37 @@
 		<section id="rules-section">
 			<h2>Version</h2>
 			<p>Versions of the Bingo are designed for certain versions of Vanilla Minecraft. Try to match versions whenever possible for the best experience.</p>
-			<p>To ensure that each created Bingo Sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL. If you got linked this page for a race you should not change the version since this will most likely result in different goals.</p>
+			<p>To ensure that each created Bingo Sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL.</p>
 			<p>Selected Version: <select id="version_selection"></select></p>
 
-			<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked Sheet, however if you want to generate a new Bingo Sheet consider changing version.</p>
-			<p id="version_notice_unstable">You are using an in-development version, which may change at any time causing the same link to produce different goals. This is good if you want to make use of the latest updates to goals and for looking at a Sheet someone else just linked to you, otherwise consider changing to a stable version.</p>
+			<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked Sheet or play on an older version of Minecraft, however if you want to generate a new Bingo Sheet consider changing version.</p>
+			<p id="version_notice_unstable">You are using an in-development version, which may change at any time causing the same link to produce different goals. This is good if you want to make use of the latest updates to Goals and Minecraft, and for looking at a Sheet someone else just linked to you, otherwise consider changing to a stable version.</p>
+			<p><em>Note:</em> The goals are designed for the Java Edition of Minecraft, Bedrock versions have minor differences in some areas.</p>
 
-			<h2>Rules and How to Race</h2>
-			<h3>Rules</h3>
-			<p>To complete the Bingo, you must complete all five goals in a line horizontally, vertically or diagonally.</p>
-			<ul>
-				<li>Goals referring to items that you are able to carry in your inventory (without any action specified), require you to have those items in your inventory at the moment you complete the Bingo. For example if a goal says "Golden Apple", you must have the "Golden Apple" in your inventory at the end. Completing the Bingo by dying (e.g. "Kill yourself with an Ender Pearl" as last goal) has no bearing on this, because the Bingo is considered completed before the items are dropped.</li>
-				<li>If the goal describes an action, for example "Tame a Wolf", then the goal is completed once you completed the actual action, in this case "taming", so it doesn't matter what happens to the Dog afterwards.</li>
-				<li>For goals that ask you to place something in the Minecraft World, for example "Build a glass cube and fill the inner with lava", you must make sure that the build does not get destroyed for the duration of the Bingo. However, you don't have to show it at the end, so if it wasn't witnessed being destroyed in the meantime it counts as intact.</li>
-			</ul>
-			<p><em>Note:</em> The goals are usually designed for the latest version of Minecraft (Java Edition).</p>
-			<p><em>Tip:</em> You can click on the squares (or hover and use 1-4) to change their colour, which may be useful for planning or to mark off completed goals.</p>
+			<h2>How to Play</h2>
+
+			<p>The objective is to get a "Bingo" as quickly as possible by filling in five Squares in a line horizontally, vertically or diagonally.</p>
+			<p>Each Square has a Goal written inside it which you have to do, there are 4 types of Goals:</p>
+
+			<h4>Items</h4>
+				<li>Goals written as just Item names, such as "Iron Block" or "Milk Bucket" require you to get that item and have it in your Inventory at the end of the game.</li>
+				<li><em>Note:</em> If you lose the item by completing the Bingo by dying (e.g. "Kill yourself with an Ender Pearl" as last goal) you do not need to recollect the item.</li>
+			<h4>Actions</h4>
+				<li>If the goal describes an action, for example "Tame a Wolf", then the goal is completed once you Tame the Wolf. It doesn't matter what happens to the Wolf after.</li>
+			<h4>Builds</h4>
+				<li>For goals that ask you to place something in the Minecraft World, like: "Build a 2x2x2 leaf cube", you must make sure that the build does not get destroyed for the duration of the Bingo.</li>
+				<li><em>Note:</em> You don't have to show the build at the end so if you didn't see it get destroyed it counts.</li>
+			<h4>Stats</h4>
+				<li>Goals that list stats like "Crouch a distance of 50 meters" make use of the Statistics screen in the Minecraft pause menu. You need to make it so that stat shows the amount (or greater).</li>
+				<li><em>Tip:</em> The Statistics screen is often slow to update, so leave time between checking it when you're trying to complete a goal.</li>
+			<p></p>
+			<p>Create a new World in Minecraft and use <input class="seed_for_copying" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button onclick='copySeedToClipboard("seed_for_copying_howto");'>Copy</button> as the Seed (this is the same random seed used to generate this sheet). Load the world so that it can generate but don't move until you're ready. Pause the game to make sure time of day doesn't change or you get attacked. When you're ready reveal the sheet if it's hidden and start playing!</p>
+			<p>If you're racing together with other players, generate a Bingo Sheet and then link it them so that everyone has the same goals. You can hide the table in the Options menu before generating the seed so that everyone can reveal sheet when you start. Make sure everyone uses the same Seed for the world too!</p>
+			<p><em>Tip:</em> You can click on the squares to change their colour which is useful for planning or to mark off completed goals. Use the colour slider in the options menu to choose many many colours you want to use. You can also hover over the square and press 0-6!</p>
 			<p><em>Tip:</em> Hover over a "?" to get more information about that goal.</p>
-
-			<h3>How to Race</h3>
-			<p>To do a race, get together with some people and try to finish the Bingo as quickly as possible.</p>
-
-			<p>If you're the one setting up the race, generate a Bingo Sheet and then link it to the other players, so that everyone has the same goals. You can hide the table in the Options menu before generating the seed, so that you and everyone else will see the sheet only when the race starts.</p>
-
-			<p>If you got linked this sheet for a race, you are not allowed to change it in any way.</p>
-
-			<ul>
-				<li>Use <input class="seed_for_copying" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button onclick='copySeedToClipboard("seed_for_copying_howto");'>Copy</button> as Seed when creating the new world for the race in Minecraft (this is the same random seed used to generate this sheet). Make sure that all the racers are using the same ingame difficulty setting.</li>
-				<li>You may pre-load the world, but not start playing until the race starts.</li>
-				<li>Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</li>
-				<li>Stream the race!</li>
-			</ul>
-			<p><em>Note:</em> This is the recommended way to play Minecraft Bingo, however if everyone in the race agrees, then of course a modified set of rules can be used.</p>
-			<p><em>Tip:</em> You can <a href="javascript:createGoalExport()">export the current sheet as JSON</a>.</p>
+			<p><em>Note:</em> Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</p>
+			<p><em>Note:</em> This is only the recommended way to play Minecraft Bingo, if you and/or everyone else agrees then use whatever rules you want!</p>
+			<p><em>Tip:</em> You can <a href="javascript:createGoalExport()">export the current sheet as JSON</a> for use in other tools such as <a href="https://bingosync.com/">Bingosync.</a></p>
 			<a href="https://github.com/Joshimuz/mcbingo"><img src="github-img.png" width='200px'></a>
 		</section>
 		<div id="tooltip">

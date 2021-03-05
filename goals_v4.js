@@ -9,8 +9,8 @@ RareBiome = {name: "RareBiome", max: [0, 1, 2, 4, 6]},
 Ocean = {name: "Ocean", max: [5, 5, 5, 5, 5]}, 
 Village = {name: "Village", max: [0, 1, 2, 3, 4]}, 
 Colour = {name: "Colour", max: [2, 2, 2, 2, 2]}, 
-Never = {name: "Never", max: [5, 4, 3, 2, 1]}, 
-Combat = {name: "Combat", max: [2, 10, 20, 20, 20]}, 
+Never = {name: "Never", max: [3, 3, 3, 2, 1]}, 
+Combat = {name: "Combat", max: [5, 10, 20, 20, 20]}, 
 Overworld = {name: "Overworld", max: [25, 25, 24, 21, 18]}, 
 Nether = {name: "Nether", max: [0, 2, 5, 10, 15]},
 End = {name: "End", max: [0, 0, 0, 1, 5]};
@@ -90,6 +90,7 @@ var bingoList_v4 = [
 	{name: "Honey Bottle", antisynergy: ["Honey"], frequency: 2, tags: [Item, Overworld]},
 	{name: "Honeycomb", antisynergy: ["Honeycomb"], frequency: 2, tags: [Item, Overworld]},
 	{name: "Extinguish a Campfire", tags: [Action]},
+	{name: "Never Pick up Crafting Tables", tooltiptext: "Never break and pick up Crafting Tables. You can make, place and use, but not collect.", tags: [Never]},
 ],
 
 // Easy (1)

@@ -207,6 +207,27 @@ html, body {
 #bingo tr td.bluesquare:hover { 
 	background:#57d9ff; 
 }
+#bingo tr td.yellowsquare { 
+	background:#FFFF00; 
+	color: #000;
+}
+#bingo tr td.yellowsquare:hover { 
+	background:#e6e600; 
+}
+#bingo tr td.pinksquare { 
+	background:#FFC0CB; 
+	color: #000;
+}
+#bingo tr td.pinksquare:hover { 
+	background:#ffa7b6; 
+}
+#bingo tr td.brownsquare { 
+	background:#BA7D3F; 
+	color: #000;
+}
+#bingo tr td.brownsquare:hover { 
+	background:#a77039; 
+}
 
 #bingo td img {
 	visibility: hidden;
@@ -364,6 +385,36 @@ html, body {
 	position: absolute;
 }
 
+.colourCount {
+	cursor: pointer;
+	height: 50px;
+	width: 250px;
+	background-image: url("slider-background.png");
+	position: relative;
+	-webkit-appearance: none;
+}
+
+.colourCount-slider {
+	cursor: pointer;
+	height: 50px;
+	width: 250px;
+	position: relative;
+	z-index: 100;
+	background-color: transparent;
+	-webkit-appearance: none;
+}
+
+.colourCount-text {
+	font-size: 20px;
+	font-family: settingsFont;
+	width: 250px;
+	line-height: 50px;
+	color: #fff;
+	top: 0;
+	text-align: center;
+	position: absolute;
+}
+
 input[type=range]::-webkit-slider-thumb {
 	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 	height: 50px;
@@ -462,6 +513,12 @@ input[type=range]::-ms-thumb {
 }
 
 #rules-section h2, h3 {
+	text-align: center;
+}
+
+.seed_for_copying {
+	font-family: settingsFont;
+	font-size: 1.01em;
 	text-align: center;
 }
 

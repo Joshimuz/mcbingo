@@ -6,6 +6,8 @@ var HIDDEN;
 var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
+var COLOURCOUNT = 1;
+var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
 
 var hoveredSquare;
 
@@ -45,7 +47,6 @@ $(document).click(function(event) {
 
 $(document).ready(function()
 {	
-
 	// Set the background to a random image
 	document.body.style.backgroundImage = "url('Backgrounds/background" + (Math.floor(Math.random() * 10) + 1) + ".jpg')";
 
@@ -71,22 +72,69 @@ $(document).ready(function()
 	// On clicking a goal square
 	$("#bingo td").click(function()
 	{
-		// Change colours between normal, green and red
-		if ($(this).hasClass('greensquare'))
+		// If only using Grey and Green
+		if (COLOURCOUNT == 0)
 		{
-			setSquareColor($(this), 'redsquare');
+			if ($(this).hasClass('greensquare'))
+			{
+				setSquareColor($(this), '');
+			}
+			else
+			{
+				setSquareColor($(this), 'greensquare');
+			}
 		}
-		else if ($(this).hasClass('redsquare'))
+		// If using Blue Green and Red
+		else if (COLOURCOUNT == 1)
 		{
-			setSquareColor($(this), '');
+			if ($(this).hasClass('bluesquare'))
+			{
+				setSquareColor($(this), 'greensquare');
+			}
+			else if ($(this).hasClass('greensquare'))
+			{
+				setSquareColor($(this), 'redsquare');
+			}
+			else if ($(this).hasClass('redsquare'))
+			{
+				setSquareColor($(this), '');
+			}
+			else
+			{
+				setSquareColor($(this), 'bluesquare');
+			}
 		}
-		else if ($(this).hasClass('bluesquare'))
+		// Use all the colours!
+		else
 		{
-			setSquareColor($(this), 'greensquare');
-		}
-		else 
-		{
-			setSquareColor($(this), 'bluesquare');
+			if ($(this).hasClass('bluesquare'))
+			{
+				setSquareColor($(this), 'greensquare');
+			}
+			else if ($(this).hasClass('greensquare'))
+			{
+				setSquareColor($(this), 'yellowsquare');
+			}
+			else if ($(this).hasClass('yellowsquare'))
+			{
+				setSquareColor($(this), 'redsquare');
+			}
+			else if ($(this).hasClass('redsquare'))
+			{
+				setSquareColor($(this), 'pinksquare');
+			}
+			else if ($(this).hasClass('pinksquare'))
+			{
+				setSquareColor($(this), 'brownsquare');
+			}
+			else if ($(this).hasClass('brownsquare'))
+			{
+				setSquareColor($(this), '');
+			}
+			else
+			{
+				setSquareColor($(this), 'bluesquare');
+			}
 		}
 	});
 	
@@ -156,6 +204,18 @@ $(document).ready(function()
 			}
 			else if (e.which == 52) // 4
 			{
+				setSquareColor(hoveredSquare, "yellowsquare");
+			}
+			else if (e.which == 53) // 5
+			{
+				setSquareColor(hoveredSquare, "pinksquare");
+			}
+			else if (e.which == 54) // 6
+			{
+				setSquareColor(hoveredSquare, "brownsquare");
+			}
+			else if (e.which == 48) // 0
+			{
 				setSquareColor(hoveredSquare, "");
 			}
 		}
@@ -177,6 +237,7 @@ $(document).ready(function()
 	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
 	$(".stream-difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
 	$("#difficultyRange").val(DIFFICULTY);
+	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
 })
 
 /* When the user clicks on the button, 
@@ -259,6 +320,9 @@ function generateNewSheet()
 		$(slotId).removeClass('greensquare');
 		$(slotId).removeClass('redsquare');
 		$(slotId).removeClass('bluesquare');
+		$(slotId).removeClass('yellowsquare');
+		$(slotId).removeClass('pinksquare');
+		$(slotId).removeClass('brownsquare');
 	}
 
 	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
@@ -429,6 +493,13 @@ function changeDifficulty(value)
 	pushNewUrl();
 }
 
+function changeColourCount(value)
+{
+	COLOURCOUNT = parseInt(value);
+
+	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
+}
+
 function pushNewUrl()
 {
 	var hidden = HIDDEN ? "1" : "0";
@@ -494,6 +565,9 @@ function setSquareColor(square, colorClass)
 	square.removeClass('bluesquare');
 	square.removeClass('greensquare');
 	square.removeClass('redsquare');
+	square.removeClass('yellowsquare');
+	square.removeClass('pinksquare');
+	square.removeClass('brownsquare');
 	square.addClass(colorClass);
 }
 
