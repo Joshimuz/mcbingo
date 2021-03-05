@@ -364,7 +364,7 @@ var bingoList_v4 = [
 	{name: "Ignite a TNT with a Lectern", tags: [Action, Overworld]},
 	{name: "Kill a hostile mob with a Sweet Berry Bush", reactant: ["Pacifist"], tags: [Action, Overworld, Combat, RareBiome]},
 	{name: "Get a Pillager's Crossbow", reactant: ["Pacifist"], tooltiptext: "Kill Pillagers until you get a rare drop from one, it being their Crossbow", tags: [Item, Combat, Overworld]},
-	{name: "Ominous Banner‌", reactant: ["Pacifist"], tags: [Item, Combat, Overworld]},
+	{name: "Ominous Banner", reactant: ["Pacifist"], tags: [Item, Combat, Overworld]},
 	{name: "Gain a Fox's Trust", tags: [Action, Overworld, RareBiome]},
 	{name: "1 Honey Block", antisynergy: ["Honey"], frequency: 2, tags: [Action, Overworld]},
 	{name: "3 Honeycomb Blocks", antisynergy: ["Honeycomb"], frequency: 2, tags: [Action, Overworld]},
