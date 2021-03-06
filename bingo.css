@@ -293,8 +293,12 @@ html, body {
 	background-image: url("button-background.png");
 	background-repeat: no-repeat;
 }
-.button:hover {
+
+.button:hover,
+.slider-holder:hover .slider-text {
 	color: #FFF787;
+}
+.button:hover {
 	background-image: url("button-background-blue.png");
 }
 
