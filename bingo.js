@@ -394,10 +394,11 @@ function changeLayout()
 
 function updateHidden()
 {
+	const button = document.getElementById("ishidden");
 	if (HIDDEN)
 	{
 		// Hide the goals and change the hidden setting's text
-		document.getElementById("ishidden").innerHTML = "Show Table";
+		button.innerHTML = "Show Table";
 		$("#bingo td").css("visibility", "hidden");
 		$("#hidden-table").css("display","block");
 		$("#bingo td img").css("visibility", "hidden");
@@ -406,7 +407,7 @@ function updateHidden()
 	{
 		HIDDEN = false;
 		// Show the goals and change the hidden setting's text
-		document.getElementById("ishidden").innerHTML = "Hide Table";
+		button.innerHTML = "Hide Table";
 		$("#bingo td").css("visibility", "visible");
 		$("#hidden-table").css("display","none");
 		
