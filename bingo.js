@@ -445,7 +445,7 @@ function toggleStreamerMode()
 
 function updateStreamerMode()
 {
-	const hiddenInStreamerMode = "#nav_section, .options, .new-seed-button, #rules-section";
+	const hiddenInStreamerMode = "#nav_section, .buttons-row, #rules-section";
 	const shownInStreamerMode = ".stream-exit-text";
 	if (STREAMER_MODE)
 	{
