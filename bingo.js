@@ -35,13 +35,18 @@ var VERSIONS = [
 // This is the newest stable version that users not specifying a version will get
 var LATEST_VERSION = "3";
 
-// Button Functions, Open when clicked checks if the element is part of the parent tree, if not closes.
+// Dropdown menu handling.
 $(document).click(function(event) {
-	if (event.target.id == 'options-toggle-button') {
-		$('#options-dropdown-main').toggle(100);
-	} else if (!$(event.target).closest(".options").length) {
-		// Hide if click was anywhere BUT on the options menu
-		$('#options-dropdown-main').hide(100);
+	if (event.target.className.includes('dropdown-button')) {
+		// if a button was clicked, toggle nearby dropdown
+		$(event.target).siblings('.dropdown').toggle(100);
+	} else {
+		if (!$(event.target).closest(".dropdown-holder").length) {
+			// Hide if click was anywhere BUT on a dropdown menu
+			$('.dropdown').each(function() {
+				$(this).hide(100);
+			});
+		}
 	}
 });
 
@@ -209,7 +214,7 @@ $(document).ready(function()
 
 	fillVersionSelection();
 	$("#version_selection").change(function() {
-		changeVersion($("#version_selection").val());
+		changeVersion($(this).val());
 	});
 
 
@@ -439,31 +444,26 @@ function popoutBingoCard(){
 function toggleStreamerMode()
 {
 	STREAMER_MODE = !STREAMER_MODE;
+	$(".dropdown").hide();
 	updateStreamerMode();
 	pushNewUrl();
 }
 
 function updateStreamerMode()
 {
+	const hiddenInStreamerMode = "#nav_section, .buttons-row, #rules-section";
+	const shownInStreamerMode = ".stream-exit-text";
 	if (STREAMER_MODE)
 	{
-		$("#nav_section").css("display", "none");
-		//$("#streamer_mode").css("display", "block");
-		$(".options").css("display", "none");
-		$(".options").css("display", "none");
-		$(".stream-exit-text").css("display", "block");
-		$(".new-seed-button").css("display", "none");
-		$("#rules-section").css("display", "none");
+		$(hiddenInStreamerMode).hide();
+		// can't use show() here, because jQuery doesn't yet know that 'display:block' is supposed to be used
+		$(shownInStreamerMode).css("display", "block");
 		$("body").css("background-size", "0, 0");
 	}
 	else
 	{
-		$("#nav_section").css("display", "block");
-		//$("#streamer_mode").css("display", "none");
-		$(".options").css("display", "inline-block");
-		$(".stream-exit-text").css("display", "none");
-		$(".new-seed-button").css("display", "inline-block");
-		$("#rules-section").css("display", "block");
+		$(hiddenInStreamerMode).show();
+		$(shownInStreamerMode).hide();
 		$("body").css("background-size", "auto");
 	}
 }
@@ -508,6 +508,13 @@ function getVersion(versionId)
 function updateVersion()
 {
 	$("#version_selection").val(VERSION.id);
+	var mainButtonText;
+	if (VERSION.id == 'dev') {
+		mainButtonText = 'dev';
+	} else {
+		mainButtonText = "v" + VERSION.id;
+	}
+	$("#versions-toggle-button").html(mainButtonText);
 	$(".versionText").html(VERSION.name);
 	if (VERSION.id != LATEST_VERSION && VERSION.stable)
 	{
@@ -540,9 +547,15 @@ function fillVersionSelection()
 		}
 		else
 		{
-			label += " (in development)";
+			label += " (WIP)";
 		}
 		$("#version_selection").append($('<option></option>').val(value.id).html(label))
+		var button = $('<button class="button version-button"></button>');
+		$("#versions-dropdown-main").append(button);
+		button.html(label);
+		button.click(function() {
+			changeVersion(value.id);
+		});
 	});
 }
 
@@ -618,7 +631,7 @@ function getRandomInt(min, max)
 // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
 function gup( name )
 {
-	let params = new URLSearchParams(document.location.search.substring(1));
+	let params = new URLSearchParams(document.location.search);
 	let result = params.get(name);
 	if (result == null)
 	{
