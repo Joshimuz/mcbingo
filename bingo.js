@@ -439,6 +439,7 @@ function popoutBingoCard(){
 function toggleStreamerMode()
 {
 	STREAMER_MODE = !STREAMER_MODE;
+	$(".dropdown").hide();
 	updateStreamerMode();
 	pushNewUrl();
 }
