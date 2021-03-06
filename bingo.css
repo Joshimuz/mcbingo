@@ -398,6 +398,19 @@ input[type=range]::-ms-thumb {
 	border-radius: 0px;
 }
 
+input[type=range]::-webkit-slider-thumb:hover,
+input[type=range]::-webkit-slider-thumb:active {
+	background-image: url("button-background-blue.png");
+}
+input[type=range]::-moz-range-thumb:hover,
+input[type=range]::-moz-range-thumb:active {
+	background-image: url("button-background-blue.png");
+}
+input[type=range]::-ms-thumb:hover,
+input[type=range]::-ms-thumb:active {
+	background-image: url("button-background-blue.png");
+}
+
 .new-seed-button {
 	width: 382px;
 	text-decoration: none;
