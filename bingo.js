@@ -612,7 +612,7 @@ function getRandomInt(min, max)
 // https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
 function gup( name )
 {
-	let params = new URLSearchParams(document.location.search.substring(1));
+	let params = new URLSearchParams(document.location.search);
 	let result = params.get(name);
 	if (result == null)
 	{
