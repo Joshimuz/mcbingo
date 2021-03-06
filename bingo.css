@@ -280,6 +280,7 @@ html, body {
 /* Buttons Styling */
 
 .buttons-row {
+	margin-top: 10px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -307,8 +308,6 @@ html, body {
 
 .options  {
 	position: relative;
-    display: inline-block;
-    margin-top: 10px;
 }
 
 .options-button {
@@ -394,7 +393,6 @@ input[type=range]::-ms-thumb {
 .new-seed-button {
 	width: 440px;
 	text-decoration: none;
-	margin-top: 10px;
 }
 
 
