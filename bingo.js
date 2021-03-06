@@ -445,22 +445,19 @@ function toggleStreamerMode()
 
 function updateStreamerMode()
 {
+	const hiddenInStreamerMode = "#nav_section, .options, .new-seed-button, #rules-section";
+	const shownInStreamerMode = ".stream-exit-text";
 	if (STREAMER_MODE)
 	{
-		$("#nav_section").css("display", "none");
-		$(".options").css("display", "none");
-		$(".stream-exit-text").css("display", "block");
-		$(".new-seed-button").css("display", "none");
-		$("#rules-section").css("display", "none");
+		$(hiddenInStreamerMode).hide();
+		// can't use show() here, because jQuery doesn't yet know that 'display:block' is supposed to be used
+		$(shownInStreamerMode).css("display", "block");
 		$("body").css("background-size", "0, 0");
 	}
 	else
 	{
-		$("#nav_section").css("display", "block");
-		$(".options").css("display", "inline-block");
-		$(".stream-exit-text").css("display", "none");
-		$(".new-seed-button").css("display", "inline-block");
-		$("#rules-section").css("display", "block");
+		$(hiddenInStreamerMode).show();
+		$(shownInStreamerMode).hide();
 		$("body").css("background-size", "auto");
 	}
 }
