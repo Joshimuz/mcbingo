@@ -58,13 +58,13 @@ html, body {
 /* Bingo Card Styling */
 
 #info_bar {
-	padding: none;
+	padding: 0;
 	margin-top: 10px;
 	font-family: settingsFont;
 	text-align:center;
 }
 
-#info_bar .seed_for_copying {
+.seed_for_copying {
 	font-family: settingsFont;
 	font-size: 1.01em;
 	text-align: center;
@@ -77,14 +77,7 @@ html, body {
 .stream-exit-text {
 	color: #000;
 	text-align:center;
-	dispay:none;
-}
-
-.top_settings p {
-	text-align: center;
-	font-weight: bold;
-	margin-top: 10px;
-	margin-bottom: 5px;
+	display:none;
 }
 
 #bingo-section {
@@ -299,10 +292,6 @@ html, body {
 	top: 5px;
 }
 
-.tooltipQhidden {
-	visibility: hidden !important;
-}
-
 /* End Bingo Card  */
 
 /* Buttons Styling */
@@ -311,21 +300,6 @@ html, body {
 	position: relative;
     display: inline-block;
     margin-top: 10px;
-}
-
-
-.options-button-main {
-	cursor: pointer;
-    background-color: #6F6F6F;
-	color: #FFF;
-	background-image: url("button-background.png");
-	background-repeat: no-repeat;
-	font-family: settingsFont;
-	height: 50px;
-	width: 250px;
-	font-size: 20px;
-	border: 2px solid #000;
-	text-align: center;
 }
 
 .options-button {
@@ -513,12 +487,6 @@ input[type=range]::-ms-thumb {
 }
 
 #rules-section h2, h3 {
-	text-align: center;
-}
-
-.seed_for_copying {
-	font-family: settingsFont;
-	font-size: 1.01em;
 	text-align: center;
 }
 
