@@ -312,10 +312,6 @@ html, body {
 	text-align: center;
 }
 
-.dropdown-holder  {
-	position: relative;
-}
-
 .options-button,
 .slider-holder,
 .slider,
@@ -323,6 +319,9 @@ html, body {
 	width: 250px;
 }
 
+.dropdown-holder  {
+	position: relative;
+}
 .dropdown {
 	display: none;
     position: absolute;
