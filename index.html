@@ -87,15 +87,15 @@
 			<div class="options">
 				<button class="button options-button" id="options-toggle-button">Options...</button>
 				<div id="options-dropdown-main" class="options-dropdown">
-					<div class="colourCount">
-						<input type="range" id="colourCountRange" value="1" max="2" min="0" class="colourCount-slider" oninput="changeColourCount(this.value);" onchange="changeColourCount(this.value);"/>
-						<p class="colourCount-text"></p>
+					<div class="slider-holder">
+						<input type="range" id="colourCountRange" value="1" max="2" min="0" class="slider" oninput="changeColourCount(this.value);" onchange="changeColourCount(this.value);"/>
+						<p class="slider-text colourCount-text"></p>
 					</div>
 					<button class="button options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
 					<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
-					<div class="difficulty">
-						<input type="range" id="difficultyRange" value="3" max="5" min="1" class="difficulty-slider" oninput="changeDifficulty(this.value);" onchange="changeDifficulty(this.value);"/>
-						<p class="difficulty-text"></p>
+					<div class="slider-holder">
+						<input type="range" id="difficultyRange" value="3" max="5" min="1" class="slider" oninput="changeDifficulty(this.value);" onchange="changeDifficulty(this.value);"/>
+						<p class="slider-text difficulty-text"></p>
 					</div>
 				</div>
 			</div>
