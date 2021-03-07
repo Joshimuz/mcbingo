@@ -1,17 +1,17 @@
 // This is part of a version currently in development and may be changed at any time.
 
 // Tags
-var Item = {name: "Item", max: [25, 25, 20, 20, 20]}, 
-Stat = {name: "Stat", max: [5, 5, 5, 5, 5]}, 
-Action = {name: "Action", max: [20, 20, 20, 20, 20]}, 
-Build = {name: "Build", max: [20, 20, 20, 20, 20]}, 
-RareBiome = {name: "RareBiome", max: [0, 1, 2, 4, 6]}, 
-Ocean = {name: "Ocean", max: [5, 5, 5, 5, 5]}, 
-Village = {name: "Village", max: [0, 1, 2, 3, 4]}, 
-Colour = {name: "Colour", max: [2, 2, 2, 2, 2]}, 
-Never = {name: "Never", max: [3, 3, 3, 2, 1]}, 
-Combat = {name: "Combat", max: [5, 10, 20, 20, 20]}, 
-Overworld = {name: "Overworld", max: [25, 25, 24, 21, 18]}, 
+var Item = {name: "Item", max: [25, 25, 20, 20, 20]},
+Stat = {name: "Stat", max: [5, 5, 5, 5, 5]},
+Action = {name: "Action", max: [20, 20, 20, 20, 20]},
+Build = {name: "Build", max: [20, 20, 20, 20, 20]},
+RareBiome = {name: "RareBiome", max: [0, 1, 2, 4, 6]},
+Ocean = {name: "Ocean", max: [5, 5, 5, 5, 5]},
+Village = {name: "Village", max: [0, 1, 2, 3, 4]},
+Colour = {name: "Colour", max: [2, 2, 2, 2, 2]},
+Never = {name: "Never", max: [3, 3, 3, 2, 1]},
+Combat = {name: "Combat", max: [5, 10, 20, 20, 20]},
+Overworld = {name: "Overworld", max: [25, 25, 24, 21, 18]},
 Nether = {name: "Nether", max: [0, 2, 5, 10, 15]},
 End = {name: "End", max: [0, 0, 0, 1, 5]};
 
@@ -107,7 +107,7 @@ var bingoList_v4 = [
 	{name: "(16-64) Flint", tags: [Item]},
 	{name: "Cake", tags: [Item, Overworld]},
 	{name: "Pumpkin Pie", tags: [Item, Overworld]},
-	{name: "Fish a Treasure and a Junk item", tooltiptext: "Treasure: Bow, Enchanted Book, Name Tag, Nautilus Shell, Saddle. Junk: Lily Pad, Bowl, Leather, Boots, Rotten Flesh, Stick, Water Bottle, Bone, Ink Sac, Tripwire Hook", reactant: ["Fishing", "Pacifist"], tags: [Action, Overworld]}, 
+	{name: "Fish a Treasure and a Junk item", tooltiptext: "Treasure: Bow, Enchanted Book, Name Tag, Nautilus Shell, Saddle. Junk: Lily Pad, Bowl, Leather, Boots, Rotten Flesh, Stick, Water Bottle, Bone, Ink Sac, Tripwire Hook", reactant: ["Fishing", "Pacifist"], tags: [Action, Overworld]},
 	{name: "(16-64) Coarse Dirt", tags: [Item, Overworld]},
 	{name: "(2-3) Clocks", tags: [Item, Overworld]},
 	{name: "(2-4) Iron Blocks", antisynergy: ["IronBlocks"], frequency: 2, tags: [Item]},
@@ -257,7 +257,7 @@ var bingoList_v4 = [
 	{name: "(3-6) Coal Blocks", tags: [Item]},
 ],
 
-// Medium (2) 
+// Medium (2)
 [
 	{name: "(6-7) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: ["EdibleItems"], frequency: 2, tags: [Item, Overworld]},
 	//{name: "(8-10) Different Gold Items", antisynergy: ["GoldItems"], tooltiptext: "Any item with 'Gold' in its name (yes even ingots and ores)", tags: [Item]},

@@ -204,7 +204,7 @@ var bingoList_v3 = [
 	{name: "(4-5) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2},
 ],
 
-// Medium (2) 
+// Medium (2)
 [
 	{name: "Wither Skull"},
 	{name: "(6-7) Different Edible Items", tooltiptext: "Raw and cooked variants count as one (e.g. Raw Beef and Steak)", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: "EdibleItems", frequency: 2},

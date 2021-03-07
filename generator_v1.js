@@ -71,7 +71,7 @@ var generator_v1 = function(layout, difficulty, bingoList)
 						
 		function distributeDifficulty(amountOfDifficulty, difficulty)
 		{
-			for (var i = 0; i < amountOfDifficulty; i++) 
+			for (var i = 0; i < amountOfDifficulty; i++)
 			{
 				var cont = true;
 				
@@ -99,9 +99,9 @@ var generator_v1 = function(layout, difficulty, bingoList)
 		distributeDifficulty(amountOfMedium, 1);
 	}
 	
-	for (var i=0; i<=24; i++) 
+	for (var i=0; i<=24; i++)
 	{		
-		do 
+		do
 		{
 			var cont = true;
 			
@@ -143,7 +143,7 @@ var generator_v1 = function(layout, difficulty, bingoList)
 		var goal = JSON.parse(JSON.stringify(goalCandidate)); // Clone object
 
 		// Replace random ranges in goal name
-		goal.generatedName = goal.name.replace(/\((\d+)-(\d+)\)/g, function(match, n1, n2, offset, input) 
+		goal.generatedName = goal.name.replace(/\((\d+)-(\d+)\)/g, function(match, n1, n2, offset, input)
 		{
 			n1 = parseInt(n1);
 			n2 = parseInt(n2);

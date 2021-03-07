@@ -20,7 +20,7 @@ var hoveredSquare;
 // either rename the current unstable version (and then maybe create files
 // for a new unstable version) or create new files/a new entry for the
 // release.
-// 
+//
 // The version is a string, so theoretically it doesn't have to just be
 // numbers (although maybe just numbers would be better).
 //
@@ -218,8 +218,8 @@ $(document).ready(function()
 	});
 
 
-	window.onpopstate = function(event) 
-	{ 
+	window.onpopstate = function(event)
+	{
 		getSettingsFromURL();
 	};
 	
@@ -276,7 +276,7 @@ function getSettingsFromURL()
 		// Set the layout settings' text
 		// document.getElementById("whatlayout").innerHTML="Set Layout";
 	}
-	else 
+	else
 	{
 		LAYOUT = "random";
 		// document.getElementById("whatlayout").innerHTML="Random Layout";
@@ -288,7 +288,7 @@ function getSettingsFromURL()
 	generateNewSheet();
 }
 
-function generateNewSheet() 
+function generateNewSheet()
 {
 	$(".seed_for_copying").val(SEED);
 	$(".seed_for_copying").attr("size", SEED.length);
@@ -364,7 +364,7 @@ function newSeed(remakeSheet)
 }
 
 // Change the layout
-function changeLayout() 
+function changeLayout()
 {	
 	// Change the layout based on the current layout
 	if (LAYOUT == "set")
@@ -373,8 +373,8 @@ function changeLayout()
 		
 		// Update the button's text
 		document.getElementById("whatlayout").innerHTML="Set Layout";
-	} 
-	else 
+	}
+	else
 	{
 		LAYOUT = "set";
 		
@@ -408,7 +408,7 @@ function updateHidden()
 	}
 }
 
-function toggleHidden() 
+function toggleHidden()
 {
 	// Invert HIDDEN setting, then update
 	HIDDEN = !HIDDEN;
@@ -602,7 +602,7 @@ function hideGoalExport()
 }
 
 // Made this a function for readability and ease of use
-function getRandomInt(min, max) 
+function getRandomInt(min, max)
 {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }

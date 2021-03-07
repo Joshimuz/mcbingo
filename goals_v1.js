@@ -1,6 +1,6 @@
 // This file should not be edited anymore since a stable version refers to it (except
 // maybe for purely visual things that don't change the goals, like typos).
-// 
+//
 // These goals are at the state of this commit (2017-07-08):
 // https://github.com/Joshimuz/mcbingo/commit/d48049bf973a3d9757af69c8dc38ad626334c507
 
@@ -90,7 +90,7 @@ var bingoList_v1 = [
 	{name: "Kill a Creeper with only fire"},
 ],
 
-// Medium (1) 
+// Medium (1)
 [
 	{name: "Wither Skull"},
 	{name: "(6-8) Different Edible Items"},
