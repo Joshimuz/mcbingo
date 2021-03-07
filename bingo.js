@@ -137,8 +137,8 @@ $(document).ready(function()
 	// On hovering a goal square
 	$("#bingo td img").hover(function()
 	{
-		var tooltipImg = $(this).parent().data("tooltipimg");
-		var tooltipText = $(this).parent().data("tooltiptext");
+		var tooltipImg = $(this).parent().attr(TOOLTIP_IMAGE_ATTR_NAME);
+		var tooltipText = $(this).parent().attr(TOOLTIP_TEXT_ATTR_NAME);
 		// If the tooltip is empty
 		if (tooltipText == "" && tooltipImg == "")
 		{
@@ -581,7 +581,7 @@ function createGoalExport()
 	forEachSquare((i, square) => {
 		result.push({
 			name: square.text(),
-			tooltip: square.data("tooltiptext")
+			tooltip: square.attr(TOOLTIP_TEXT_ATTR_NAME)
 		});
 	});
 	$("#export textarea").text(JSON.stringify(result));
