@@ -39,6 +39,7 @@ const SQUARE_COUNT = 25;
 const NODE_TYPE_TEXT = 3;
 const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
+const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
 
 // Dropdown menu handling.
 $(document).click(function(event) {
@@ -230,12 +231,12 @@ $(document).ready(function()
 	};
 
 	loadSettings();
-	updateColourCount();
 })
 
 function loadSettings()
 {
 	getSettingsFromURL();
+	getSettingsFromLocalStorage();
 }
 
 function getSettingsFromURL()
@@ -294,6 +295,20 @@ function getSettingsFromURL()
 	updateDifficulty();
 	updateVersion();
 	generateNewSheet();
+}
+
+function getSettingsFromLocalStorage()
+{
+	const savedColourCount = localStorage.getItem(COLOUR_COUNT_SETTING_NAME);
+	if (savedColourCount != null)
+	{
+		changeColourCount(savedColourCount);
+	}
+	else
+	{
+		// if not stored, then just use the default
+		updateColourCount();
+	}
 }
 
 /*
@@ -439,6 +454,7 @@ function updateStreamerMode()
 	}
 }
 
+// TODO reduce code duplication between sliders
 function updateDifficulty()
 {
 	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
@@ -456,12 +472,14 @@ function changeDifficulty(value)
 function updateColourCount()
 {
 	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
+	$("#colourCountRange").val(COLOURCOUNT);
 }
 
 function changeColourCount(value)
 {
 	COLOURCOUNT = parseInt(value);
 	updateColourCount();
+	pushNewLocalSettings();
 }
 
 function pushNewUrl()
@@ -469,6 +487,17 @@ function pushNewUrl()
 	var hidden = HIDDEN ? "1" : "0";
 	var streamerMode = STREAMER_MODE ? "1" : "0";
 	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED);
+}
+
+function pushNewLocalSettings()
+{
+	try
+	{
+		localStorage.setItem(COLOUR_COUNT_SETTING_NAME, COLOURCOUNT.toString());
+	}
+	catch (ignored)
+	{
+	}
 }
 
 function getVersion(versionId)
