@@ -321,12 +321,7 @@ function generateNewSheet()
 		square.data("tooltipimg", "");
 		square.data("tooltiptext", "");
 		square.children().css("visibility", "hidden");
-		square.removeClass('greensquare');
-		square.removeClass('redsquare');
-		square.removeClass('bluesquare');
-		square.removeClass('yellowsquare');
-		square.removeClass('pinksquare');
-		square.removeClass('brownsquare');
+		setSquareColor(square, "");
 	});
 
 	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
