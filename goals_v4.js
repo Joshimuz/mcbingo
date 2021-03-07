@@ -413,7 +413,7 @@ var bingoList_v4 = [
 	{name: "Listen to a Music Disc", tags: [Item]},
 	{name: "(11-14) Different Flowers", antisynergy: ["Flowers"], frequency: 3, tags: [Item, RareBiome, Overworld]},
 	{name: "(2-4) Diamond Blocks", antisynergy: ["DiamondBlock"], frequency: 2, tags: [Item]},
-	{name: "Get a Zombified Piglin's Sword", reactant: ["Pacifist"], tooltiptext: "Kill Pigmen until you get a rare drop from one, it being their Golden Sword", tooltipimg: "Goal Tooltip Images/GoldenSword.jpg", tags: [Action, Combat, Nether]},
+	{name: "Get a Zombified Piglin's Sword", reactant: ["Pacifist"], tooltiptext: "Kill Zombified Piglins until you get a rare drop from one, it being their Golden Sword", tooltipimg: "Goal Tooltip Images/GoldenSword.jpg", tags: [Action, Combat, Nether]},
 	{name: "Finish by launching Fireworks of (5-10) Different Colours", antisynergy: ["Finish"], tags: [Action, Item, Colour, Overworld]},
 	{name: "Nametag an Enderman", tags: [Action, Combat, Overworld]},
 	{name: "Finish on top of a Blaze spawner", tooltiptext: "Be stood on top of a Blaze spawner at the end of the game", antisynergy: ["Finish"], tags: [Action, Nether, Combat]},
