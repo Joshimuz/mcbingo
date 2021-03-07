@@ -231,9 +231,6 @@ $(document).ready(function()
 	
 	getSettingsFromURL();
 	
-	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
-	$(".stream-difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
-	$("#difficultyRange").val(DIFFICULTY);
 	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
 })
 
@@ -290,6 +287,7 @@ function getSettingsFromURL()
 	
 	updateHidden();
 	updateStreamerMode();
+	updateDifficulty();
 	updateVersion();
 	generateNewSheet();
 }
@@ -442,13 +440,17 @@ function updateStreamerMode()
 	}
 }
 
+function updateDifficulty()
+{
+	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
+	$(".stream-difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
+	$("#difficultyRange").val(DIFFICULTY);
+}
+
 function changeDifficulty(value)
 {
 	DIFFICULTY = parseInt(value);
-	
-	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
-	$(".stream-difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
-	
+	updateDifficulty();
 	generateNewSheet();
 	pushNewUrl();
 }
