@@ -230,8 +230,7 @@ $(document).ready(function()
 	};
 	
 	getSettingsFromURL();
-	
-	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
+	updateColourCount();
 })
 
 function getSettingsFromURL()
@@ -454,11 +453,15 @@ function changeDifficulty(value)
 	pushNewUrl();
 }
 
+function updateColourCount()
+{
+	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
+}
+
 function changeColourCount(value)
 {
 	COLOURCOUNT = parseInt(value);
-
-	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
+	updateColourCount();
 }
 
 function pushNewUrl()
