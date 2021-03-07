@@ -136,8 +136,9 @@ $(document).ready(function()
 	$("#bingo td img").hover(function()
 	{
 		var tooltipImg = $(this).parent().data("tooltipimg");
+		var tooltipText = $(this).parent().data("tooltiptext");
 		// If the tooltip is empty
-		if ($(this).parent().data("tooltiptext") == "" && tooltipImg == "")
+		if (tooltipText == "" && tooltipImg == "")
 		{
 			// Do nothing lol
 		}
@@ -147,7 +148,7 @@ $(document).ready(function()
 			 $("#tooltip").show();
 			 $("#tooltipimg").attr('src', tooltipImg);
 			 $("#tooltipimg").toggle(tooltipImg != "");
-			 $("#tooltiptext").text($(this).parent().data("tooltiptext"));
+			 $("#tooltiptext").text(tooltipText);
 		}
 	},function()
 	{
