@@ -243,7 +243,7 @@ var bingoList_v4 = [
 	{name: "Activate a Target Block", tags: [Action, Overworld]},
 	{name: "Carrot on a Stick", tags: [Item, Overworld]},
 	{name: "Barter with a Piglin", tags: [Action, Nether]},
-	{name: "Become Nauseas", reactant: ["Pacifist", "EatMeat"], tags: [Item, Ocean, Overworld]},
+	{name: "Become Nauseous", reactant: ["Pacifist", "EatMeat"], tags: [Item, Ocean, Overworld]},
 	{name: "Enchanted item", tags: [Item]},
 	{name: "Remove an Enchantment with a Grindstone", tags: [Action]},
 	{name: "Never use a Sword", catalyst: ["SwordUse"], tooltiptext: "Never use a Sword for Combat or Block Breaking. Holding or crafting is fine", tooltipimg: "Goal Tooltip Images/NoSword.jpg", tags: [Never]},
