@@ -20,7 +20,7 @@ var hoveredSquare;
 // either rename the current unstable version (and then maybe create files
 // for a new unstable version) or create new files/a new entry for the
 // release.
-// 
+//
 // The version is a string, so theoretically it doesn't have to just be
 // numbers (although maybe just numbers would be better).
 //
@@ -34,6 +34,11 @@ var VERSIONS = [
 
 // This is the newest stable version that users not specifying a version will get
 var LATEST_VERSION = "3";
+
+const SQUARE_COUNT = 25;
+const NODE_TYPE_TEXT = 3;
+const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
+const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 
 // Dropdown menu handling.
 $(document).click(function(event) {
@@ -133,8 +138,9 @@ $(document).ready(function()
 	$("#bingo td img").hover(function()
 	{
 		var tooltipImg = $(this).parent().data("tooltipimg");
+		var tooltipText = $(this).parent().data("tooltiptext");
 		// If the tooltip is empty
-		if ($(this).parent().data("tooltiptext") == "" && tooltipImg == "")
+		if (tooltipText == "" && tooltipImg == "")
 		{
 			// Do nothing lol
 		}
@@ -144,7 +150,7 @@ $(document).ready(function()
 			 $("#tooltip").show();
 			 $("#tooltipimg").attr('src', tooltipImg);
 			 $("#tooltipimg").toggle(tooltipImg != "");
-			 $("#tooltiptext").text($(this).parent().data("tooltiptext"));
+			 $("#tooltiptext").text(tooltipText);
 		}
 	},function()
 	{
@@ -218,8 +224,8 @@ $(document).ready(function()
 	});
 
 
-	window.onpopstate = function(event) 
-	{ 
+	window.onpopstate = function(event)
+	{
 		getSettingsFromURL();
 	};
 	
@@ -230,10 +236,6 @@ $(document).ready(function()
 	$("#difficultyRange").val(DIFFICULTY);
 	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
 })
-
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-
 
 function getSettingsFromURL()
 {
@@ -280,7 +282,7 @@ function getSettingsFromURL()
 		// Set the layout settings' text
 		// document.getElementById("whatlayout").innerHTML="Set Layout";
 	}
-	else 
+	else
 	{
 		LAYOUT = "random";
 		// document.getElementById("whatlayout").innerHTML="Random Layout";
@@ -292,7 +294,22 @@ function getSettingsFromURL()
 	generateNewSheet();
 }
 
-function generateNewSheet() 
+/*
+ * Call given function for every square. The given function shall take two arguments:
+ * 1. an index
+ * 2. the square's element
+ */
+function forEachSquare(f)
+{
+	for (var i = 0; i < SQUARE_COUNT; i++)
+	{
+		var slotId = "#slot"+ (i + 1);
+		var square = $(slotId);
+		f(i, square);
+	}
+}
+
+function generateNewSheet()
 {
 	$(".seed_for_copying").val(SEED);
 	$(".seed_for_copying").attr("size", SEED.length);
@@ -301,48 +318,22 @@ function generateNewSheet()
 	Math.seedrandom(SEED);
 	
 	// Reset every goal square
-	for (var i=0; i<=24; i++) 
-	{
-		var slotId = "#slot"+ (i + 1);
-		$(slotId).contents().filter(function(){ return this.nodeType == 3; }).remove();
-		$(slotId).data("tooltipimg", "");
-		$(slotId).data("tooltiptext", "");
-		$(slotId).children().css("visibility", "hidden");
-		$(slotId).removeClass('greensquare');
-		$(slotId).removeClass('redsquare');
-		$(slotId).removeClass('bluesquare');
-		$(slotId).removeClass('yellowsquare');
-		$(slotId).removeClass('pinksquare');
-		$(slotId).removeClass('brownsquare');
-	}
+	forEachSquare((i, square) => {
+		square.contents().filter(function(){ return this.nodeType == NODE_TYPE_TEXT; }).remove();
+		setSquareColor(square, "");
+	});
 
 	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
 	
-	for (var i=0; i<25; i++)
-	{
-		var slotId = "#slot"+ (i + 1);
+	forEachSquare((i, square) => {
 		var goal = result[i];
 
-		//$(slotId).append(goal.generatedName + " " + goal.difficulty);
-		$(slotId).append(goal.generatedName);
+		//square.append(goal.generatedName + " " + goal.difficulty);
+		square.append(goal.generatedName);
 		
-		if (typeof goal.tooltipimg !== 'undefined')
-		{
-			$(slotId).data("tooltipimg", goal.tooltipimg);
-			if (!HIDDEN)
-			{
-				$(slotId).children().css("visibility", "visible");
-			}
-		}
-		if (typeof goal.tooltiptext !== 'undefined')
-		{
-			$(slotId).data("tooltiptext", goal.tooltiptext);
-			if (!HIDDEN)
-			{
-				$(slotId).children().css("visibility", "visible");
-			}
-		}
-	}
+		square.attr(TOOLTIP_TEXT_ATTR_NAME, goal.tooltiptext || "");
+		square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
+	});
 }
 
 // Create a new seed
@@ -368,7 +359,7 @@ function newSeed(remakeSheet)
 }
 
 // Change the layout
-function changeLayout() 
+function changeLayout()
 {	
 	// Change the layout based on the current layout
 	if (LAYOUT == "set")
@@ -377,8 +368,8 @@ function changeLayout()
 		
 		// Update the button's text
 		document.getElementById("whatlayout").innerHTML="Set Layout";
-	} 
-	else 
+	}
+	else
 	{
 		LAYOUT = "set";
 		
@@ -412,7 +403,7 @@ function updateHidden()
 	}
 }
 
-function toggleHidden() 
+function toggleHidden()
 {
 	// Invert HIDDEN setting, then update
 	HIDDEN = !HIDDEN;
@@ -588,14 +579,12 @@ function copySeedToClipboard(id)
 function createGoalExport()
 {
 	let result = [];
-	for (var i=0; i<25; i++)
-	{
-		var slotId = "#slot"+ (i + 1);
+	forEachSquare((i, square) => {
 		result.push({
-			name: $(slotId).text(),
-			tooltip: $(slotId).data("tooltiptext")
+			name: square.text(),
+			tooltip: square.data("tooltiptext")
 		});
-	}
+	});
 	$("#export textarea").text(JSON.stringify(result));
 	$("#export").show();
 }
@@ -606,7 +595,7 @@ function hideGoalExport()
 }
 
 // Made this a function for readability and ease of use
-function getRandomInt(min, max) 
+function getRandomInt(min, max)
 {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }

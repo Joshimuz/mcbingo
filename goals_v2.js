@@ -130,7 +130,7 @@ var bingoList_v2 = [
 	{name: "(33-64) Redstone", antisynergy: "Redstone", frequency: 2},
 ],
 
-// Medium (2) 
+// Medium (2)
 [
 	{name: "Wither Skull"},
 	{name: "(6-8) Different Edible Items"},
