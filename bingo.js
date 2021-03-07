@@ -39,6 +39,7 @@ const SQUARE_COUNT = 25;
 const NODE_TYPE_TEXT = 3;
 const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
+const COLOUR_COUNT_COOKIE_NAME = "minecraftBingoColourCount";
 
 // Dropdown menu handling.
 $(document).click(function(event) {
@@ -230,12 +231,12 @@ $(document).ready(function()
 	};
 
 	loadSettings();
-	updateColourCount();
 })
 
 function loadSettings()
 {
 	getSettingsFromURL();
+	getSettingsFromCookies();
 }
 
 function getSettingsFromURL()
@@ -294,6 +295,33 @@ function getSettingsFromURL()
 	updateDifficulty();
 	updateVersion();
 	generateNewSheet();
+}
+
+function getSettingsFromCookies()
+{
+	const settings = {};
+	const cookies = decodeURIComponent(document.cookie).split(";");
+	for (const cookie of cookies)
+	{
+		const keyValue = cookie.trim().split("=");
+		if (keyValue && keyValue.length == 2)
+		{
+			settings[keyValue[0].trim()] = keyValue[1].trim();
+		}
+	}
+
+	console.log("Loading settings:");
+	console.log(settings);
+
+	if (COLOUR_COUNT_COOKIE_NAME in settings)
+	{
+		changeColourCount(settings[COLOUR_COUNT_COOKIE_NAME]);
+	}
+	else
+	{
+		// if not stored in the cookies, then just use the default
+		updateColourCount();
+	}
 }
 
 /*
@@ -462,6 +490,7 @@ function changeColourCount(value)
 {
 	COLOURCOUNT = parseInt(value);
 	updateColourCount();
+	pushNewCookies();
 }
 
 function pushNewUrl()
@@ -469,6 +498,23 @@ function pushNewUrl()
 	var hidden = HIDDEN ? "1" : "0";
 	var streamerMode = STREAMER_MODE ? "1" : "0";
 	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED);
+}
+
+function pushNewCookies()
+{
+	const settings = {};
+	settings[COLOUR_COUNT_COOKIE_NAME] = COLOURCOUNT.toString();
+
+	console.log("Saving settings:");
+	console.log(settings);
+
+	const expiresAttr = new Date(Date.now() + 30 * 24 * 60 * 1000).toUTCString();
+	const sharedPart = "; expires=" + expiresAttr + "; path=/; SameSite=Strict";
+	for (var key in settings)
+	{
+		const newCookie = key + "=" + settings[key] + sharedPart;
+		document.cookie = newCookie;
+	}
 }
 
 function getVersion(versionId)
