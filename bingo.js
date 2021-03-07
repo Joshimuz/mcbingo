@@ -36,6 +36,7 @@ var VERSIONS = [
 var LATEST_VERSION = "3";
 
 const SQUARE_COUNT = 25;
+const NODE_TYPE_TEXT = 3;
 
 // Dropdown menu handling.
 $(document).click(function(event) {
@@ -315,7 +316,7 @@ function generateNewSheet()
 	
 	// Reset every goal square
 	forEachSquare((i, square) => {
-		square.contents().filter(function(){ return this.nodeType == 3; }).remove();
+		square.contents().filter(function(){ return this.nodeType == NODE_TYPE_TEXT; }).remove();
 		square.data("tooltipimg", "");
 		square.data("tooltiptext", "");
 		square.children().css("visibility", "hidden");
