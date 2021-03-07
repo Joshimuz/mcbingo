@@ -237,10 +237,6 @@ html, body {
 	background:#a77039;
 }
 
-#bingo td img {
-	visibility: hidden;
-}
-
 #hidden-table {
 	font-family: settingsFont;
 	background-color: white;
@@ -283,6 +279,9 @@ html, body {
 	padding-top: 4px;
 	right: 5px;
 	top: 5px;
+}
+#bingo td[data-tooltiptext=""] .tooltipQ {
+	display: none;
 }
 
 /* End Bingo Card  */

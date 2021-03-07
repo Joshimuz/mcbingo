@@ -37,6 +37,8 @@ var LATEST_VERSION = "3";
 
 const SQUARE_COUNT = 25;
 const NODE_TYPE_TEXT = 3;
+const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
+const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 
 // Dropdown menu handling.
 $(document).click(function(event) {
@@ -318,9 +320,6 @@ function generateNewSheet()
 	// Reset every goal square
 	forEachSquare((i, square) => {
 		square.contents().filter(function(){ return this.nodeType == NODE_TYPE_TEXT; }).remove();
-		square.data("tooltipimg", "");
-		square.data("tooltiptext", "");
-		square.children().css("visibility", "hidden");
 		setSquareColor(square, "");
 	});
 
@@ -332,22 +331,8 @@ function generateNewSheet()
 		//square.append(goal.generatedName + " " + goal.difficulty);
 		square.append(goal.generatedName);
 		
-		if (typeof goal.tooltipimg !== 'undefined')
-		{
-			square.data("tooltipimg", goal.tooltipimg);
-			if (!HIDDEN)
-			{
-				square.children().css("visibility", "visible");
-			}
-		}
-		if (typeof goal.tooltiptext !== 'undefined')
-		{
-			square.data("tooltiptext", goal.tooltiptext);
-			if (!HIDDEN)
-			{
-				square.children().css("visibility", "visible");
-			}
-		}
+		square.attr(TOOLTIP_TEXT_ATTR_NAME, goal.tooltiptext || "");
+		square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
 	});
 }
 
