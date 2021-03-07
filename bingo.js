@@ -231,10 +231,6 @@ $(document).ready(function()
 	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
 })
 
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-
-
 function getSettingsFromURL()
 {
 	/**
