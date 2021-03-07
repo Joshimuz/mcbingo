@@ -146,11 +146,7 @@ $(document).ready(function()
 		}
 		else
 		{
-			// Show the tooltip and fill it with content from the goal
 			 $("#tooltip").show();
-			 $("#tooltipimg").attr('src', tooltipImg);
-			 $("#tooltipimg").toggle(tooltipImg != "");
-			 $("#tooltiptext").text(tooltipText);
 		}
 	},function()
 	{
@@ -179,6 +175,12 @@ $(document).ready(function()
 	$("#bingo td").hover(function(e)
 	{
 		hoveredSquare = $(this);
+		// Fill the #tooltip with the content from the goal
+		var tooltipImg = hoveredSquare.attr(TOOLTIP_IMAGE_ATTR_NAME);
+		var tooltipText = hoveredSquare.attr(TOOLTIP_TEXT_ATTR_NAME);
+		$("#tooltipimg").attr('src', tooltipImg);
+		$("#tooltipimg").toggle(tooltipImg != "");
+		$("#tooltiptext").text(tooltipText);
 	},function(e)
 	{
 		hoveredSquare = null;
