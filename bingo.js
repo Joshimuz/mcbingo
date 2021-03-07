@@ -137,21 +137,7 @@ $(document).ready(function()
 	// On hovering a goal square
 	$("#bingo td img").hover(function()
 	{
-		var tooltipImg = $(this).parent().data("tooltipimg");
-		var tooltipText = $(this).parent().data("tooltiptext");
-		// If the tooltip is empty
-		if (tooltipText == "" && tooltipImg == "")
-		{
-			// Do nothing lol
-		}
-		else
-		{
-			// Show the tooltip and fill it with content from the goal
-			 $("#tooltip").show();
-			 $("#tooltipimg").attr('src', tooltipImg);
-			 $("#tooltipimg").toggle(tooltipImg != "");
-			 $("#tooltiptext").text(tooltipText);
-		}
+		$("#tooltip").show();
 	},function()
 	{
 		// After hovering, hide the tooltip again
@@ -179,6 +165,12 @@ $(document).ready(function()
 	$("#bingo td").hover(function(e)
 	{
 		hoveredSquare = $(this);
+		// Fill the #tooltip with the content from the goal
+		var tooltipImg = hoveredSquare.attr(TOOLTIP_IMAGE_ATTR_NAME);
+		var tooltipText = hoveredSquare.attr(TOOLTIP_TEXT_ATTR_NAME);
+		$("#tooltipimg").attr('src', tooltipImg);
+		$("#tooltipimg").toggle(tooltipImg != "");
+		$("#tooltiptext").text(tooltipText);
 	},function(e)
 	{
 		hoveredSquare = null;
@@ -581,7 +573,7 @@ function createGoalExport()
 	forEachSquare((i, square) => {
 		result.push({
 			name: square.text(),
-			tooltip: square.data("tooltiptext")
+			tooltip: square.attr(TOOLTIP_TEXT_ATTR_NAME)
 		});
 	});
 	$("#export textarea").text(JSON.stringify(result));
