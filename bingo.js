@@ -137,17 +137,7 @@ $(document).ready(function()
 	// On hovering a goal square
 	$("#bingo td img").hover(function()
 	{
-		var tooltipImg = $(this).parent().attr(TOOLTIP_IMAGE_ATTR_NAME);
-		var tooltipText = $(this).parent().attr(TOOLTIP_TEXT_ATTR_NAME);
-		// If the tooltip is empty
-		if (tooltipText == "" && tooltipImg == "")
-		{
-			// Do nothing lol
-		}
-		else
-		{
-			 $("#tooltip").show();
-		}
+		$("#tooltip").show();
 	},function()
 	{
 		// After hovering, hide the tooltip again
