@@ -422,20 +422,15 @@ function toggleStreamerMode()
 
 function updateStreamerMode()
 {
-	const hiddenInStreamerMode = "#nav_section, .buttons-row, #rules-section";
-	const shownInStreamerMode = ".stream-exit-text";
+	const cssClassName = "streamer-mode";
+	const body = $("body");
 	if (STREAMER_MODE)
 	{
-		$(hiddenInStreamerMode).hide();
-		// can't use show() here, because jQuery doesn't yet know that 'display:block' is supposed to be used
-		$(shownInStreamerMode).css("display", "block");
-		$("body").css("background-size", "0, 0");
+		body.addClass(cssClassName);
 	}
 	else
 	{
-		$(hiddenInStreamerMode).show();
-		$(shownInStreamerMode).hide();
-		$("body").css("background-size", "auto");
+		body.removeClass(cssClassName);
 	}
 }
 
