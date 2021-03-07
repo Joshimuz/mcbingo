@@ -443,7 +443,6 @@ function updateStreamerMode()
 function updateDifficulty()
 {
 	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
-	$(".stream-difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
 	$("#difficultyRange").val(DIFFICULTY);
 }
 
