@@ -230,11 +230,7 @@ $(document).ready(function()
 	};
 	
 	getSettingsFromURL();
-	
-	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
-	$(".stream-difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
-	$("#difficultyRange").val(DIFFICULTY);
-	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
+	updateColourCount();
 })
 
 function getSettingsFromURL()
@@ -290,6 +286,7 @@ function getSettingsFromURL()
 	
 	updateHidden();
 	updateStreamerMode();
+	updateDifficulty();
 	updateVersion();
 	generateNewSheet();
 }
@@ -425,39 +422,41 @@ function toggleStreamerMode()
 
 function updateStreamerMode()
 {
-	const hiddenInStreamerMode = "#nav_section, .buttons-row, #rules-section";
-	const shownInStreamerMode = ".stream-exit-text";
+	const cssClassName = "streamer-mode";
+	const body = $("body");
 	if (STREAMER_MODE)
 	{
-		$(hiddenInStreamerMode).hide();
-		// can't use show() here, because jQuery doesn't yet know that 'display:block' is supposed to be used
-		$(shownInStreamerMode).css("display", "block");
-		$("body").css("background-size", "0, 0");
+		body.addClass(cssClassName);
 	}
 	else
 	{
-		$(hiddenInStreamerMode).show();
-		$(shownInStreamerMode).hide();
-		$("body").css("background-size", "auto");
+		body.removeClass(cssClassName);
 	}
+}
+
+function updateDifficulty()
+{
+	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
+	$("#difficultyRange").val(DIFFICULTY);
 }
 
 function changeDifficulty(value)
 {
 	DIFFICULTY = parseInt(value);
-	
-	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
-	$(".stream-difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
-	
+	updateDifficulty();
 	generateNewSheet();
 	pushNewUrl();
+}
+
+function updateColourCount()
+{
+	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
 }
 
 function changeColourCount(value)
 {
 	COLOURCOUNT = parseInt(value);
-
-	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
+	updateColourCount();
 }
 
 function pushNewUrl()

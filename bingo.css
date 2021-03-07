@@ -70,10 +70,6 @@ html, body {
 	text-align: center;
 }
 
-.stream-difficulty-text {
-	color: #000;
-}
-
 .stream-exit-text {
 	color: #000;
 	text-align:center;
@@ -426,6 +422,22 @@ input[type=range]::-ms-thumb:active {
 }
 
 /* End Buttons Styling */
+
+/* Streamer Mode Styling */
+.streamer-mode #nav_section,
+.streamer-mode .buttons-row,
+.streamer-mode #rules-section {
+	display: none;
+}
+
+.streamer-mode .stream-exit-text {
+	display: block;
+}
+
+body.streamer-mode {
+	background-size: 0, 0;
+}
+/* End Streamer Mode Styling */
 
 /* Rules And Bottom Styling */
 
