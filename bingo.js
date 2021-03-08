@@ -226,12 +226,17 @@ $(document).ready(function()
 
 	window.onpopstate = function(event)
 	{
-		getSettingsFromURL();
+		loadSettings();
 	};
 
-	getSettingsFromURL();
+	loadSettings();
 	updateColourCount();
 })
+
+function loadSettings()
+{
+	getSettingsFromURL();
+}
 
 function getSettingsFromURL()
 {
