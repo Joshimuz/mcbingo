@@ -8,6 +8,11 @@ var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 
 const ALL_COLOURS = ["", "bluesquare", "greensquare", "yellowsquare", "redsquare", "pinksquare", "brownsquare"];
+var COLOUR_SELECTIONS = [
+	["", "greensquare"],
+	["", "bluesquare", "greensquare", "redsquare"],
+	ALL_COLOURS
+];
 var COLOURCOUNT = 1;
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
 
@@ -71,70 +76,8 @@ $(document).ready(function()
 	// On clicking a goal square
 	$("#bingo td").click(function()
 	{
-		// If only using Grey and Green
-		if (COLOURCOUNT == 0)
-		{
-			if ($(this).hasClass('greensquare'))
-			{
-				setSquareColor($(this), '');
-			}
-			else
-			{
-				setSquareColor($(this), 'greensquare');
-			}
-		}
-		// If using Blue Green and Red
-		else if (COLOURCOUNT == 1)
-		{
-			if ($(this).hasClass('bluesquare'))
-			{
-				setSquareColor($(this), 'greensquare');
-			}
-			else if ($(this).hasClass('greensquare'))
-			{
-				setSquareColor($(this), 'redsquare');
-			}
-			else if ($(this).hasClass('redsquare'))
-			{
-				setSquareColor($(this), '');
-			}
-			else
-			{
-				setSquareColor($(this), 'bluesquare');
-			}
-		}
-		// Use all the colours!
-		else
-		{
-			if ($(this).hasClass('bluesquare'))
-			{
-				setSquareColor($(this), 'greensquare');
-			}
-			else if ($(this).hasClass('greensquare'))
-			{
-				setSquareColor($(this), 'yellowsquare');
-			}
-			else if ($(this).hasClass('yellowsquare'))
-			{
-				setSquareColor($(this), 'redsquare');
-			}
-			else if ($(this).hasClass('redsquare'))
-			{
-				setSquareColor($(this), 'pinksquare');
-			}
-			else if ($(this).hasClass('pinksquare'))
-			{
-				setSquareColor($(this), 'brownsquare');
-			}
-			else if ($(this).hasClass('brownsquare'))
-			{
-				setSquareColor($(this), '');
-			}
-			else
-			{
-				setSquareColor($(this), 'bluesquare');
-			}
-		}
+		const square = $(this);
+		setSquareColor(square, nextColour(square));
 	});
 
 	// On hovering a goal square
@@ -226,6 +169,25 @@ $(document).ready(function()
 
 	loadSettings();
 });
+
+function getColourClass(square)
+{
+	return ALL_COLOURS.find(c => square.hasClass(c));
+}
+
+function nextColour(square)
+{
+	const colourSelection = COLOUR_SELECTIONS[COLOURCOUNT];
+	const currColour = getColourClass(square);
+	const currIndex = colourSelection.indexOf(currColour);
+	if (currIndex == -1)
+	{
+		// default to second colour
+		return colourSelection[1];
+	}
+	const nextIndex = (currIndex + 1) % colourSelection.length;
+	return colourSelection[nextIndex];
+}
 
 function loadSettings()
 {
