@@ -223,7 +223,7 @@ $(document).ready(function()
 	};
 
 	loadSettings();
-})
+});
 
 function loadSettings()
 {
