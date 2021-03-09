@@ -39,6 +39,7 @@ const SQUARE_COUNT = 25;
 const NODE_TYPE_TEXT = 3;
 const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
+const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
 
 // Dropdown menu handling.
 $(document).click(function(event) {
@@ -56,7 +57,7 @@ $(document).click(function(event) {
 });
 
 $(document).ready(function()
-{	
+{
 	// Set the background to a random image
 	document.body.style.backgroundImage = "url('Backgrounds/background" + (Math.floor(Math.random() * 10) + 1) + ".jpg')";
 
@@ -133,7 +134,7 @@ $(document).ready(function()
 			}
 		}
 	});
-	
+
 	// On hovering a goal square
 	$("#bingo td img").hover(function()
 	{
@@ -143,7 +144,7 @@ $(document).ready(function()
 		// After hovering, hide the tooltip again
 		$("#tooltip").hide();
 	});
-	
+
 	// Move the tooltip with the mouse
 	$(document).mousemove(function(e)
 	{
@@ -218,12 +219,17 @@ $(document).ready(function()
 
 	window.onpopstate = function(event)
 	{
-		getSettingsFromURL();
+		loadSettings();
 	};
-	
-	getSettingsFromURL();
-	updateColourCount();
+
+	loadSettings();
 })
+
+function loadSettings()
+{
+	getSettingsFromURL();
+	getSettingsFromLocalStorage();
+}
 
 function getSettingsFromURL()
 {
@@ -264,7 +270,7 @@ function getSettingsFromURL()
 
 	// Grab the layout setting from the URL
 	LAYOUT = gup( 'layout' );
-	
+
 	if (LAYOUT == "set")
 	{
 		// Set the layout settings' text
@@ -275,12 +281,26 @@ function getSettingsFromURL()
 		LAYOUT = "random";
 		// document.getElementById("whatlayout").innerHTML="Random Layout";
 	}
-	
+
 	updateHidden();
 	updateStreamerMode();
 	updateDifficulty();
 	updateVersion();
 	generateNewSheet();
+}
+
+function getSettingsFromLocalStorage()
+{
+	const savedColourCount = localStorage.getItem(COLOUR_COUNT_SETTING_NAME);
+	if (savedColourCount != null)
+	{
+		changeColourCount(savedColourCount);
+	}
+	else
+	{
+		// if not stored, then just use the default
+		updateColourCount();
+	}
 }
 
 /*
@@ -305,7 +325,7 @@ function generateNewSheet()
 
 	// Reset the random seed
 	Math.seedrandom(SEED);
-	
+
 	// Reset every goal square
 	forEachSquare((i, square) => {
 		square.contents().filter(function(){ return this.nodeType == NODE_TYPE_TEXT; }).remove();
@@ -313,13 +333,13 @@ function generateNewSheet()
 	});
 
 	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
-	
+
 	forEachSquare((i, square) => {
 		var goal = result[i];
 
 		//square.append(goal.generatedName + " " + goal.difficulty);
 		square.append(goal.generatedName);
-		
+
 		square.attr(TOOLTIP_TEXT_ATTR_NAME, goal.tooltiptext || "");
 		square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
 	});
@@ -330,16 +350,16 @@ function newSeed(remakeSheet)
 {
 	// Remove the current seed
 	Math.seedrandom();
-	
+
 	// Making a new 5 digit seed
 	SEED = Math.floor((Math.random() * 90000) + 10000).toString();
-	
+
 	// Set the new seed
 	Math.seedrandom(SEED);
-	
+
 	// Update the seed in the URL
 	pushNewUrl();
-	
+
 	// If a new sheet is required, generate one
 	if (remakeSheet)
 	{
@@ -349,25 +369,25 @@ function newSeed(remakeSheet)
 
 // Change the layout
 function changeLayout()
-{	
+{
 	// Change the layout based on the current layout
 	if (LAYOUT == "set")
 	{
 		LAYOUT = "random";
-		
+
 		// Update the button's text
 		document.getElementById("whatlayout").innerHTML="Set Layout";
 	}
 	else
 	{
 		LAYOUT = "set";
-		
+
 		document.getElementById("whatlayout").innerHTML="Random Layout";
 	}
-	
+
 	// Update the URL
 	pushNewUrl();
-	
+
 	// Generate a new sheet
 	generateNewSheet();
 }
@@ -426,6 +446,7 @@ function updateStreamerMode()
 	}
 }
 
+// TODO reduce code duplication between sliders
 function updateDifficulty()
 {
 	$(".difficulty-text").text(DIFFICULTYTEXT[DIFFICULTY - 1]);
@@ -443,12 +464,14 @@ function changeDifficulty(value)
 function updateColourCount()
 {
 	$(".colourCount-text").text(COLOURCOUNTTEXT[COLOURCOUNT]);
+	$("#colourCountRange").val(COLOURCOUNT);
 }
 
 function changeColourCount(value)
 {
 	COLOURCOUNT = parseInt(value);
 	updateColourCount();
+	pushNewLocalSettings();
 }
 
 function pushNewUrl()
@@ -456,6 +479,17 @@ function pushNewUrl()
 	var hidden = HIDDEN ? "1" : "0";
 	var streamerMode = STREAMER_MODE ? "1" : "0";
 	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED);
+}
+
+function pushNewLocalSettings()
+{
+	try
+	{
+		localStorage.setItem(COLOUR_COUNT_SETTING_NAME, COLOURCOUNT.toString());
+	}
+	catch (ignored)
+	{
+	}
 }
 
 function getVersion(versionId)
@@ -561,7 +595,7 @@ function copySeedToClipboard(id)
 		{
 			alert("Failed to copy seed to clipboard :/");
 		}
-	
+
 		// Deselect
 		$(id).blur();
 	}
