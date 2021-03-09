@@ -121,38 +121,20 @@ $(document).ready(function()
 	{
 		hoveredSquare = null;
 	});
+	const SHORTCUT_COLOURS = {
+		48: "",
+		49: "bluesquare",
+		50: "greensquare",
+		51: "redsquare",
+		52: "yellowsquare",
+		53: "pinksquare",
+		54: "brownsquare"
+	};
 	$(document).on("keydown", function(e)
 	{
-		if (hoveredSquare)
+		if (hoveredSquare && e.which in SHORTCUT_COLOURS)
 		{
-			if (e.which == 49) // 1
-			{
-				setSquareColor(hoveredSquare, "bluesquare");
-			}
-			else if (e.which == 50) // 2
-			{
-				setSquareColor(hoveredSquare, "greensquare");
-			}
-			else if (e.which == 51) // 3
-			{
-				setSquareColor(hoveredSquare, "redsquare");
-			}
-			else if (e.which == 52) // 4
-			{
-				setSquareColor(hoveredSquare, "yellowsquare");
-			}
-			else if (e.which == 53) // 5
-			{
-				setSquareColor(hoveredSquare, "pinksquare");
-			}
-			else if (e.which == 54) // 6
-			{
-				setSquareColor(hoveredSquare, "brownsquare");
-			}
-			else if (e.which == 48) // 0
-			{
-				setSquareColor(hoveredSquare, "");
-			}
+			setSquareColor(hoveredSquare, SHORTCUT_COLOURS[e.which]);
 		}
 	});
 
