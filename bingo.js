@@ -7,7 +7,7 @@ var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 
-const ALL_COLOURS = ["", "bluesquare", "greensquare", "yellowsquare", "redsquare", "pinksquare", "brownsquare"];
+const ALL_COLOURS = ["", "bluesquare", "greensquare", "redsquare", "yellowsquare", "pinksquare", "brownsquare"];
 var COLOUR_SELECTIONS = [
 	["", "greensquare"],
 	["", "bluesquare", "greensquare", "redsquare"],
