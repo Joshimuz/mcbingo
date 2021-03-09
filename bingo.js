@@ -6,6 +6,8 @@ var HIDDEN;
 var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
+
+const ALL_COLOURS = ["", "bluesquare", "greensquare", "yellowsquare", "redsquare", "pinksquare", "brownsquare"];
 var COLOURCOUNT = 1;
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
 
@@ -560,12 +562,7 @@ function fillVersionSelection()
 
 function setSquareColor(square, colorClass)
 {
-	square.removeClass('bluesquare');
-	square.removeClass('greensquare');
-	square.removeClass('redsquare');
-	square.removeClass('yellowsquare');
-	square.removeClass('pinksquare');
-	square.removeClass('brownsquare');
+	ALL_COLOURS.forEach(c => square.removeClass(c));
 	square.addClass(colorClass);
 }
 
