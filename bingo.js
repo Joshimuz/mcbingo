@@ -13,7 +13,7 @@ var COLOUR_SELECTIONS = [
 	["", "bluesquare", "greensquare", "redsquare"],
 	ALL_COLOURS
 ];
-var COLOURCOUNT = 1;
+var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEXT
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
 
 var hoveredSquare;
@@ -433,7 +433,15 @@ function updateColourCount()
 
 function changeColourCount(value)
 {
-	COLOURCOUNT = parseInt(value);
+	const maybeColourCount = parseInt(value);
+	if (isNaN(maybeColourCount))
+	{
+		COLOURCOUNT = 1;
+	}
+	else
+	{
+		COLOURCOUNT = Math.max(0, Math.min(COLOUR_SELECTIONS.length - 1, maybeColourCount));
+	}
 	updateColourCount();
 	pushNewLocalSettings();
 }
