@@ -22,7 +22,7 @@ Try to keep the wording as short as possible.*
 **Tooltip Image**
 What should the Image for the Tooltip be? Either link or attach an image here.
 
-*Every Tooltip should have an image.
+*Only add an image if it helps the clarity of the tooltip.
 The image should be 64x64 and a .jpg, and help explain the goal visually.*
 
 **Difficulty level**
