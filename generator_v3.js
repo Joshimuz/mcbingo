@@ -7,12 +7,12 @@ var generator_v3 = function(layout, difficulty, bingoList)
 	var amountOfHard;
 	var amountOfMedium;
 	var amountOfEasy;
-	
+
 	var currentSheet = [];
 	var sheetLayout = [];
 
 	if (layout == "set")
-	{		
+	{
 		sheetLayout = [ 1, 2, 0, 2, 1,
 						2, 0, 1, 0, 2,
 						0, 1, 3, 1, 0,
@@ -26,7 +26,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 						0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0,
 						0, 0, 0, 0, 0];
-		
+
 		switch(difficulty)
 		{
 			// Easy with some Very Easy
@@ -36,7 +36,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				amountOfMedium = 0;
 				amountOfEasy = getRandomInt(15, 19);
 				break;
-				
+
 			// Medium with some Easy
 			case 3:
 				amountOfVeryHard = 0;
@@ -44,7 +44,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				amountOfMedium = getRandomInt(15, 19);
 				amountOfEasy = 25 - amountOfMedium;
 				break;
-				
+
 			// Hard with some Medium
 			case 4:
 				amountOfVeryHard = 0;
@@ -52,7 +52,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				amountOfMedium = 25 - amountOfHard;
 				amountOfEasy = 25 - amountOfHard - amountOfMedium;
 				break;
-				
+
 			// Very Hard with some Hard
 			case 5:
 				amountOfVeryHard = getRandomInt(15, 19);
@@ -60,7 +60,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				amountOfMedium = 25 - amountOfHard - amountOfVeryHard;
 				amountOfEasy = 25 - amountOfHard - amountOfMedium- amountOfVeryHard;
 				break;
-				
+
 			// Very Easy
 			default:
 				amountOfVeryHard = 0;
@@ -68,21 +68,21 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				amountOfMedium = 0;
 				amountOfEasy = 0;
 		}
-						
+
 		function distributeDifficulty(amountOfDifficulty, difficulty)
 		{
 			for (var i = 0; i < amountOfDifficulty; i++)
 			{
 				var cont = true;
 				var failSafe = 0;
-				
+
 				do
 				{
 					cont = true;
 					failSafe++;
-					
+
 					var rng = Math.floor((Math.random() * 25));
-				
+
 					if (sheetLayout[rng] == 0)
 					{
 						sheetLayout[rng] = difficulty;
@@ -99,29 +99,29 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				while (cont == false);
 			}
 		}
-		
+
 		distributeDifficulty(amountOfVeryHard, 4);
 		distributeDifficulty(amountOfHard, 3);
 		distributeDifficulty(amountOfMedium, 2);
 		distributeDifficulty(amountOfEasy, 1);
 	}
-	
+
 	for (var i=0; i<=24; i++)
-	{		
+	{
 		var failSafe = 0;
-		
+
 		do
 		{
 			//console.log("Starting do while loop: " + counter);
 			counter++;
 			var cont = true;
 			failSafe++;
-			
+
 			var rng = Math.floor((Math.random() * bingoList[sheetLayout[i]].length - 1) + 1);
 			var goalCandidate = bingoList[sheetLayout[i]][rng];
-			
+
 			//console.log(bingoList[sheetLayout[i]][rng].name + " tags: " + bingoList[sheetLayout[i]][rng].tags);
-			
+
 			// Check if the goal has a frequency modifier
 			if (typeof goalCandidate.frequency !== 'undefined')
 			{
@@ -135,7 +135,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 			var tagCount = [0, 0, 0, 0, 0];
 
 			for (var z=0; z <= 24; z++)
-			{				
+			{
 				if (typeof currentSheet[z] !== 'undefined')
 				{
 					// Check if the goal generated is already on the sheet
@@ -169,26 +169,25 @@ var generator_v3 = function(layout, difficulty, bingoList)
 						console.log("reactant/catalyst between: " + goalCandidate.name + " and " + currentSheet[z].name);
 						cont = false;
 					}
-					
+
 					// Compare all the tags of the current goal with the tags of the current one on the sheet
 					if (goalCandidate.tags != null && currentSheet[z].tags != null)
 					{
 						for (var x = 0, lenX = goalCandidate.tags.length; x < lenX; x++)
 						{
 							for (var y = 0, lenY = currentSheet[z].tags.length; y < lenY; y++)
-							{								
+							{
 								if (goalCandidate.tags[x].name == currentSheet[z].tags[y].name)
 								{
 									tagCount[x]++;
 								}
 							}
 						}
-						
 					}
-					
+
 				}
 			}
-			
+
 			// If the tag count is higher than the max that tag should have, don't continue
 			if (goalCandidate.tags != null)
 			{
@@ -199,11 +198,11 @@ var generator_v3 = function(layout, difficulty, bingoList)
 						console.log(goalCandidate.tags[x].name + " max reached with " + tagCount[x] + " on the board");
 						cont = false;
 					}
-					
+
 				}
 			}
 
- 			
+
 			// If the loop is stuck because no more suitable goals
 			if (failSafe >= 500)
 			{
@@ -213,7 +212,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 					window.alert("Invalid Goal List");
 					break;
 				}
-				
+
 				// Move the difficulty down by one
 				sheetLayout[i]--;
 				failSafe = 0;
@@ -233,13 +232,13 @@ var generator_v3 = function(layout, difficulty, bingoList)
 			return getRandomInt(n1, n2);
 		});
 		currentSheet[i] = goal;
-		
+
 		// TESTING PURPOSES
 		//goal.difficulty = sheetLayout[i];
-		
+
 		//console.log(goal);
 	}
-	
+
 	shuffle(currentSheet);
 
 	console.log("Completed sheet generation");
