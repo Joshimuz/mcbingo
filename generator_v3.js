@@ -134,58 +134,55 @@ var generator_v3 = function(layout, difficulty, bingoList)
 			}
 			var tagCount = [0, 0, 0, 0, 0];
 
-			for (var z=0; z <= 24; z++)
+			for (var z=0; z < i; z++)
 			{
-				if (typeof currentSheet[z] !== 'undefined')
+				// Check if the goal generated is already on the sheet
+				if (currentSheet[z].name == goalCandidate.name)
 				{
-					// Check if the goal generated is already on the sheet
-					if (currentSheet[z].name == goalCandidate.name)
-					{
-						// If it is get a new goal
-						//console.log("cont = false, same goal on sheet");
-						cont = false;
-					}
-					// Check if the goal generated has any anti synergy with anything already on the sheet
-					else if (typeof currentSheet[z].antisynergy !== 'undefined' && typeof goalCandidate.antisynergy !== 'undefined'
-						&& currentSheet[z].antisynergy.some(r=> goalCandidate.antisynergy.includes(r)))
-					{
-						// If it is get a new goal
-						console.log("antisynergy between: " + goalCandidate.name + " and " + currentSheet[z].name);
-						cont = false;
-					}
-					// Check if the goal generated is a catalyst for anything already on the sheet
-					else if (typeof currentSheet[z].reactant !== 'undefined' && typeof goalCandidate.catalyst !== 'undefined'
-						&& currentSheet[z].reactant.some(r=> goalCandidate.catalyst.includes(r)))
-					{
-						// If it is get a new goal
-						console.log("catalyst/reactant between: " + goalCandidate.name + " and " + currentSheet[z].name);
-						cont = false;
-					}
-					// Check if the goal generated is a reactant for anything already on the sheet
-					else if (typeof currentSheet[z].catalyst !== 'undefined' && typeof goalCandidate.reactant !== 'undefined'
-						&& currentSheet[z].catalyst.some(r=> goalCandidate.reactant.includes(r)))
-					{
-						// If it is get a new goal
-						console.log("reactant/catalyst between: " + goalCandidate.name + " and " + currentSheet[z].name);
-						cont = false;
-					}
+					// If it is get a new goal
+					//console.log("cont = false, same goal on sheet");
+					cont = false;
+				}
+				// Check if the goal generated has any anti synergy with anything already on the sheet
+				else if (typeof currentSheet[z].antisynergy !== 'undefined' && typeof goalCandidate.antisynergy !== 'undefined'
+					&& currentSheet[z].antisynergy.some(r=> goalCandidate.antisynergy.includes(r)))
+				{
+					// If it is get a new goal
+					console.log("antisynergy between: " + goalCandidate.name + " and " + currentSheet[z].name);
+					cont = false;
+				}
+				// Check if the goal generated is a catalyst for anything already on the sheet
+				else if (typeof currentSheet[z].reactant !== 'undefined' && typeof goalCandidate.catalyst !== 'undefined'
+					&& currentSheet[z].reactant.some(r=> goalCandidate.catalyst.includes(r)))
+				{
+					// If it is get a new goal
+					console.log("catalyst/reactant between: " + goalCandidate.name + " and " + currentSheet[z].name);
+					cont = false;
+				}
+				// Check if the goal generated is a reactant for anything already on the sheet
+				else if (typeof currentSheet[z].catalyst !== 'undefined' && typeof goalCandidate.reactant !== 'undefined'
+					&& currentSheet[z].catalyst.some(r=> goalCandidate.reactant.includes(r)))
+				{
+					// If it is get a new goal
+					console.log("reactant/catalyst between: " + goalCandidate.name + " and " + currentSheet[z].name);
+					cont = false;
+				}
 
-					// Compare all the tags of the current goal with the tags of the current one on the sheet
-					if (goalCandidate.tags != null && currentSheet[z].tags != null)
+				// Compare all the tags of the current goal with the tags of the current one on the sheet
+				if (goalCandidate.tags != null && currentSheet[z].tags != null)
+				{
+					for (var x = 0, lenX = goalCandidate.tags.length; x < lenX; x++)
 					{
-						for (var x = 0, lenX = goalCandidate.tags.length; x < lenX; x++)
+						for (var y = 0, lenY = currentSheet[z].tags.length; y < lenY; y++)
 						{
-							for (var y = 0, lenY = currentSheet[z].tags.length; y < lenY; y++)
+							if (goalCandidate.tags[x].name == currentSheet[z].tags[y].name)
 							{
-								if (goalCandidate.tags[x].name == currentSheet[z].tags[y].name)
-								{
-									tagCount[x]++;
-								}
+								tagCount[x]++;
 							}
 						}
 					}
-
 				}
+
 			}
 
 			// If the tag count is higher than the max that tag should have, don't continue
