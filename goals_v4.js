@@ -483,6 +483,7 @@ var bingoList_v4 = [
 	{name: "Throw a Mending Book into Lava", tags: [Action]},
 	{name: "Never use Furnaces", catalyst: ["UseFurnance"], tags: [Never]},
 	{name: "Grow a Huge Nether Fungus in the Overworld", antisynergy: ["GrowFungus"], tags: [Action, Overworld, Nether]},
+	{name: "(32-64) Dirt, Netherrack and End Stone", tags: [Item, Overworld, Nether, End]},
 ],
 
 // Very Hard (4)
