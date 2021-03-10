@@ -15,6 +15,7 @@ var COLOUR_SELECTIONS = [
 ];
 var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEXT
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
+const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
 
 var hoveredSquare;
 
@@ -288,6 +289,11 @@ function generateNewSheet()
 
 		square.attr(TOOLTIP_TEXT_ATTR_NAME, goal.tooltiptext || "");
 		square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
+
+		if (goal.tags && goal.tags.findIndex(t => t.name == "Never") != -1)
+		{
+			setSquareColor(square, NEVER_HIGHLIGHT_CLASS_NAME);
+		}
 	});
 }
 
