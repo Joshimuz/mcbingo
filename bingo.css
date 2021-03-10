@@ -186,51 +186,33 @@ html, body {
 	position: relative;
 }
 
-#bingo td:hover {
-	background-color: #EBEBEB;
-}
-
 #bingo tr td.greensquare {
 	background:#CAFF70;
 	color: #000;
 }
-#bingo tr td.greensquare:hover {
-	background:#A2CD5A;
-}
 #bingo tr td.redsquare {
-	background:#EE6A50;
+	background:#FE6A50;
 	color: #000;
-}
-#bingo tr td.redsquare:hover {
-	background:#CD5B45;
 }
 #bingo tr td.bluesquare {
 	background:#9ae8ff;
 	color: #000;
 }
-#bingo tr td.bluesquare:hover {
-	background:#57d9ff;
-}
 #bingo tr td.yellowsquare {
-	background:#FFFF00;
+	background:#F8F80B;
 	color: #000;
-}
-#bingo tr td.yellowsquare:hover {
-	background:#e6e600;
 }
 #bingo tr td.pinksquare {
-	background:#FFC0CB;
+	background:#00D69B;
 	color: #000;
-}
-#bingo tr td.pinksquare:hover {
-	background:#ffa7b6;
 }
 #bingo tr td.brownsquare {
-	background:#BA7D3F;
+	background:#D5AE85;
 	color: #000;
 }
-#bingo tr td.brownsquare:hover {
-	background:#a77039;
+#bingo tr td:hover {
+	box-shadow: inset 3px 3px 4px 1px rgba(0,0,0,0.75);
+	padding: 6px 4px 4px 8px;
 }
 
 #hidden-table {
