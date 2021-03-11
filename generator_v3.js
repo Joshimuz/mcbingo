@@ -114,6 +114,8 @@ var generator_v3 = function(layout, difficulty, bingoList)
 		{
 			//console.log("Starting do while loop: " + counter);
 			counter++;
+
+			// Keeps track if current goalCandidate is good
 			var cont = true;
 			failSafe++;
 
@@ -128,8 +130,13 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				// If it does, make it less likely to appear based on the value of frequency
 				if (Math.floor((Math.random() * goalCandidate.frequency) + 1) < goalCandidate.frequency)
 				{
+					/*
+					 * "frequency" value stores how less likely a goal is. E.g. frequency == 25
+					 * makes a goal 1/25 (4%) as likely as a goal with frequency == 1.
+					 */
 					//console.log("cont = false, frequency check failed");
 					cont = false;
+					continue;
 				}
 			}
 			var tagCount = [0, 0, 0, 0, 0];
@@ -142,6 +149,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 					// If it is get a new goal
 					//console.log("cont = false, same goal on sheet");
 					cont = false;
+					break;
 				}
 				// Check if the goal generated has any anti synergy with anything already on the sheet
 				else if (typeof currentSheet[z].antisynergy !== 'undefined' && typeof goalCandidate.antisynergy !== 'undefined'
@@ -150,6 +158,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 					// If it is get a new goal
 					console.log("antisynergy between: " + goalCandidate.name + " and " + currentSheet[z].name);
 					cont = false;
+					break;
 				}
 				// Check if the goal generated is a catalyst for anything already on the sheet
 				else if (typeof currentSheet[z].reactant !== 'undefined' && typeof goalCandidate.catalyst !== 'undefined'
@@ -158,6 +167,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 					// If it is get a new goal
 					console.log("catalyst/reactant between: " + goalCandidate.name + " and " + currentSheet[z].name);
 					cont = false;
+					break;
 				}
 				// Check if the goal generated is a reactant for anything already on the sheet
 				else if (typeof currentSheet[z].catalyst !== 'undefined' && typeof goalCandidate.reactant !== 'undefined'
@@ -166,6 +176,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 					// If it is get a new goal
 					console.log("reactant/catalyst between: " + goalCandidate.name + " and " + currentSheet[z].name);
 					cont = false;
+					break;
 				}
 
 				// Compare all the tags of the current goal with the tags of the current one on the sheet
@@ -186,7 +197,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 			}
 
 			// If the tag count is higher than the max that tag should have, don't continue
-			if (goalCandidate.tags != null)
+			if (cont && goalCandidate.tags != null)
 			{
 				for (var x = 0, len = goalCandidate.tags.length; x < len; x++)
 				{
@@ -194,11 +205,10 @@ var generator_v3 = function(layout, difficulty, bingoList)
 					{
 						console.log(goalCandidate.tags[x].name + " max reached with " + tagCount[x] + " on the board");
 						cont = false;
+						break;
 					}
-
 				}
 			}
-
 
 			// If the loop is stuck because no more suitable goals
 			if (failSafe >= 500)
