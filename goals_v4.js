@@ -212,7 +212,7 @@ var bingoList_v4 = [
 	{name: "(16-32) Stripped Birch Logs", antisynergy: ["StrippedBirchLog"], reactant: ["AxeUse"], frequency: 25, tags: [Item, Overworld]},
 	{name: "(16-32) Stripped Dark Oak Logs", antisynergy: ["StrippedDarkOakLog"], reactant: ["AxeUse"], frequency: 25, tags: [Item, Overworld]},
 	{name: "(16-32) Stripped Acacia Logs", antisynergy: ["StrippedAcaciaLog"], reactant: ["AxeUse"], frequency: 25, tags: [Item, Overworld]},
-	{name: "(15-32) Seagrass", tags: [Item, Ocean, Overworld]},
+	{name: "(15-32) Seagrass", antisynergy: ["Seagrass"], tags: [Item, Ocean, Overworld]},
 	{name: "Tropical Fish", tags: [Item, Ocean, Overworld]},
 	{name: "Pufferfish", tags: [Item, Ocean, Overworld]},
 	{name: "(6-15) Raw Cod", antisynergy: ["RawCod"], frequency: 2, tags: [Item, Ocean, Overworld]},
@@ -272,7 +272,7 @@ var bingoList_v4 = [
 	{name: "Damaged Anvil", tags: [Item]},
 	{name: "(16-64) Melons (Slices)", tags: [Item, Overworld]},
 	{name: "Sleep in a Villager's bed", reactant: ["Sleep"], tags: [Action, Village, Overworld]},
-	{name: "Kill a Skeleton with its own Arrow", reactant: ["Pacifist"], tags: [Action, Combat]},
+	//{name: "Kill a Skeleton with its own Arrow", reactant: ["Pacifist"], tags: [Action, Combat]}, Seems to be bugged and is way harder than it should be
 	{name: "Never wear any Armour", catalyst: ["WearArmour"], tags: [Never]},
 	{name: "Get a Skeleton's Bow", reactant: ["Pacifist"], tooltiptext: "Kill Skeletons until you get the rare Bow drop from one.", tags: [Item, Combat]},
 	{name: "Diamond Block", antisynergy: ["DiamondBlock"], frequency: 2, tags: [Item]},
@@ -363,7 +363,7 @@ var bingoList_v4 = [
 	{name: "Breed (5-7) sets of Animals", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], frequency: 2, tags: [Action, Stat]},
 	{name: "Crouch a distance of (200-400) meters", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["CrouchDistance"], frequency: 2, tags: [Action, Stat]},
 	{name: "Kill (75-100) mobs", reactant: ["Pacifist"], tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["MobKills"], tags: [Action, Combat, Stat]},
-	{name: "(33-64) Seagrass", tags: [Item, Ocean, Overworld]},
+	{name: "(33-64) Seagrass", antisynergy: ["Seagrass"], tags: [Item, Ocean, Overworld]},
 	{name: "Kill an Iron Golem", reactant: ["Pacifist"], tags: [Action, Overworld]},
 	{name: "Kill a mob with an End Crystal", reactant: ["Pacifist"], tags: [Action, Overworld, Nether, Combat]},
 	{name: "Never Craft Sticks", tags: [Never, Overworld]}, // Overworld because can't get sticks in the Nether without crafting them
