@@ -124,17 +124,17 @@ var generator_v3 = function(layout, difficulty, bingoList)
 
 			//console.log(bingoList[sheetLayout[i]][rng].name + " tags: " + bingoList[sheetLayout[i]][rng].tags);
 
-			// Check if the goal has a frequency modifier
-			if (typeof goalCandidate.frequency !== 'undefined')
+			// Check if the goal has an infrequency modifier
+			if (typeof goalCandidate.infrequency !== 'undefined')
 			{
-				// If it does, make it less likely to appear based on the value of frequency
-				if (Math.floor((Math.random() * goalCandidate.frequency) + 1) < goalCandidate.frequency)
+				// If it does, make it less likely to appear based on the value of infrequency
+				if (Math.floor((Math.random() * goalCandidate.infrequency) + 1) < goalCandidate.infrequency)
 				{
 					/*
-					 * "frequency" value stores how less likely a goal is. E.g. frequency == 25
-					 * makes a goal 1/25 (4%) as likely as a goal with frequency == 1.
+					 * "infrequency" value stores how less likely a goal is. E.g. infrequency == 25
+					 * makes a goal 1/25 (4%) as likely as a goal with infrequency == 1.
 					 */
-					//console.log("cont = false, frequency check failed");
+					//console.log("cont = false, infrequency check failed");
 					cont = false;
 					continue;
 				}

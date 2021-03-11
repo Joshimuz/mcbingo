@@ -118,11 +118,11 @@ var generator_v2 = function(layout, difficulty, bingoList)
 			var rng = Math.floor((Math.random() * bingoList[sheetLayout[i]].length - 1) + 1);
 			var goalCandidate = bingoList[sheetLayout[i]][rng];
 			
-			// Check if the goal has a frequency modifier
-			if (typeof goalCandidate.frequency !== 'undefined')
+			// Check if the goal has an infrequency modifier
+			if (typeof goalCandidate.infrequency !== 'undefined')
 			{
-				// If it does, make it less likely to appear based on the value of frequency
-				if (Math.floor((Math.random() * goalCandidate.frequency) + 1) < goalCandidate.frequency)
+				// If it does, make it less likely to appear based on the value of infrequency
+				if (Math.floor((Math.random() * goalCandidate.infrequency) + 1) < goalCandidate.infrequency)
 				{
 					cont = false;
 				}
