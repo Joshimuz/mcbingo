@@ -129,7 +129,8 @@ $(document).ready(function()
 		51: "redsquare",
 		52: "yellowsquare",
 		53: "pinksquare",
-		54: "brownsquare"
+		54: "brownsquare",
+		81 /* Q */: ""
 	};
 	$(document).on("keydown", function(e)
 	{
