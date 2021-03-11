@@ -94,6 +94,8 @@ var bingoList_v4 = [
 	{name: "(5-10) Cut Sandstone", antisynergy: ["Sandstone"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "(2-5) Paper", antisynergy: ["Paper"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "Never use a Fishing Rod", catalyst: ["Fishing"], tags: [Never, Overworld]},
+	{name: "Deplete a Hoe", tooltiptext: "Use a Hoe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
+	{name: "Bounce on a Bed", tags: [Action]},
 ],
 
 // Easy (1)
@@ -187,7 +189,7 @@ var bingoList_v4 = [
 	{name: "(2-10) Lily Pads", tags: [Item, RareBiome, Overworld]},
 	{name: "(65-128) Sticks", antisynergy: ["Sticks"], infrequency: 2, tags: [Item]},
 	{name: "Wear 4 different colour Leather Armour at the same time", reactant: ["WearArmour"], tags: [Item, Colour, Overworld]},
-	{name: "(15-32) Seagrass", antisynergy: ["Seagrass"], tags: [Item, Ocean, Overworld]},
+	{name: "(15-32) Seagrass", antisynergy: ["Seagrass"], infrequency: 2, tags: [Item, Ocean, Overworld]},
 	{name: "(65-128) Oak Wood Planks", antisynergy: ["OakPlanks"], infrequency: 25, tags: [Item, Overworld]},
 	{name: "(65-128) Spruce Wood Planks", antisynergy: ["SprucePlanks"], infrequency: 25, tags: [Item, Overworld]},
 	{name: "(65-128) Birch Wood Planks", antisynergy: ["BirchPlanks"], infrequency: 25, tags: [Item, Overworld]},
@@ -256,6 +258,7 @@ var bingoList_v4 = [
 	{name: "(6-15) Paper", antisynergy: ["Paper"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "(3-6) Coal Blocks", tags: [Item]},
 	{name: "(2-5) Apples", antisynergy: ["Apples"], tags: [Item, Overworld]},
+	{name: "Tame a Horse", tags: [Action, Overworld]},
 ],
 
 // Medium (2)
@@ -264,7 +267,6 @@ var bingoList_v4 = [
 	//{name: "(8-10) Different Gold Items", antisynergy: ["GoldItems"], tooltiptext: "Any item with 'Gold' in its name (yes even ingots and ores)", tags: [Item]},
 	{name: "Beetroot Soup", tags: [Item, Overworld]},
 	{name: "Emerald", tags: [Item, Overworld]},
-	{name: "Tame a Horse", tags: [Action, Overworld]},
 	{name: "Place a Cactus in a Flower Pot", tags: [Action, RareBiome, Overworld]},
 	{name: "Detonate a TNT-Minecart", tags: [Action, Overworld]},
 	{name: "(10-30) Magma Blocks", tags: [Item]},
@@ -363,7 +365,7 @@ var bingoList_v4 = [
 	{name: "Breed (5-7) sets of Animals", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Crouch a distance of (200-400) meters", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["CrouchDistance"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Kill (75-100) mobs", reactant: ["Pacifist"], tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["MobKills"], tags: [Action, Combat, Stat]},
-	{name: "(33-64) Seagrass", antisynergy: ["Seagrass"], tags: [Item, Ocean, Overworld]},
+	{name: "(33-64) Seagrass", antisynergy: ["Seagrass"], infrequency: 2, tags: [Item, Ocean, Overworld]},
 	{name: "Kill an Iron Golem", reactant: ["Pacifist"], tags: [Action, Overworld]},
 	{name: "Kill a mob with an End Crystal", reactant: ["Pacifist"], tags: [Action, Overworld, Nether, Combat]},
 	{name: "Never Craft Sticks", tags: [Never, Overworld]}, // Overworld because can't get sticks in the Nether without crafting them
@@ -402,6 +404,7 @@ var bingoList_v4 = [
 	{name: "Full Gold Armour", tags: [Item]},
 	{name: "Brown Wool", tags: [Item, Overworld]},
 	{name: "Grow a Huge Nether Fungus", antisynergy: ["GrowFungus"], tags: [Action, Nether]},
+	{name: "Put a Chest on a Donkey", tags: [Action, Overworld]},
 ],
 
 // Hard (3)
@@ -433,7 +436,6 @@ var bingoList_v4 = [
 	{name: "Never place Torches", tags: [Never]},
 	{name: "Get a Ghast into the Overworld", tags: [Action, Nether, Overworld]},
 	{name: "Enchanted Golden Apple", tags: [Item, Overworld]},
-	{name: "Tame a Donkey", tags: [Action, Overworld]},
 	{name: "Never wear Armour or use Shields", catalyst: ["WearArmour"], tags: [Never]},
 	{name: "Kill a mob that is wearing Full Iron Armour", reactant: ["Pacifist"], tags: [Action, Combat]},
 	{name: "Enchant 5 different items", tags: [Action]},
@@ -484,6 +486,8 @@ var bingoList_v4 = [
 	{name: "Never use Furnaces", catalyst: ["UseFurnance"], tags: [Never]},
 	{name: "Grow a Huge Nether Fungus in the Overworld", antisynergy: ["GrowFungus"], tags: [Action, Overworld, Nether]},
 	{name: "(32-64) Dirt, Netherrack and End Stone", tags: [Item, Overworld, Nether, End]},
+	{name: "Tame a Mule", tags: [Action, Overworld]},
+	{name: "Convert a Carrot on a Stick into a Fishing Rod", tags: [Action, Overworld]},
 ],
 
 // Very Hard (4)
@@ -512,6 +516,8 @@ var bingoList_v4 = [
 	{name: "Full Netherite Armour and Tools", tags: [Item, Nether]},
 	{name: "Convert a Pig into a Zombified Piglin", tags: [Action, Overworld]},
 	{name: "Trident", tags: [Item, Ocean, Combat, Overworld]},
+	{name: "Tame a Skeleton Horse", tags: [Action, Overworld]},
+	{name: "Make every colour of Parrot dance at the same time", tags: [Action, Overworld, RareBiome]},
 ]
 
 ];
