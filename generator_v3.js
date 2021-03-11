@@ -128,6 +128,10 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				// If it does, make it less likely to appear based on the value of frequency
 				if (Math.floor((Math.random() * goalCandidate.frequency) + 1) < goalCandidate.frequency)
 				{
+					/*
+					 * "frequency" value stores how less likely a goal is. E.g. frequency == 25
+					 * makes a goal 1/25 (4%) as likely as a goal with frequency == 1.
+					 */
 					//console.log("cont = false, frequency check failed");
 					cont = false;
 				}
