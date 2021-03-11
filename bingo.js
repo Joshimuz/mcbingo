@@ -432,7 +432,7 @@ function changeColourCount(value)
 		COLOURCOUNT = Math.max(0, Math.min(COLOUR_SELECTIONS.length - 1, maybeColourCount));
 	}
 	updateColourCount();
-	pushNewLocalSettings();
+	pushNewLocalSetting(COLOUR_COUNT_SETTING_NAME, COLOURCOUNT);
 }
 
 function pushNewUrl()
@@ -442,11 +442,11 @@ function pushNewUrl()
 	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED);
 }
 
-function pushNewLocalSettings()
+function pushNewLocalSetting(name, value)
 {
 	try
 	{
-		localStorage.setItem(COLOUR_COUNT_SETTING_NAME, COLOURCOUNT.toString());
+		localStorage.setItem(name, value.toString());
 	}
 	catch (ignored)
 	{
