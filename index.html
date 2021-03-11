@@ -4,7 +4,7 @@
 		<title>Minecraft Bingo</title>
 		<link rel="stylesheet" href="bingo.css" type="text/css" />
 		
-		<script src="https://code.jquery.com/jquery-latest.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 		
 		<script src="generator_v1.js"></script>
 		<script src="generator_v2.js"></script>
@@ -111,7 +111,7 @@
 			</div>
 		</section>
 		<a class="stream-exit-text" href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a>
-		<a class="stream-exit-text" href="#" onclick='popoutBingoCard();'>Pop out Bingo Card</a>
+		<a class="stream-exit-text" href="#" onclick='popoutBingoCard();event.preventDefault();'>Pop out Bingo Card</a>
 		<section id="rules-section">
 			<h2>Version</h2>
 			<p>The various versions of the Bingo are designed for specific versions of Vanilla Minecraft (Java Edition, Bedrock versions have minor differences). Try to match versions whenever possible for the best experience.</p>

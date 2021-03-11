@@ -6,8 +6,16 @@ var HIDDEN;
 var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
-var COLOURCOUNT = 1;
+
+const ALL_COLOURS = ["", "bluesquare", "greensquare", "redsquare", "yellowsquare", "pinksquare", "brownsquare"];
+var COLOUR_SELECTIONS = [
+	["", "greensquare"],
+	["", "bluesquare", "greensquare", "redsquare"],
+	ALL_COLOURS
+];
+var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEXT
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
+const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
 
 var hoveredSquare;
 
@@ -69,70 +77,8 @@ $(document).ready(function()
 	// On clicking a goal square
 	$("#bingo td").click(function()
 	{
-		// If only using Grey and Green
-		if (COLOURCOUNT == 0)
-		{
-			if ($(this).hasClass('greensquare'))
-			{
-				setSquareColor($(this), '');
-			}
-			else
-			{
-				setSquareColor($(this), 'greensquare');
-			}
-		}
-		// If using Blue Green and Red
-		else if (COLOURCOUNT == 1)
-		{
-			if ($(this).hasClass('bluesquare'))
-			{
-				setSquareColor($(this), 'greensquare');
-			}
-			else if ($(this).hasClass('greensquare'))
-			{
-				setSquareColor($(this), 'redsquare');
-			}
-			else if ($(this).hasClass('redsquare'))
-			{
-				setSquareColor($(this), '');
-			}
-			else
-			{
-				setSquareColor($(this), 'bluesquare');
-			}
-		}
-		// Use all the colours!
-		else
-		{
-			if ($(this).hasClass('bluesquare'))
-			{
-				setSquareColor($(this), 'greensquare');
-			}
-			else if ($(this).hasClass('greensquare'))
-			{
-				setSquareColor($(this), 'yellowsquare');
-			}
-			else if ($(this).hasClass('yellowsquare'))
-			{
-				setSquareColor($(this), 'redsquare');
-			}
-			else if ($(this).hasClass('redsquare'))
-			{
-				setSquareColor($(this), 'pinksquare');
-			}
-			else if ($(this).hasClass('pinksquare'))
-			{
-				setSquareColor($(this), 'brownsquare');
-			}
-			else if ($(this).hasClass('brownsquare'))
-			{
-				setSquareColor($(this), '');
-			}
-			else
-			{
-				setSquareColor($(this), 'bluesquare');
-			}
-		}
+		const square = $(this);
+		setSquareColor(square, nextColour(square));
 	});
 
 	// On hovering a goal square
@@ -176,38 +122,21 @@ $(document).ready(function()
 	{
 		hoveredSquare = null;
 	});
+	const SHORTCUT_COLOURS = {
+		48: "",
+		49: "bluesquare",
+		50: "greensquare",
+		51: "redsquare",
+		52: "yellowsquare",
+		53: "pinksquare",
+		54: "brownsquare",
+		81 /* Q */: ""
+	};
 	$(document).on("keydown", function(e)
 	{
-		if (hoveredSquare)
+		if (hoveredSquare && e.which in SHORTCUT_COLOURS)
 		{
-			if (e.which == 49) // 1
-			{
-				setSquareColor(hoveredSquare, "bluesquare");
-			}
-			else if (e.which == 50) // 2
-			{
-				setSquareColor(hoveredSquare, "greensquare");
-			}
-			else if (e.which == 51) // 3
-			{
-				setSquareColor(hoveredSquare, "redsquare");
-			}
-			else if (e.which == 52) // 4
-			{
-				setSquareColor(hoveredSquare, "yellowsquare");
-			}
-			else if (e.which == 53) // 5
-			{
-				setSquareColor(hoveredSquare, "pinksquare");
-			}
-			else if (e.which == 54) // 6
-			{
-				setSquareColor(hoveredSquare, "brownsquare");
-			}
-			else if (e.which == 48) // 0
-			{
-				setSquareColor(hoveredSquare, "");
-			}
+			setSquareColor(hoveredSquare, SHORTCUT_COLOURS[e.which]);
 		}
 	});
 
@@ -223,7 +152,26 @@ $(document).ready(function()
 	};
 
 	loadSettings();
-})
+});
+
+function getColourClass(square)
+{
+	return ALL_COLOURS.find(c => square.hasClass(c));
+}
+
+function nextColour(square)
+{
+	const colourSelection = COLOUR_SELECTIONS[COLOURCOUNT];
+	const currColour = getColourClass(square);
+	const currIndex = colourSelection.indexOf(currColour);
+	if (currIndex == -1)
+	{
+		// default to second colour
+		return colourSelection[1];
+	}
+	const nextIndex = (currIndex + 1) % colourSelection.length;
+	return colourSelection[nextIndex];
+}
 
 function loadSettings()
 {
@@ -342,6 +290,11 @@ function generateNewSheet()
 
 		square.attr(TOOLTIP_TEXT_ATTR_NAME, goal.tooltiptext || "");
 		square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
+
+		if (goal.tags && goal.tags.findIndex(t => t.name == "Never") != -1)
+		{
+			setSquareColor(square, NEVER_HIGHLIGHT_CLASS_NAME);
+		}
 	});
 }
 
@@ -469,9 +422,17 @@ function updateColourCount()
 
 function changeColourCount(value)
 {
-	COLOURCOUNT = parseInt(value);
+	const maybeColourCount = parseInt(value);
+	if (isNaN(maybeColourCount))
+	{
+		COLOURCOUNT = 1;
+	}
+	else
+	{
+		COLOURCOUNT = Math.max(0, Math.min(COLOUR_SELECTIONS.length - 1, maybeColourCount));
+	}
 	updateColourCount();
-	pushNewLocalSettings();
+	pushNewLocalSetting(COLOUR_COUNT_SETTING_NAME, COLOURCOUNT);
 }
 
 function pushNewUrl()
@@ -481,11 +442,11 @@ function pushNewUrl()
 	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED);
 }
 
-function pushNewLocalSettings()
+function pushNewLocalSetting(name, value)
 {
 	try
 	{
-		localStorage.setItem(COLOUR_COUNT_SETTING_NAME, COLOURCOUNT.toString());
+		localStorage.setItem(name, value.toString());
 	}
 	catch (ignored)
 	{
@@ -560,12 +521,7 @@ function fillVersionSelection()
 
 function setSquareColor(square, colorClass)
 {
-	square.removeClass('bluesquare');
-	square.removeClass('greensquare');
-	square.removeClass('redsquare');
-	square.removeClass('yellowsquare');
-	square.removeClass('pinksquare');
-	square.removeClass('brownsquare');
+	ALL_COLOURS.forEach(c => square.removeClass(c));
 	square.addClass(colorClass);
 }
 
