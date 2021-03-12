@@ -97,6 +97,7 @@ var bingoList_v4 = [
 	{name: "Deplete a Hoe", tooltiptext: "Use a Hoe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
 	{name: "Bounce on a Bed", tags: [Action, Overworld]},
 	{name: "Hang up a Painting", antisynergy: ["Painting"], tags: [Action, Overworld]},
+	{name: "Fill a Composter", tooltiptext: "Add stuff until you can get Bonemeal out!", tooltipimg: "Goal Tooltip Images/FullComposter.jpg", tags: [Action]},
 ],
 
 // Easy (1)
@@ -231,7 +232,6 @@ var bingoList_v4 = [
 	{name: "Crouch a distance of (100-200) meters", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["CrouchDistance"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Never use Debug (F3)", tags: [Never]},
 	{name: "Ring a Bell from 10 blocks away", tags: [Action, Village, Overworld]},
-	{name: "Fill a Composter", tooltiptext: "Add stuff until you can get Bonemeal out!", tooltipimg: "Goal Tooltip Images/FullComposter.jpg", tags: [Action]},
 	{name: "Repair an Item with a Grindstone", tags: [Action]},
 	{name: "(2-6) Sweet Berries", tags: [Item, Overworld, RareBiome]},
 	{name: "Banner Pattern", tooltiptext: "Any kind of Banner Pattern.", tags: [Item, Overworld]},
