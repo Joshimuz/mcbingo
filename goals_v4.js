@@ -259,6 +259,7 @@ var bingoList_v4 = [
 	{name: "(3-6) Coal Blocks", tags: [Item]},
 	{name: "(2-5) Apples", antisynergy: ["Apples"], tags: [Item, Overworld]},
 	{name: "Tame a Horse", tags: [Action, Overworld]},
+	{name: "Hatch a Chicken from an Egg", tags: [Action, Overworld]},
 ],
 
 // Medium (2)
