@@ -497,7 +497,7 @@ var bingoList_v4 = [
 	{name: "(7-9) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy.", tooltipimg: "Goal Tooltip Images/Potions.jpg", tags: [Item, Nether, Combat, Overworld]},
 	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Chainmail, Iron, Diamond and yes, even Netherite.", tooltipimg: "Goal Tooltip Images/chainmail chest.jpg", tags: [Item, Combat]},
 	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count.", tags: [Item, Combat, Overworld]},
-	{name: "Every colour of Dye", reactant: ["UseFurnace"], tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tooltipimg: "Goal Tooltip Images/EveryColourOfDye.png", tags: [Item, Colour, Overworld]},
+	{name: "Every colour of Dye", reactant: ["UseFurnace"], antisynergy: ["EveryColour"], infrequency: 2, tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tooltipimg: "Goal Tooltip Images/EveryColourOfDye.png", tags: [Item, Colour, Overworld]},
 	{name: "Level 50", antisynergy: ["Level"], infrequency: 2, tags: [Stat]},
 	{name: "Fill a Double Chest with 3456 items", reactant: ["UseChests"], tags: [Item, Action]},
 	{name: "(16-32) Tipped Arrows", tags: [Item, Nether, Overworld]},
@@ -519,6 +519,7 @@ var bingoList_v4 = [
 	{name: "Trident", tags: [Item, Ocean, Combat, Overworld]},
 	{name: "Tame a Skeleton Horse", tags: [Action, Overworld]},
 	{name: "Make every colour of Parrot dance at the same time", tags: [Action, Overworld, RareBiome]},
+	{name: "Place every colour of Bed next to each other", reactant: ["UseFurnace"], antisynergy: ["EveryColour"], infrequency: 2, tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tooltipimg: "Goal Tooltip Images/EveryBed.png", tags: [Action, Colour, Overworld]},
 ]
 
 ];
