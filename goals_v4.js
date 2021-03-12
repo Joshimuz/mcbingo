@@ -519,7 +519,7 @@ var bingoList_v4 = [
 	{name: "Trident", tags: [Item, Ocean, Combat, Overworld]},
 	{name: "Tame a Skeleton Horse", tags: [Action, Overworld]},
 	{name: "Make every colour of Parrot dance at the same time", tags: [Action, Overworld, RareBiome]},
-	{name: "Place every colour of Bed next to each other", reactant: ["UseFurnace"], antisynergy: ["EveryColour"], infrequency: 2, tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tooltipimg: "Goal Tooltip Images/EveryBed.png", tags: [Action, Colour, Overworld]},
+	{name: "Place every colour of Bed next to each other", reactant: ["UseFurnace"], antisynergy: ["EveryColour"], infrequency: 2, tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tooltipimg: "Goal Tooltip Images/EveryBed.jpg", tags: [Action, Colour, Overworld]},
 ]
 
 ];
