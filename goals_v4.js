@@ -96,6 +96,7 @@ var bingoList_v4 = [
 	{name: "Never use a Fishing Rod", catalyst: ["Fishing"], tags: [Never, Overworld]},
 	{name: "Deplete a Hoe", tooltiptext: "Use a Hoe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
 	{name: "Bounce on a Bed", tags: [Action]},
+	{name: "Hang up a Painting", antisynergy: ["Painting"], tags: [Action, Overworld]},
 ],
 
 // Easy (1)
@@ -151,7 +152,7 @@ var bingoList_v4 = [
 	{name: "(5-7) Different Stairs", antisynergy: ["Stairs"], infrequency: 2, tags: [Item]},
 	{name: "(2-3) Ender Pearls", antisynergy: ["EnderPearl"], infrequency: 2, tags: [Item]},
 	{name: "16 Chicken Eggs", tags: [Item]},
-	{name: "Hang up 3 Different 4x4 Paintings", tags: [Action, Overworld]},
+	{name: "Hang up 3 Different 4x4 Paintings", antisynergy: ["Painting"], tags: [Action, Overworld]},
 	{name: "(5-10) Bone Blocks", tags: [Item]},
 	{name: "2 Creepers in the same Boat", tooltiptext: "The 2 Creepers must be in the same boat at the same time.", tooltipimg: "Goal Tooltip Images/2creepers1boat.jpg", tags: [Action, Combat, Overworld]},
 	{name: "Trade with a Villager", tags: [Village, Action, Overworld]},
