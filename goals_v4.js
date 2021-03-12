@@ -31,7 +31,7 @@ var bingoList_v4 = [
 	{name: "(5-15) Birch Logs", antisynergy: ["BirchLogs"], infrequency: 25, tags: [Item, Overworld]},
 	{name: "(5-15) Dark Oak Logs", antisynergy: ["DarkOakLogs"], infrequency: 25, tags: [Item, Overworld]},
 	{name: "(5-15) Acacia Logs", antisynergy: ["AcaciaLogs"], infrequency: 25, tags: [Item, Overworld]},	
-	{name: "(5-15) Redstone", antisynergy: ["Redstone"], infrequency: 2, tags: [Item, Overworld]},	
+	{name: "Redstone", antisynergy: ["Redstone"], infrequency: 2, tags: [Item, Overworld]},	
 	{name: "Lava Bucket", reactant: ["UseBuckets"], infrequency: 4, tags: [Item]},	
 	{name: "Milk Bucket", reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Overworld]},	
 	{name: "Water Bucket", reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Overworld]},
@@ -95,7 +95,7 @@ var bingoList_v4 = [
 	{name: "(2-5) Paper", antisynergy: ["Paper"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "Never use a Fishing Rod", catalyst: ["Fishing"], tags: [Never, Overworld]},
 	{name: "Deplete a Hoe", tooltiptext: "Use a Hoe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
-	{name: "Bounce on a Bed", tags: [Action]},
+	{name: "Bounce on a Bed", tags: [Action, Overworld]},
 ],
 
 // Easy (1)
@@ -173,9 +173,9 @@ var bingoList_v4 = [
 	{name: "(5-7) Different Flowers", antisynergy: ["Flowers"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "(3-6) Colours of Concrete", antisynergy: ["ConcreteColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(3-6) Colours of Glazed Terracotta", reactant: ["UseFurnace"], antisynergy: ["GlazedColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
-	{name: "(3-6) Colours of Beds", antisynergy: ["BedColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
+	{name: "Place (3-6) colours of Beds next to each other", antisynergy: ["BedColour"], infrequency: 4, tags: [Build, Colour, Overworld]},
 	{name: "Finish where you spawned using a Compass", tooltiptext: "Be stood close enough to spin your compass within a couple blocks at the end of the game.", tooltipimg: "Goal Tooltip Images/Compass.jpg", antisynergy: ["Finish"], tags: [Action, Overworld]},
-	{name: "Build a Redstone AND Gate", tags: [Build, Overworld]},
+	//{name: "Build a Redstone AND Gate", tags: [Build, Overworld]}, wtf was I thinking with this
 	{name: "(32-64) Stone", reactant: ["UseFurnace"], tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", antisynergy: ["Stone"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "Kill (4-8) Animals with only fire", reactant: ["Pacifist"], tags: [Action, Combat]},
 	{name: "Kill a Creeper with only fire", reactant: ["Pacifist"], tags: [Action, Combat, Overworld]},
@@ -242,7 +242,7 @@ var bingoList_v4 = [
 	{name: "(2-6) Blackstone", tags: [Item, Nether]},
 	{name: "Fill all 4 slots of a Soul Campfire with Porkchops", reactant: ["Pacifist"], tags: [Action, Nether, Combat]},
 	{name: "Soul Lantern", tags: [Item, Nether]},
-	{name: "Activate a Target Block", tags: [Action, Overworld]},
+	{name: "Open a Door with a Target Block from 10 blocks away", tags: [Action, Overworld]},
 	{name: "Carrot on a Stick", tags: [Item, Overworld]},
 	{name: "Barter with a Piglin", tags: [Action, Nether]},
 	{name: "Become Nauseas", reactant: ["EatMeat"], tags: [Item, Ocean, Overworld]},
@@ -260,6 +260,7 @@ var bingoList_v4 = [
 	{name: "(2-5) Apples", antisynergy: ["Apples"], tags: [Item, Overworld]},
 	{name: "Tame a Horse", tags: [Action, Overworld]},
 	{name: "Hatch a Chicken from an Egg", tags: [Action, Overworld]},
+	{name: "Empty a Cauldron without Buckets or Bottles", tooltiptext: "You can fill the Cauldron with Water however you want, just don't use Buckets or Bottles to empty it.", tags: [Action, Overworld]},
 ],
 
 // Medium (2)
@@ -271,7 +272,6 @@ var bingoList_v4 = [
 	{name: "Place a Cactus in a Flower Pot", tags: [Action, RareBiome, Overworld]},
 	{name: "Detonate a TNT-Minecart", tags: [Action, Overworld]},
 	{name: "(10-30) Magma Blocks", tags: [Item]},
-	{name: "Skull Charge Banner Pattern", tags: [Item, Nether, Combat, RareBiome, Overworld]},
 	{name: "Damaged Anvil", tags: [Item]},
 	{name: "(16-64) Melons (Slices)", tags: [Item, Overworld]},
 	{name: "Sleep in a Villager's bed", reactant: ["Sleep"], tags: [Action, Village, Overworld]},
@@ -318,7 +318,7 @@ var bingoList_v4 = [
 	{name: "(8-11) Colours of Terracotta", reactant: ["UseFurnace"], antisynergy: ["TerracottaColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(7-10) Colours of Glazed Terracotta", reactant: ["UseFurnace"], antisynergy: ["GlazedColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(7-10) Colours of Concrete", antisynergy: ["ConcreteColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
-	{name: "(7-10) Colours of Beds", antisynergy: ["BedColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
+	{name: "Place (7-10) colours of Beds next to each other", antisynergy: ["BedColour"], infrequency: 4, tags: [Build, Colour, Overworld]},
 	{name: "Power a Redstone Lamp", tags: [Action, Overworld]},
 	{name: "(8-10) Different Flowers", antisynergy: ["Flowers"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "Put a Zombified Piglin in Water", tags: [Action, Nether, Overworld]},
@@ -426,7 +426,7 @@ var bingoList_v4 = [
 	{name: "(12-14) Colours of Terracotta", reactant: ["UseFurnace"], antisynergy: ["TerracottaColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(11-14) Colours of Glazed Terracotta", reactant: ["UseFurnace"], antisynergy: ["GlazedColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(11-14) Colours of Concrete", antisynergy: ["ConcreteColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
-	{name: "(11-14) Colours of Beds", antisynergy: ["BedColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
+	{name: "Place (11-14) colours of Beds next to each other", antisynergy: ["BedColour"], infrequency: 4, tags: [Build, Colour, Overworld]},
 	{name: "Poison a Parrot", reactant: ["Pacifist"], infrequency: 2, tags: [Action, RareBiome, Overworld]},
 	{name: "Tame a Parrot", infrequency: 2, tags: [Action, RareBiome, Overworld]},
 	{name: "Ice Block on top of a Magma Block", tags: [Item, Nether, Build, Overworld]},
@@ -489,6 +489,7 @@ var bingoList_v4 = [
 	{name: "(32-64) Dirt, Netherrack and End Stone", tags: [Item, Overworld, Nether, End]},
 	{name: "Tame a Mule", tags: [Action, Overworld]},
 	{name: "Convert a Carrot on a Stick into a Fishing Rod", tags: [Action, Overworld]},
+	{name: "Skull Charge Banner Pattern", tags: [Item, Nether, Combat, RareBiome, Overworld]},
 ],
 
 // Very Hard (4)
