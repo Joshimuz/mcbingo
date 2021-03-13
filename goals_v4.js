@@ -82,7 +82,7 @@ var bingoList_v4 = [
 	{name: "(2-5) Raw Cod", antisynergy: ["RawCod"], infrequency: 2, tags: [Item, Ocean, Overworld]},
 	{name: "(2-3) Raw Salmon", antisynergy: ["RawSalmon"], infrequency: 2, tags: [Item, Ocean, Overworld]},
 	{name: "(2-3) Different Edible Items", tooltiptext: "Raw and Cooked variants count as one (e.g. Raw Beef and Steak).", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: ["EdibleItems"], infrequency: 2, tags: [Item]},
-	{name: "Breed a set of Animals", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 2, tags: [Action, Stat]},
+	{name: "Breed a set of passive mobs", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Crouch a distance of (50-100) meters", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["CrouchDistance"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Fill all 4 slots of a Campfire", tags: [Action]},
 	{name: "Change the colour of text on a Sign", tags: [Action]},
@@ -179,7 +179,7 @@ var bingoList_v4 = [
 	{name: "Finish where you spawned using a Compass", tooltiptext: "Be stood close enough to spin your compass within a couple blocks at the end of the game.", tooltipimg: "Goal Tooltip Images/Compass.jpg", antisynergy: ["Finish"], tags: [Action, Overworld]},
 	//{name: "Build a Redstone AND Gate", tags: [Build, Overworld]}, wtf was I thinking with this
 	{name: "(32-64) Stone", reactant: ["UseFurnace"], tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", antisynergy: ["Stone"], infrequency: 2, tags: [Item, Overworld]},
-	{name: "Kill (4-8) Animals with only fire", reactant: ["Pacifist"], tags: [Action, Combat]},
+	{name: "Kill (4-8) passive mobs with only fire", tooltiptext: "Don't hurt the passive mob any other way, only with Fire.", reactant: ["Pacifist"], tags: [Action, Combat]},
 	{name: "Kill a Creeper with only fire", reactant: ["Pacifist"], tags: [Action, Combat, Overworld]},
 	{name: "(32-64) Iron Nuggets", tags: [Item]},
 	{name: "(32-64) Gold Nuggets", tags: [Item]},
@@ -228,7 +228,7 @@ var bingoList_v4 = [
 	{name: "(2-5) Gunpowder", antisynergy: ["Gunpowder"], infrequency: 2, tags: [Item]},
 	{name: "(2-5) Spider Eyes", antisynergy: ["SpiderEye"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "(4-5) Different Edible Items", tooltiptext: "Raw and Cooked variants count as one (e.g. Raw Beef and Steak).", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: ["EdibleItems"], infrequency: 2, tags: [Item, Overworld]},
-	{name: "Breed (2-4) sets of Animals", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 2, tags: [Action, Stat]},
+	{name: "Breed (2-4) sets of passive mobs", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Crouch a distance of (100-200) meters", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["CrouchDistance"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Never use Debug (F3)", tags: [Never]},
 	{name: "Ring a Bell from 10 blocks away", tags: [Action, Village, Overworld]},
@@ -364,7 +364,7 @@ var bingoList_v4 = [
 	{name: "Enchant an item", tags: [Action, Overworld]},
 	{name: "Blue Shield with White Flower Charge Pattern", tags: [Item, Overworld]},
 	{name: "Tame a Cat", tags: [Action, Village, Overworld]},
-	{name: "Breed (5-7) sets of Animals", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 2, tags: [Action, Stat]},
+	{name: "Breed (5-7) sets of passive mobs", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Crouch a distance of (200-400) meters", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["CrouchDistance"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Kill (75-100) mobs", reactant: ["Pacifist"], tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["MobKills"], tags: [Action, Combat, Stat]},
 	{name: "(33-64) Seagrass", antisynergy: ["Seagrass"], infrequency: 2, tags: [Item, Ocean, Overworld]},
@@ -522,6 +522,7 @@ var bingoList_v4 = [
 	{name: "Tame a Skeleton Horse", tags: [Action, Overworld]},
 	{name: "Make every colour of Parrot dance at the same time", tags: [Action, Overworld, RareBiome]},
 	{name: "Place every colour of Bed next to each other", reactant: ["UseFurnace"], antisynergy: ["EveryColour"], infrequency: 2, tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tooltipimg: "Goal Tooltip Images/EveryBed.jpg", tags: [Action, Colour, Overworld]},
+	{name: "Kill an Enderman with only Endermites", tooltiptext:"Don't hurt the Enderman any other way, only with Endermites.", tags: [Action, Combat, End]},
 ]
 
 ];
