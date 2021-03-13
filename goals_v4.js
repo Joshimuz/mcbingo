@@ -41,7 +41,6 @@ var bingoList_v4 = [
 	{name: "(16-32) Granite", infrequency: 3, tags: [Item, Overworld]},
 	{name: "(16-32) Diorite", infrequency: 3, tags: [Item, Overworld]},
 	{name: "Iron Block", antisynergy: ["IronBlocks"], infrequency: 2, tags: [Item]},
-	//{name: "Gold Block", antisynergy: ["GoldBlocks"], infrequency: 2, tags: [Item]},
 	{name: "(5-25) Poppies & (5-25) Dandelions", tags: [Item, Overworld]},
 	{name: "Level (5-7)", antisynergy: ["Level"], infrequency: 2, tags: [Stat]},
 	{name: "(2-5) Note Blocks", antisynergy: ["NoteBlocks"], infrequency: 2, tags: [Item, Overworld]},
@@ -178,7 +177,6 @@ var bingoList_v4 = [
 	{name: "(3-6) Colours of Glazed Terracotta", reactant: ["UseFurnace"], antisynergy: ["GlazedColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "Place (3-6) colours of Beds next to each other", antisynergy: ["BedColour"], infrequency: 4, tags: [Build, Colour, Overworld]},
 	{name: "Finish where you spawned using a Compass", tooltiptext: "Be stood close enough to spin your compass within a couple blocks at the end of the game.", tooltipimg: "Goal Tooltip Images/Compass.jpg", tags: [Action, Overworld, Finish]},
-	//{name: "Build a Redstone AND Gate", tags: [Build, Overworld]}, wtf was I thinking with this
 	{name: "(32-64) Stone", reactant: ["UseFurnace"], tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", antisynergy: ["Stone"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "Kill (4-8) passive mobs with only fire", tooltiptext: "Don't hurt the passive mob any other way, only with Fire.", reactant: ["Pacifist"], tags: [Action, Combat]},
 	{name: "Kill a Creeper with only fire", reactant: ["Pacifist"], tags: [Action, Combat, Overworld]},
@@ -268,7 +266,6 @@ var bingoList_v4 = [
 // Medium (2)
 [
 	{name: "(6-7) Different Edible Items", tooltiptext: "Raw and Cooked variants count as one (e.g. Raw Beef and Steak).", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: ["EdibleItems"], infrequency: 2, tags: [Item, Overworld]},
-	//{name: "(8-10) Different Gold Items", antisynergy: ["GoldItems"], tooltiptext: "Any item with 'Gold' in its name (yes even ingots and ores)", tags: [Item]},
 	{name: "Beetroot Soup", tags: [Item, Overworld]},
 	{name: "Emerald", tags: [Item, Overworld]},
 	{name: "Place a Cactus in a Flower Pot", tags: [Action, RareBiome, Overworld]},
@@ -277,7 +274,6 @@ var bingoList_v4 = [
 	{name: "Damaged Anvil", tags: [Item]},
 	{name: "(16-64) Melons (Slices)", tags: [Item, Overworld]},
 	{name: "Sleep in a Villager's bed", reactant: ["Sleep"], tags: [Action, Village, Overworld]},
-	//{name: "Kill a Skeleton with its own Arrow", reactant: ["Pacifist"], tags: [Action, Combat]}, Seems to be bugged and is way harder than it should be
 	{name: "Never wear any Armour", catalyst: ["WearArmour"], tags: [Never]},
 	{name: "Get a Skeleton's Bow", reactant: ["Pacifist"], tooltiptext: "Kill Skeletons until you get the rare Bow drop from one.", tags: [Item, Combat]},
 	{name: "Diamond Block", antisynergy: ["DiamondBlock"], infrequency: 2, tags: [Item]},
@@ -326,7 +322,6 @@ var bingoList_v4 = [
 	{name: "Put a Zombified Piglin in Water", tags: [Action, Nether, Overworld]},
 	{name: "Place an Iron, Gold and Diamond block on top of each other", tags: [Build]},
 	{name: "Kill a hostile mob with an Anvil", reactant: ["Pacifist"], tags: [Action, Combat]},
-	//{name: "Never Die", tooltiptext: "No death allowed, including if immediately caused by completing the last goal (e.g. inadvertently dying to the explosion of \"Detonate a TNT-Minecart\")", catalyst: ["Death"], tags: [Never]},
 	{name: "Level (16-26)", antisynergy: ["Level"], infrequency: 2, tags: [Stat]},
 	{name: "(2-3) Different Seeds", tooltiptext: "Any item with \"Seeds\" in the name.", tags: [Item, Overworld]},
 	{name: "Wear 4 Different Armour types at the same time",  tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet.", tooltipimg: "Goal Tooltip Images/4Armour.jpg", reactant: ["WearArmour"], tags: [Action]},
@@ -348,7 +343,6 @@ var bingoList_v4 = [
 	{name: "(2-4) Prismarine Crystals", infrequency: 2, tags: [Item, Ocean, Overworld]},
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)", tooltiptext: "Sea Level is Y=63, but starting from higher is fine.", tags: [Action, Overworld]},
 	{name: "Deplete an Iron Sword", reactant: ["SwordUse"], tooltiptext: "Use an Iron Sword until it breaks, check the 'Items' statistics screen!" ,tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg", tags: [Action, Stat]},
-	// {name: "Full Diamond Armour", tags: [Item]}, // Too hard for Medium, too easy for Hard, not the best goal
 	{name: "Saddle", tags: [Item]},
 	{name: "Give a mob a Hat", tags: [Action, Combat]},
 	{name: "Heart of the Sea", tags: [Item, Ocean, Overworld]},
@@ -434,7 +428,6 @@ var bingoList_v4 = [
 	{name: "Ice Block on top of a Magma Block", tags: [Item, Nether, Build, Overworld]},
 	{name: "Level (27-37)", antisynergy: ["Level"], infrequency: 2, tags: [Stat]},
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/IceCube.jpg", tags: [Build, Overworld]},
-	//{name: "(4-5) Different Seeds", antisynergy: ["Seeds"], tooltiptext: "Includes Nether Wart and Cocoa Beans", tags: [Item, RareBiome, Overworld]},
 	{name: "Finish on top of a stairway to Heaven", tooltiptext: "Using Stairs, build up to Y=256 (height limit) and stand on top at the end of the Bingo. (If you need to jump over a block, it's not a finished stairway.)", tooltipimg: "Goal Tooltip Images/FinishStairs.jpg", tags: [Build, Overworld, Finish]},
 	{name: "Never place Torches", tags: [Never]},
 	{name: "Get a Ghast into the Overworld", tags: [Action, Nether, Overworld]},
