@@ -8,6 +8,7 @@ var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 var COLOURCOUNT = 1;
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
+var COLOURSYMBOLS = false;
 
 var hoveredSquare;
 
@@ -40,6 +41,7 @@ const NODE_TYPE_TEXT = 3;
 const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
+const COLOUR_SYMBOLS_SETTING_NAME = "bingoColourSymbols";
 
 // Dropdown menu handling.
 $(document).click(function(event) {
@@ -291,6 +293,14 @@ function getSettingsFromURL()
 
 function getSettingsFromLocalStorage()
 {
+	// Load colour symbols first, since colour count saves to storage
+	const savedColourSymbols = localStorage.getItem(COLOUR_SYMBOLS_SETTING_NAME);
+	if (savedColourSymbols != null)
+	{
+		COLOURSYMBOLS = savedColourSymbols == "true" ? true : false;
+	}
+	updateColourSymbols();
+
 	const savedColourCount = localStorage.getItem(COLOUR_COUNT_SETTING_NAME);
 	if (savedColourCount != null)
 	{
@@ -474,6 +484,21 @@ function changeColourCount(value)
 	pushNewLocalSettings();
 }
 
+function updateColourSymbols()
+{
+	$(".symbol").css("display", COLOURSYMBOLS == 0 ? "none" : "inline");
+	const button = document.getElementById("colourSymbols");
+	button.innerHTML = COLOURSYMBOLS ? "Hide Symbols" : "Show Symbols";
+}
+
+function toggleColourSymbols(value)
+{
+	// Invert HIDDEN setting, then update
+	COLOURSYMBOLS = !COLOURSYMBOLS;
+	updateColourSymbols();
+	pushNewLocalSettings();	
+}
+
 function pushNewUrl()
 {
 	var hidden = HIDDEN ? "1" : "0";
@@ -486,6 +511,7 @@ function pushNewLocalSettings()
 	try
 	{
 		localStorage.setItem(COLOUR_COUNT_SETTING_NAME, COLOURCOUNT.toString());
+		localStorage.setItem(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS.toString());
 	}
 	catch (ignored)
 	{
