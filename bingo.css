@@ -490,27 +490,33 @@ body.streamer-mode {
 	text-align: center;
 }
 
-#rules-section p, h2, h3, ul, li {
+#rules-section p,
+#rules-section h2,
+#rules-section h3,
+#rules-section ul,
+#rules-section ul li {
 	max-width: 800px;
 	text-align: left;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 5px;
-	list-style-type: circle;
+}
+#rules-section h2,
+#rules-section h3 {
+	text-align: center;
 }
 
 #rules-section ul {
 	padding-left: 60px;
+}
+#rules-section ul li {
+	list-style-type: circle;
 }
 
 #rules-section a {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-#rules-section h2, h3 {
-	text-align: center;
 }
 
 /* End Rules And Bottom */
