@@ -126,12 +126,19 @@ $(document).ready(function()
 	});
 	const SHORTCUT_COLOURS = {
 		48: "",
+		96: "", // Numpad
 		49: "bluesquare",
+		97: "bluesquare",
 		50: "greensquare",
+		98: "greensquare",
 		51: "redsquare",
+		99: "redsquare",
 		52: "yellowsquare",
+		100: "yellowsquare",
 		53: "pinksquare",
+		101: "pinksquare",
 		54: "brownsquare",
+		102: "brownsquare",
 		81 /* Q */: ""
 	};
 	$(document).on("keydown", function(e)
