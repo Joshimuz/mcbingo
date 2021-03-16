@@ -82,7 +82,7 @@
 						<div id="hidden-table-seed">
 							Bingo Seed:<br>
 							<input class="seed_for_copying" id="seed_for_copying_hidden" type="text" value="12345" readonly="readonly"><br>
-							<button class="button" onclick='copySeedToClipboard("seed_for_copying_hidden");'>Copy Seed</button>
+							<button class="button" onclick='copySeedToClipboard("seed_for_copying_hidden", event);'>Copy Seed</button>
 						</div>
 						<p>Use this seed to create a new world in Minecraft. Remember to adjust ingame settings such as difficulty if necessary.</p>
 						<p>If you've been linked this page for a race, you are not allowed to change the seed/goals. See the full rules below.</p>
@@ -140,7 +140,7 @@
 			<p><em>Tip:</em> You can click on the squares to change their colour which is useful for planning or to mark off completed goals. Use the colour slider in the Options menu to choose how many colours you want to use. You can also hover over the square and press (0-6)!</p>
 			<p><em>Tip:</em> Hover over a "?" to get more information about that goal.</p>
 			<h3>Creating the World</h3>
-			<p>Create a new world in Minecraft and use <input class="seed_for_copying" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button class="button small-button" onclick='copySeedToClipboard("seed_for_copying_howto");'>Copy</button> as the Seed (this is the same random seed used to generate this sheet). Load the world so that it can generate but don't move until you're ready. Pause the game to make sure time of day doesn't change or you get attacked. When you're ready, reveal the sheet if it's hidden and start playing!</p>
+			<p>Create a new world in Minecraft and use <input class="seed_for_copying" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button class="button small-button" onclick='copySeedToClipboard("seed_for_copying_howto", event);'>Copy</button> as the Seed (this is the same random seed used to generate this sheet). Load the world so that it can generate but don't move until you're ready. Pause the game to make sure time of day doesn't change or you get attacked. When you're ready, reveal the sheet if it's hidden and start playing!</p>
 
 			<p><em>Note:</em> Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</p>
 
@@ -157,6 +157,7 @@
 			<img src="" id="tooltipimg" />
 			<span id="tooltiptext" class="tooltiptext"></span>
 		</div>
+		<div id="copiedTooltip" class="tooltip"><span class="tooltiptext">Copied!</span></div>
 		<div id="export">
 			<p>The goals of the current sheet as JSON:</p>
 			<textarea readonly="readonly"></textarea>

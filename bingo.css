@@ -70,6 +70,11 @@ html, body {
 	text-align: center;
 }
 
+#copiedTooltip {
+	margin: 0 10px;
+	padding: 0 5px 5px;
+}
+
 .stream-exit-text {
 	color: #000;
 	text-align:center;

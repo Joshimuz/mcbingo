@@ -543,12 +543,14 @@ function setSquareColor(square, colorClass)
 	square.addClass(colorClass);
 }
 
-function copySeedToClipboard(id)
+function copySeedToClipboard(id, event)
 {
 	var id = "#"+id;
 	if (navigator.clipboard)
 	{
-		navigator.clipboard.writeText($(id).val()).catch(err => {
+		navigator.clipboard.writeText($(id).val()).then(ignored => {
+			showCopiedTooltip(event);
+		}, err => {
     			console.error('Async: Could not copy text: ', err);
     			alert("Failed to copy seed to clipboard :/");
 		});
@@ -564,6 +566,10 @@ function copySeedToClipboard(id)
 			{
 				alert("Failed to copy seed to clipboard :/");
 			}
+			else
+			{
+				showCopiedTooltip(event);
+			}
 		}
 		catch (err)
 		{
@@ -573,6 +579,18 @@ function copySeedToClipboard(id)
 		// Deselect
 		$(id).blur();
 	}
+}
+
+function showCopiedTooltip(event)
+{
+	const x = event.target.offsetLeft + event.target.offsetWidth;
+	const y = event.target.offsetTop;
+	$("#copiedTooltip").css({left:x, top: y})
+		.css("display", "block")
+		.delay(100)
+		.fadeOut(1000, () => {
+			$(this).hide().fadeIn(0);
+		});
 }
 
 function createGoalExport()
