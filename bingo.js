@@ -453,7 +453,7 @@ function changeColourCount(value)
 
 function updateColourSymbols()
 {
-	$(".symbol").css("display", COLOURSYMBOLS == 0 ? "none" : "inline");
+	$(".symbol").css("display", !COLOURSYMBOLS ? "none" : "inline");
 	const button = document.getElementById("colourSymbols");
 	button.innerHTML = COLOURSYMBOLS ? "Hide Symbols" : "Show Symbols";
 }
