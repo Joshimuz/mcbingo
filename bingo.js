@@ -547,7 +547,7 @@ function changeVersion(versionId)
 
 function fillVersionSelection()
 {
-	$.each(VERSIONS, function(index, value) {
+	VERSIONS.forEach(function(value) {
 		var label = value.name;
 		if (value.stable)
 		{
