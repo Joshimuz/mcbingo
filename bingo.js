@@ -79,6 +79,12 @@ $(document).ready(function()
 	{
 		const square = $(this);
 		setSquareColor(square, nextColour(square));
+	}).contextmenu(function(e)
+	{
+		const square = $(this);
+		setSquareColor(square, previousColour(square));
+
+		e.preventDefault();
 	});
 
 	// On hovering a goal square
@@ -170,6 +176,21 @@ function nextColour(square)
 		return colourSelection[1];
 	}
 	const nextIndex = (currIndex + 1) % colourSelection.length;
+	return colourSelection[nextIndex];
+}
+
+function previousColour(square)
+{
+	const colourSelection = COLOUR_SELECTIONS[COLOURCOUNT];
+	const currColour = getColourClass(square);
+	const currIndex = colourSelection.indexOf(currColour);
+	console.log(currIndex);
+	if (currIndex <= 0)
+	{
+		// default to last colour
+		return colourSelection[colourSelection.length - 1];
+	}
+	const nextIndex = currIndex - 1;
 	return colourSelection[nextIndex];
 }
 
