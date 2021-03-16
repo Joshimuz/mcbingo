@@ -184,7 +184,6 @@ function previousColour(square)
 	const colourSelection = COLOUR_SELECTIONS[COLOURCOUNT];
 	const currColour = getColourClass(square);
 	const currIndex = colourSelection.indexOf(currColour);
-	console.log(currIndex);
 	if (currIndex <= 0)
 	{
 		// default to last colour
