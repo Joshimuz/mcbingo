@@ -293,7 +293,7 @@ var bingoList_v3 = [
 	{name: "(2-5) Prismarine Crystals", infrequency: 2},
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)"},
 	{name: "Never use a Sword", catalyst: "SwordUse", tooltiptext: "Never use a Sword for Combat or Block Breaking. Holding or crafting is fine.", tooltipimg: "Goal Tooltip Images/NoSword.jpg"},
-	{name: "Deplete an Iron Sword", reactant: "SwordUse", tooltiptext: "Use an Iron Sword until it breaks, if you are unsure if you did check the Statistics screen!" ,tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg"},
+	{name: "Deplete an Iron Sword", reactant: "SwordUse", tooltiptext: "Use an Iron Sword until it breaks, if you are unsure if you did check the Statistics screen!", tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg"},
 	{name: "Full Diamond Armour"},
 	{name: "Saddle"},
 	{name: "Give a mob a Hat"},
@@ -316,7 +316,7 @@ var bingoList_v3 = [
 
 // Hard (3)
 [
-	{name: "Grass Block", tooltiptext: "If you don't have Silk Touch I know a guy who might pick one up for you...",tooltipimg: "Goal Tooltip Images/GrassBlock.jpg"},
+	{name: "Grass Block", tooltiptext: "If you don't have Silk Touch I know a guy who might pick one up for you...", tooltipimg: "Goal Tooltip Images/GrassBlock.jpg"},
 	{name: "Create an Enchantment requiring level 10+"},
 	{name: "Milk a Mooshroom", infrequency: 2},
 	{name: "Shear a Mooshroom", infrequency: 2},
