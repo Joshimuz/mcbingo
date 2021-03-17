@@ -408,7 +408,7 @@ function toggleHidden()
 }
 
 function popoutBingoCard(){
-    window.open(window.location.href, "_blank", "toolbar=no, status=no, menubar=no, scrollbars=no, width=745, height=705");
+	window.open(window.location.href, "_blank", "toolbar=no, status=no, menubar=no, scrollbars=no, width=745, height=705");
 }
 
 function toggleStreamerMode()
@@ -581,8 +581,8 @@ function copySeedToClipboard(id, event)
 		navigator.clipboard.writeText($(id).val()).then(ignored => {
 			showCopiedTooltip(event);
 		}, err => {
-    			console.error('Async: Could not copy text: ', err);
-    			alert("Failed to copy seed to clipboard :/");
+			console.error('Async: Could not copy text: ', err);
+			alert("Failed to copy seed to clipboard :/");
 		});
 	}
 	else

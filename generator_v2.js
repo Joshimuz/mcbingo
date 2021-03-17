@@ -158,7 +158,7 @@ var generator_v2 = function(layout, difficulty, bingoList)
 					}
 				}
 			}
- 			
+
 			// If the loop is stuck because no more suitable goals
 			if (failSafe >= 500)
 			{
