@@ -210,7 +210,7 @@ var bingoList_v2 = [
 
 // Hard (3)
 [
-	{name: "Grass Block", tooltiptext: "If you don't have Silk Touch I know a guy who might pick one up for you...",tooltipimg: "Goal Tooltip Images/GrassBlock.jpg"},
+	{name: "Grass Block", tooltiptext: "If you don't have Silk Touch I know a guy who might pick one up for you...", tooltipimg: "Goal Tooltip Images/GrassBlock.jpg"},
 	{name: "Create an Enchantment requiring level 10+"},
 	{name: "(10-32) Mycelium"},
 	{name: "Milk a Mooshroom"},
