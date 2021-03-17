@@ -109,7 +109,7 @@ var bingoList_v4 = [
 	{name: "Shoot a Button with an Arrow", tags: [Action]},
 	{name: "Book and Quill", tags: [Item, Overworld]},
 	{name: "(16-64) Flint", tags: [Item]},
-	{name: "Cake", tags: [Item, Overworld]},
+	{name: "Eat an entire Cake", reactant: ["EatNonMeat"], tags: [Action, Overworld]},
 	{name: "Pumpkin Pie", tags: [Item, Overworld]},
 	{name: "Fish a Treasure and a Junk item", tooltiptext: "Treasure: Bow, Enchanted Book, Name Tag, Nautilus Shell, Saddle. Junk: Lily Pad, Bowl, Leather, Boots, Rotten Flesh, Stick, Water Bottle, Bone, Ink Sac, Tripwire Hook", reactant: ["Fishing"], tags: [Action, Overworld]},
 	{name: "(16-64) Coarse Dirt", tags: [Item, Overworld]},
@@ -242,7 +242,7 @@ var bingoList_v4 = [
 	{name: "(2-6) Blackstone", tags: [Item, Nether]},
 	{name: "Fill all 4 slots of a Soul Campfire with Porkchops", reactant: ["Pacifist"], tags: [Action, Nether, Combat]},
 	{name: "Soul Lantern", tags: [Item, Nether]},
-	{name: "Open a Door with a Target Block from 10 blocks away", tags: [Action, Overworld]},
+	{name: "Open a Door with a Target Block from 10 blocks away", tooltiptext: "YOU have to be 10 blocks away, not the Target Block from the Door.", tooltipimg: "Goal Tooltip Images/TargetAndDoor.jpg",  tags: [Action, Overworld]},
 	{name: "Carrot on a Stick", tags: [Item, Overworld]},
 	{name: "Barter with a Piglin", tags: [Action, Nether]},
 	{name: "Become Nauseous", reactant: ["EatMeat"], tags: [Item, Ocean, Overworld]},
@@ -261,6 +261,7 @@ var bingoList_v4 = [
 	{name: "Tame a Horse", tags: [Action, Overworld]},
 	{name: "Hatch a Chicken from an Egg", tags: [Action, Overworld]},
 	{name: "Empty a Cauldron without Buckets or Bottles", tooltiptext: "You can fill the Cauldron with Water however you want, just don't use Buckets or Bottles to empty it.", tags: [Action, Overworld]},
+	{name: "Sleep in a Villager's bed", reactant: ["Sleep"], tags: [Action, Village, Overworld]},
 ],
 
 // Medium (2)
@@ -273,7 +274,6 @@ var bingoList_v4 = [
 	{name: "(10-30) Magma Blocks", tags: [Item]},
 	{name: "Damaged Anvil", tags: [Item]},
 	{name: "(16-64) Melons (Slices)", tags: [Item, Overworld]},
-	{name: "Sleep in a Villager's bed", reactant: ["Sleep"], tags: [Action, Village, Overworld]},
 	{name: "Never wear any Armour", catalyst: ["WearArmour"], tags: [Never]},
 	{name: "Get a Skeleton's Bow", reactant: ["Pacifist"], tooltiptext: "Kill Skeletons until you get the rare Bow drop from one.", tags: [Item, Combat]},
 	{name: "Diamond Block", antisynergy: ["DiamondBlock"], infrequency: 2, tags: [Item]},
@@ -402,6 +402,7 @@ var bingoList_v4 = [
 	{name: "Brown Wool", tags: [Item, Overworld]},
 	{name: "Grow a Huge Nether Fungus", antisynergy: ["GrowFungus"], tags: [Action, Nether]},
 	{name: "Put a Chest on a Donkey", tags: [Action, Overworld]},
+	{name: "Never place Torches", tooltiptext: "Never Place normal Torches on the ground, you can craft with them and other types of Torches are allowed" tags: [Never]},
 ],
 
 // Hard (3)
@@ -429,7 +430,6 @@ var bingoList_v4 = [
 	{name: "Level (27-37)", antisynergy: ["Level"], infrequency: 2, tags: [Stat]},
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/IceCube.jpg", tags: [Build, Overworld]},
 	{name: "Finish on top of a stairway to Heaven", tooltiptext: "Using Stairs, build up to Y=256 (height limit) and stand on top at the end of the Bingo. (If you need to jump over a block, it's not a finished stairway.)", tooltipimg: "Goal Tooltip Images/FinishStairs.jpg", tags: [Build, Overworld, Finish]},
-	{name: "Never place Torches", tags: [Never]},
 	{name: "Get a Ghast into the Overworld", tags: [Action, Nether, Overworld]},
 	{name: "Enchanted Golden Apple", tags: [Item, Overworld]},
 	{name: "Never wear Armour or use Shields", catalyst: ["WearArmour"], tags: [Never]},
@@ -450,7 +450,7 @@ var bingoList_v4 = [
 	{name: "(5-7) Different Diamond Items", antisynergy: ["DiamondItems"], tooltiptext: "Any item with 'Diamond' in its name (yes, even itself).", tags: [Item]},
 	{name: "Destroy a Monster Spawner", tags: [Action, Combat]},
 	{name: "(32-64) Popped Chorus Fruit", tags: [Item, End]},
-	{name: "Get a villager into The End", tags: [Action, End, Village]},
+	{name: "Get a Villager into The End", tags: [Action, End, Village]},
 	{name: "(5-16) Dragon's Breath", tags: [Item, Combat, End]},
 	{name: "Dragon Egg", tags: [Item, Combat, End]},
 	{name: "Complete a full size Map", antisynergy: ["CompleteMap"], tags: [Action, Overworld]},
@@ -459,7 +459,6 @@ var bingoList_v4 = [
 	{name: "Every type of Sword", infrequency: 2, antisynergy: ["EverySword"], tooltiptext: "Wooden, Gold, Iron, Diamond and yes, even Netherite.", tags: [Item, Nether]},
 	{name: "Every type of Pickaxe", infrequency: 2, antisynergy: ["EveryPickaxe"], tooltiptext: "Wooden, Gold, Iron, Diamond and yes, even Netherite.", tags: [Item, Nether]},
 	{name: "Pacifist", tooltiptext: "Never kill any creature, as per the statistics screen", catalyst: ["Pacifist"], tags: [Never, Action, Stat]},
-	{name: "Nether Star", reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
 	{name: "Finish by building a Scaffolding tower, then removing it", tooltiptext: "Build a 1x1 Scaffolding Tower from Bedrock to Y=256 (height limit) and then knock it all down as the final goal.", tags: [Build, Overworld, Finish]},
 	{name: "Feed a Panda a Cake", tags: [Action, Overworld, RareBiome]},
 	{name: "Make two Pandas breed", tags: [Action, Overworld, RareBiome]},
@@ -517,6 +516,7 @@ var bingoList_v4 = [
 	{name: "Make every colour of Parrot dance at the same time", tags: [Action, Overworld, RareBiome]},
 	{name: "Place every colour of Bed next to each other", reactant: ["UseFurnace"], antisynergy: ["EveryColour"], infrequency: 2, tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tooltipimg: "Goal Tooltip Images/EveryBed.jpg", tags: [Action, Colour, Overworld]},
 	{name: "Kill an Enderman with only Endermites", tooltiptext:"Don't hurt the Enderman any other way, only with Endermites.", tags: [Action, Combat, End]},
+	{name: "Get Regeneration from a Beacon", reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
 ]
 
 ];
