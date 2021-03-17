@@ -75,10 +75,17 @@ $(document).ready(function()
 	$("#export").hide();
 
 	// On clicking a goal square
-	$("#bingo td").click(function()
+	const bingoSquares = $("#bingo td");
+	bingoSquares.click(function()
 	{
 		const square = $(this);
 		setSquareColor(square, nextColour(square));
+	});
+	bingoSquares.contextmenu(function()
+	{
+		const square = $(this);
+		setSquareColor(square, prevColour(square));
+		return false;
 	});
 
 	// On hovering a goal square
@@ -109,7 +116,7 @@ $(document).ready(function()
 		$("#tooltip").css({left:x, top:y});
 	});
 
-	$("#bingo td").hover(function(e)
+	bingoSquares.hover(function(e)
 	{
 		hoveredSquare = $(this);
 		// Fill the #tooltip with the content from the goal
@@ -161,6 +168,16 @@ function getColourClass(square)
 
 function nextColour(square)
 {
+	return anotherColour(square, 1);
+}
+
+function prevColour(square)
+{
+	return anotherColour(square, -1);
+}
+
+function anotherColour(square, increment)
+{
 	const colourSelection = COLOUR_SELECTIONS[COLOURCOUNT];
 	const currColour = getColourClass(square);
 	const currIndex = colourSelection.indexOf(currColour);
@@ -169,7 +186,7 @@ function nextColour(square)
 		// default to second colour
 		return colourSelection[1];
 	}
-	const nextIndex = (currIndex + 1) % colourSelection.length;
+	const nextIndex = (colourSelection.length + currIndex + increment) % colourSelection.length;
 	return colourSelection[nextIndex];
 }
 
