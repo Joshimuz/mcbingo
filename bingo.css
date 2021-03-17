@@ -194,6 +194,19 @@ html, body {
 	position: relative;
 }
 
+/* Card colours */
+
+.symbol {
+	position: absolute;
+	bottom: 4px;
+	right: 4px;
+	width: 12px;
+	height: 12px;
+	opacity: 0.7;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 #bingo td:hover {
 	background-color: #EBEBEB;
 }
@@ -205,13 +218,21 @@ html, body {
 #bingo tr td.greensquare:hover {
 	background:#A2CD5A;
 }
+.greensquare .symbol {
+	background-image: url("Symbols/ok.png");
+}
+
 #bingo tr td.redsquare {
-	background:#EE6A50;
+	background:#FE6A50;
 	color: #000;
 }
 #bingo tr td.redsquare:hover {
 	background:#CD5B45;
 }
+.redsquare .symbol {
+	background-image: url("Symbols/x.png");
+}
+
 #bingo tr td.bluesquare {
 	background:#9ae8ff;
 	color: #000;
@@ -219,27 +240,44 @@ html, body {
 #bingo tr td.bluesquare:hover {
 	background:#57d9ff;
 }
+.bluesquare .symbol {
+	background-image: url("Symbols/heart.png");
+}
+
 #bingo tr td.yellowsquare {
-	background:#FFFF00;
+	background: #F2F210;
 	color: #000;
 }
 #bingo tr td.yellowsquare:hover {
-	background:#e6e600;
+	background:#D9D90B;
 }
+.yellowsquare .symbol {
+	background-image: url("Symbols/star.png");
+}
+
 #bingo tr td.pinksquare {
-	background:#FFC0CB;
+	background:#00D69B;
 	color: #000;
 }
 #bingo tr td.pinksquare:hover {
-	background:#ffa7b6;
+	background:#00AD82;
 }
+.pinksquare .symbol {
+	background-image: url("Symbols/moon.png");
+}
+
 #bingo tr td.brownsquare {
-	background:#BA7D3F;
+	background:#D5AE85;
 	color: #000;
 }
 #bingo tr td.brownsquare:hover {
-	background:#a77039;
+	background:#C8955F;
 }
+.brownsquare .symbol {
+	background-image: url("Symbols/apple.png");
+}
+
+/* End Card colours */
 
 #hidden-table {
 	font-family: settingsFont;
@@ -277,7 +315,7 @@ html, body {
 }
 
 .tooltipQ {
-	opacity: 0.5;
+	opacity: 0.6;
 	width: 15px;
 	height: 15px;
 	position: absolute;
@@ -285,6 +323,7 @@ html, body {
 	right: 5px;
 	top: 5px;
 }
+
 #bingo td[data-tooltiptext=""] .tooltipQ {
 	display: none;
 }

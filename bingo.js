@@ -15,6 +15,7 @@ var COLOUR_SELECTIONS = [
 ];
 var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEXT
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
+var COLOURSYMBOLS = false;
 const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
 
 var hoveredSquare;
@@ -48,6 +49,7 @@ const NODE_TYPE_TEXT = 3;
 const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
+const COLOUR_SYMBOLS_SETTING_NAME = "bingoColourSymbols";
 
 // Dropdown menu handling.
 $(document).click(function(event) {
@@ -132,12 +134,19 @@ $(document).ready(function()
 	});
 	const SHORTCUT_COLOURS = {
 		48: "",
+		96: "", // Numpad
 		49: "bluesquare",
+		97: "bluesquare",
 		50: "greensquare",
+		98: "greensquare",
 		51: "redsquare",
+		99: "redsquare",
 		52: "yellowsquare",
+		100: "yellowsquare",
 		53: "pinksquare",
+		101: "pinksquare",
 		54: "brownsquare",
+		102: "brownsquare",
 		81 /* Q */: ""
 	};
 	$(document).on("keydown", function(e)
@@ -257,6 +266,13 @@ function getSettingsFromURL()
 
 function getSettingsFromLocalStorage()
 {
+	const savedColourSymbols = localStorage.getItem(COLOUR_SYMBOLS_SETTING_NAME);
+	if (savedColourSymbols != null)
+	{
+		COLOURSYMBOLS = savedColourSymbols == "true" ? true : false;
+	}
+	updateColourSymbols();
+
 	const savedColourCount = localStorage.getItem(COLOUR_COUNT_SETTING_NAME);
 	if (savedColourCount != null)
 	{
@@ -451,6 +467,20 @@ function changeColourCount(value)
 	}
 	updateColourCount();
 	pushNewLocalSetting(COLOUR_COUNT_SETTING_NAME, COLOURCOUNT);
+}
+
+function updateColourSymbols()
+{
+	$(".symbol").css("display", !COLOURSYMBOLS ? "none" : "inline");
+	const button = document.getElementById("colourSymbols");
+	button.innerHTML = COLOURSYMBOLS ? "Hide Symbols" : "Show Symbols";
+}
+
+function toggleColourSymbols(value)
+{
+	COLOURSYMBOLS = !COLOURSYMBOLS;
+	updateColourSymbols();
+	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);	
 }
 
 function pushNewUrl()
