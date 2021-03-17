@@ -261,6 +261,7 @@ html, body {
 }
 
 #hidden-table-seed button {
+	margin-top: 10px;
 	width: 200px;
 }
 
@@ -323,6 +324,12 @@ html, body {
 	font-family: settingsFont;
 	text-align: center;
 }
+.small-button {
+	padding: 3px;
+	height: auto;
+	font-size: 1em;
+}
+
 .versions-button {
 	width: 50px;
 }
