@@ -69,8 +69,8 @@ $(document).ready(function()
 	// Set the background to a random image
 	document.body.style.backgroundImage = "url('Backgrounds/background" + (Math.floor(Math.random() * 10) + 1) + ".jpg')";
 
-	// By default hide the tooltip
-	$("#tooltip").hide();
+	// By default hide the tooltips
+	$(".tooltip").hide();
 
 	$("#export").hide();
 
@@ -88,14 +88,15 @@ $(document).ready(function()
 		return false;
 	});
 
+	const goalTooltip = $("#goalTooltip");
 	// On hovering a goal square
 	$("#bingo td img").hover(function()
 	{
-		$("#tooltip").show();
+		goalTooltip.show();
 	},function()
 	{
 		// After hovering, hide the tooltip again
-		$("#tooltip").hide();
+		goalTooltip.hide();
 	});
 
 	// Move the tooltip with the mouse
@@ -103,8 +104,8 @@ $(document).ready(function()
 	{
 		var x = e.pageX + 2;
 		var y = e.pageY + 2;
-		var width = $("#tooltip").outerWidth() + 25;
-		var height = $("#tooltip").height() + 50;
+		var width = goalTooltip.outerWidth() + 25;
+		var height = goalTooltip.height() + 50;
 		var maxX = $(window).width() + window.pageXOffset;
 		var maxY = $(window).height() + window.pageYOffset;
 		if (x + width > maxX) {
@@ -113,13 +114,13 @@ $(document).ready(function()
 		if (y + height > maxY) {
 			y = y - height;
 		}
-		$("#tooltip").css({left:x, top:y});
+		goalTooltip.css({left:x, top:y});
 	});
 
 	bingoSquares.hover(function(e)
 	{
 		hoveredSquare = $(this);
-		// Fill the #tooltip with the content from the goal
+		// Fill the #goalTooltip with the content from the goal
 		var tooltipImg = hoveredSquare.attr(TOOLTIP_IMAGE_ATTR_NAME);
 		var tooltipText = hoveredSquare.attr(TOOLTIP_TEXT_ATTR_NAME);
 		$("#tooltipimg").attr('src', tooltipImg);
@@ -542,12 +543,14 @@ function setSquareColor(square, colorClass)
 	square.addClass(colorClass);
 }
 
-function copySeedToClipboard(id)
+function copySeedToClipboard(id, event)
 {
 	var id = "#"+id;
 	if (navigator.clipboard)
 	{
-		navigator.clipboard.writeText($(id).val()).catch(err => {
+		navigator.clipboard.writeText($(id).val()).then(ignored => {
+			showCopiedTooltip(event);
+		}, err => {
     			console.error('Async: Could not copy text: ', err);
     			alert("Failed to copy seed to clipboard :/");
 		});
@@ -563,6 +566,10 @@ function copySeedToClipboard(id)
 			{
 				alert("Failed to copy seed to clipboard :/");
 			}
+			else
+			{
+				showCopiedTooltip(event);
+			}
 		}
 		catch (err)
 		{
@@ -572,6 +579,18 @@ function copySeedToClipboard(id)
 		// Deselect
 		$(id).blur();
 	}
+}
+
+function showCopiedTooltip(event)
+{
+	const x = event.target.offsetLeft + event.target.offsetWidth;
+	const y = event.target.offsetTop;
+	$("#copiedTooltip").css({left:x, top: y})
+		.css("display", "block")
+		.delay(100)
+		.fadeOut(1000, () => {
+			$(this).hide().fadeIn(0);
+		});
 }
 
 function createGoalExport()

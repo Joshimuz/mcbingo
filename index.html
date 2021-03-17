@@ -82,7 +82,7 @@
 						<div id="hidden-table-seed">
 							Bingo Seed:<br>
 							<input class="seed_for_copying" id="seed_for_copying_hidden" type="text" value="12345" readonly="readonly"><br>
-							<button onclick='copySeedToClipboard("seed_for_copying_hidden");'>Copy Seed to Clipboard</button>
+							<button class="button" title="Copy Seed to Clipboard" onclick='copySeedToClipboard("seed_for_copying_hidden", event);'>Copy Seed</button>
 						</div>
 						<p>Use this seed to create a new world in Minecraft. Remember to adjust ingame settings such as difficulty if necessary.</p>
 						<p>If you've been linked this page for a race, you are not allowed to change the seed/goals. See the full rules below.</p>
@@ -97,7 +97,7 @@
 			<div class="buttons-row">
 				<div class="dropdown-holder">
 					<button class="button versions-button dropdown-button" id="versions-toggle-button" title="Change version of Bingo"><!-- text set by updateVersion() --></button>
-					<div id="versions-dropdown-main" class="dropdown versions-dropdown"><!-- filled in by fillVersionSelection() --></div>
+					<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
 				</div>
 				<button onclick='newSeed(true);event.preventDefault();' class="button new-seed-button">Generate New Seed</button>
 				<div class="dropdown-holder">
@@ -140,7 +140,7 @@
 			<p><em>Tip:</em> You can click on the squares to change their colour which is useful for planning or to mark off completed goals. Use the colour slider in the Options menu to choose how many colours you want to use. You can also hover over the square and press (0-6)!</p>
 			<p><em>Tip:</em> Hover over a "?" to get more information about that goal.</p>
 			<h3>Creating the World</h3>
-			<p>Create a new world in Minecraft and use <input class="seed_for_copying" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button onclick='copySeedToClipboard("seed_for_copying_howto");'>Copy</button> as the Seed (this is the same random seed used to generate this sheet). Load the world so that it can generate but don't move until you're ready. Pause the game to make sure time of day doesn't change or you get attacked. When you're ready, reveal the sheet if it's hidden and start playing!</p>
+			<p>Create a new world in Minecraft and use <input class="seed_for_copying" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button class="button small-button" title="Copy Seed to Clipboard" onclick='copySeedToClipboard("seed_for_copying_howto", event);'>Copy</button> as the Seed (this is the same random seed used to generate this sheet). Load the world so that it can generate but don't move until you're ready. Pause the game to make sure time of day doesn't change or you get attacked. When you're ready, reveal the sheet if it's hidden and start playing!</p>
 
 			<p><em>Note:</em> Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</p>
 
@@ -153,10 +153,11 @@
 			<p>You can <a href="javascript:createGoalExport()">export the current sheet as JSON</a> for use in other tools such as <a href="https://bingosync.com/">Bingosync.</a></p>
 			<a href="https://github.com/Joshimuz/mcbingo"><img src="github-img.png" width='200'></a>
 		</section>
-		<div id="tooltip">
+		<div id="goalTooltip" class="tooltip">
 			<img src="" id="tooltipimg" />
-			<span id="tooltiptext"></span>
+			<span id="tooltiptext" class="tooltiptext"></span>
 		</div>
+		<div id="copiedTooltip" class="tooltip"><span class="tooltiptext">Copied!</span></div>
 		<div id="export">
 			<p>The goals of the current sheet as JSON:</p>
 			<textarea readonly="readonly"></textarea>
