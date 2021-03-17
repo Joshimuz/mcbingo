@@ -460,7 +460,6 @@ function updateColourSymbols()
 
 function toggleColourSymbols(value)
 {
-	// Invert HIDDEN setting, then update
 	COLOURSYMBOLS = !COLOURSYMBOLS;
 	updateColourSymbols();
 	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);	
