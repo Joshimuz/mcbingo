@@ -402,7 +402,7 @@ var bingoList_v4 = [
 	{name: "Brown Wool", tags: [Item, Overworld]},
 	{name: "Grow a Huge Nether Fungus", antisynergy: ["GrowFungus"], tags: [Action, Nether]},
 	{name: "Put a Chest on a Donkey", tags: [Action, Overworld]},
-	{name: "Never place Torches", tooltiptext: "Never Place normal Torches on the ground, you can craft with them and other types of Torches are allowed" tags: [Never]},
+	{name: "Never place Torches", tooltiptext: "Never Place normal Torches on the ground, you can craft with them and other types of Torches are allowed", tags: [Never]},
 ],
 
 // Hard (3)
