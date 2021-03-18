@@ -51,19 +51,31 @@ const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
 const COLOUR_SYMBOLS_SETTING_NAME = "bingoColourSymbols";
+const SHOW_OPTIONS_MENU_CLASS_NAME = "show-options";
 
-// Dropdown menu handling.
+// Dropdowns and pause menu handling.
 $(document).click(function(event) {
-	if (event.target.className.includes('dropdown-button')) {
+	const className = event.target.className;
+	if (className.includes('dropdown-button')) {
 		// if a button was clicked, toggle nearby dropdown
 		$(event.target).siblings('.dropdown').toggle(100);
-	} else {
-		if (!$(event.target).closest(".dropdown-holder").length) {
-			// Hide if click was anywhere BUT on a dropdown menu
-			$('.dropdown').each(function() {
-				$(this).hide(100);
-			});
+		return;
+	}
+	if (!$(event.target).closest(".dropdown-holder").length) {
+		// Hide if click was anywhere BUT on a dropdown menu
+		$('.dropdown').each(function() {
+			$(this).hide(100);
+		});
+	}
+	if (!$(event.target).closest(".pause-menu").length) {
+		if (event.target.id != "options-toggle-button") {
+			// Hide if click was anywhere BUT on a pause menu
+			hideOptionsMenu();
 		}
+	}
+	if (className.includes("pause-menu")) {
+		// hide if clicking on pause-menu layout, but not on buttons/sliders
+		hideOptionsMenu();
 	}
 });
 
@@ -156,6 +168,10 @@ $(document).ready(function()
 		{
 			setSquareColor(hoveredSquare, SHORTCUT_COLOURS[e.which]);
 		}
+		if (e.keyCode == 27 /* Esc */)
+		{
+			toggleOptionsMenu();
+		}
 	});
 
 	fillVersionSelection();
@@ -163,6 +179,12 @@ $(document).ready(function()
 		changeVersion($(this).val());
 	});
 
+	$(".pause-menu-close").click(function() {
+		hideOptionsMenu();
+	});
+	$("#options-toggle-button").click(function() {
+		toggleOptionsMenu();
+	});
 
 	window.onpopstate = function(event)
 	{
@@ -171,6 +193,19 @@ $(document).ready(function()
 
 	loadSettings();
 });
+
+function toggleOptionsMenu()
+{
+	$("#bingo-box").toggleClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+}
+function showOptionsMenu()
+{
+	$("#bingo-box").addClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+}
+function hideOptionsMenu()
+{
+	$("#bingo-box").removeClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+}
 
 function getColourClass(square)
 {
@@ -416,6 +451,7 @@ function toggleStreamerMode()
 {
 	STREAMER_MODE = !STREAMER_MODE;
 	$(".dropdown").hide();
+	hideOptionsMenu();
 	updateStreamerMode();
 	pushNewUrl();
 }

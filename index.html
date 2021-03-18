@@ -91,6 +91,20 @@
 						<p>The table is currently hidden, you may show it when the Bingo starts (unless otherwise agreed upon by the players).</p>
 					</div>
 				</div>
+				<div id="options-menu" class="pause-menu">
+					<button class="button pause-menu-close">x</button>
+					<div class="slider-holder">
+						<input type="range" id="difficultyRange" value="3" max="5" min="1" class="slider" oninput="changeDifficulty(this.value);"/>
+						<p class="slider-text difficulty-text"></p>
+					</div>
+					<button class="button options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
+					<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
+					<div class="slider-holder" title="The number of colours to cycle through when clicking on a square. Can always press (1-6) or (0/q) while hovering over square to select colours.">
+						<input type="range" id="colourCountRange" value="1" max="2" min="0" class="slider" oninput="changeColourCount(this.value);"/>
+						<p class="slider-text colourCount-text"></p>
+					</div>
+					<button class="button options-button" onclick='toggleColourSymbols();' title="Toggle the symbols showing on the squares for different colours."><span id="colourSymbols"></span></button>
+				</div>
 			</div>
 			<div id="info_bar">
 				Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" />&emsp;Difficulty: <span class="difficulty-text"></span>&emsp;Version: <span class="versionText"></span><br>
@@ -101,22 +115,7 @@
 					<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
 				</div>
 				<button onclick='newSeed(true);event.preventDefault();' class="button new-seed-button">Generate New Seed</button>
-				<div class="dropdown-holder">
-					<button class="button options-button dropdown-button" id="options-toggle-button">Options...</button>
-					<div id="options-dropdown-main" class="dropdown">
-						<div class="slider-holder" title="The number of colours to cycle through when clicking on a square. Can always press (1-6) or (0/q) while hovering over square to select colours.">
-							<input type="range" id="colourCountRange" value="1" max="2" min="0" class="slider" oninput="changeColourCount(this.value);"/>
-							<p class="slider-text colourCount-text"></p>
-						</div>
-						<button class="button options-button" onclick='toggleColourSymbols();' title="Toggle the symbols showing on the squares for different colours."><span id="colourSymbols"></span></button>
-						<button class="button options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
-						<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
-						<div class="slider-holder">
-							<input type="range" id="difficultyRange" value="3" max="5" min="1" class="slider" oninput="changeDifficulty(this.value);"/>
-							<p class="slider-text difficulty-text"></p>
-						</div>
-					</div>
-				</div>
+				<button class="button" id="options-toggle-button">Options...</button>
 			</div>
 		</section>
 		<a class="stream-exit-text" href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a>
