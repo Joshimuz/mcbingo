@@ -136,7 +136,6 @@ var generator_v1 = function(layout, difficulty, bingoList)
 					}
 				}
 			}
- 			
 		}
 		while (!cont);
 
