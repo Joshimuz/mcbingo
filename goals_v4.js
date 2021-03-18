@@ -262,13 +262,14 @@ var bingoList_v4 = [
 	{name: "Hatch a Chicken from an Egg", tags: [Action, Overworld]},
 	{name: "Empty a Cauldron without Buckets or Bottles", tooltiptext: "You can fill the Cauldron with Water however you want, just don't use Buckets or Bottles to empty it.", tags: [Action, Overworld]},
 	{name: "Sleep in a Villager's bed", reactant: ["Sleep"], tags: [Action, Village, Overworld]},
+	{name: "Set fire to a Villager's House", tags: [Action, Village, Overworld]},
+	{name: "Emerald", tags: [Item, Overworld]},
 ],
 
 // Medium (2)
 [
 	{name: "(6-7) Different Edible Items", tooltiptext: "Raw and Cooked variants count as one (e.g. Raw Beef and Steak).", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: ["EdibleItems"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "Beetroot Soup", tags: [Item, Overworld]},
-	{name: "Emerald", tags: [Item, Overworld]},
 	{name: "Place a Cactus in a Flower Pot", tags: [Action, RareBiome, Overworld]},
 	{name: "Detonate a TNT-Minecart", tags: [Action, Overworld]},
 	{name: "(10-30) Magma Blocks", tags: [Item]},
@@ -278,7 +279,7 @@ var bingoList_v4 = [
 	{name: "Get a Skeleton's Bow", reactant: ["Pacifist"], tooltiptext: "Kill Skeletons until you get the rare Bow drop from one.", tags: [Item, Combat]},
 	{name: "Diamond Block", antisynergy: ["DiamondBlock"], infrequency: 2, tags: [Item]},
 	{name: "(2-3) Lapis Lazuli Blocks", tags: [Item, Overworld]},
-	{name: "(2-5) Different Saplings", tooltiptext: "Crimson and Warped Fungi don't count!", tags: [Item, Overworld]},
+	{name: "(3-5) Different Saplings", tooltiptext: "Crimson and Warped Fungi don't count!", tags: [Item, Overworld]},
 	{name: "Tame a Wolf", tags: [Action, RareBiome, Overworld]},
 	{name: "6 Fire Charges", tags: [Item, Nether, Combat]},
 	{name: "(2-3) Magma Cream", tags: [Item, Nether, Combat]},
@@ -301,7 +302,6 @@ var bingoList_v4 = [
 	{name: "Vegetarian", tooltiptext: "Never eat meat, including fish.", tooltipimg: "Goal Tooltip Images/NoFish.jpg", antisynergy: ["Food"], tags: [Never, Action], catalyst: ["EatMeat"]},
 	{name: "Kill yourself with your own arrow", reactant: ["Death", "Pacifist"], tags: [Action]},
 	{name: "Get a '... whilst trying to escape ...' Death message", tooltiptext: "Example: 'PLAYER' drowned whilst trying to escape a Skeleton.", reactant: ["Death"], tags: [Action]},
-	{name: "Set fire to a Villager's House", tags: [Action, Village, Overworld]},
 	{name: "Finish on top of the world", tooltiptext: "Build up to Y=256 (height limit) and stand on the top at the end of the Bingo.", tooltipimg: "Goal Tooltip Images/FinishTop.jpg", tags: [Action, Build, Finish]},
 	{name: "Kill a hostile mob with Gravel", reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat]},
 	{name: "Kill a hostile mob with Sand", reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat]},
@@ -489,12 +489,12 @@ var bingoList_v4 = [
 // Very Hard (4)
 [
 	{name: "(5-7) Different Ores", tooltiptext: "Coal, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quartz, Nether Gold and Redstone Ores are your choices.", tooltipimg: "Goal Tooltip Images/Ores.jpg", tags: [Item, Overworld]},
-	{name: "(7-9) Different Potions", tooltiptext: "Splash variants count! Even Lingering if you want to get crazy.", tooltipimg: "Goal Tooltip Images/Potions.jpg", tags: [Item, Nether, Combat, Overworld]},
+	{name: "(12-15) Different Potions", tooltiptext: "Splash, Lingering, Enhanced and Extended variants DON'T count!", tags: [Item, Nether, Combat, Overworld]},
 	{name: "Every type of Chestplate", tooltiptext: "Leather, Gold, Chainmail, Iron, Diamond and yes, even Netherite.", tooltipimg: "Goal Tooltip Images/chainmail chest.jpg", tags: [Item, Combat]},
 	{name: "Any mob head OTHER than a Wither Skeleton's", tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count.", tags: [Item, Combat, Overworld]},
 	{name: "Every colour of Dye", reactant: ["UseFurnace"], antisynergy: ["EveryColour"], infrequency: 2, tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tooltipimg: "Goal Tooltip Images/EveryColourOfDye.png", tags: [Item, Colour, Overworld]},
 	{name: "Level 50", antisynergy: ["Level"], infrequency: 2, tags: [Stat]},
-	{name: "Fill a Double Chest with 3456 items", reactant: ["UseChests"], tags: [Item, Action]},
+	//{name: "Fill a Double Chest with 3456 items", reactant: ["UseChests"], tags: [Item, Action]}, BOOOORRRRRRRINNG AND TOO EASY
 	{name: "(16-32) Tipped Arrows", tags: [Item, Nether, Overworld]},
 	{name: "Place 1 of each Mineral block on top of each other", tooltiptext: "Coal, Iron, Gold, Diamond, Redstone, Lapis, Emerald, Quartz and Netherite blocks.", tooltipimg: "Goal Tooltip Images/MineralBlocks.jpg", tags: [Item, Build, Overworld, Nether]},
 	{name: "Sleep in a Woodland Mansion", tags: [Action, RareBiome, Overworld]},
@@ -506,7 +506,7 @@ var bingoList_v4 = [
 	{name: "Get a Shulker into the Overworld", tags: [Action, Combat, End, Overworld]},
 	{name: "(5-10) Diamond Blocks", antisynergy: ["DiamondBlock"], infrequency: 2, tags: [Item]},
 	{name: "Complete a full size Map in the End", antisynergy: ["CompleteMap"], tags: [Action, Overworld, End]},
-	{name: "(2-10) Wither Roses", reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
+	{name: "(32-64) Wither Roses", reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
 	{name: "Get a Slimeball from a Panda", tags: [Item, Overworld, RareBiome]},
 	{name: "2 Blocks of Netherite", tags: [Item, Nether]},
 	{name: "Full Netherite Armour and Tools", tags: [Item, Nether]},
