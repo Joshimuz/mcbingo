@@ -112,9 +112,9 @@ var generator_v3 = function(layout, difficulty, bingoList)
 
 	// Keep track off what tags, antisynergys, reactants and catalysts are already on the sheet
 	var tagCount = {};
-	var antisynergys = [],
-	reactants = [],
-	catalysts = [];
+	var antisynergys = new Set(),
+	reactants = new Set(),
+	catalysts = new Set();
 
 	// Try to generate 25 goals to populate the sheet
 	for (var i=0; i<=24; i++)
@@ -201,7 +201,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 			if (typeof goalCandidate.antisynergy !== 'undefined')
 			{
 				// If it does, check to see if it's already on the sheet
-				if (antisynergys.some(r=> goalCandidate.antisynergy.includes(r)))
+				if (goalCandidate.antisynergy.some(a => antisynergys.has(a)))
 				{
 					// If it is, get a new goal
 					console.log("antisynergy for: " + goalCandidate.name);
@@ -211,7 +211,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 			// Check if the goal generated is a catalyst for anything already on the sheet
 			if (typeof goalCandidate.catalyst !== 'undefined')
 			{
-				if (reactants.some(r=> goalCandidate.catalyst.includes(r)))
+				if (goalCandidate.catalyst.some(c => reactants.has(c)))
 				{
 					// If it is, get a new goal
 					console.log("reactants for: " + goalCandidate.name);
@@ -222,7 +222,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 			if (typeof goalCandidate.reactant !== 'undefined')
 			{
 				// If it does, check to see if it's already on the sheet
-				if (catalysts.some(r=> goalCandidate.reactant.includes(r)))
+				if (goalCandidate.reactant.some(r => catalysts.has(r)))
 				{
 					// If it is, get a new goal
 					console.log("catalyst for: " + goalCandidate.name);
@@ -254,28 +254,26 @@ var generator_v3 = function(layout, difficulty, bingoList)
 		}
 		while (true);
 
-		// We successfully picked a goal, add it's tags to tagCount
+		// We successfully picked a goal, add its tags to tagCount
 		for (const tag of goalCandidate.tags)
 		{
 			tagCount[tag.name]++;
 			//console.log(tagCount);
 		}
-		// Add it's antisynergys onto the list of antisynergys
+		// Add its antisynergys to the set of antisynergys
 		if (typeof goalCandidate.antisynergy !== 'undefined')
 		{
-			antisynergys = [...antisynergys,...goalCandidate.antisynergy];
+			goalCandidate.antisynergy.forEach(a => antisynergys.add(a));
 		}
-		// Add it's catalysts onto the list of catalysts
+		// Add its catalysts to the set of catalysts
 		if (typeof goalCandidate.catalyst !== 'undefined')
 		{
-			// using "new Set" to prevent duplicates
-			catalysts = [...new Set([...catalysts,...goalCandidate.catalyst])];
+			goalCandidate.catalyst.forEach(c => catalysts.add(c));
 		}
-		// Add it's reactants onto the list of reactants
+		// Add its reactants to the set of reactants
 		if (typeof goalCandidate.reactant !== 'undefined')
 		{
-			// using "new Set" to prevent duplicates
-			reactants = [...new Set([...reactants,...goalCandidate.reactant])];
+			goalCandidate.reactant.forEach(r => reactants.add(r));
 		}
 
 		// Add the goal to the JSON list of goals
