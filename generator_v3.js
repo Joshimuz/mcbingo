@@ -176,6 +176,25 @@ var generator_v3 = function(layout, difficulty, bingoList)
 						continue GoalGen;
 					}
 				}
+
+				// If the goal candidate contains tags that cannot be on the same line as other goals with that tag
+				if (goalCandidate.tags.some(r=> r.line == false))
+				{
+					// Go through every goal currently on the sheet
+					for (var z=0; z < i; z++)
+					{
+						// If the currentSheet goal has tags AND are on the same line
+						if (currentSheet[indexes[z]].tags != null && isOnSameLine(indexes[i], indexes[z]))
+						{
+							// If both goals have the same tag
+							if (currentSheet[indexes[z]].tags.some(r=> r.line == false && goalCandidate.tags.some(s=> r.name === s.name)))
+							{
+								console.log("Cannot be on same line: " + goalCandidate.name + " and " + currentSheet[indexes[z]].name);
+								continue GoalGen;
+							}
+						}
+					}
+				}
 			}
 
 			// Check if the goal (and the goals on the sheet) has any antisynergies
@@ -208,25 +227,6 @@ var generator_v3 = function(layout, difficulty, bingoList)
 					// If it is, get a new goal
 					console.log("catalyst for: " + goalCandidate.name);
 					continue GoalGen;
-				}
-			}
-
-			// If the goal candidate contains tags that cannot be on the same line as other goals with that tag
-			if (goalCandidate.tags.some(r=> r.line == false))
-			{
-				// Go through every goal currently on the sheet
-				for (var z=0; z < i; z++)
-				{
-					// If both goals have tags AND are on the same line
-					if (goalCandidate.tags != null && currentSheet[indexes[z]].tags != null && isOnSameLine(indexes[i], indexes[z]))
-					{
-						// If both goals have the same tag
-						if (currentSheet[indexes[z]].tags.some(r=> r.line == false && goalCandidate.tags.some(s=> r.name === s.name)))
-						{
-							console.log("Cannot be on same line: " + goalCandidate.name + " and " + currentSheet[indexes[z]].name);
-							continue GoalGen;
-						}
-					}
 				}
 			}
 
