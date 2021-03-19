@@ -245,6 +245,8 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				failSafe = 0;
 
 				console.log("failSafe occurred on " + (i + 1) + "/25, reducing goal difficulty to " + sheetLayout[i]);
+
+				continue GoalGen;
 			}
 
 			// If we made it this far, the goal must be good to go
