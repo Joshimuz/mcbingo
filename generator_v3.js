@@ -122,14 +122,9 @@ var generator_v3 = function(layout, difficulty, bingoList)
 		// Keep track of how many times we've tried to generate a goal
 		var failSafe = 0;
 
-		// retry keeps track of if current goalCandidate is good and should be added or not
-		var retry = true;
-
 		GoalGen:
 		do
 		{
-			retry = true;
-
 			failSafe++;
 
 			// Generate a new goal candidate from the list of goals
@@ -242,8 +237,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				if (sheetLayout[i] == 0)
 				{
 					window.alert("Invalid Goal List");
-					retry = false;
-					continue GoalGen;
+					break GoalGen;
 				}
 
 				// Move the difficulty down by one
@@ -254,9 +248,9 @@ var generator_v3 = function(layout, difficulty, bingoList)
 			}
 
 			// If we made it this far, the goal must be good to go
-			retry = false;
+			break GoalGen;
 		}
-		while (retry);
+		while (true);
 
 		// We successfully picked a goal, add it's tags to tagCount
 		for (const tag of goalCandidate.tags)
