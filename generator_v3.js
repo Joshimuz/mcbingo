@@ -122,10 +122,14 @@ var generator_v3 = function(layout, difficulty, bingoList)
 		// Keep track of how many times we've tried to generate a goal
 		var failSafe = 0;
 
+		// cont keeps track of if current goalCandidate is good and should be added or not
+		var retry = true;
+
+		GoalGen:
 		do
 		{
-			// cont keeps track if current goalCandidate is good
-			var cont = true;
+			retry = true;
+
 			failSafe++;
 
 			// Generate a new goal candidate from the list of goals
@@ -145,8 +149,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 					//console.log("cont = false, infrequency check failed");
 
 					// If we failed the RNG roll, continue the do while loop and try again
-					cont = false;
-					continue;
+					continue GoalGen;
 				}
 			}
 
@@ -155,8 +158,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 			{
 				// Get a new goal
 				console.log(goalCandidate.name + " already on the board");
-				cont = false;
-				continue;
+				continue GoalGen;
 			}
 
 			// Check if the goal has any tags
@@ -176,8 +178,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 					{
 						// If we've got too many of that tag, get a new goal
 						console.log(tag.name + " max reached with " + tagCount[tag.name] + " on the board");
-						cont = false;
-						continue;
+						continue GoalGen;
 					}
 				}
 			}
@@ -190,8 +191,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				{
 					// If it is, get a new goal
 					console.log("antisynergy for: " + goalCandidate.name);
-					cont = false;
-					continue;
+					continue GoalGen;
 				}
 			}
 			// Check if the goal generated is a catalyst for anything already on the sheet
@@ -201,8 +201,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				{
 					// If it is, get a new goal
 					console.log("reactants for: " + goalCandidate.name);
-					cont = false;
-					continue;
+					continue GoalGen;
 				}
 			}
 			// Check if the goal generated is a reactant for anything already on the sheet
@@ -213,8 +212,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				{
 					// If it is, get a new goal
 					console.log("catalyst for: " + goalCandidate.name);
-					cont = false;
-					continue;
+					continue GoalGen;
 				}
 			}
 
@@ -231,8 +229,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 						if (currentSheet[indexes[z]].tags.some(r=> r.line == false && goalCandidate.tags.some(s=> r.name === s.name)))
 						{
 							console.log("Cannot be on same line: " + goalCandidate.name + " and " + currentSheet[indexes[z]].name);
-							cont = false;
-							break;
+							continue GoalGen;
 						}
 					}
 				}
@@ -245,7 +242,8 @@ var generator_v3 = function(layout, difficulty, bingoList)
 				if (sheetLayout[i] == 0)
 				{
 					window.alert("Invalid Goal List");
-					break;
+					retry = false;
+					continue GoalGen;
 				}
 
 				// Move the difficulty down by one
@@ -254,13 +252,17 @@ var generator_v3 = function(layout, difficulty, bingoList)
 
 				console.log("failSafe occurred on " + (i + 1) + "/25, reducing goal difficulty to " + sheetLayout[i]);
 			}
+
+			// If we made it this far, the goal must be good to go
+			retry = false;
 		}
-		while (!cont);
+		while (retry);
 
 		// We successfully picked a goal, add it's tags to tagCount
 		for (const tag of goalCandidate.tags)
 		{
 			tagCount[tag.name]++;
+			//console.log(tagCount);
 		}
 		// Add it's antisynergys onto the list of antisynergys
 		if (typeof goalCandidate.antisynergy !== 'undefined')
