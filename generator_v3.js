@@ -122,7 +122,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 		// Keep track of how many times we've tried to generate a goal
 		var failSafe = 0;
 
-		// cont keeps track of if current goalCandidate is good and should be added or not
+		// retry keeps track of if current goalCandidate is good and should be added or not
 		var retry = true;
 
 		GoalGen:
@@ -233,7 +233,7 @@ var generator_v3 = function(layout, difficulty, bingoList)
 						}
 					}
 				}
-			}			
+			}
 
 			// If the loop is stuck because no more suitable goals
 			if (failSafe >= 500)
