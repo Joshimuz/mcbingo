@@ -1,20 +1,20 @@
 // This is part of a version currently in development and may be changed at any time.
 
 // Tags
-var Item = {name: "Item", max: [25, 25, 20, 20, 20]},
-Stat = {name: "Stat", max: [5, 5, 5, 5, 5]},
-Action = {name: "Action", max: [20, 20, 20, 20, 20]},
-Build = {name: "Build", max: [20, 20, 20, 20, 20]},
-RareBiome = {name: "RareBiome", max: [0, 1, 2, 4, 6]},
-Ocean = {name: "Ocean", max: [5, 5, 5, 5, 5]},
-Village = {name: "Village", max: [0, 1, 2, 3, 4]},
-Colour = {name: "Colour", max: [2, 2, 2, 2, 2]},
-Never = {name: "Never", max: [3, 3, 3, 2, 1]},
-Combat = {name: "Combat", max: [5, 10, 20, 20, 20]},
-Overworld = {name: "Overworld", max: [25, 25, 24, 21, 18]},
-Nether = {name: "Nether", max: [0, 2, 5, 10, 15]},
-End = {name: "End", max: [0, 0, 0, 1, 5]},
-Finish = {name: "Finish", max: [1, 1, 1, 1, 1]};
+var Item = {name: "Item", max: [25, 25, 20, 20, 20], line: true},
+Stat = {name: "Stat", max: [5, 5, 5, 5, 5], line: true},
+Action = {name: "Action", max: [20, 20, 20, 20, 20], line: true},
+Build = {name: "Build", max: [20, 20, 20, 20, 20], line: true},
+RareBiome = {name: "RareBiome", max: [0, 1, 2, 4, 6], line: true},
+Ocean = {name: "Ocean", max: [5, 5, 5, 5, 5], line: true},
+Village = {name: "Village", max: [0, 1, 2, 3, 4], line: true},
+Colour = {name: "Colour", max: [2, 2, 2, 2, 2], line: true},
+Never = {name: "Never", max: [3, 3, 3, 2, 1], line: false},
+Combat = {name: "Combat", max: [5, 10, 20, 20, 20], line: true},
+Overworld = {name: "Overworld", max: [25, 25, 24, 21, 18], line: true},
+Nether = {name: "Nether", max: [0, 2, 5, 10, 15], line: true},
+End = {name: "End", max: [0, 0, 0, 1, 5], line: true},
+Finish = {name: "Finish", max: [1, 1, 1, 1, 1], line: true};
 
 var bingoList_v4 = [
 
