@@ -347,7 +347,6 @@ var bingoList_v4 = [
 	{name: "Give a mob a Hat", tags: [Action, Combat]},
 	{name: "Heart of the Sea", tags: [Item, Ocean, Overworld]},
 	{name: "Phantom Membrane", reactant: ["Pacifist"], tags: [Item, Combat, Overworld]},
-	{name: "Turtle Shell", tags: [Item, Ocean, Overworld]},
 	{name: "Add a Marker to a Map", tags: [Action, Overworld]},
 	{name: "Water, Lava, Milk and Fish Bucket", antisynergy: ["BucketTypes"], reactant: ["UseBuckets"], tooltiptext: "Can be any of the types of Fish.", tooltipimg: "Goal Tooltip Images/FishBucket.jpg", tags: [Item, Overworld]},
 	{name: "Leash a Dolphin to a Fence", tags: [Action, Ocean, RareBiome, Overworld]},
@@ -403,6 +402,7 @@ var bingoList_v4 = [
 	{name: "Grow a Huge Nether Fungus", antisynergy: ["GrowFungus"], tags: [Action, Nether]},
 	{name: "Put a Chest on a Donkey", tags: [Action, Overworld]},
 	{name: "Never place Torches", tooltiptext: "Never place normal Torches, you CAN craft with them. Other types of Torches are allowed.", tags: [Never]},
+	{name: "Scute", antisynergy: ["TurtleShell"], tags: [Item, Ocean, Overworld]},
 ],
 
 // Hard (3)
@@ -484,6 +484,7 @@ var bingoList_v4 = [
 	{name: "Tame a Mule", tags: [Action, Overworld]},
 	{name: "Convert a Carrot on a Stick into a Fishing Rod", tags: [Action, Overworld]},
 	{name: "Skull Charge Banner Pattern", tags: [Item, Nether, Combat, RareBiome, Overworld]},
+	{name: "Turtle Shell", antisynergy: ["TurtleShell"], tags: [Item, Ocean, Overworld]},
 ],
 
 // Very Hard (4)
