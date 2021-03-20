@@ -343,7 +343,7 @@ html, body {
 	position: relative;
 	border: 2px solid #000;
 	background-color: #6F6F6F;
-	background-image: url("button-background.jpg");
+	background-image: url("button-background.png");
 }
 
 .button::after,
@@ -373,7 +373,7 @@ html, body {
 	color: #FFF787;
 }
 .button:hover {
-	background-image: url("button-background-blue.jpg");
+	background-image: url("button-background-blue.png");
 }
 
 .button,
@@ -444,7 +444,7 @@ input[type=range]::-webkit-slider-thumb {
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
 	height: 50px;
 	width: 18px;
-	background-image: url("button-background.jpg");
+	background-image: url("button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
 	border-radius: 0px;
@@ -455,7 +455,7 @@ input[type=range]::-moz-range-thumb {
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
 	height: 50px;
 	width: 18px;
-	background-image: url("button-background.jpg");
+	background-image: url("button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
 	border-radius: 0px;
@@ -465,7 +465,7 @@ input[type=range]::-ms-thumb {
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
 	height: 50px;
 	width: 18px;
-	background-image: url("button-background.jpg");
+	background-image: url("button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
 	border-radius: 0px;
@@ -477,15 +477,15 @@ input[type=range]::-moz-range-track {
 
 input[type=range]::-webkit-slider-thumb:hover,
 input[type=range]::-webkit-slider-thumb:active {
-	background-image: url("button-background-blue.jpg");
+	background-image: url("button-background-blue.png");
 }
 input[type=range]::-moz-range-thumb:hover,
 input[type=range]::-moz-range-thumb:active {
-	background-image: url("button-background-blue.jpg");
+	background-image: url("button-background-blue.png");
 }
 input[type=range]::-ms-thumb:hover,
 input[type=range]::-ms-thumb:active {
-	background-image: url("button-background-blue.jpg");
+	background-image: url("button-background-blue.png");
 }
 
 .new-seed-button {
