@@ -5,6 +5,7 @@ var Item = {name: "Item", max: [25, 25, 20, 20, 20], line: true},
 Stat = {name: "Stat", max: [5, 5, 5, 5, 5], line: true},
 Action = {name: "Action", max: [20, 20, 20, 20, 20], line: true},
 Build = {name: "Build", max: [20, 20, 20, 20, 20], line: true},
+// note, that on lower difficulties, RareBiome means "Specific Biome"
 RareBiome = {name: "RareBiome", max: [0, 1, 2, 4, 6], line: true},
 Ocean = {name: "Ocean", max: [5, 5, 5, 5, 5], line: true},
 Village = {name: "Village", max: [0, 1, 2, 3, 4], line: true},
