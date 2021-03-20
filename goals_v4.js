@@ -275,7 +275,7 @@ var bingoList_v4 = [
 	{name: "Detonate a TNT-Minecart", tags: [Action, Overworld]},
 	{name: "(10-30) Magma Blocks", tags: [Item]},
 	{name: "Damaged Anvil", tags: [Item]},
-	{name: "(16-64) Melons (Slices)", tags: [Item, Overworld]},
+	{name: "(16-64) Melon Slices", tags: [Item, Overworld]},
 	{name: "Never wear any Armour", catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
 	{name: "Get a Skeleton's Bow", reactant: ["Pacifist"], tooltiptext: "Kill Skeletons until you get the rare Bow drop from one.", tags: [Item, Combat]},
 	{name: "Diamond Block", antisynergy: ["DiamondBlock"], infrequency: 2, tags: [Item]},
