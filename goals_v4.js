@@ -177,7 +177,7 @@ var bingoList_v4 = [
 	{name: "(3-6) Colours of Glazed Terracotta", reactant: ["UseFurnace"], antisynergy: ["GlazedColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "Place (3-6) colours of Beds next to each other", antisynergy: ["BedColour"], infrequency: 4, tags: [Build, Colour, Overworld]},
 	{name: "Finish where you spawned using a Compass", tooltiptext: "Be stood close enough to spin your compass within a couple blocks at the end of the game.", tooltipimg: "Goal Tooltip Images/Compass.jpg", tags: [Action, Overworld, Finish]},
-	{name: "(32-64) Stone", reactant: ["UseFurnace"], tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", antisynergy: ["Stone"], infrequency: 2, tags: [Item, Overworld]},
+	{name: "(32-64) Stone", tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", antisynergy: ["Stone"], infrequency: 2, reactant: ["UseFurnace"], tags: [Item, Overworld]},
 	{name: "Kill (4-8) passive mobs with only fire", tooltiptext: "Don't hurt the passive mob any other way, only with Fire.", reactant: ["Pacifist"], tags: [Action, Combat]},
 	{name: "Kill a Creeper with only fire", reactant: ["Pacifist"], tags: [Action, Combat, Overworld]},
 	{name: "(32-64) Iron Nuggets", tags: [Item]},
