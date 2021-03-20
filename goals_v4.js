@@ -123,7 +123,7 @@ var bingoList_v4 = [
 	{name: "Never use Shields", tooltiptext: "You can use Shields in crafting, but cannot use them for blocking", tags: [Never]},
 	{name: "Jukebox", tags: [Item]},
 	{name: "Build a 3x3x3 Glass cube and fill the middle with Lava", tags: [Build, Overworld]},
-	{name: "(16-32) Mossy Cobblestone", tags: [Item, Overworld]},
+	{name: "(16-32) Mossy Cobblestone", tags: [Item, Overworld]}, // not RareBiome, because can be found in a Plains Village
 	{name: "(5-15) Cacti", tags: [Item, RareBiome, Overworld]},
 	{name: "(2-3) TNT", tags: [Item, Overworld]},
 	{name: "Level (8-15)", antisynergy: ["Level"], infrequency: 2, tags: [Stat]},
