@@ -82,7 +82,7 @@ var bingoList_v4 = [
 	{name: "(5-15) Stripped Acacia Logs", antisynergy: ["StrippedAcaciaLog"], reactant: ["AxeUse"], infrequency: 25, tags: [Item, Overworld]},
 	{name: "(2-5) Raw Cod", antisynergy: ["RawCod"], infrequency: 2, tags: [Item, Ocean, Overworld]},
 	{name: "(2-3) Raw Salmon", antisynergy: ["RawSalmon"], infrequency: 2, tags: [Item, Ocean, Overworld]},
-	{name: "(2-3) Different Edible Items", tooltiptext: "Raw and Cooked variants count as one (e.g. Raw Beef and Steak).", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: ["EdibleItems"], infrequency: 2, tags: [Item]},
+	{name: "(2-3) Different Edible Items", tooltiptext: "Raw and Cooked variants count as one (e.g. Raw Beef and Steak).", tooltipimg: "Goal Tooltip Images/RawAndCooked.jpg", antisynergy: ["EdibleItems"], infrequency: 2, tags: [Item]}, // not tagged with Overworld, because you can get 3 in the Nether
 	{name: "Breed a set of mobs", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Crouch a distance of (50-100) meters", tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["CrouchDistance"], infrequency: 2, tags: [Action, Stat]},
 	{name: "Fill all 4 slots of a Campfire", tags: [Action]},
