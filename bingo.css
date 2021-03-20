@@ -445,10 +445,10 @@ html, body {
 input[type=range]::-webkit-slider-thumb {
   box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
 	height: 50px;
-	width: 16px;
+	width: 18px;
 	background-image: url("button-background.jpg");
 	cursor: pointer;
-	border: 1px solid black;
+	border: 2px solid black;
 	border-radius: 0px;
 	-webkit-appearance: none;
 }
@@ -456,20 +456,20 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]::-moz-range-thumb {
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
 	height: 50px;
-	width: 16px;
+	width: 18px;
 	background-image: url("button-background.jpg");
 	cursor: pointer;
-	border: 1px solid black;
+	border: 2px solid black;
 	border-radius: 0px;
 }
 
 input[type=range]::-ms-thumb {
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
 	height: 50px;
-	width: 16px;
+	width: 18px;
 	background-image: url("button-background.jpg");
 	cursor: pointer;
-	border: 1px solid black;
+	border: 2px solid black;
 	border-radius: 0px;
 }
 
