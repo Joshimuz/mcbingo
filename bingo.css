@@ -342,10 +342,8 @@ html, body {
 .button {
 	position: relative;
 	border: 2px solid #000;
-
 	background-color: #6F6F6F;
 	background-image: url("button-background.jpg");
-	background-repeat: repeat;
 }
 
 .button::after,
@@ -443,7 +441,7 @@ html, body {
 }
 
 input[type=range]::-webkit-slider-thumb {
-  box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
+	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
 	height: 50px;
 	width: 18px;
 	background-image: url("button-background.jpg");
