@@ -67,7 +67,7 @@ var bingoList_v4 = [
 	{name: "(5-10) Oak Wood", antisynergy: ["OakWood"], infrequency: 25, tags: [Item, Overworld]},
 	{name: "(5-10) Spruce Wood", antisynergy: ["SpruceWood"], infrequency: 25, tags: [Item, Overworld]},
 	{name: "(5-10) Birch Wood", antisynergy: ["BirchWood"], infrequency: 25, tags: [Item, Overworld]},
-	{name: "(5-10) Dark Oak Wood", antisyngitergy: ["DarkOakWood"], infrequency: 25, tags: [Item, Overworld]},
+	{name: "(5-10) Dark Oak Wood", antisynergy: ["DarkOakWood"], infrequency: 25, tags: [Item, Overworld]},
 	{name: "(5-10) Acacia Wood", antisynergy: ["AcaciaWood"], infrequency: 25, tags: [Item, Overworld]},
 	{name: "(5-10) Stripped Oak Wood", antisynergy: ["StrippedOakWood"], reactant: ["AxeUse"], infrequency: 25, tags: [Item, Overworld]},
 	{name: "(5-10) Stripped Spruce Wood", antisynergy: ["StrippedSpruceWood"], reactant: ["AxeUse"], infrequency: 25, tags: [Item, Overworld]},
