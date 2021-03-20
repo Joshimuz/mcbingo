@@ -329,7 +329,7 @@ var bingoList_v4 = [
 	{name: "(16-32) Red Nether Brick Blocks", reactant: ["UseFurnace"], tags: [Item, Nether]},
 	{name: "(16-32) Spectral Arrows", tags: [Item, Nether]},
 	{name: "(33-64) Rotten Flesh", antisynergy: ["RotFlesh"], infrequency: 2, tags: [Item]},
-	{name: "(16-32) Ink Sacks", antisynergy: ["InkSacks"], infrequency: 2, tags: [Item, Overworld]},
+	{name: "(16-32) Ink Sacs", antisynergy: ["InkSacs"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "(5-9) Slimeballs", tags: [Item, RareBiome, Overworld]},
 	{name: "Use a Lead on a Rabbit", tags: [Action, RareBiome, Overworld]},
 	{name: "Firework Star", tags: [Item, Overworld]},
