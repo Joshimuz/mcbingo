@@ -465,7 +465,7 @@ var bingoList_v4 = [
 	{name: "Make two Pandas breed", tags: [Action, Overworld, RareBiome]},
 	{name: "Disarm a Pillager", tooltiptext: "Get a Pillager to not be holding any Weapons", tags: [Action, Overworld, Combat, RareBiome]},
 	{name: "Stun a Ravager", tags: [Action, Overworld, Combat, Village]},
-	{name: "Become Hero of the Village", tags: [Action, Overworld, Combat, Village]},
+	{name: "Become Hero of the Village", reactant: ["Pacifist"], tags: [Action, Overworld, Combat, Village]},
 	{name: "Gain an Ocelot's Trust", tags: [Action, Overworld, RareBiome]},
 	{name: "12 Eyes of Ender", reactant: ["Pacifist"], tooltiptext: "How good is your luck?", tags: [Item, Nether, Combat]},
 	{name: "Netherite Ingot", tags: [Item, Nether]},
