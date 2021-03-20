@@ -478,7 +478,7 @@ var bingoList_v4 = [
 	{name: "Kill a Wandering Trader", reactant: ["Pacifist"], tags: [Action, Overworld, Combat]},
 	{name: "Cure a Zombie Villager", tags: [Action, Overworld]},
 	{name: "Throw a Mending Book into Lava", tags: [Action]},
-	{name: "Never smelt with Furnaces", tooltiptext: "You can use Furnaces in crafting, but cannot use them for cooking or smelting", catalyst: ["UseFurnance"], tags: [Never]},
+	{name: "Never smelt with Furnaces", tooltiptext: "You can use Furnaces in crafting, but cannot use them for cooking or smelting", catalyst: ["UseFurnace"], tags: [Never]},
 	{name: "Grow a Huge Nether Fungus in the Overworld", antisynergy: ["GrowFungus"], tags: [Action, Overworld, Nether]},
 	{name: "(32-64) Dirt, Netherrack and End Stone", tags: [Item, Overworld, Nether, End]},
 	{name: "Tame a Mule", tags: [Action, Overworld]},
