@@ -118,7 +118,7 @@ var bingoList_v4 = [
 	{name: "(2-4) Iron Blocks", antisynergy: ["IronBlocks"], infrequency: 2, tags: [Item]},
 	{name: "Gold Block", antisynergy: ["GoldBlocks"], infrequency: 2, tags: [Item]},
 	{name: "Golden Apple", tags: [Item]},
-	{name: "(2-4) Bookshelves", tags: [Item]},
+	{name: "(2-4) Bookshelves", tags: [Item, Overworld]},
 	{name: "Never wear Chestplates", catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
 	{name: "Never use Shields", tooltiptext: "You can use Shields in crafting, but cannot use them for blocking", tags: [Never]},
 	{name: "Jukebox", tags: [Item]},
