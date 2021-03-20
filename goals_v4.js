@@ -305,7 +305,7 @@ var bingoList_v4 = [
 	{name: "Get a '... whilst trying to escape ...' Death message", tooltiptext: "Example: 'PLAYER' drowned whilst trying to escape a Skeleton.", tags: [Action]},
 	{name: "Finish on top of the world", tooltiptext: "Build up to Y=256 (height limit) and stand on the top at the end of the Bingo.", tooltipimg: "Goal Tooltip Images/FinishTop.jpg", tags: [Action, Build, Finish]},
 	{name: "Kill a hostile mob with Gravel", reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat]},
-	{name: "Kill a hostile mob with Sand", reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat]},
+	{name: "Kill a hostile mob with Sand", reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat, Overworld]},
 	{name: "Put a Carpet on a Llama", tags: [RareBiome, Action, Overworld]},
 	{name: "Activate a (4-6)x(4-6) Nether Portal (not counting corners)", tooltiptext: "Width/height of the Obsidian frame, disregarding corners (or in other words, width/height of the—once activated—purple portal area).", tooltipimg: "Goal Tooltip Images/Portal.jpg", tags: [Action, Build, Nether]},
 	{name: "(3-10) Obsidian", tags: [Item]},
@@ -518,7 +518,7 @@ var bingoList_v4 = [
 	{name: "Make every colour of Parrot dance at the same time", tags: [Action, Overworld, RareBiome]},
 	{name: "Place every colour of Bed next to each other", reactant: ["UseFurnace"], antisynergy: ["EveryColour"], infrequency: 2, tooltiptext: "Black, Blue, Brown, Cyan, Grey, Green, Light Blue, Light Grey, Lime, Magenta, Orange, Pink, Purple, Red, White and Yellow!", tooltipimg: "Goal Tooltip Images/EveryBed.jpg", tags: [Action, Colour, Overworld]},
 	{name: "Kill an Enderman with only Endermites", tooltiptext: "Don't hurt the Enderman any other way, only with Endermites.", tags: [Action, Combat, End]},
-	{name: "Get Regeneration from a Beacon", reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
+	{name: "Get Regeneration from a Beacon", reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 ]
 
 ];
