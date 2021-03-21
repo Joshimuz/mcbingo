@@ -371,6 +371,7 @@ html, body {
 
 .button::after {
 	border: 3px solid #00000045;
+	border-bottom-width: 4px;
 	border-top: unset;
 	border-left: unset;
 }
@@ -420,7 +421,7 @@ html, body {
 }
 
 input[type=range]::-webkit-slider-thumb {
-	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
+	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
 	width: 18px;
 	background-image: url("button-background.png");
@@ -431,7 +432,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 input[type=range]::-moz-range-thumb {
-	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
+	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
 	width: 18px;
 	background-image: url("button-background.png");
@@ -441,7 +442,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-ms-thumb {
-	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
+	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
 	width: 18px;
 	background-image: url("button-background.png");
