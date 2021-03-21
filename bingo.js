@@ -531,7 +531,9 @@ function toggleColourSymbols()
 
 function updateDarkMode()
 {
+	const smoothTransitionClassName = "smooth-transition";
 	const body = $("body");
+	body.addClass(smoothTransitionClassName);
 	if (DARK_MODE)
 	{
 		body.addClass(DARK_MODE_CLASS_NAME);
@@ -541,6 +543,9 @@ function updateDarkMode()
 		body.removeClass(DARK_MODE_CLASS_NAME);
 	}
 	$(".dark-mode-button").text(DARK_MODE ? "Light Mode" : "Dark Mode");
+	setTimeout(() => {
+		body.removeClass(smoothTransitionClassName);
+	}, 1000);
 }
 
 function toggleDarkMode()

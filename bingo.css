@@ -749,6 +749,14 @@ select, input[type="text"] {
 	color: rgb(162, 32, 162);
 }
 
+/* for smooth transition between colour themes */
+.smooth-transition * {
+	transition-property: background-color, color, border, filter;
+	transition-duration: 0.4s;
+	transition-timing-function: ease-in;
+}
+/* End Dark Mode */
+
 /* Export Popup */
 
 #export {
