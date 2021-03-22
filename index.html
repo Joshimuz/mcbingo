@@ -93,10 +93,6 @@
 				</div>
 				<div id="options-menu" class="pause-menu">
 					<button class="button pause-menu-close">x</button>
-					<div class="slider-holder">
-						<input type="range" id="difficultyRange" value="3" max="5" min="1" class="slider" oninput="changeDifficulty(this.value);"/>
-						<p class="slider-text difficulty-text"></p>
-					</div>
 					<div class="pause-menu-group">
 						<button class="button options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
 						<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
@@ -119,6 +115,10 @@
 					<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
 				</div>
 				<button onclick='newSeed(true);event.preventDefault();' class="button new-seed-button">Generate New Seed</button>
+				<div class="slider-holder difficulty-slider-holder">
+					<input type="range" id="difficultyRange" value="3" max="5" min="1" class="slider" oninput="changeDifficulty(this.value);"/>
+					<p class="slider-text difficulty-text"></p>
+				</div>
 				<button class="button" id="options-toggle-button">Options...</button>
 			</div>
 		</section>

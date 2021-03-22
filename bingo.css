@@ -478,11 +478,15 @@ input[type=range]::-ms-thumb:active {
 }
 
 .new-seed-button {
-	width: 382px;
+	width: 272px;
+}
+
+.difficulty-slider-holder {
+	width: 200px;
 }
 
 #options-toggle-button {
-	width: 250px;
+	width: 150px;
 }
 
 /* End UI controls */
