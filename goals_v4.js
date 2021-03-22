@@ -286,7 +286,7 @@ var bingoList_v4 = [
 	{name: "(2-3) Magma Cream", tags: [Item, Nether, Combat]},
 	{name: "Create an Iron Golem", tags: [Action, Overworld]},
 	{name: "Eye of Ender", reactant: ["Pacifist"], antisynergy: ["EyeOfEnder"], tags: [Item, Nether, Combat]},
-	{name: "Rabbit Stew", reactant: ["Pacifist"], tags: [Item, RareBiome, Overworld]},
+	{name: "Rabbit Stew", tags: [Item, Overworld]},
 	{name: "Potion of Fire Resistance", infrequency: 12, tags: [Item, Nether]}, // no Pacifist reactant and no Combat tag, because can be bartered
 	{name: "Potion of Healing", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Potion of Poison", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
