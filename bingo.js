@@ -553,13 +553,7 @@ function getVersion(versionId)
 function updateVersion()
 {
 	$("#version_selection").val(VERSION.id);
-	var mainButtonText;
-	if (VERSION.id == 'dev') {
-		mainButtonText = 'dev';
-	} else {
-		mainButtonText = "v" + VERSION.id;
-	}
-	$("#versions-toggle-button").html(mainButtonText);
+	$("#versions-toggle-button").html(VERSION.name);
 	$(".versionText").html(VERSION.name);
 	if (VERSION.id != LATEST_VERSION && VERSION.stable)
 	{

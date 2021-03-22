@@ -470,15 +470,8 @@ input[type=range]::-ms-thumb:active {
 }
 
 /** Individual controls' sizes **/
-.versions-button {
-	width: 50px;
-}
-.version-button {
-	width: 300px;
-}
-
 .new-seed-button {
-	width: 272px;
+	width: 332px;
 }
 
 .difficulty-slider-holder {
@@ -569,10 +562,16 @@ body.streamer-mode {
 	z-index: 50;
 
 	gap: 1.5em;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: center;
-	align-items: center;
 	display: none;
+}
+
+.pause-menu-column {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+	margin-top: 5em;
 }
 
 .show-options #bingo {
@@ -591,6 +590,10 @@ body.streamer-mode {
 #options-menu .options-button,
 #options-menu .slider-holder {
 	width: 16rem;
+}
+
+.version-button {
+	width: 300px;
 }
 
 .pause-menu-close {

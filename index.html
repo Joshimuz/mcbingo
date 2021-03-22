@@ -93,16 +93,24 @@
 				</div>
 				<div id="options-menu" class="pause-menu">
 					<button class="button pause-menu-close">x</button>
-					<div class="pause-menu-group">
-						<button class="button options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
-						<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
-					</div>
-					<div class="pause-menu-group">
-						<div class="slider-holder" title="The number of colours to cycle through when clicking on a square. Can always press (1-6) or (0/q) while hovering over square to select colours.">
-							<input type="range" id="colourCountRange" value="1" max="2" min="0" class="slider" oninput="changeColourCount(this.value);"/>
-							<p class="slider-text colourCount-text"></p>
+					<div class="pause-menu-column">
+						<div class="pause-menu-group">
+							<button class="button options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
+							<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
 						</div>
-						<button class="button options-button" onclick='toggleColourSymbols();' title="Toggle the symbols showing on the squares for different colours."><span id="colourSymbols"></span></button>
+						<div class="pause-menu-group">
+							<div class="slider-holder" title="The number of colours to cycle through when clicking on a square. Can always press (1-6) or (0/q) while hovering over square to select colours.">
+								<input type="range" id="colourCountRange" value="1" max="2" min="0" class="slider" oninput="changeColourCount(this.value);"/>
+								<p class="slider-text colourCount-text"></p>
+							</div>
+							<button class="button options-button" onclick='toggleColourSymbols();' title="Toggle the symbols showing on the squares for different colours."><span id="colourSymbols"></span></button>
+						</div>
+					</div>
+					<div class="pause-menu-column">
+						<div class="dropdown-holder">
+							<button class="button options-button dropdown-button" id="versions-toggle-button" title="Change version of Bingo"><!-- text set by updateVersion() --></button>
+							<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -110,10 +118,6 @@
 				Seed: <input class="seed_for_copying" type="text" value="12345" readonly="readonly" />&emsp;Difficulty: <span class="difficulty-text"></span>&emsp;Version: <span class="versionText"></span><br>
 			</div>
 			<div class="buttons-row">
-				<div class="dropdown-holder">
-					<button class="button versions-button dropdown-button" id="versions-toggle-button" title="Change version of Bingo"><!-- text set by updateVersion() --></button>
-					<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
-				</div>
 				<button onclick='newSeed(true);event.preventDefault();' class="button new-seed-button">Generate New Seed</button>
 				<div class="slider-holder difficulty-slider-holder">
 					<input type="range" id="difficultyRange" value="3" max="5" min="1" class="slider" oninput="changeDifficulty(this.value);"/>
