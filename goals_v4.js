@@ -427,7 +427,7 @@ var bingoList_v4 = [
 	{name: "Place (11-14) colours of Beds next to each other", antisynergy: ["BedColour"], infrequency: 4, tags: [Build, Colour, Overworld]},
 	{name: "Poison a Parrot", reactant: ["Pacifist"], infrequency: 2, tags: [Action, RareBiome, Overworld]},
 	{name: "Tame a Parrot", infrequency: 2, tags: [Action, RareBiome, Overworld]},
-	{name: "Ice Block on top of a Magma Block", tags: [Item, Nether, Build, Overworld]},
+	{name: "Ice Block on top of a Magma Block", tags: [Item, Build, Overworld]},
 	{name: "Level (27-37)", antisynergy: ["Level"], infrequency: 2, tags: [Stat]},
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/IceCube.jpg", tags: [Build, Overworld]},
 	{name: "Finish on top of a stairway to Heaven", tooltiptext: "Using Stairs, build up to Y=256 (height limit) and stand on top at the end of the Bingo. (If you need to jump over a block, it's not a finished stairway.)", tooltipimg: "Goal Tooltip Images/FinishStairs.jpg", tags: [Build, Overworld, Finish]},
