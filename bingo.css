@@ -689,6 +689,11 @@ select, input[type="text"] {
 	filter: invert();
 }
 
+.dark #hidden-bingo {
+	background-image: url(polished_blackstone_bricks.png);
+	background-size: 128px 128px;
+}
+
 /* Export Popup */
 
 #export {
