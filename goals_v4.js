@@ -103,7 +103,7 @@ var bingoList_v4 = [
 
 // Easy (1)
 [
-	{name: "(2-4) Different Fish", tags: [Item, Overworld]},
+	{name: "(2-4) Different Fish", tooltiptext: "Raw and Cooked variants count as one (e.g. Raw Cod and Cooked Cod).", tags: [Item, Overworld]},
 	{name: "Grow a Tree in the Nether", tooltiptext: "Huge Crimson/Warped Fungi don't count.", tags: [Action, Nether, Overworld]},
 	{name: "(4-7) Colours of Terracotta", reactant: ["UseFurnace"], antisynergy: ["TerracottaColour"], infrequency: 4, tags: [Item, Colour, Overworld]},
 	{name: "(2-5) Mushroom Stew", tags: [Item]},
