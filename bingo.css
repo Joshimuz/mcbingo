@@ -367,6 +367,7 @@ html, body {
 	font-size: 20px;
 	font-family: settingsFont;
 	text-align: center;
+	text-shadow: 0.125em 0.125em #3f3f3f;
 }
 .small-button {
 	padding: 3px;
