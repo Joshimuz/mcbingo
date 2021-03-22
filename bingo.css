@@ -571,6 +571,13 @@ body.streamer-mode {
 	display: none;
 }
 
+.show-options #bingo {
+	filter: blur(0.1em);
+}
+.hidden.show-options #hidden-bingo {
+	filter: blur(0.5em);
+}
+
 #options-menu .options-button,
 #options-menu .slider-holder {
 	width: 16rem;
