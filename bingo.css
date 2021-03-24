@@ -564,6 +564,7 @@ body.streamer-mode {
 
 #export textarea {
 	flex-grow: 1;
+	font-family: monospace;
 }
 
 /* End Export Popup */
