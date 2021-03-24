@@ -25,7 +25,7 @@ html, body {
 
 /* End Base Page */
 
-/* Nav Bar Styling */
+/* Nav Bar */
 
 #nav_section {
 	background-color: #F6F6F6;
@@ -55,7 +55,7 @@ html, body {
 
 /* End Nav Bar */
 
-/* Bingo Card Styling */
+/* Bingo Card */
 
 #info_bar {
 	padding: 0;
@@ -330,7 +330,7 @@ html, body {
 
 /* End Bingo Card  */
 
-/* Buttons Styling */
+/* Buttons */
 
 .buttons-row {
 	margin-top: 10px;
@@ -494,9 +494,9 @@ input[type=range]::-ms-thumb:active {
 	text-decoration: none;
 }
 
-/* End Buttons Styling */
+/* End Buttons */
 
-/* Streamer Mode Styling */
+/* Streamer Mode */
 .streamer-mode #nav_section,
 .streamer-mode .buttons-row,
 .streamer-mode #rules-section {
@@ -510,9 +510,9 @@ input[type=range]::-ms-thumb:active {
 body.streamer-mode {
 	background-size: 0, 0;
 }
-/* End Streamer Mode Styling */
+/* End Streamer Mode */
 
-/* Rules And Bottom Styling */
+/* Rules And Bottom */
 
 #rules-section {
 	margin-top: 10px;
