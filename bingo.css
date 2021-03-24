@@ -578,6 +578,12 @@ body.streamer-mode {
 	filter: blur(0.5em);
 }
 
+.pause-menu-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3em;
+}
+
 #options-menu .options-button,
 #options-menu .slider-holder {
 	width: 16rem;

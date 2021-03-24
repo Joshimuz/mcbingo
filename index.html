@@ -97,13 +97,17 @@
 						<input type="range" id="difficultyRange" value="3" max="5" min="1" class="slider" oninput="changeDifficulty(this.value);"/>
 						<p class="slider-text difficulty-text"></p>
 					</div>
-					<button class="button options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
-					<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
-					<div class="slider-holder" title="The number of colours to cycle through when clicking on a square. Can always press (1-6) or (0/q) while hovering over square to select colours.">
-						<input type="range" id="colourCountRange" value="1" max="2" min="0" class="slider" oninput="changeColourCount(this.value);"/>
-						<p class="slider-text colourCount-text"></p>
+					<div class="pause-menu-group">
+						<button class="button options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
+						<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
 					</div>
-					<button class="button options-button" onclick='toggleColourSymbols();' title="Toggle the symbols showing on the squares for different colours."><span id="colourSymbols"></span></button>
+					<div class="pause-menu-group">
+						<div class="slider-holder" title="The number of colours to cycle through when clicking on a square. Can always press (1-6) or (0/q) while hovering over square to select colours.">
+							<input type="range" id="colourCountRange" value="1" max="2" min="0" class="slider" oninput="changeColourCount(this.value);"/>
+							<p class="slider-text colourCount-text"></p>
+						</div>
+						<button class="button options-button" onclick='toggleColourSymbols();' title="Toggle the symbols showing on the squares for different colours."><span id="colourSymbols"></span></button>
+					</div>
 				</div>
 			</div>
 			<div id="info_bar">
