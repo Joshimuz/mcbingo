@@ -2,6 +2,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: Minecraftia;
 }
 
 button:focus, input:focus {
@@ -14,7 +15,7 @@ button:focus, input:focus {
 }
 
 @font-face {
-	font-family: settingsFont;
+	font-family: Minecraftia;
 	src: url(Minecraftia.ttf);
 }
 
@@ -25,7 +26,7 @@ html, body {
 
 /* End Base Page */
 
-/* Nav Bar Styling */
+/* Nav Bar */
 
 #nav_section {
 	background-color: #F6F6F6;
@@ -55,32 +56,7 @@ html, body {
 
 /* End Nav Bar */
 
-/* Bingo Card Styling */
-
-#info_bar {
-	padding: 0;
-	margin-top: 10px;
-	font-family: settingsFont;
-	text-align:center;
-}
-
-.seed_for_copying {
-	font-family: settingsFont;
-	font-size: 1.01em;
-	text-align: center;
-}
-
-#copiedTooltip {
-	margin: 0 10px;
-	padding: 0 5px 5px;
-}
-
-.stream-exit-text {
-	color: #000;
-	text-align:center;
-	display:none;
-}
-
+/* Bingo Card */
 #bingo-section {
 	width: 700px;
 	padding: 10px;
@@ -88,55 +64,6 @@ html, body {
 	margin-right: auto;
 	background-color: #EBEBEB;
 	border: 4px solid;
-}
-
-.tooltip {
-	position: absolute;
-	margin: 20px;
-	display: inline-block;
-	border: 2px solid purple;
-	border-radius: 5px;
-	background-color: rgba(0,0,0,.9);
-	font-family: settingsFont;
-	text-align: center;
-}
-
-.tooltiptext {
-	text-shadow: 2px 2px #000;
-	font-size: 12px;
-	color: #FFF;
-	overflow: hidden;
-}
-
-#goalTooltip {
-	padding: 10px;
-	width: 300px;
-}
-
-#goalTooltip img {
-	border: 2px solid #EBEBEB;
-	margin-right: 5px;
-	width: 64px;
-	height: 64px;
-	float: left;
-	background-color: #C6C6C6;
-}
-
-#goalTooltip .tooltiptext {
-	line-height: 1.2em;
-	margin-bottom: 40px;
-	margin-left: 10px;
-	position: relative;
-	top: -5px;
-}
-
-.box-shadow {
-	box-shadow: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
-	border: 2px solid white;
-	width: 64px;
-	height: 64px;
-	float: left;
-	position: absolute;
 }
 
 #bingo-box {
@@ -164,21 +91,6 @@ html, body {
 	user-select: none;
 }
 
-#hidden-bingo {
-	display: none;
-	background-image: url("stone-tile.png");
-	background-repeat: repeat;
-	background-size: 128px 128px;
-	box-sizing: border-box;
-	padding: 50px;
-}
-.hidden #hidden-bingo {
-	display: block;
-}
-.hidden #bingo {
-	display: none;
-}
-
 #bingo td {
 	cursor: pointer;
 	width: 100px;
@@ -186,7 +98,6 @@ html, body {
 	text-align:center;
 	font-size: .75em;
 	background-color: #C6C6C6;
-	font-family: settingsFont;
 	border: 2px solid #EBEBEB;
 	box-shadow: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
 	color: #000;
@@ -194,7 +105,7 @@ html, body {
 	position: relative;
 }
 
-/* Card colours */
+/** Card colours **/
 
 .symbol {
 	position: absolute;
@@ -277,10 +188,78 @@ html, body {
 	background-image: url("Symbols/apple.png");
 }
 
-/* End Card colours */
+/** Goal tooltip **/
+.tooltip {
+	position: absolute;
+	margin: 20px;
+	display: inline-block;
+	border: 2px solid purple;
+	border-radius: 5px;
+	background-color: rgba(0,0,0,.9);
+	text-align: center;
+}
+
+.tooltipQ {
+	opacity: 0.6;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	padding-top: 4px;
+	right: 5px;
+	top: 5px;
+}
+
+#bingo td[data-tooltiptext=""] .tooltipQ {
+	display: none;
+}
+
+.tooltiptext {
+	text-shadow: 2px 2px #000;
+	font-size: 12px;
+	color: #FFF;
+	overflow: hidden;
+}
+
+#goalTooltip {
+	padding: 10px;
+	width: 300px;
+}
+
+#goalTooltip img {
+	border: 2px solid #EBEBEB;
+	margin-right: 5px;
+	width: 64px;
+	height: 64px;
+	float: left;
+	background-color: #C6C6C6;
+}
+
+#goalTooltip .tooltiptext {
+	line-height: 1.2em;
+	margin-bottom: 40px;
+	margin-left: 10px;
+	position: relative;
+	top: -5px;
+}
+
+/** Hide Table mode **/
+#hidden-bingo {
+	display: none;
+	background-image: url("stone-tile.png");
+	background-repeat: repeat;
+	background-size: 128px 128px;
+	box-sizing: border-box;
+	padding: 50px;
+}
+
+.hidden #hidden-bingo {
+	display: block;
+}
+.hidden #bingo {
+	display: none;
+}
 
 #hidden-table {
-	font-family: settingsFont;
 	background-color: white;
 	color: #000;
 	border: 2px solid #000;
@@ -303,35 +282,38 @@ html, body {
 	text-align: center;
 }
 
+#copiedTooltip {
+	margin: 0 10px;
+	padding: 0 5px 5px;
+}
+
 #hidden-table-seed button {
 	margin-top: 10px;
 	width: 200px;
 }
 
 .show-table-button {
-	background-size: 500px 50px;
 	width: 450px;
 	margin: 20px auto 20px auto;
 }
 
-.tooltipQ {
-	opacity: 0.6;
-	width: 15px;
-	height: 15px;
-	position: absolute;
-	padding-top: 4px;
-	right: 5px;
-	top: 5px;
+/** Info bar **/
+#info_bar {
+	padding: 0;
+	margin-top: 10px;
+	text-align:center;
 }
 
-#bingo td[data-tooltiptext=""] .tooltipQ {
-	display: none;
+.seed_for_copying {
+	font-size: 1.01em;
+	text-align: center;
 }
 
 /* End Bingo Card  */
 
-/* Buttons Styling */
+/* UI controls */
 
+/** Buttons **/
 .buttons-row {
 	margin-top: 10px;
 	display: flex;
@@ -346,6 +328,37 @@ html, body {
 	background-image: url("button-background.png");
 }
 
+.button,
+.slider-holder,
+.slider {
+	cursor: pointer;
+}
+.button,
+.slider-holder {
+	height: 50px;
+}
+.button,
+.slider-text {
+	color: #FFF;
+	font-size: 20px;
+	text-align: center;
+	text-shadow: 0.125em 0.125em #3f3f3f;
+}
+.small-button {
+	padding: 2px 6px 3px;
+	height: auto;
+	font-size: 1em;
+}
+
+.button:hover,
+.slider-holder:hover .slider-text {
+	color: #FFF787;
+}
+.button:hover {
+	background-image: url("button-background-blue.png");
+}
+
+/*** Button border and insets ***/
 .button::after,
 .button::before {
 	content: '';
@@ -368,51 +381,11 @@ html, body {
 	border-right: unset;
 }
 
-.button:hover,
-.slider-holder:hover .slider-text {
-	color: #FFF787;
-}
-.button:hover {
-	background-image: url("button-background-blue.png");
-}
-
-.button,
-.slider-holder,
-.slider {
-	cursor: pointer;
-	height: 50px;
-}
-.button,
-.slider-text {
-	color: #FFF;
-	font-size: 20px;
-	font-family: settingsFont;
-	text-align: center;
-	text-shadow: 0.125em 0.125em #3f3f3f;
-}
-.small-button {
-	padding: 2px 6px 3px;
-	height: auto;
-	font-size: 1em;
-}
-
-.versions-button {
-	width: 50px;
-}
-.version-button {
-	width: 300px;
-}
-
-.options-button,
-.slider-holder,
-.slider,
-.slider-text {
-	width: 250px;
-}
-
+/** Dropdowns **/
 .dropdown-holder  {
 	position: relative;
 }
+
 .dropdown {
 	display: none;
 	position: absolute;
@@ -421,14 +394,19 @@ html, body {
 	z-index: 1;
 }
 
+/** Sliders **/
 .slider-holder {
 	background-image: url("slider-background.png");
 	position: relative;
 	-webkit-appearance: none;
 }
 
+.slider,
+.slider-text {
+	width: 100%;
+	height: 100%;
+}
 .slider {
-	width: 250px;
 	position: relative;
 	z-index: 100;
 	background-color: transparent;
@@ -489,14 +467,33 @@ input[type=range]::-ms-thumb:active {
 	background-image: url("button-background-blue.png");
 }
 
-.new-seed-button {
-	width: 382px;
-	text-decoration: none;
+/** Individual controls' sizes **/
+.versions-button {
+	width: 50px;
+}
+.version-button {
+	width: 300px;
 }
 
-/* End Buttons Styling */
+.new-seed-button {
+	width: 382px;
+}
 
-/* Streamer Mode Styling */
+.options-button,
+.slider-holder {
+	width: 250px;
+}
+
+/* End UI controls */
+
+/* Streamer Mode */
+
+.stream-exit-text {
+	color: #505050;
+	text-align: center;
+	display: none;
+}
+
 .streamer-mode #nav_section,
 .streamer-mode .buttons-row,
 .streamer-mode #rules-section {
@@ -510,16 +507,15 @@ input[type=range]::-ms-thumb:active {
 body.streamer-mode {
 	background-size: 0, 0;
 }
-/* End Streamer Mode Styling */
+/* End Streamer Mode */
 
-/* Rules And Bottom Styling */
+/* Rules And Bottom */
 
 #rules-section {
 	margin-top: 10px;
 	background-color: #FFF;
 	padding: 10px 0px 10px 0px;
 	border-top: 5px solid;
-	font-family: settingsFont;
 	font-size:0.75em;
 	text-align: center;
 }
@@ -574,6 +570,7 @@ body.streamer-mode {
 
 #export textarea {
 	flex-grow: 1;
+	font-family: monospace;
 }
 
 /* End Export Popup */
