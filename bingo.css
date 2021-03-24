@@ -317,8 +317,9 @@ html, body {
 
 /* End Bingo Card  */
 
-/* Buttons */
+/* UI controls */
 
+/** Buttons **/
 .buttons-row {
 	margin-top: 10px;
 	display: flex;
@@ -333,6 +334,34 @@ html, body {
 	background-image: url("button-background.png");
 }
 
+.button,
+.slider-holder,
+.slider {
+	cursor: pointer;
+	height: 50px;
+}
+.button,
+.slider-text {
+	color: #FFF;
+	font-size: 20px;
+	text-align: center;
+	text-shadow: 0.125em 0.125em #3f3f3f;
+}
+.small-button {
+	padding: 2px 6px 3px;
+	height: auto;
+	font-size: 1em;
+}
+
+.button:hover,
+.slider-holder:hover .slider-text {
+	color: #FFF787;
+}
+.button:hover {
+	background-image: url("button-background-blue.png");
+}
+
+/*** Button border and insets ***/
 .button::after,
 .button::before {
 	content: '';
@@ -355,50 +384,11 @@ html, body {
 	border-right: unset;
 }
 
-.button:hover,
-.slider-holder:hover .slider-text {
-	color: #FFF787;
-}
-.button:hover {
-	background-image: url("button-background-blue.png");
-}
-
-.button,
-.slider-holder,
-.slider {
-	cursor: pointer;
-	height: 50px;
-}
-.button,
-.slider-text {
-	color: #FFF;
-	font-size: 20px;
-	text-align: center;
-	text-shadow: 0.125em 0.125em #3f3f3f;
-}
-.small-button {
-	padding: 2px 6px 3px;
-	height: auto;
-	font-size: 1em;
-}
-
-.versions-button {
-	width: 50px;
-}
-.version-button {
-	width: 300px;
-}
-
-.options-button,
-.slider-holder,
-.slider,
-.slider-text {
-	width: 250px;
-}
-
+/** Dropdowns **/
 .dropdown-holder  {
 	position: relative;
 }
+
 .dropdown {
 	display: none;
 	position: absolute;
@@ -407,6 +397,7 @@ html, body {
 	z-index: 1;
 }
 
+/** Sliders **/
 .slider-holder {
 	background-image: url("slider-background.png");
 	position: relative;
@@ -475,11 +466,26 @@ input[type=range]::-ms-thumb:active {
 	background-image: url("button-background-blue.png");
 }
 
+/** Individual controls' sizes **/
+.versions-button {
+	width: 50px;
+}
+.version-button {
+	width: 300px;
+}
+
 .new-seed-button {
 	width: 382px;
 }
 
-/* End Buttons */
+.options-button,
+.slider-holder,
+.slider,
+.slider-text {
+	width: 250px;
+}
+
+/* End UI controls */
 
 /* Streamer Mode */
 .streamer-mode #nav_section,
