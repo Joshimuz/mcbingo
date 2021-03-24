@@ -130,15 +130,6 @@ html, body {
 	top: -5px;
 }
 
-.box-shadow {
-	box-shadow: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
-	border: 2px solid white;
-	width: 64px;
-	height: 64px;
-	float: left;
-	position: absolute;
-}
-
 #bingo-box {
 	width: 700px;
 	height: 600px;
