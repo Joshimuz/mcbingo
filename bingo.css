@@ -324,7 +324,6 @@ html, body {
 
 .button {
 	position: relative;
-	border: 2px solid #000;
 	background-color: #6F6F6F;
 	background-image: url("button-background.png");
 }
@@ -337,6 +336,7 @@ html, body {
 .button,
 .slider-holder {
 	height: 50px;
+	border: 2px solid #000;
 }
 .button,
 .slider-text {
@@ -398,6 +398,7 @@ html, body {
 
 /** Sliders **/
 .slider-holder {
+	box-sizing: border-box;
 	background-image: url("slider-background.png");
 	position: relative;
 	-webkit-appearance: none;
@@ -405,10 +406,10 @@ html, body {
 
 .slider,
 .slider-text {
-	width: 100%;
 	height: 100%;
 }
 .slider {
+	left: -2px; /* to align thumb nicely with border */
 	position: relative;
 	z-index: 100;
 	background-color: transparent;
@@ -416,15 +417,17 @@ html, body {
 }
 
 .slider-text {
-	line-height: 50px;
+	width: 100%;
+	line-height: 46px;
 	top: 0;
 	position: absolute;
 }
 
 input[type=range]::-webkit-slider-thumb {
+	box-sizing: border-box;
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
-	width: 18px;
+	width: 22px;
 	background-image: url("button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
@@ -433,9 +436,10 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 input[type=range]::-moz-range-thumb {
+	box-sizing: border-box;
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
-	width: 18px;
+	width: 22px;
 	background-image: url("button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
@@ -443,9 +447,10 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-ms-thumb {
+	box-sizing: border-box;
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
-	width: 18px;
+	width: 22px;
 	background-image: url("button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
@@ -474,7 +479,8 @@ input[type=range]::-ms-thumb:active {
 	width: 332px;
 }
 
-.difficulty-slider-holder {
+.difficulty-slider-holder,
+.difficulty-slider-holder .slider {
 	width: 200px;
 }
 
@@ -588,7 +594,8 @@ body.streamer-mode {
 }
 
 #options-menu .options-button,
-#options-menu .slider-holder {
+#options-menu .slider-holder,
+#options-menu .slider {
 	width: 16rem;
 }
 
