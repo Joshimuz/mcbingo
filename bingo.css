@@ -338,6 +338,9 @@ html, body {
 .slider-holder,
 .slider {
 	cursor: pointer;
+}
+.button,
+.slider-holder {
 	height: 50px;
 }
 .button,
@@ -404,8 +407,12 @@ html, body {
 	-webkit-appearance: none;
 }
 
+.slider,
+.slider-text {
+	width: 100%;
+	height: 100%;
+}
 .slider {
-	width: 250px;
 	position: relative;
 	z-index: 100;
 	background-color: transparent;
@@ -479,9 +486,7 @@ input[type=range]::-ms-thumb:active {
 }
 
 .options-button,
-.slider-holder,
-.slider,
-.slider-text {
+.slider-holder {
 	width: 250px;
 }
 
