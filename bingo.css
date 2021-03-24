@@ -2,6 +2,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: Minecraftia;
 }
 
 button:focus, input:focus {
@@ -14,7 +15,7 @@ button:focus, input:focus {
 }
 
 @font-face {
-	font-family: settingsFont;
+	font-family: Minecraftia;
 	src: url(Minecraftia.ttf);
 }
 
@@ -60,12 +61,10 @@ html, body {
 #info_bar {
 	padding: 0;
 	margin-top: 10px;
-	font-family: settingsFont;
 	text-align:center;
 }
 
 .seed_for_copying {
-	font-family: settingsFont;
 	font-size: 1.01em;
 	text-align: center;
 }
@@ -97,7 +96,6 @@ html, body {
 	border: 2px solid purple;
 	border-radius: 5px;
 	background-color: rgba(0,0,0,.9);
-	font-family: settingsFont;
 	text-align: center;
 }
 
@@ -177,7 +175,6 @@ html, body {
 	text-align:center;
 	font-size: .75em;
 	background-color: #C6C6C6;
-	font-family: settingsFont;
 	border: 2px solid #EBEBEB;
 	box-shadow: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
 	color: #000;
@@ -271,7 +268,6 @@ html, body {
 /* End Card colours */
 
 #hidden-table {
-	font-family: settingsFont;
 	background-color: white;
 	color: #000;
 	border: 2px solid #000;
@@ -377,7 +373,6 @@ html, body {
 .slider-text {
 	color: #FFF;
 	font-size: 20px;
-	font-family: settingsFont;
 	text-align: center;
 	text-shadow: 0.125em 0.125em #3f3f3f;
 }
@@ -509,7 +504,6 @@ body.streamer-mode {
 	background-color: #FFF;
 	padding: 10px 0px 10px 0px;
 	border-top: 5px solid;
-	font-family: settingsFont;
 	font-size:0.75em;
 	text-align: center;
 }
