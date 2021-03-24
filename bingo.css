@@ -489,9 +489,9 @@ input[type=range]::-ms-thumb:active {
 /* Streamer Mode */
 
 .stream-exit-text {
-	color: #000;
-	text-align:center;
-	display:none;
+	color: #505050;
+	text-align: center;
+	display: none;
 }
 
 .streamer-mode #nav_section,
