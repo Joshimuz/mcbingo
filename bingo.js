@@ -409,7 +409,7 @@ function toggleHidden()
 }
 
 function popoutBingoCard(){
-	window.open(window.location.href, "_blank", "toolbar=no, status=no, menubar=no, scrollbars=no, width=745, height=705");
+	window.open(window.location.href, "_blank", "toolbar=no, status=no, menubar=no, scrollbars=no, width=745, height=715");
 }
 
 function toggleStreamerMode()
