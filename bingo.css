@@ -72,6 +72,7 @@ html, body {
 	box-sizing: border-box;
 	border: 4px solid #FFF;
 	border-radius: 5px;
+	position: relative;
 }
 
 #bingo, #hidden-bingo {
@@ -323,7 +324,6 @@ html, body {
 
 .button {
 	position: relative;
-	border: 2px solid #000;
 	background-color: #6F6F6F;
 	background-image: url("button-background.png");
 }
@@ -336,6 +336,7 @@ html, body {
 .button,
 .slider-holder {
 	height: 50px;
+	border: 2px solid #000;
 }
 .button,
 .slider-text {
@@ -371,6 +372,7 @@ html, body {
 
 .button::after {
 	border: 3px solid #00000045;
+	border-bottom-width: 4px;
 	border-top: unset;
 	border-left: unset;
 }
@@ -396,6 +398,7 @@ html, body {
 
 /** Sliders **/
 .slider-holder {
+	box-sizing: border-box;
 	background-image: url("slider-background.png");
 	position: relative;
 	-webkit-appearance: none;
@@ -403,10 +406,10 @@ html, body {
 
 .slider,
 .slider-text {
-	width: 100%;
 	height: 100%;
 }
 .slider {
+	left: -2px; /* to align thumb nicely with border */
 	position: relative;
 	z-index: 100;
 	background-color: transparent;
@@ -414,15 +417,17 @@ html, body {
 }
 
 .slider-text {
-	line-height: 50px;
+	width: 100%;
+	line-height: 46px;
 	top: 0;
 	position: absolute;
 }
 
 input[type=range]::-webkit-slider-thumb {
-	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
+	box-sizing: border-box;
+	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
-	width: 18px;
+	width: 22px;
 	background-image: url("button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
@@ -431,9 +436,10 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 input[type=range]::-moz-range-thumb {
-	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
+	box-sizing: border-box;
+	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
-	width: 18px;
+	width: 22px;
 	background-image: url("button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
@@ -441,9 +447,10 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-ms-thumb {
-	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -3px 0px #00000045;
+	box-sizing: border-box;
+	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
-	width: 18px;
+	width: 22px;
 	background-image: url("button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
@@ -468,20 +475,17 @@ input[type=range]::-ms-thumb:active {
 }
 
 /** Individual controls' sizes **/
-.versions-button {
-	width: 50px;
-}
-.version-button {
-	width: 300px;
-}
-
 .new-seed-button {
-	width: 382px;
+	width: 332px;
 }
 
-.options-button,
-.slider-holder {
-	width: 250px;
+.difficulty-slider-holder,
+.difficulty-slider-holder .slider {
+	width: 200px;
+}
+
+#options-toggle-button {
+	width: 150px;
 }
 
 /* End UI controls */
@@ -550,6 +554,70 @@ body.streamer-mode {
 }
 
 /* End Rules And Bottom */
+
+/* Pause menu */
+.pause-menu {
+	/* cover the whole bingo sheet */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* dim the bingo sheet */
+	background: rgba(0,0,0,0.4);
+	z-index: 50;
+
+	gap: 1.5em;
+	flex-direction: row;
+	justify-content: center;
+	display: none;
+}
+
+.pause-menu-column {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+	margin-top: 5em;
+}
+
+.show-options #bingo {
+	filter: blur(0.1em);
+}
+.hidden.show-options #hidden-bingo {
+	filter: blur(0.5em);
+}
+
+.pause-menu-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3em;
+}
+
+#options-menu .options-button,
+#options-menu .slider-holder,
+#options-menu .slider {
+	width: 16rem;
+}
+
+.version-button {
+	width: 300px;
+}
+
+.pause-menu-close {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	height: 2rem;
+	width: 2rem;
+	font-size: 1rem;
+	padding-bottom: 1rem;
+}
+
+.show-options #options-menu {
+	display: flex;
+}
+
+/* End Pause Menu */
 
 /* Export Popup */
 
