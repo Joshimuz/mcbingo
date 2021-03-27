@@ -124,6 +124,17 @@ html, body {
 	background-color: #EBEBEB;
 }
 
+#bingo tr td.bluesquare {
+	background:#9ae8ff;
+	color: #000;
+}
+#bingo tr td.bluesquare:hover {
+	background:#57d9ff;
+}
+.bluesquare .symbol {
+	background-image: url("Symbols/heart.png");
+}
+
 #bingo tr td.greensquare {
 	background:#CAFF70;
 	color: #000;
@@ -144,17 +155,6 @@ html, body {
 }
 .redsquare .symbol {
 	background-image: url("Symbols/x.png");
-}
-
-#bingo tr td.bluesquare {
-	background:#9ae8ff;
-	color: #000;
-}
-#bingo tr td.bluesquare:hover {
-	background:#57d9ff;
-}
-.bluesquare .symbol {
-	background-image: url("Symbols/heart.png");
 }
 
 #bingo tr td.yellowsquare {
