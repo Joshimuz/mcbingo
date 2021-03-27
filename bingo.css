@@ -19,8 +19,17 @@ button:focus, input:focus {
 	src: url(Minecraftia.ttf);
 }
 
+/* Colour theme */
+:root {
+	--bg-colour: #FFF;
+}
+
+.dark {
+	--bg-colour: #141414;
+}
+
 html, body {
-	background-color: #F6F6F6;
+	background-color: var(--bg-colour);
 	background-size: 1920px 1080px;
 }
 
@@ -29,7 +38,7 @@ html, body {
 /* Nav Bar */
 
 #nav_section {
-	background-color: #F6F6F6;
+	background-color: var(--bg-colour);
 	width: auto;
 	height: 100px;
 	margin-bottom: 10px;
@@ -70,7 +79,7 @@ html, body {
 	width: 700px;
 	height: 600px;
 	box-sizing: border-box;
-	border: 4px solid #FFF;
+	border: 4px solid var(--bg-colour);
 	border-radius: 5px;
 	position: relative;
 }
@@ -262,7 +271,7 @@ html, body {
 }
 
 #hidden-table {
-	background-color: white;
+	background-color: var(--bg-colour);
 	color: #000;
 	border: 2px solid #000;
 	padding: 20px;
@@ -517,7 +526,7 @@ body.streamer-mode {
 
 #rules-section {
 	margin-top: 10px;
-	background-color: #FFF;
+	background-color: var(--bg-colour);
 	padding: 10px 0px 10px 0px;
 	border-top: 5px solid;
 	font-size:0.75em;
@@ -628,7 +637,7 @@ body.streamer-mode {
 	border: 4px solid #000;
 	top: 10%;
 	left: 25%;
-	background: white;
+	background: var(--bg-colour);
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -639,6 +648,7 @@ body.streamer-mode {
 #export textarea {
 	flex-grow: 1;
 	font-family: monospace;
+	background-color: var(--bg-colour);
 }
 
 /* End Export Popup */
