@@ -628,6 +628,12 @@ body.streamer-mode {
 
 /* End Pause Menu */
 
+#nav_section,
+#bingo-section,
+#rules-section {
+	border-color: #000;
+}
+
 /* Export Popup */
 
 #export {
