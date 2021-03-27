@@ -7,10 +7,11 @@ var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 
-const ALL_COLOURS = ["", "bluesquare", "greensquare", "redsquare", "yellowsquare", "cyansquare", "brownsquare"];
+const DEFAULT_SQUARE_CLASS_NAME = "greysquare";
+const ALL_COLOURS = [DEFAULT_SQUARE_CLASS_NAME, "bluesquare", "greensquare", "redsquare", "yellowsquare", "cyansquare", "brownsquare"];
 var COLOUR_SELECTIONS = [
-	["", "greensquare"],
-	["", "bluesquare", "greensquare", "redsquare"],
+	[DEFAULT_SQUARE_CLASS_NAME, "greensquare"],
+	[DEFAULT_SQUARE_CLASS_NAME, "bluesquare", "greensquare", "redsquare"],
 	ALL_COLOURS
 ];
 var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEXT
@@ -146,8 +147,8 @@ $(document).ready(function()
 		hoveredSquare = null;
 	});
 	const SHORTCUT_COLOURS = {
-		48: "",
-		96: "", // Numpad
+		48: DEFAULT_SQUARE_CLASS_NAME,
+		96: DEFAULT_SQUARE_CLASS_NAME, // Numpad
 		49: "bluesquare",
 		97: "bluesquare",
 		50: "greensquare",
@@ -160,7 +161,7 @@ $(document).ready(function()
 		101: "cyansquare",
 		54: "brownsquare",
 		102: "brownsquare",
-		81 /* Q */: ""
+		81 /* Q */: DEFAULT_SQUARE_CLASS_NAME
 	};
 	$(document).on("keydown", function(e)
 	{
@@ -347,7 +348,7 @@ function generateNewSheet()
 	// Reset every goal square
 	forEachSquare((i, square) => {
 		square.contents().filter(function(){ return this.nodeType == NODE_TYPE_TEXT; }).remove();
-		setSquareColor(square, "");
+		setSquareColor(square, DEFAULT_SQUARE_CLASS_NAME);
 	});
 
 	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
@@ -600,7 +601,7 @@ function fillVersionSelection()
 
 function setSquareColor(square, colorClass)
 {
-	ALL_COLOURS.forEach(c => square.removeClass(c));
+	square.removeClass(ALL_COLOURS);
 	square.addClass(colorClass);
 }
 

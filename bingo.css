@@ -97,7 +97,6 @@ html, body {
 	height: 100px;
 	text-align:center;
 	font-size: .75em;
-	background-color: #C6C6C6;
 	border: 2px solid #EBEBEB;
 	box-shadow: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
 	color: #000;
@@ -118,7 +117,10 @@ html, body {
 	background-size: cover;
 }
 
-#bingo td:hover {
+#bingo td.greysquare {
+	background-color: #C6C6C6;
+}
+#bingo td.greysquare:hover {
 	background-color: #EBEBEB;
 }
 
