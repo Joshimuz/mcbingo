@@ -166,14 +166,14 @@ html, body {
 	background-image: url("Symbols/star.png");
 }
 
-#bingo tr td.pinksquare {
+#bingo tr td.cyansquare {
 	background:#00D69B;
 	color: #000;
 }
-#bingo tr td.pinksquare:hover {
+#bingo tr td.cyansquare:hover {
 	background:#00AD82;
 }
-.pinksquare .symbol {
+.cyansquare .symbol {
 	background-image: url("Symbols/moon.png");
 }
 

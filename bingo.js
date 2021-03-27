@@ -7,7 +7,7 @@ var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 
-const ALL_COLOURS = ["", "bluesquare", "greensquare", "redsquare", "yellowsquare", "pinksquare", "brownsquare"];
+const ALL_COLOURS = ["", "bluesquare", "greensquare", "redsquare", "yellowsquare", "cyansquare", "brownsquare"];
 var COLOUR_SELECTIONS = [
 	["", "greensquare"],
 	["", "bluesquare", "greensquare", "redsquare"],
@@ -156,8 +156,8 @@ $(document).ready(function()
 		99: "redsquare",
 		52: "yellowsquare",
 		100: "yellowsquare",
-		53: "pinksquare",
-		101: "pinksquare",
+		53: "cyansquare",
+		101: "cyansquare",
 		54: "brownsquare",
 		102: "brownsquare",
 		81 /* Q */: ""
