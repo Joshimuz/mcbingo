@@ -95,7 +95,7 @@
 					<button class="button pause-menu-close">x</button>
 					<div class="pause-menu-column">
 						<div class="pause-menu-group">
-							<button class="button options-button" onclick='toggleHidden();'><span id="ishidden"></span></button>
+							<button class="button options-button" id="ishidden" onclick='toggleHidden();'></button>
 							<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
 						</div>
 						<div class="pause-menu-group">
@@ -103,7 +103,7 @@
 								<input type="range" id="colourCountRange" value="1" max="2" min="0" class="slider" oninput="changeColourCount(this.value);"/>
 								<p class="slider-text colourCount-text"></p>
 							</div>
-							<button class="button options-button" onclick='toggleColourSymbols();' title="Toggle the symbols showing on the squares for different colours."><span id="colourSymbols"></span></button>
+							<button class="button options-button" id="colourSymbols" onclick='toggleColourSymbols();' title="Toggle the symbols showing on the squares for different colours."></button>
 						</div>
 					</div>
 					<div class="pause-menu-column">
