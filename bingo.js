@@ -650,8 +650,9 @@ function copySeedToClipboard(id, event)
 
 function showCopiedTooltip(event)
 {
-	const x = event.target.offsetLeft + event.target.offsetWidth;
-	const y = event.target.offsetTop;
+	const offset = $(event.target).offset();
+	const x = offset.left + event.target.offsetWidth;
+	const y = offset.top;
 	$("#copiedTooltip").css({left:x, top: y})
 		.css("display", "block")
 		.delay(100)
