@@ -513,11 +513,11 @@ function updateColourSymbols()
 	button.innerHTML = COLOURSYMBOLS ? "Hide Symbols" : "Show Symbols";
 }
 
-function toggleColourSymbols(value)
+function toggleColourSymbols()
 {
 	COLOURSYMBOLS = !COLOURSYMBOLS;
 	updateColourSymbols();
-	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);	
+	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);
 }
 
 function pushNewUrl()
