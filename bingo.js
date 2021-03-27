@@ -17,6 +17,7 @@ var COLOUR_SELECTIONS = [
 var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEXT
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
 var COLOURSYMBOLS = false;
+var DARK_MODE = false;
 const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
 
 var hoveredSquare;
@@ -52,6 +53,9 @@ const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
 const COLOUR_SYMBOLS_SETTING_NAME = "bingoColourSymbols";
+const COLOUR_THEME_SETTING_NAME = "bingoColourTheme";
+const DARK_MODE_CLASS_NAME = "dark";
+
 const SHOW_OPTIONS_MENU_CLASS_NAME = "show-options";
 
 // Dropdowns and pause menu handling.
@@ -320,6 +324,10 @@ function getSettingsFromLocalStorage()
 		// if not stored, then just use the default
 		updateColourCount();
 	}
+
+	const savedColourTheme = localStorage.getItem(COLOUR_THEME_SETTING_NAME);
+	DARK_MODE = (savedColourTheme == DARK_MODE_CLASS_NAME);
+	updateDarkMode();
 }
 
 /*
@@ -519,6 +527,27 @@ function toggleColourSymbols()
 	COLOURSYMBOLS = !COLOURSYMBOLS;
 	updateColourSymbols();
 	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);
+}
+
+function updateDarkMode()
+{
+	const body = $("body");
+	if (DARK_MODE)
+	{
+		body.addClass(DARK_MODE_CLASS_NAME);
+	}
+	else
+	{
+		body.removeClass(DARK_MODE_CLASS_NAME);
+	}
+	$(".dark-mode-button").text(DARK_MODE ? "Light Mode" : "Dark Mode");
+}
+
+function toggleDarkMode()
+{
+	DARK_MODE = !DARK_MODE;
+	updateDarkMode();
+	pushNewLocalSetting(COLOUR_THEME_SETTING_NAME, DARK_MODE ? DARK_MODE_CLASS_NAME : "light");
 }
 
 function pushNewUrl()
