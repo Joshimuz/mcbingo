@@ -634,6 +634,15 @@ body.streamer-mode {
 	border-color: #000;
 }
 
+select, input[type="text"] {
+	color: #000;
+}
+
+.dark select,
+.dark input[type="text"] {
+	filter: invert();
+}
+
 /* Export Popup */
 
 #export {
