@@ -72,9 +72,46 @@ button:focus, input:focus {
 	--brown-square-hover: #7F542F;
 }
 
+/** backgrounds **/
 html, body {
 	background-color: var(--bg-colour);
 	background-size: 1920px 1080px;
+}
+html {
+	height: 100%;
+}
+body {
+	min-height: 100%;
+}
+.bg1 {
+	background-image: url(Backgrounds/background1.jpg);
+}
+.bg2 {
+	background-image: url(Backgrounds/background2.jpg);
+}
+.bg3 {
+	background-image: url(Backgrounds/background3.jpg);
+}
+.bg4 {
+	background-image: url(Backgrounds/background4.jpg);
+}
+.bg5 {
+	background-image: url(Backgrounds/background5.jpg);
+}
+.bg6 {
+	background-image: url(Backgrounds/background6.jpg);
+}
+.bg7 {
+	background-image: url(Backgrounds/background7.jpg);
+}
+.bg8 {
+	background-image: url(Backgrounds/background8.jpg);
+}
+.bg9 {
+	background-image: url(Backgrounds/background9.jpg);
+}
+.bg10 {
+	background-image: url(Backgrounds/background10.jpg);
 }
 
 /* End Base Page */
@@ -561,7 +598,7 @@ input[type=range]::-ms-thumb:active {
 }
 
 body.streamer-mode {
-	background-size: 0, 0;
+	background-image: none;
 }
 /* End Streamer Mode */
 

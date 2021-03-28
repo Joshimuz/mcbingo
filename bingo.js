@@ -87,7 +87,7 @@ $(document).click(function(event) {
 $(document).ready(function()
 {
 	// Set the background to a random image
-	document.body.style.backgroundImage = "url('Backgrounds/background" + (Math.floor(Math.random() * 10) + 1) + ".jpg')";
+	document.body.className += "bg" + (Math.floor(Math.random() * 10) + 1);
 
 	// By default hide the tooltips
 	$(".tooltip").hide();
