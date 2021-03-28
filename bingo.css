@@ -694,6 +694,19 @@ select, input[type="text"] {
 	background-size: 128px 128px;
 }
 
+.dark a {
+	color: rgb(60, 164, 255);
+}
+.dark a:hover {
+	color: rgb(55, 138, 211);
+}
+.dark a:active {
+	color: rgb(238, 0, 0);
+}
+.dark a:visited {
+	color: rgb(162, 32, 162);
+}
+
 /* Export Popup */
 
 #export {
