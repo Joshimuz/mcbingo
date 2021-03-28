@@ -703,6 +703,7 @@ select, input[type="text"] {
 	border: 4px solid #000;
 	top: 10%;
 	left: 25%;
+	color: var(--fg-colour);
 	background: var(--bg-colour);
 	display: flex;
 	flex-direction: column;
@@ -714,6 +715,7 @@ select, input[type="text"] {
 #export textarea {
 	flex-grow: 1;
 	font-family: monospace;
+	color: var(--fg-colour);
 	background-color: var(--bg-colour);
 }
 
