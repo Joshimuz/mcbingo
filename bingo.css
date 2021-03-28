@@ -694,6 +694,11 @@ select, input[type="text"] {
 	background-size: 128px 128px;
 }
 
+.dark .button,
+.dark .slider-holder {
+	filter: brightness(80%) contrast(130%);
+}
+
 .dark a {
 	color: rgb(60, 164, 255);
 }
