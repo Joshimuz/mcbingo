@@ -90,9 +90,6 @@ $(document).ready(function()
 	// Set the background to a random image
 	document.body.className += "bg" + (Math.floor(Math.random() * 10) + 1);
 
-	// By default hide the tooltips
-	$(".tooltip").hide();
-
 	// On clicking a goal square
 	const bingoSquares = $("#bingo td");
 	bingoSquares.click(function()
