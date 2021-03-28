@@ -733,3 +733,16 @@ select, input[type="text"] {
 }
 
 /* End Export Popup */
+
+/* GitHub logo */
+.github-logo {
+	display: inline-block;
+	width: 200px;
+	height: 64px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(github-img.png);
+}
+.dark .github-logo {
+	background-image: url(github-img-white.png);
+}
