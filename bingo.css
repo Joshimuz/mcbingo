@@ -765,7 +765,12 @@ select, input[type="text"] {
 
 /* Export Popup */
 
+.show-export #export {
+	display: flex;
+}
+
 #export {
+	display: none;
 	width: 50%;
 	height: 50%;
 	position: fixed;
@@ -774,7 +779,6 @@ select, input[type="text"] {
 	left: 25%;
 	color: var(--fg-colour);
 	background: var(--bg-colour);
-	display: flex;
 	flex-direction: column;
 	align-items: stretch;
 	text-align: center;
