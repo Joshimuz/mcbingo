@@ -117,9 +117,15 @@
 						</div>
 					</div>
 					<div class="pause-menu-column">
-						<div class="dropdown-holder">
-							<button class="button options-button dropdown-button" id="versions-toggle-button" title="Change version of Bingo"><!-- text set by updateVersion() --></button>
-							<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
+						<div class="pause-menu-group">
+							<div class="dropdown-holder">
+								<button class="button options-button dropdown-button" id="versions-toggle-button" title="Change version of Bingo"><!-- text set by updateVersion() --></button>
+								<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
+							</div>
+							<button class="button options-button options-button--space-holder"></button>
+						</div>
+						<div class="pause-menu-group">
+							<button class="button options-button" onclick="showLinkWithProgress();">Save progress</button>
 						</div>
 					</div>
 				</div>
@@ -177,10 +183,23 @@
 			<span id="tooltiptext" class="tooltiptext"></span>
 		</div>
 		<div id="copiedTooltip" class="tooltip"><span class="tooltiptext">Copied!</span></div>
-		<div id="export">
+		<div id="export" class="popup">
 			<p>The goals of the current sheet as JSON:</p>
-			<textarea readonly="readonly"></textarea>
-			<a href="javascript:hideGoalExport()">Hide</a>
+			<textarea readonly="readonly" id="goals_in_json"></textarea>
+			<div class="popup-button-group">
+				<button class="button" title="Copy JSON to Clipboard" onclick='copySeedToClipboard("goals_in_json", event, true);'>Copy JSON</button>
+				<button class="button" onclick="closePopupByButton(this);">Close</button>
+			</div>
+		</div>
+		<div id="urlWithProgress" class="popup" data-keep-options-open="true">
+			<p>Your current progress of the bingo sheet is automatically saved into your browser and will be restored next time you open same link.</p>
+			<br>
+			<p>If you want to save current progress for longer or share with others, use following link:</p>
+			<input id="url_with_current_progress" readonly="readonly" value=""/>
+			<div class="popup-button-group">
+				<button class="button" title="Copy link to Clipboard" onclick='copySeedToClipboard("url_with_current_progress", event, true);'>Copy link</button>
+				<button class="button" onclick="closePopupByButton(this);">Close</button>
+			</div>
 		</div>
 	</body>
 </html>

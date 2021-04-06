@@ -286,6 +286,11 @@ html, body {
 #copiedTooltip {
 	margin: 0 10px;
 	padding: 0 5px 5px;
+	z-index: 1001;
+}
+
+#copiedTooltip.fixed {
+	position: fixed;
 }
 
 #hidden-table-seed button {
@@ -584,7 +589,32 @@ body.streamer-mode {
 	filter: blur(0.1em);
 }
 .hidden.show-options #hidden-bingo {
-	filter: blur(0.5em);
+	filter: blur(0.4em);
+}
+
+.show-options,
+.show-options #options-menu,
+.show-options #bingo,
+.show-options #hidden-bingo,
+.show-options.show-popup {
+	transition: filter ease-in-out 0.3s;
+}
+.show-options #bingo,
+.show-options #hidden-bingo {
+	transition-duration: 0.15s;
+}
+
+.show-options.show-popup {
+	filter: brightness(0.9);
+}
+
+.show-options.show-popup #bingo,
+.show-options.show-popup #options-menu {
+	pointer-events: none;
+	filter: blur(0.1em);
+}
+.show-options.show-popup #bingo {
+	filter: blur(0.2em);
 }
 
 .pause-menu-group {
@@ -597,6 +627,11 @@ body.streamer-mode {
 #options-menu .slider-holder,
 #options-menu .slider {
 	width: 16rem;
+}
+
+.options-button--space-holder {
+	pointer-events: none;
+	opacity: 0;
 }
 
 .version-button {
@@ -619,26 +654,70 @@ body.streamer-mode {
 
 /* End Pause Menu */
 
-/* Export Popup */
-
-#export {
-	width: 50%;
-	height: 50%;
+/* Popup */
+.popup {
 	position: fixed;
-	border: 4px solid #000;
 	top: 10%;
-	left: 25%;
-	background: white;
+	left: 50%;
+	width: 65%;
+	height: auto;
 	display: flex;
+	padding: 10px 20px;
 	flex-direction: column;
 	align-items: stretch;
 	text-align: center;
-	padding: 4px;
+	
+	background: white;
+	border: 4px solid #000;
+	box-shadow: #00000057 0 0 10px 10px;
+	
+	max-width: 680px;
+	transform: translate(-50%, 0);
+  z-index: 1000;
+}
+
+.popup .popup-button-group {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.popup .popup-button-group .button {
+  padding: 0 15px;
+}
+
+@media (max-width: 460px) {
+	.popup .popup-button-group {
+		flex-direction: column;
+	}
+}
+/* End Popup */
+
+/* Per-Popup stype */
+
+#export {
+	min-height: 180px;
 }
 
 #export textarea {
 	flex-grow: 1;
 	font-family: monospace;
+	resize: vertical;
+	margin-top: 10px;
 }
 
-/* End Export Popup */
+#urlWithProgress {
+	position: absolute;
+	top: 50%;
+	max-width: 600px;
+	padding: 20px;
+  transform: translate(-50%, -50%);
+}
+#urlWithProgress #url_with_current_progress,
+#urlWithProgress .popup-button-group {
+	margin-top: 20px;
+}
+
+
+/* End Per-Popup style */
