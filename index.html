@@ -192,12 +192,10 @@
 			</div>
 		</div>
 		<div id="urlWithProgress" class="popup" data-keep-options-open="true">
-			<p>Your current progress of the bingo sheet is automatically saved into your browser and will be restored next time you open same link.</p>
+			<p>Automatic saving of bingo progress to URL has been enabled. Now you can use current URL to restore your progress later or share it others.</p>
 			<br>
-			<p>If you want to save current progress for longer or share with others, use following link:</p>
-			<input id="url_with_current_progress" readonly="readonly" value=""/>
+			<small>Tip: You don't need to save progress every time using this button, your last <span class="js-save-progress-limit">0</span> bingo sheets are already automatically saved and will be restored next time you open the same link.</small>
 			<div class="popup-button-group">
-				<button class="button" title="Copy link to Clipboard" onclick='copySeedToClipboard("url_with_current_progress", event, true);'>Copy link</button>
 				<button class="button" onclick="closePopupByButton(this);">Close</button>
 			</div>
 		</div>

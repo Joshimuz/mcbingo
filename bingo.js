@@ -17,7 +17,8 @@ var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEX
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
 var COLOURSYMBOLS = false;
 const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
-const CURRENT_SHEET_PROGRESS_KEY = "bingoCurrentSheetProcess";
+const SHEET_PROGRESS_KEY = "bingoSheetProgress";
+const SHEET_PROGRESS_SAVE_LIMIT = 5;
 const URL_PARAM_PROGRESS = "progress";
 
 var hoveredSquare;
@@ -351,7 +352,6 @@ function loadProgressFromURL()
 	var progress = gup(URL_PARAM_PROGRESS);
 	if (progress) {
 		loadBingoProgress(JSON.parse(progress));
-		pushNewUrl(); // clear &progress from URL
 	}
 }
 
@@ -474,7 +474,7 @@ function toggleHidden()
 	// Invert HIDDEN setting, then update
 	HIDDEN = !HIDDEN;
 	updateHidden();
-	pushNewUrl();
+	pushNewUrl(generateNewUrlParamWithProgress());
 }
 
 function popoutBingoCard(){
@@ -487,7 +487,7 @@ function toggleStreamerMode()
 	$(".dropdown").hide();
 	hideOptionsMenu();
 	updateStreamerMode();
-	pushNewUrl();
+	pushNewUrl(generateNewUrlParamWithProgress());
 	updateCurrentSheetProgress();
 }
 
@@ -562,10 +562,23 @@ function generateNewUrlParam()
 	return DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED;
 }
 
+function generateNewUrlParamWithProgress(squareProgress)
+{
+	if (squareProgress === undefined) {
+		if (gup(URL_PARAM_PROGRESS)) {
+			squareProgress = generateSquareProgress();
+		} else {
+			return "?s=" + generateNewUrlParam();
+		}
+	}	
+	
+	return "?s=" + generateNewUrlParam() + "&progress=" + JSON.stringify(squareProgress);
+}
+
 function pushNewUrl(url)
 {
-	if (url === undefined) url = generateNewUrlParam();
-	window.history.pushState('', "Sheet", "?s=" + url);
+	if (url === undefined) url = "?s=" + generateNewUrlParam();
+	window.history.pushState('', "Sheet", url);
 }
 
 function pushNewLocalSetting(name, value)
@@ -673,6 +686,9 @@ function loadBingoProgress(sheetToLoad)
 	 */
 	if (typeof sheetToLoad !== 'undefined' && sheetToLoad.length) {
 		forEachSquare((i, square) => {
+			$.each(ALL_COLOURS, function(index, colorClass){
+	       square.removeClass(colorClass);
+	    });
 			square.addClass(ALL_COLOURS[sheetToLoad[i]]);
 		});
 	}
@@ -693,25 +709,70 @@ function updateCurrentSheetProgressDebounced()
 		return;
 	}
 
-	processSheetAndStoreAs(CURRENT_SHEET_PROGRESS_KEY);
+	processSheetAndStoreAs(SHEET_PROGRESS_KEY + generateNewUrlParam().replace(/-\d-\d/, ''));
 }
 
 function processSheetAndStoreAs(localStorageKey)
 {
-	var isHaveMarkedSquares = false;
-	var squares = [];
-	forEachSquare((i, square) => {
-		var squareClassIndex = ALL_COLOURS.indexOf(square.attr('class') || '');
-		isHaveMarkedSquares |= !!squareClassIndex;
-		squares.push(squareClassIndex);
-	});
+	var squares = generateSquareProgress();
 	result = {
 		squares: squares,
-		settings: generateNewUrlParam(),
-		haveMarkedSquares: isHaveMarkedSquares
+		timestamp: Date.now(),
+		haveMarkedSquares: squares.reduce(function(a,b){return !!a | !!b})
 	};
+	
+	// save only if current sheet have marked squares or already in storage
+	if (result.haveMarkedSquares || localStorage.getItem(localStorageKey)) {
+		pushNewLocalSetting(localStorageKey, JSON.stringify(result));
+	}
+	// update &progress param is such exists
+	if (gup(URL_PARAM_PROGRESS)) {
+		pushNewUrl(generateNewUrlParamWithProgress(squares));
+	}
+	checkAndRemoveOldSaves();
+}
 
-	pushNewLocalSetting(localStorageKey, JSON.stringify(result));
+function checkAndRemoveOldSaves()
+{
+	var saves = getSaves();
+	if (saves.length > SHEET_PROGRESS_SAVE_LIMIT) {
+		var oldestSave = saves.slice(-1).pop();
+		if (oldestSave) {
+			localStorage.removeItem(oldestSave.key);
+		}
+	}
+}
+
+function getSaves()
+{
+	var saves = [];
+	for (i = 0; i < localStorage.length; i++) {
+		key = localStorage.key(i);
+		if (key.slice(0, SHEET_PROGRESS_KEY.length) === SHEET_PROGRESS_KEY) {
+			saves.push({
+				key: key,
+				data: JSON.parse(localStorage.getItem(key))
+			});
+		}
+	}
+
+	saves.sort(function(a, b) {
+		// Compare the 2 dates
+		if (a.data.timestamp < b.data.timestamp) return 1;
+		if (a.data.timestamp > b.data.timestamp) return -1;
+		return 0;
+	});
+	return saves;
+}
+
+function generateSquareProgress()
+{
+	var squares = []
+	forEachSquare((i, square) => {
+		console.log(square.attr('class') || '22');
+		squares.push(ALL_COLOURS.indexOf(square.attr('class') || ''));
+	});
+	return squares;
 }
 
 function checkRecentCurrentSheet()
@@ -720,13 +781,8 @@ function checkRecentCurrentSheet()
 		return;
 	}
 
-	var latestSheet = JSON.parse(localStorage.getItem(CURRENT_SHEET_PROGRESS_KEY));
-	if (
-		latestSheet 
-		&& latestSheet.haveMarkedSquares 
-		// compare all settings except isHidden and isSteamerMode
-		&& latestSheet.settings.replace(/-\d-\d/, '') == generateNewUrlParam().replace(/-\d-\d/, '')
-	) {
+	var latestSheet = JSON.parse(localStorage.getItem(SHEET_PROGRESS_KEY + generateNewUrlParam().replace(/-\d-\d/, '')));
+	if (latestSheet && latestSheet.haveMarkedSquares) {
 		loadBingoProgress(latestSheet.squares);
 	}
 }
@@ -807,12 +863,10 @@ function createGoalExport()
 
 function showLinkWithProgress()
 {
-	var progress = [];
-	forEachSquare((i, square) => {
-		progress.push(ALL_COLOURS.indexOf(square.attr('class') || ''));
-	});
-	var urlWithProgress = window.location.origin + "?s=" + generateNewUrlParam() + "&progress=" + JSON.stringify(progress);
-	$("#urlWithProgress #url_with_current_progress").val(urlWithProgress);
+	var urlWithProgress = generateNewUrlParamWithProgress(generateSquareProgress());
+	pushNewUrl(urlWithProgress);
+	$("#urlWithProgress #url_with_current_progress").val(window.location.origin + urlWithProgress);
+	$('.js-save-progress-limit').text(SHEET_PROGRESS_SAVE_LIMIT);
 	$('#bingo-box').addClass(SHOW_POPUP_MENU_CLASS_NAME);
 	openPopup("#urlWithProgress");
 }
