@@ -20,6 +20,7 @@ const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
 const SHEET_PROGRESS_KEY = "bingoSheetProgress";
 const SHEET_PROGRESS_SAVE_LIMIT = 5;
 const URL_PARAM_PROGRESS = "progress";
+const WAS_SAVE_POPUP_OPEN_KEY = "wasAutosavePopupOpen";
 
 var hoveredSquare;
 
@@ -297,7 +298,7 @@ function getSettingsFromURLSplitted(url)
 
 function getSettingsFromURL()
 {
-  [SEED, DIFFICULTY, VERSION, HIDDEN, STREAMER_MODE] = getSettingsFromURLSplitted();
+	[SEED, DIFFICULTY, VERSION, HIDDEN, STREAMER_MODE] = getSettingsFromURLSplitted();
 
 	// If there isn't a seed, make a new one
 	if (!SEED)
@@ -552,7 +553,7 @@ function toggleColourSymbols(value)
 {
 	COLOURSYMBOLS = !COLOURSYMBOLS;
 	updateColourSymbols();
-	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);	
+	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);
 }
 
 function generateNewUrlParam()
@@ -769,7 +770,6 @@ function generateSquareProgress()
 {
 	var squares = []
 	forEachSquare((i, square) => {
-		console.log(square.attr('class') || '22');
 		squares.push(ALL_COLOURS.indexOf(square.attr('class') || ''));
 	});
 	return squares;
@@ -861,14 +861,21 @@ function createGoalExport()
 	openPopup("#export");
 }
 
-function showLinkWithProgress()
+function showLinkWithProgress(element)
 {
 	var urlWithProgress = generateNewUrlParamWithProgress(generateSquareProgress());
 	pushNewUrl(urlWithProgress);
-	$("#urlWithProgress #url_with_current_progress").val(window.location.origin + urlWithProgress);
-	$('.js-save-progress-limit').text(SHEET_PROGRESS_SAVE_LIMIT);
-	$('#bingo-box').addClass(SHOW_POPUP_MENU_CLASS_NAME);
-	openPopup("#urlWithProgress");
+	if (! localStorage.getItem(WAS_SAVE_POPUP_OPEN_KEY)) {
+		$('.js-save-progress-limit').text(SHEET_PROGRESS_SAVE_LIMIT);
+		$('#bingo-box').addClass(SHOW_POPUP_MENU_CLASS_NAME);
+		openPopup("#urlWithProgress");
+		pushNewLocalSetting(WAS_SAVE_POPUP_OPEN_KEY, true);
+	} else if(element !== undefined) {
+		$(element).addClass('success--ok');
+		setTimeout(function() {
+			$(element).removeClass('success--ok');
+		}, 1000);
+	}
 }
 
 function openPopup(popup)

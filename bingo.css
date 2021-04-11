@@ -380,12 +380,21 @@ html, body {
 	border-bottom-width: 4px;
 	border-top: unset;
 	border-left: unset;
+	transition: background ease-in-out 0.3s;
 }
 
 .button::before {
 	border: 3px solid #ffffff6e;
 	border-bottom: unset;
 	border-right: unset;
+}
+
+.button.success--ok::after {
+	background-size: contain;
+	background-image: url("Symbols/ok.png");
+	background-color: #abff3c75;
+  background-repeat: no-repeat;
+	background-position: center;
 }
 
 /** Dropdowns **/
@@ -673,7 +682,7 @@ body.streamer-mode {
 	
 	max-width: 680px;
 	transform: translate(-50%, 0);
-  z-index: 1000;
+	z-index: 1000;
 }
 
 .popup .popup-button-group {
@@ -712,7 +721,7 @@ body.streamer-mode {
 	top: 50%;
 	max-width: 600px;
 	padding: 20px;
-  transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 #urlWithProgress #url_with_current_progress,
 #urlWithProgress .popup-button-group {
