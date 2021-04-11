@@ -93,7 +93,7 @@
 						<div id="hidden-table-seed">
 							Bingo Seed:<br>
 							<input class="seed_for_copying" id="seed_for_copying_hidden" type="text" value="12345" readonly="readonly"><br>
-							<button class="button" title="Copy Seed to Clipboard" onclick='copySeedToClipboard("seed_for_copying_hidden", event);'>Copy Seed</button>
+							<button class="button" title="Copy Seed to Clipboard" onclick='copyToClipboard("seed_for_copying_hidden", event);'>Copy Seed</button>
 						</div>
 						<p>Use this seed to create a new world in Minecraft. Remember to adjust ingame settings such as difficulty if necessary.</p>
 						<p>If you've been linked this page for a race, you are not allowed to change the seed/goals. See the full rules below.</p>
@@ -165,7 +165,7 @@
 			<p><em>Tip:</em> You can click on the squares to change their colour which is useful for planning or to mark off completed goals. Use the colour slider in the Options menu to choose how many colours you want to use. You can also hover over the square and press (1-6) to select a colour or (0/q) to remove the colour! Distinct symbols on the squares for each colour can be toggled in the Options menu.</p>
 			<p><em>Tip:</em> Hover over a "?" to get more information about that goal.</p>
 			<h3>Creating the World</h3>
-			<p>Create a new world in Minecraft and use <input class="seed_for_copying" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button class="button small-button" title="Copy Seed to Clipboard" onclick='copySeedToClipboard("seed_for_copying_howto", event);'>Copy</button> as the Seed (this is the same random seed used to generate this sheet). Load the world so that it can generate but don't move until you're ready. Pause the game to make sure time of day doesn't change or you get attacked. When you're ready, reveal the sheet if it's hidden and start playing!</p>
+			<p>Create a new world in Minecraft and use <input class="seed_for_copying" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button class="button small-button" title="Copy Seed to Clipboard" onclick='copyToClipboard("seed_for_copying_howto", event);'>Copy</button> as the Seed (this is the same random seed used to generate this sheet). Load the world so that it can generate but don't move until you're ready. Pause the game to make sure time of day doesn't change or you get attacked. When you're ready, reveal the sheet if it's hidden and start playing!</p>
 
 			<p><em>Note:</em> Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</p>
 
@@ -187,7 +187,7 @@
 			<p>The goals of the current sheet as JSON:</p>
 			<textarea readonly="readonly" id="goals_in_json"></textarea>
 			<div class="popup-button-group">
-				<button class="button" title="Copy JSON to Clipboard" onclick='copySeedToClipboard("goals_in_json", event, true);'>Copy JSON</button>
+				<button class="button" title="Copy JSON to Clipboard" onclick='copyToClipboard("goals_in_json", event, true);'>Copy JSON</button>
 				<button class="button" onclick="closePopupByButton(this);">Close</button>
 			</div>
 		</div>

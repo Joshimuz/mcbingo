@@ -20,7 +20,7 @@ const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
 const SHEET_PROGRESS_KEY = "bingoSheetProgress";
 const SHEET_PROGRESS_SAVE_LIMIT = 5;
 const URL_PARAM_PROGRESS = "progress";
-const WAS_SAVE_POPUP_OPEN_KEY = "wasAutosavePopupOpen";
+const WAS_SAVE_POPUP_OPENED_KEY = "wasAutosavePopupOpened";
 
 var hoveredSquare;
 
@@ -98,21 +98,20 @@ $(document).ready(function()
 	// Set the background to a random image
 	document.body.style.backgroundImage = "url('Backgrounds/background" + (Math.floor(Math.random() * 10) + 1) + ".jpg')";
 
-	// By default hide the tooltips and popups
+	// By default hide the tooltips
 	$(".tooltip").hide();
-	$(".popup").hide();
 
 	// On clicking a goal square
 	const bingoSquares = $("#bingo td");
 	bingoSquares.click(function()
 	{
 		const square = $(this);
-		setSquareColor(square, nextColour(square));
+		setSquareColor(square, nextColour(square), true);
 	});
 	bingoSquares.contextmenu(function()
 	{
 		const square = $(this);
-		setSquareColor(square, prevColour(square));
+		setSquareColor(square, prevColour(square), true);
 		return false;
 	});
 
@@ -179,7 +178,7 @@ $(document).ready(function()
 	{
 		if (hoveredSquare && e.which in SHORTCUT_COLOURS)
 		{
-			setSquareColor(hoveredSquare, SHORTCUT_COLOURS[e.which]);
+			setSquareColor(hoveredSquare, SHORTCUT_COLOURS[e.which], true);
 		}
 		if (e.keyCode == 27 /* Esc */)
 		{
@@ -227,6 +226,11 @@ function getColourClass(square)
 	return ALL_COLOURS.find(c => square.hasClass(c));
 }
 
+function getColourClassIndex(square)
+{
+	return ALL_COLOURS.findIndex(c => square.hasClass(c));
+}
+
 function nextColour(square)
 {
 	return anotherColour(square, 1);
@@ -240,8 +244,7 @@ function prevColour(square)
 function anotherColour(square, increment)
 {
 	const colourSelection = COLOUR_SELECTIONS[COLOURCOUNT];
-	const currColour = getColourClass(square);
-	const currIndex = colourSelection.indexOf(currColour);
+	const currIndex = getColourClassIndex(square);
 	if (currIndex == -1)
 	{
 		// default to second colour
@@ -255,11 +258,12 @@ function loadSettings()
 {
 	getSettingsFromURL();
 	getSettingsFromLocalStorage();
-	checkRecentCurrentSheet();
-	loadProgressFromURL();
+	if (! loadProgressFromURL()) {
+		loadProgressFromLocalStorage();
+	}
 }
 
-function getSettingsFromURLSplitted(url)
+function getSettingsFromURLSplitted(url = null)
 {
 	/**
 	 * URL Format: ?s=[difficulty]-[hideTable]_[seed]
@@ -267,33 +271,34 @@ function getSettingsFromURLSplitted(url)
 	 * The seed should always be last, so in order to be able to add more settings,
 	 * settings and the seed are separated from eachother.
 	 */
-	 var seed, difficulty, version, hidden, streamerMode;
+	var seed, difficulty, version, hidden, streamerMode;
 
-	 if (url === undefined) url = gup("s");
-	 var split = url.split("_");
-	 if (split.length == 2)
-	 {
-		 var settings = split[0].split("-");
-		 seed = split[1];
+	if (url == null) {
+		url = gup("s");
+	}
+	var split = url.split("_");
+	if (split.length == 2) {
+		var settings = split[0].split("-");
+		seed = split[1];
 
-		 difficulty = parseInt(settings[0]);
-		 hidden = settings[1] == "1";
-		 streamerMode = settings[2] == "1";
-		 var selectedVersion = settings[3];
-	 }
+		difficulty = parseInt(settings[0]);
+		hidden = settings[1] == "1";
+		streamerMode = settings[2] == "1";
+		var selectedVersion = settings[3];
+	}
 
-	 // Set default values
-	 if (isNaN(difficulty) || difficulty < 1 || difficulty > 5)
-	 {
-		 difficulty = 3;
-	 }
+	// Set default values
+	if (isNaN(difficulty) || difficulty < 1 || difficulty > 5)
+	{
+		difficulty = 3;
+	}
 
-	 version = getVersion(selectedVersion);
-	 if (version == undefined) {
-		 version = getVersion(LATEST_VERSION);
-	 }
+	version = getVersion(selectedVersion);
+	if (version == undefined) {
+		version = getVersion(LATEST_VERSION);
+	}
 
-	 return [seed, difficulty, version, hidden, streamerMode];
+	return [seed, difficulty, version, hidden, streamerMode];
 }
 
 function getSettingsFromURL()
@@ -345,14 +350,6 @@ function getSettingsFromLocalStorage()
 	{
 		// if not stored, then just use the default
 		updateColourCount();
-	}
-}
-
-function loadProgressFromURL()
-{
-	var progress = gup(URL_PARAM_PROGRESS);
-	if (progress) {
-		loadBingoProgress(JSON.parse(progress));
 	}
 }
 
@@ -563,22 +560,24 @@ function generateNewUrlParam()
 	return DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED;
 }
 
-function generateNewUrlParamWithProgress(squareProgress)
+function generateNewUrlParamWithProgress(squareProgress = null)
 {
-	if (squareProgress === undefined) {
-		if (gup(URL_PARAM_PROGRESS)) {
-			squareProgress = generateSquareProgress();
-		} else {
-			return "?s=" + generateNewUrlParam();
-		}
-	}	
-	
-	return "?s=" + generateNewUrlParam() + "&progress=" + JSON.stringify(squareProgress);
+	var urlParams = "?s=" + generateNewUrlParam();
+	if (squareProgress == null && gup(URL_PARAM_PROGRESS)) {
+		squareProgress = generateSquareProgress();
+	}
+	if (squareProgress) {
+		urlParams += "&progress=" + JSON.stringify(squareProgress);
+	}
+
+	return urlParams;
 }
 
-function pushNewUrl(url)
+function pushNewUrl(url = null)
 {
-	if (url === undefined) url = "?s=" + generateNewUrlParam();
+	if (url == null) {
+		url = "?s=" + generateNewUrlParam();
+	}
 	window.history.pushState('', "Sheet", url);
 }
 
@@ -671,11 +670,13 @@ function fillVersionSelection()
 	});
 }
 
-function setSquareColor(square, colorClass)
+function setSquareColor(square, colorClass, isTriggeredByUser = false)
 {
 	ALL_COLOURS.forEach(c => square.removeClass(c));
 	square.addClass(colorClass);
-	updateCurrentSheetProgress();
+	if (isTriggeredByUser) {
+		updateCurrentSheetProgress();
+	}
 }
 
 function loadBingoProgress(sheetToLoad)
@@ -688,8 +689,8 @@ function loadBingoProgress(sheetToLoad)
 	if (typeof sheetToLoad !== 'undefined' && sheetToLoad.length) {
 		forEachSquare((i, square) => {
 			$.each(ALL_COLOURS, function(index, colorClass){
-	       square.removeClass(colorClass);
-	    });
+				square.removeClass(colorClass);
+			});
 			square.addClass(ALL_COLOURS[sheetToLoad[i]]);
 		});
 	}
@@ -710,20 +711,20 @@ function updateCurrentSheetProgressDebounced()
 		return;
 	}
 
-	processSheetAndStoreAs(SHEET_PROGRESS_KEY + generateNewUrlParam().replace(/-\d-\d/, ''));
+	processSheetAndStoreAs(getKeyForCurrentProgress());
 }
 
 function processSheetAndStoreAs(localStorageKey)
 {
 	var squares = generateSquareProgress();
+	var haveMarkedSquares = squares.reduce(function(a,b) { return !!a | !!b; });
 	result = {
 		squares: squares,
-		timestamp: Date.now(),
-		haveMarkedSquares: squares.reduce(function(a,b){return !!a | !!b})
+		timestamp: Date.now()
 	};
 	
 	// save only if current sheet have marked squares or already in storage
-	if (result.haveMarkedSquares || localStorage.getItem(localStorageKey)) {
+	if (haveMarkedSquares || localStorage.getItem(localStorageKey)) {
 		pushNewLocalSetting(localStorageKey, JSON.stringify(result));
 	}
 	// update &progress param is such exists
@@ -737,7 +738,7 @@ function checkAndRemoveOldSaves()
 {
 	var saves = getSaves();
 	if (saves.length > SHEET_PROGRESS_SAVE_LIMIT) {
-		var oldestSave = saves.slice(-1).pop();
+		var oldestSave = saves.pop();
 		if (oldestSave) {
 			localStorage.removeItem(oldestSave.key);
 		}
@@ -747,7 +748,7 @@ function checkAndRemoveOldSaves()
 function getSaves()
 {
 	var saves = [];
-	for (i = 0; i < localStorage.length; i++) {
+	for (var i = 0; i < localStorage.length; i++) {
 		key = localStorage.key(i);
 		if (key.slice(0, SHEET_PROGRESS_KEY.length) === SHEET_PROGRESS_KEY) {
 			saves.push({
@@ -768,26 +769,43 @@ function getSaves()
 
 function generateSquareProgress()
 {
-	var squares = []
+	var squares = [];	
 	forEachSquare((i, square) => {
-		squares.push(ALL_COLOURS.indexOf(square.attr('class') || ''));
+		var classIndex = getColourClassIndex(square);
+		squares.push(classIndex !== -1 ? classIndex : 0);
 	});
 	return squares;
 }
 
-function checkRecentCurrentSheet()
+function loadProgressFromLocalStorage()
 {
-	if (! isLocalStorageIsAvailable() || gup(URL_PARAM_PROGRESS)) {
+	if (! isLocalStorageIsAvailable()) {
 		return;
 	}
 
-	var latestSheet = JSON.parse(localStorage.getItem(SHEET_PROGRESS_KEY + generateNewUrlParam().replace(/-\d-\d/, '')));
-	if (latestSheet && latestSheet.haveMarkedSquares) {
+	var latestSheet = JSON.parse(localStorage.getItem(getKeyForCurrentProgress()));
+	if (latestSheet) {
 		loadBingoProgress(latestSheet.squares);
 	}
 }
 
-function copySeedToClipboard(id, event, isAsFixed)
+function loadProgressFromURL()
+{
+	var progress = gup(URL_PARAM_PROGRESS);
+	if (progress) {
+		loadBingoProgress(JSON.parse(progress));
+		return true;
+	}
+
+	return false;
+}
+
+
+function getKeyForCurrentProgress() {
+	return [SHEET_PROGRESS_KEY, VERSION.id, DIFFICULTY, SEED].join("-"); 
+}
+
+function copyToClipboard(id, event, isAsFixed)
 {
 	var id = "#"+id;
 	if (navigator.clipboard)
@@ -825,11 +843,9 @@ function copySeedToClipboard(id, event, isAsFixed)
 	}
 }
 
-function showCopiedTooltip(event, isAsFixed)
+function showCopiedTooltip(event, isAsFixed = false)
 {
-	if (isAsFixed === undefined) isAsFixed = false;
-
-  var x = 0;
+	var x = 0;
 	var y = 0;
 	if (isAsFixed) {
 		$("#copiedTooltip").addClass('fixed');
@@ -865,12 +881,13 @@ function showLinkWithProgress(element)
 {
 	var urlWithProgress = generateNewUrlParamWithProgress(generateSquareProgress());
 	pushNewUrl(urlWithProgress);
-	if (! localStorage.getItem(WAS_SAVE_POPUP_OPEN_KEY)) {
+	console.log(element != null);
+	if (! localStorage.getItem(WAS_SAVE_POPUP_OPENED_KEY)) {
 		$('.js-save-progress-limit').text(SHEET_PROGRESS_SAVE_LIMIT);
 		$('#bingo-box').addClass(SHOW_POPUP_MENU_CLASS_NAME);
 		openPopup("#urlWithProgress");
-		pushNewLocalSetting(WAS_SAVE_POPUP_OPEN_KEY, true);
-	} else if(element !== undefined) {
+		pushNewLocalSetting(WAS_SAVE_POPUP_OPENED_KEY, true);
+	} else if(element != null) {
 		$(element).addClass('success--ok');
 		setTimeout(function() {
 			$(element).removeClass('success--ok');
@@ -880,12 +897,12 @@ function showLinkWithProgress(element)
 
 function openPopup(popup)
 {
-	$(popup).show();
+	$(popup).addClass('opened');
 }
 
 function closePopup(popup)
 {
-	$(popup).hide();
+	$(popup).removeClass('opened');
 	$('#bingo-box').removeClass(SHOW_POPUP_MENU_CLASS_NAME);
 }
 

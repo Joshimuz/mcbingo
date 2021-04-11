@@ -670,7 +670,7 @@ body.streamer-mode {
 	left: 50%;
 	width: 65%;
 	height: auto;
-	display: flex;
+	display: none;
 	padding: 10px 20px;
 	flex-direction: column;
 	align-items: stretch;
@@ -683,6 +683,9 @@ body.streamer-mode {
 	max-width: 680px;
 	transform: translate(-50%, 0);
 	z-index: 1000;
+}
+.popup.opened {
+	display: flex;
 }
 
 .popup .popup-button-group {
