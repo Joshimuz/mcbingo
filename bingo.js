@@ -5,7 +5,7 @@ var LAYOUT;
 var HIDDEN;
 var STREAMER_MODE;
 var VERSION;
-var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
+var DIFFICULTYTEXT = ["Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 
 const ALL_COLOURS = ["", "bluesquare", "greensquare", "redsquare", "yellowsquare", "pinksquare", "brownsquare"];
 var COLOUR_SELECTIONS = [
@@ -17,6 +17,10 @@ var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEX
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
 var COLOURSYMBOLS = false;
 const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
+const SHEET_PROGRESS_KEY = "bingoSheetProgress";
+const SHEET_PROGRESS_SAVE_LIMIT = 5;
+const URL_PARAM_PROGRESS = "progress";
+const WAS_SAVE_POPUP_OPENED_KEY = "wasAutosavePopupOpened";
 
 var hoveredSquare;
 
@@ -52,6 +56,8 @@ const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
 const COLOUR_SYMBOLS_SETTING_NAME = "bingoColourSymbols";
 const SHOW_OPTIONS_MENU_CLASS_NAME = "show-options";
+const SHOW_POPUP_MENU_CLASS_NAME = "show-popup";
+const OPTION_MENU_BEHAVIOUR_ATTR_NAME = "data-keep-options-open";
 
 // Dropdowns and pause menu handling.
 $(document).click(function(event) {
@@ -68,8 +74,16 @@ $(document).click(function(event) {
 		});
 	}
 	if (!$(event.target).closest(".pause-menu").length) {
-		if (event.target.id != "options-toggle-button") {
+		if (
 			// Hide if click was anywhere BUT on a pause menu
+			event.target.id != "options-toggle-button" 
+			&& ! (
+				// anywhere that doesn't have attribute to overwrite default behaviour
+				event.target.hasAttribute(OPTION_MENU_BEHAVIOUR_ATTR_NAME)
+				// or parents of target element doesn't have attribute
+				|| $(event.target).closest('['+OPTION_MENU_BEHAVIOUR_ATTR_NAME+']').length
+			)
+		) {
 			hideOptionsMenu();
 		}
 	}
@@ -87,19 +101,17 @@ $(document).ready(function()
 	// By default hide the tooltips
 	$(".tooltip").hide();
 
-	$("#export").hide();
-
 	// On clicking a goal square
 	const bingoSquares = $("#bingo td");
 	bingoSquares.click(function()
 	{
 		const square = $(this);
-		setSquareColor(square, nextColour(square));
+		setSquareColor(square, nextColour(square), true);
 	});
 	bingoSquares.contextmenu(function()
 	{
 		const square = $(this);
-		setSquareColor(square, prevColour(square));
+		setSquareColor(square, prevColour(square), true);
 		return false;
 	});
 
@@ -166,7 +178,7 @@ $(document).ready(function()
 	{
 		if (hoveredSquare && e.which in SHORTCUT_COLOURS)
 		{
-			setSquareColor(hoveredSquare, SHORTCUT_COLOURS[e.which]);
+			setSquareColor(hoveredSquare, SHORTCUT_COLOURS[e.which], true);
 		}
 		if (e.keyCode == 27 /* Esc */)
 		{
@@ -197,6 +209,7 @@ $(document).ready(function()
 function toggleOptionsMenu()
 {
 	$("#bingo-box").toggleClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+	closePopup('#urlWithProgress');
 }
 function showOptionsMenu()
 {
@@ -205,11 +218,17 @@ function showOptionsMenu()
 function hideOptionsMenu()
 {
 	$("#bingo-box").removeClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+	closePopup('#urlWithProgress');
 }
 
 function getColourClass(square)
 {
 	return ALL_COLOURS.find(c => square.hasClass(c));
+}
+
+function getColourClassIndex(square)
+{
+	return ALL_COLOURS.findIndex(c => square.hasClass(c));
 }
 
 function nextColour(square)
@@ -225,8 +244,7 @@ function prevColour(square)
 function anotherColour(square, increment)
 {
 	const colourSelection = COLOUR_SELECTIONS[COLOURCOUNT];
-	const currColour = getColourClass(square);
-	const currIndex = colourSelection.indexOf(currColour);
+	const currIndex = getColourClassIndex(square);
 	if (currIndex == -1)
 	{
 		// default to second colour
@@ -240,9 +258,12 @@ function loadSettings()
 {
 	getSettingsFromURL();
 	getSettingsFromLocalStorage();
+	if (! loadProgressFromURL()) {
+		loadProgressFromLocalStorage();
+	}
 }
 
-function getSettingsFromURL()
+function getSettingsFromURLSplitted(url = null)
 {
 	/**
 	 * URL Format: ?s=[difficulty]-[hideTable]_[seed]
@@ -250,28 +271,39 @@ function getSettingsFromURL()
 	 * The seed should always be last, so in order to be able to add more settings,
 	 * settings and the seed are separated from eachother.
 	 */
-	var split = gup("s").split("_");
-	if (split.length == 2)
-	{
-		var settings = split[0].split("-");
-		SEED = split[1];
+	var seed, difficulty, version, hidden, streamerMode;
 
-		DIFFICULTY = parseInt(settings[0]);
-		HIDDEN = settings[1] == "1";
-		STREAMER_MODE = settings[2] == "1";
+	if (url == null) {
+		url = gup("s");
+	}
+	var split = url.split("_");
+	if (split.length == 2) {
+		var settings = split[0].split("-");
+		seed = split[1];
+
+		difficulty = parseInt(settings[0]);
+		hidden = settings[1] == "1";
+		streamerMode = settings[2] == "1";
 		var selectedVersion = settings[3];
 	}
 
 	// Set default values
-	if (isNaN(DIFFICULTY) || DIFFICULTY < 1 || DIFFICULTY > 5)
+	if (isNaN(difficulty) || difficulty < 1 || difficulty > 5)
 	{
-		DIFFICULTY = 3;
+		difficulty = 3;
 	}
 
-	VERSION = getVersion(selectedVersion);
-	if (VERSION == undefined) {
-		VERSION = getVersion(LATEST_VERSION);
+	version = getVersion(selectedVersion);
+	if (version == undefined) {
+		version = getVersion(LATEST_VERSION);
 	}
+
+	return [seed, difficulty, version, hidden, streamerMode];
+}
+
+function getSettingsFromURL()
+{
+	[SEED, DIFFICULTY, VERSION, HIDDEN, STREAMER_MODE] = getSettingsFromURLSplitted();
 
 	// If there isn't a seed, make a new one
 	if (!SEED)
@@ -440,7 +472,7 @@ function toggleHidden()
 	// Invert HIDDEN setting, then update
 	HIDDEN = !HIDDEN;
 	updateHidden();
-	pushNewUrl();
+	pushNewUrl(generateNewUrlParamWithProgress());
 }
 
 function popoutBingoCard(){
@@ -453,7 +485,8 @@ function toggleStreamerMode()
 	$(".dropdown").hide();
 	hideOptionsMenu();
 	updateStreamerMode();
-	pushNewUrl();
+	pushNewUrl(generateNewUrlParamWithProgress());
+	updateCurrentSheetProgress();
 }
 
 function updateStreamerMode()
@@ -517,14 +550,35 @@ function toggleColourSymbols(value)
 {
 	COLOURSYMBOLS = !COLOURSYMBOLS;
 	updateColourSymbols();
-	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);	
+	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);
 }
 
-function pushNewUrl()
+function generateNewUrlParam()
 {
 	var hidden = HIDDEN ? "1" : "0";
 	var streamerMode = STREAMER_MODE ? "1" : "0";
-	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED);
+	return DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED;
+}
+
+function generateNewUrlParamWithProgress(squareProgress = null)
+{
+	var urlParams = "?s=" + generateNewUrlParam();
+	if (squareProgress == null && gup(URL_PARAM_PROGRESS)) {
+		squareProgress = generateSquareProgress();
+	}
+	if (squareProgress) {
+		urlParams += "&progress=" + JSON.stringify(squareProgress);
+	}
+
+	return urlParams;
+}
+
+function pushNewUrl(url = null)
+{
+	if (url == null) {
+		url = "?s=" + generateNewUrlParam();
+	}
+	window.history.pushState('', "Sheet", url);
 }
 
 function pushNewLocalSetting(name, value)
@@ -535,7 +589,24 @@ function pushNewLocalSetting(name, value)
 	}
 	catch (ignored)
 	{
+		return false;
 	}
+	return true;
+}
+
+function isLocalStorageIsAvailable()
+{
+	if (typeof localStorage !== 'undefined') {
+		try {
+			localStorage.setItem('feature_test', 'yes');
+			if (localStorage.getItem('feature_test') === 'yes') {
+				localStorage.removeItem('feature_test');
+				return true;
+			}
+		} catch(e) {
+		}
+	}
+	return false;
 }
 
 function getVersion(versionId)
@@ -574,6 +645,7 @@ function changeVersion(versionId)
 	generateNewSheet();
 	updateVersion();
 	pushNewUrl();
+	updateCurrentSheetProgress();
 }
 
 function fillVersionSelection()
@@ -598,13 +670,142 @@ function fillVersionSelection()
 	});
 }
 
-function setSquareColor(square, colorClass)
+function setSquareColor(square, colorClass, isTriggeredByUser = false)
 {
 	ALL_COLOURS.forEach(c => square.removeClass(c));
 	square.addClass(colorClass);
+	if (isTriggeredByUser) {
+		updateCurrentSheetProgress();
+	}
 }
 
-function copySeedToClipboard(id, event)
+function loadBingoProgress(sheetToLoad)
+{
+	/* 
+	 * Expected input for sheetToLoad is [1,3,2,5,..]
+	 * where index of array is numeric value of square id
+	 * and cell value is index of ALL_COLOURS 
+	 */
+	if (typeof sheetToLoad !== 'undefined' && sheetToLoad.length) {
+		forEachSquare((i, square) => {
+			$.each(ALL_COLOURS, function(index, colorClass){
+				square.removeClass(colorClass);
+			});
+			square.addClass(ALL_COLOURS[sheetToLoad[i]]);
+		});
+	}
+}
+
+var sheetProgressDebounce = null;
+function updateCurrentSheetProgress()
+{
+	if(sheetProgressDebounce) clearTimeout(sheetProgressDebounce);
+	sheetProgressDebounce = setTimeout(function() {
+			updateCurrentSheetProgressDebounced()
+	}, 100);
+}
+
+function updateCurrentSheetProgressDebounced()
+{
+	if (! isLocalStorageIsAvailable()) {
+		return;
+	}
+
+	processSheetAndStoreAs(getKeyForCurrentProgress());
+}
+
+function processSheetAndStoreAs(localStorageKey)
+{
+	var squares = generateSquareProgress();
+	var haveMarkedSquares = squares.reduce(function(a,b) { return !!a | !!b; });
+	result = {
+		squares: squares,
+		timestamp: Date.now()
+	};
+	
+	// save only if current sheet have marked squares or already in storage
+	if (haveMarkedSquares || localStorage.getItem(localStorageKey)) {
+		pushNewLocalSetting(localStorageKey, JSON.stringify(result));
+	}
+	// update &progress param is such exists
+	if (gup(URL_PARAM_PROGRESS)) {
+		pushNewUrl(generateNewUrlParamWithProgress(squares));
+	}
+	checkAndRemoveOldSaves();
+}
+
+function checkAndRemoveOldSaves()
+{
+	var saves = getSaves();
+	if (saves.length > SHEET_PROGRESS_SAVE_LIMIT) {
+		var oldestSave = saves.pop();
+		if (oldestSave) {
+			localStorage.removeItem(oldestSave.key);
+		}
+	}
+}
+
+function getSaves()
+{
+	var saves = [];
+	for (var i = 0; i < localStorage.length; i++) {
+		key = localStorage.key(i);
+		if (key.slice(0, SHEET_PROGRESS_KEY.length) === SHEET_PROGRESS_KEY) {
+			saves.push({
+				key: key,
+				data: JSON.parse(localStorage.getItem(key))
+			});
+		}
+	}
+
+	saves.sort(function(a, b) {
+		// Compare the 2 dates
+		if (a.data.timestamp < b.data.timestamp) return 1;
+		if (a.data.timestamp > b.data.timestamp) return -1;
+		return 0;
+	});
+	return saves;
+}
+
+function generateSquareProgress()
+{
+	var squares = [];	
+	forEachSquare((i, square) => {
+		var classIndex = getColourClassIndex(square);
+		squares.push(classIndex !== -1 ? classIndex : 0);
+	});
+	return squares;
+}
+
+function loadProgressFromLocalStorage()
+{
+	if (! isLocalStorageIsAvailable()) {
+		return;
+	}
+
+	var latestSheet = JSON.parse(localStorage.getItem(getKeyForCurrentProgress()));
+	if (latestSheet) {
+		loadBingoProgress(latestSheet.squares);
+	}
+}
+
+function loadProgressFromURL()
+{
+	var progress = gup(URL_PARAM_PROGRESS);
+	if (progress) {
+		loadBingoProgress(JSON.parse(progress));
+		return true;
+	}
+
+	return false;
+}
+
+
+function getKeyForCurrentProgress() {
+	return [SHEET_PROGRESS_KEY, VERSION.id, DIFFICULTY, SEED].join("-"); 
+}
+
+function copyToClipboard(id, event, isAsFixed)
 {
 	var id = "#"+id;
 	if (navigator.clipboard)
@@ -629,7 +830,7 @@ function copySeedToClipboard(id, event)
 			}
 			else
 			{
-				showCopiedTooltip(event);
+				showCopiedTooltip(event, isAsFixed);
 			}
 		}
 		catch (err)
@@ -642,10 +843,19 @@ function copySeedToClipboard(id, event)
 	}
 }
 
-function showCopiedTooltip(event)
+function showCopiedTooltip(event, isAsFixed = false)
 {
-	const x = event.target.offsetLeft + event.target.offsetWidth;
-	const y = event.target.offsetTop;
+	var x = 0;
+	var y = 0;
+	if (isAsFixed) {
+		$("#copiedTooltip").addClass('fixed');
+		x = event.target.getBoundingClientRect().x + event.target.getBoundingClientRect().width;
+		y = event.target.getBoundingClientRect().y;
+	} else {
+		$("#copiedTooltip").removeClass('fixed');
+		x = event.target.offsetLeft + event.target.offsetWidth;
+		y = event.target.offsetTop;
+	}
 	$("#copiedTooltip").css({left:x, top: y})
 		.css("display", "block")
 		.delay(100)
@@ -664,12 +874,41 @@ function createGoalExport()
 		});
 	});
 	$("#export textarea").text(JSON.stringify(result));
-	$("#export").show();
+	openPopup("#export");
 }
 
-function hideGoalExport()
+function showLinkWithProgress(element)
 {
-	$("#export").hide();
+	var urlWithProgress = generateNewUrlParamWithProgress(generateSquareProgress());
+	pushNewUrl(urlWithProgress);
+	console.log(element != null);
+	if (! localStorage.getItem(WAS_SAVE_POPUP_OPENED_KEY)) {
+		$('.js-save-progress-limit').text(SHEET_PROGRESS_SAVE_LIMIT);
+		$('#bingo-box').addClass(SHOW_POPUP_MENU_CLASS_NAME);
+		openPopup("#urlWithProgress");
+		pushNewLocalSetting(WAS_SAVE_POPUP_OPENED_KEY, true);
+	} else if(element != null) {
+		$(element).addClass('success--ok');
+		setTimeout(function() {
+			$(element).removeClass('success--ok');
+		}, 1000);
+	}
+}
+
+function openPopup(popup)
+{
+	$(popup).addClass('opened');
+}
+
+function closePopup(popup)
+{
+	$(popup).removeClass('opened');
+	$('#bingo-box').removeClass(SHOW_POPUP_MENU_CLASS_NAME);
+}
+
+function closePopupByButton(buttonElement)
+{
+	closePopup($(buttonElement).closest('.popup'));
 }
 
 // Made this a function for readability and ease of use
