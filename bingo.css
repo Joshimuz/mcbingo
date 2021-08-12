@@ -716,13 +716,13 @@ body.streamer-mode {
 }
 
 select, input[type="text"] {
-	color: #000;
+	color: var(--fg-colour);
+	background: var(--bg-colour);
+	border-color: gray;
 }
 
 .dark .tooltipQ,
-.dark .symbol,
-.dark select,
-.dark input[type="text"] {
+.dark .symbol {
 	filter: invert();
 }
 
