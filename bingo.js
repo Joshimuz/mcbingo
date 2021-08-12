@@ -7,15 +7,17 @@ var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 
-const ALL_COLOURS = ["", "bluesquare", "greensquare", "redsquare", "yellowsquare", "pinksquare", "brownsquare"];
+const DEFAULT_SQUARE_CLASS_NAME = "greysquare";
+const ALL_COLOURS = [DEFAULT_SQUARE_CLASS_NAME, "bluesquare", "greensquare", "redsquare", "yellowsquare", "cyansquare", "brownsquare"];
 var COLOUR_SELECTIONS = [
-	["", "greensquare"],
-	["", "bluesquare", "greensquare", "redsquare"],
+	[DEFAULT_SQUARE_CLASS_NAME, "greensquare"],
+	[DEFAULT_SQUARE_CLASS_NAME, "bluesquare", "greensquare", "redsquare"],
 	ALL_COLOURS
 ];
 var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEXT
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
 var COLOURSYMBOLS = false;
+var DARK_MODE = false;
 const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
 
 var hoveredSquare;
@@ -51,26 +53,41 @@ const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
 const COLOUR_SYMBOLS_SETTING_NAME = "bingoColourSymbols";
+const COLOUR_THEME_SETTING_NAME = "bingoColourTheme";
+const DARK_MODE_CLASS_NAME = "dark";
 
-// Dropdown menu handling.
+const SHOW_OPTIONS_MENU_CLASS_NAME = "show-options";
+
+// Dropdowns and pause menu handling.
 $(document).click(function(event) {
-	if (event.target.className.includes('dropdown-button')) {
+	const className = event.target.className;
+	if (className.includes('dropdown-button')) {
 		// if a button was clicked, toggle nearby dropdown
 		$(event.target).siblings('.dropdown').toggle(100);
-	} else {
-		if (!$(event.target).closest(".dropdown-holder").length) {
-			// Hide if click was anywhere BUT on a dropdown menu
-			$('.dropdown').each(function() {
-				$(this).hide(100);
-			});
+		return;
+	}
+	if (!$(event.target).closest(".dropdown-holder").length) {
+		// Hide if click was anywhere BUT on a dropdown menu
+		$('.dropdown').each(function() {
+			$(this).hide(100);
+		});
+	}
+	if (!$(event.target).closest(".pause-menu").length) {
+		if (event.target.id != "options-toggle-button") {
+			// Hide if click was anywhere BUT on a pause menu
+			hideOptionsMenu();
 		}
+	}
+	if (className.includes("pause-menu")) {
+		// hide if clicking on pause-menu layout, but not on buttons/sliders
+		hideOptionsMenu();
 	}
 });
 
 $(document).ready(function()
 {
 	// Set the background to a random image
-	document.body.style.backgroundImage = "url('Backgrounds/background" + (Math.floor(Math.random() * 10) + 1) + ".jpg')";
+	document.body.className += "bg" + (Math.floor(Math.random() * 10) + 1);
 
 	// By default hide the tooltips
 	$(".tooltip").hide();
@@ -134,8 +151,8 @@ $(document).ready(function()
 		hoveredSquare = null;
 	});
 	const SHORTCUT_COLOURS = {
-		48: "",
-		96: "", // Numpad
+		48: DEFAULT_SQUARE_CLASS_NAME,
+		96: DEFAULT_SQUARE_CLASS_NAME, // Numpad
 		49: "bluesquare",
 		97: "bluesquare",
 		50: "greensquare",
@@ -144,17 +161,21 @@ $(document).ready(function()
 		99: "redsquare",
 		52: "yellowsquare",
 		100: "yellowsquare",
-		53: "pinksquare",
-		101: "pinksquare",
+		53: "cyansquare",
+		101: "cyansquare",
 		54: "brownsquare",
 		102: "brownsquare",
-		81 /* Q */: ""
+		81 /* Q */: DEFAULT_SQUARE_CLASS_NAME
 	};
 	$(document).on("keydown", function(e)
 	{
 		if (hoveredSquare && e.which in SHORTCUT_COLOURS)
 		{
 			setSquareColor(hoveredSquare, SHORTCUT_COLOURS[e.which]);
+		}
+		if (e.keyCode == 27 /* Esc */)
+		{
+			toggleOptionsMenu();
 		}
 	});
 
@@ -163,6 +184,12 @@ $(document).ready(function()
 		changeVersion($(this).val());
 	});
 
+	$(".pause-menu-close").click(function() {
+		hideOptionsMenu();
+	});
+	$("#options-toggle-button").click(function() {
+		toggleOptionsMenu();
+	});
 
 	window.onpopstate = function(event)
 	{
@@ -171,6 +198,19 @@ $(document).ready(function()
 
 	loadSettings();
 });
+
+function toggleOptionsMenu()
+{
+	$("#bingo-box").toggleClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+}
+function showOptionsMenu()
+{
+	$("#bingo-box").addClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+}
+function hideOptionsMenu()
+{
+	$("#bingo-box").removeClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+}
 
 function getColourClass(square)
 {
@@ -284,6 +324,10 @@ function getSettingsFromLocalStorage()
 		// if not stored, then just use the default
 		updateColourCount();
 	}
+
+	const savedColourTheme = localStorage.getItem(COLOUR_THEME_SETTING_NAME);
+	DARK_MODE = (savedColourTheme == DARK_MODE_CLASS_NAME);
+	updateDarkMode();
 }
 
 /*
@@ -312,7 +356,7 @@ function generateNewSheet()
 	// Reset every goal square
 	forEachSquare((i, square) => {
 		square.contents().filter(function(){ return this.nodeType == NODE_TYPE_TEXT; }).remove();
-		setSquareColor(square, "");
+		setSquareColor(square, DEFAULT_SQUARE_CLASS_NAME);
 	});
 
 	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
@@ -409,13 +453,14 @@ function toggleHidden()
 }
 
 function popoutBingoCard(){
-	window.open(window.location.href, "_blank", "toolbar=no, status=no, menubar=no, scrollbars=no, width=745, height=705");
+	window.open(window.location.href, "_blank", "toolbar=no, status=no, menubar=no, scrollbars=no, width=745, height=715");
 }
 
 function toggleStreamerMode()
 {
 	STREAMER_MODE = !STREAMER_MODE;
 	$(".dropdown").hide();
+	hideOptionsMenu();
 	updateStreamerMode();
 	pushNewUrl();
 }
@@ -477,11 +522,37 @@ function updateColourSymbols()
 	button.innerHTML = COLOURSYMBOLS ? "Hide Symbols" : "Show Symbols";
 }
 
-function toggleColourSymbols(value)
+function toggleColourSymbols()
 {
 	COLOURSYMBOLS = !COLOURSYMBOLS;
 	updateColourSymbols();
-	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);	
+	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);
+}
+
+function updateDarkMode()
+{
+	const smoothTransitionClassName = "smooth-transition";
+	const body = $("body");
+	body.addClass(smoothTransitionClassName);
+	if (DARK_MODE)
+	{
+		body.addClass(DARK_MODE_CLASS_NAME);
+	}
+	else
+	{
+		body.removeClass(DARK_MODE_CLASS_NAME);
+	}
+	$(".dark-mode-button").text(DARK_MODE ? "Light Mode" : "Dark Mode");
+	setTimeout(() => {
+		body.removeClass(smoothTransitionClassName);
+	}, 1000);
+}
+
+function toggleDarkMode()
+{
+	DARK_MODE = !DARK_MODE;
+	updateDarkMode();
+	pushNewLocalSetting(COLOUR_THEME_SETTING_NAME, DARK_MODE ? DARK_MODE_CLASS_NAME : "light");
 }
 
 function pushNewUrl()
@@ -517,13 +588,7 @@ function getVersion(versionId)
 function updateVersion()
 {
 	$("#version_selection").val(VERSION.id);
-	var mainButtonText;
-	if (VERSION.id == 'dev') {
-		mainButtonText = 'dev';
-	} else {
-		mainButtonText = "v" + VERSION.id;
-	}
-	$("#versions-toggle-button").html(mainButtonText);
+	$("#versions-toggle-button").html(VERSION.name);
 	$(".versionText").html(VERSION.name);
 	if (VERSION.id != LATEST_VERSION && VERSION.stable)
 	{
@@ -570,7 +635,7 @@ function fillVersionSelection()
 
 function setSquareColor(square, colorClass)
 {
-	ALL_COLOURS.forEach(c => square.removeClass(c));
+	square.removeClass(ALL_COLOURS);
 	square.addClass(colorClass);
 }
 
@@ -614,8 +679,9 @@ function copySeedToClipboard(id, event)
 
 function showCopiedTooltip(event)
 {
-	const x = event.target.offsetLeft + event.target.offsetWidth;
-	const y = event.target.offsetTop;
+	const offset = $(event.target).offset();
+	const x = offset.left + event.target.offsetWidth;
+	const y = offset.top;
 	$("#copiedTooltip").css({left:x, top: y})
 		.css("display", "block")
 		.delay(100)
