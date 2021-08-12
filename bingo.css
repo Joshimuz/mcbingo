@@ -19,9 +19,99 @@ button:focus, input:focus {
 	src: url(Minecraftia.ttf);
 }
 
+/* Colour theme */
+:root {
+	--bg-colour: #FFF;
+	--fg-colour: #000;
+
+	--nav-shadow-colour: #575757;
+
+	--bingo-bg-colour: #EBEBEB;
+	--bingo-border-colour: #FFF;
+	--square-border-colour: #EBEBEB;
+
+	--grey-square: #C6C6C6;
+	--grey-square-hover: #EBEBEB;
+	--blue-square: #9AE8FF;
+	--blue-square-hover: #57D9FF;
+	--green-square: #CAFF70;
+	--green-square-hover: #A2CD5A;
+	--red-square: #FE6A50;
+	--red-square-hover: #CD5B45;
+	--yellow-square: #F2F210;
+	--yellow-square-hover: #D9D90B;
+	--cyan-square: #00D69B;
+	--cyan-square-hover: #00AD82;
+	--brown-square: #D5AE85;
+	--brown-square-hover: #D0955F;
+}
+
+.dark {
+	--bg-colour: #141414;
+	--fg-colour: #EFEFEF;
+
+	--nav-shadow-colour: #202020;
+
+	--bingo-bg-colour: #141414;
+	--bingo-border-colour: #202020;
+	--square-border-colour: #202020;
+
+	--grey-square: #141414;
+	--grey-square-hover: #303030;
+	--blue-square: #00566A;
+	--blue-square-hover: #00A0C4;
+	--green-square: #50833C;
+	--green-square-hover: #75BF4D;
+	--red-square: #851515;
+	--red-square-hover: #C53423;
+	--yellow-square: #808000;
+	--yellow-square-hover: #C0C038;
+	--cyan-square: #004C2F;
+	--cyan-square-hover: #309560;
+	--brown-square: #563916;
+	--brown-square-hover: #7F542F;
+}
+
+/** backgrounds **/
 html, body {
-	background-color: #F6F6F6;
+	background-color: var(--bg-colour);
 	background-size: 1920px 1080px;
+}
+html {
+	height: 100%;
+}
+body {
+	min-height: 100%;
+}
+.bg1 {
+	background-image: url(Backgrounds/background1.jpg);
+}
+.bg2 {
+	background-image: url(Backgrounds/background2.jpg);
+}
+.bg3 {
+	background-image: url(Backgrounds/background3.jpg);
+}
+.bg4 {
+	background-image: url(Backgrounds/background4.jpg);
+}
+.bg5 {
+	background-image: url(Backgrounds/background5.jpg);
+}
+.bg6 {
+	background-image: url(Backgrounds/background6.jpg);
+}
+.bg7 {
+	background-image: url(Backgrounds/background7.jpg);
+}
+.bg8 {
+	background-image: url(Backgrounds/background8.jpg);
+}
+.bg9 {
+	background-image: url(Backgrounds/background9.jpg);
+}
+.bg10 {
+	background-image: url(Backgrounds/background10.jpg);
 }
 
 /* End Base Page */
@@ -29,11 +119,11 @@ html, body {
 /* Nav Bar */
 
 #nav_section {
-	background-color: #F6F6F6;
+	background-color: var(--bg-colour);
 	width: auto;
 	height: 100px;
 	margin-bottom: 10px;
-	box-shadow: 0px 10px 5px -10px #575757;
+	box-shadow: 0px 10px 5px -10px var(--nav-shadow-colour);
 	border-bottom: 5px solid;
 	margin-bottom: 10px;
 }
@@ -62,7 +152,7 @@ html, body {
 	padding: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #EBEBEB;
+	background-color: var(--bingo-bg-colour);
 	border: 4px solid;
 }
 
@@ -70,7 +160,7 @@ html, body {
 	width: 700px;
 	height: 600px;
 	box-sizing: border-box;
-	border: 4px solid #FFF;
+	border: 4px solid var(--bingo-border-colour);
 	border-radius: 5px;
 	position: relative;
 }
@@ -82,7 +172,6 @@ html, body {
 
 #bingo {
 	border-spacing: 0px;
-	background-color: #C6C6C6;
 	border-collapse: separate;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -98,10 +187,9 @@ html, body {
 	height: 100px;
 	text-align:center;
 	font-size: .75em;
-	background-color: #C6C6C6;
-	border: 2px solid #EBEBEB;
+	border: 2px solid var(--square-border-colour);
 	box-shadow: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
-	color: #000;
+	color: var(--fg-colour);
 	padding: 5px 5px 5px 7px;
 	position: relative;
 }
@@ -119,71 +207,72 @@ html, body {
 	background-size: cover;
 }
 
-#bingo td:hover {
-	background-color: #EBEBEB;
+.dark #bingo td:hover {
+	color: #FFF; /* more contrast on hover in dark mode */
+}
+
+#bingo td.greysquare {
+	background-color: var(--grey-square);
+}
+#bingo td.greysquare:hover {
+	background-color: var(--grey-square-hover);
+}
+
+#bingo tr td.bluesquare {
+	background: var(--blue-square);
+}
+#bingo tr td.bluesquare:hover {
+	background: var(--blue-square-hover);
+}
+.bluesquare .symbol {
+	background-image: url("Symbols/heart.png");
 }
 
 #bingo tr td.greensquare {
-	background:#CAFF70;
-	color: #000;
+	background: var(--green-square);
 }
 #bingo tr td.greensquare:hover {
-	background:#A2CD5A;
+	background: var(--green-square-hover);
 }
 .greensquare .symbol {
 	background-image: url("Symbols/ok.png");
 }
 
 #bingo tr td.redsquare {
-	background:#FE6A50;
-	color: #000;
+	background: var(--red-square);
 }
 #bingo tr td.redsquare:hover {
-	background:#CD5B45;
+	background: var(--red-square-hover);
 }
 .redsquare .symbol {
 	background-image: url("Symbols/x.png");
 }
 
-#bingo tr td.bluesquare {
-	background:#9ae8ff;
-	color: #000;
-}
-#bingo tr td.bluesquare:hover {
-	background:#57d9ff;
-}
-.bluesquare .symbol {
-	background-image: url("Symbols/heart.png");
-}
-
 #bingo tr td.yellowsquare {
-	background: #F2F210;
-	color: #000;
+	background: var(--yellow-square);
 }
 #bingo tr td.yellowsquare:hover {
-	background:#D9D90B;
+	background: var(--yellow-square-hover);
 }
 .yellowsquare .symbol {
 	background-image: url("Symbols/star.png");
 }
 
-#bingo tr td.pinksquare {
-	background:#00D69B;
-	color: #000;
+#bingo tr td.cyansquare {
+	background: var(--cyan-square);
 }
-#bingo tr td.pinksquare:hover {
-	background:#00AD82;
+#bingo tr td.cyansquare:hover {
+	background: var(--cyan-square-hover);
 }
-.pinksquare .symbol {
+.cyansquare .symbol {
 	background-image: url("Symbols/moon.png");
 }
 
 #bingo tr td.brownsquare {
-	background:#D5AE85;
-	color: #000;
+	background: var(--brown-square);
 }
 #bingo tr td.brownsquare:hover {
-	background:#C8955F;
+	background: var(--brown-square-hover);
 }
 .brownsquare .symbol {
 	background-image: url("Symbols/apple.png");
@@ -217,7 +306,7 @@ html, body {
 .tooltiptext {
 	text-shadow: 2px 2px #000;
 	font-size: 12px;
-	color: #FFF;
+	color: #FFF; /* regardless of colour theme */
 	overflow: hidden;
 }
 
@@ -227,12 +316,12 @@ html, body {
 }
 
 #goalTooltip img {
-	border: 2px solid #EBEBEB;
+	border: 2px solid var(--bingo-border-colour);
 	margin-right: 5px;
 	width: 64px;
 	height: 64px;
 	float: left;
-	background-color: #C6C6C6;
+	background-color: #C6C6C6; /* regardless of colour theme */
 }
 
 #goalTooltip .tooltiptext {
@@ -261,8 +350,8 @@ html, body {
 }
 
 #hidden-table {
-	background-color: white;
-	color: #000;
+	background-color: var(--bg-colour);
+	color: var(--fg-colour);
 	border: 2px solid #000;
 	padding: 20px;
 	text-align: center;
@@ -303,6 +392,7 @@ html, body {
 	padding: 0;
 	margin-top: 10px;
 	text-align:center;
+	color: var(--fg-colour);
 }
 
 .seed_for_copying {
@@ -391,7 +481,6 @@ html, body {
 .dropdown {
 	display: none;
 	position: absolute;
-	background-color: #f9f9f9;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 }
@@ -509,7 +598,7 @@ input[type=range]::-ms-thumb:active {
 }
 
 body.streamer-mode {
-	background-size: 0, 0;
+	background-image: none;
 }
 /* End Streamer Mode */
 
@@ -517,7 +606,7 @@ body.streamer-mode {
 
 #rules-section {
 	margin-top: 10px;
-	background-color: #FFF;
+	background-color: var(--bg-colour);
 	padding: 10px 0px 10px 0px;
 	border-top: 5px solid;
 	font-size:0.75em;
@@ -534,6 +623,7 @@ body.streamer-mode {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 5px;
+	color: var(--fg-colour);
 }
 #rules-section h2,
 #rules-section h3 {
@@ -619,6 +709,54 @@ body.streamer-mode {
 
 /* End Pause Menu */
 
+#nav_section,
+#bingo-section,
+#rules-section {
+	border-color: #000;
+}
+
+select, input[type="text"] {
+	color: #000;
+}
+
+.dark .tooltipQ,
+.dark .symbol,
+.dark select,
+.dark input[type="text"] {
+	filter: invert();
+}
+
+.dark #hidden-bingo {
+	background-image: url(polished_blackstone_bricks.png);
+	background-size: 128px 128px;
+}
+
+.dark .button,
+.dark .slider-holder {
+	filter: brightness(80%) contrast(130%);
+}
+
+.dark a {
+	color: rgb(60, 164, 255);
+}
+.dark a:hover {
+	color: rgb(55, 138, 211);
+}
+.dark a:active {
+	color: rgb(238, 0, 0);
+}
+.dark a:visited {
+	color: rgb(162, 32, 162);
+}
+
+/* for smooth transition between colour themes */
+.smooth-transition * {
+	transition-property: background-color, color, border, filter;
+	transition-duration: 0.4s;
+	transition-timing-function: ease-in;
+}
+/* End Dark Mode */
+
 /* Export Popup */
 
 #export {
@@ -628,7 +766,8 @@ body.streamer-mode {
 	border: 4px solid #000;
 	top: 10%;
 	left: 25%;
-	background: white;
+	color: var(--fg-colour);
+	background: var(--bg-colour);
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -639,6 +778,21 @@ body.streamer-mode {
 #export textarea {
 	flex-grow: 1;
 	font-family: monospace;
+	color: var(--fg-colour);
+	background-color: var(--bg-colour);
 }
 
 /* End Export Popup */
+
+/* GitHub logo */
+.github-logo {
+	display: inline-block;
+	width: 200px;
+	height: 64px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(github-img.png);
+}
+.dark .github-logo {
+	background-image: url(github-img-white.png);
+}

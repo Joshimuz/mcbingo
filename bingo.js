@@ -7,15 +7,17 @@ var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
 
-const ALL_COLOURS = ["", "bluesquare", "greensquare", "redsquare", "yellowsquare", "pinksquare", "brownsquare"];
+const DEFAULT_SQUARE_CLASS_NAME = "greysquare";
+const ALL_COLOURS = [DEFAULT_SQUARE_CLASS_NAME, "bluesquare", "greensquare", "redsquare", "yellowsquare", "cyansquare", "brownsquare"];
 var COLOUR_SELECTIONS = [
-	["", "greensquare"],
-	["", "bluesquare", "greensquare", "redsquare"],
+	[DEFAULT_SQUARE_CLASS_NAME, "greensquare"],
+	[DEFAULT_SQUARE_CLASS_NAME, "bluesquare", "greensquare", "redsquare"],
 	ALL_COLOURS
 ];
 var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEXT
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
 var COLOURSYMBOLS = false;
+var DARK_MODE = false;
 const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
 
 var hoveredSquare;
@@ -51,6 +53,9 @@ const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
 const COLOUR_SYMBOLS_SETTING_NAME = "bingoColourSymbols";
+const COLOUR_THEME_SETTING_NAME = "bingoColourTheme";
+const DARK_MODE_CLASS_NAME = "dark";
+
 const SHOW_OPTIONS_MENU_CLASS_NAME = "show-options";
 
 // Dropdowns and pause menu handling.
@@ -82,7 +87,7 @@ $(document).click(function(event) {
 $(document).ready(function()
 {
 	// Set the background to a random image
-	document.body.style.backgroundImage = "url('Backgrounds/background" + (Math.floor(Math.random() * 10) + 1) + ".jpg')";
+	document.body.className += "bg" + (Math.floor(Math.random() * 10) + 1);
 
 	// By default hide the tooltips
 	$(".tooltip").hide();
@@ -146,8 +151,8 @@ $(document).ready(function()
 		hoveredSquare = null;
 	});
 	const SHORTCUT_COLOURS = {
-		48: "",
-		96: "", // Numpad
+		48: DEFAULT_SQUARE_CLASS_NAME,
+		96: DEFAULT_SQUARE_CLASS_NAME, // Numpad
 		49: "bluesquare",
 		97: "bluesquare",
 		50: "greensquare",
@@ -156,11 +161,11 @@ $(document).ready(function()
 		99: "redsquare",
 		52: "yellowsquare",
 		100: "yellowsquare",
-		53: "pinksquare",
-		101: "pinksquare",
+		53: "cyansquare",
+		101: "cyansquare",
 		54: "brownsquare",
 		102: "brownsquare",
-		81 /* Q */: ""
+		81 /* Q */: DEFAULT_SQUARE_CLASS_NAME
 	};
 	$(document).on("keydown", function(e)
 	{
@@ -319,6 +324,10 @@ function getSettingsFromLocalStorage()
 		// if not stored, then just use the default
 		updateColourCount();
 	}
+
+	const savedColourTheme = localStorage.getItem(COLOUR_THEME_SETTING_NAME);
+	DARK_MODE = (savedColourTheme == DARK_MODE_CLASS_NAME);
+	updateDarkMode();
 }
 
 /*
@@ -347,7 +356,7 @@ function generateNewSheet()
 	// Reset every goal square
 	forEachSquare((i, square) => {
 		square.contents().filter(function(){ return this.nodeType == NODE_TYPE_TEXT; }).remove();
-		setSquareColor(square, "");
+		setSquareColor(square, DEFAULT_SQUARE_CLASS_NAME);
 	});
 
 	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
@@ -513,11 +522,37 @@ function updateColourSymbols()
 	button.innerHTML = COLOURSYMBOLS ? "Hide Symbols" : "Show Symbols";
 }
 
-function toggleColourSymbols(value)
+function toggleColourSymbols()
 {
 	COLOURSYMBOLS = !COLOURSYMBOLS;
 	updateColourSymbols();
-	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);	
+	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);
+}
+
+function updateDarkMode()
+{
+	const smoothTransitionClassName = "smooth-transition";
+	const body = $("body");
+	body.addClass(smoothTransitionClassName);
+	if (DARK_MODE)
+	{
+		body.addClass(DARK_MODE_CLASS_NAME);
+	}
+	else
+	{
+		body.removeClass(DARK_MODE_CLASS_NAME);
+	}
+	$(".dark-mode-button").text(DARK_MODE ? "Light Mode" : "Dark Mode");
+	setTimeout(() => {
+		body.removeClass(smoothTransitionClassName);
+	}, 1000);
+}
+
+function toggleDarkMode()
+{
+	DARK_MODE = !DARK_MODE;
+	updateDarkMode();
+	pushNewLocalSetting(COLOUR_THEME_SETTING_NAME, DARK_MODE ? DARK_MODE_CLASS_NAME : "light");
 }
 
 function pushNewUrl()
@@ -600,7 +635,7 @@ function fillVersionSelection()
 
 function setSquareColor(square, colorClass)
 {
-	ALL_COLOURS.forEach(c => square.removeClass(c));
+	square.removeClass(ALL_COLOURS);
 	square.addClass(colorClass);
 }
 
