@@ -73,12 +73,9 @@ button:focus, input:focus {
 }
 
 /** backgrounds **/
-html, body {
+body {
 	background-color: var(--bg-colour);
 	background-size: 1920px 1080px;
-}
-html {
-	height: 100%;
 }
 body {
 	min-height: 100%;
