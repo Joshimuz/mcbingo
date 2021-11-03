@@ -73,12 +73,9 @@ button:focus, input:focus {
 }
 
 /** backgrounds **/
-html, body {
+body {
 	background-color: var(--bg-colour);
 	background-size: 1920px 1080px;
-}
-html {
-	height: 100%;
 }
 body {
 	min-height: 100%;
@@ -441,14 +438,6 @@ body {
 	font-size: 1em;
 }
 
-.button:hover,
-.slider-holder:hover .slider-text {
-	color: #FFF787;
-}
-.button:hover {
-	background-image: url("button-background-blue.png");
-}
-
 /*** Button border and insets ***/
 .button::after,
 .button::before {
@@ -472,6 +461,9 @@ body {
 	border-bottom: unset;
 	border-right: unset;
 }
+.dark .button::before {
+	border-color: #AAAAAA6e;
+}
 
 /** Dropdowns **/
 .dropdown-holder  {
@@ -491,6 +483,9 @@ body {
 	background-image: url("slider-background.png");
 	position: relative;
 	-webkit-appearance: none;
+}
+.dark .slider-holder {
+	background-image: url("slider-background-dark.png");
 }
 
 .slider,
@@ -716,13 +711,13 @@ body.streamer-mode {
 }
 
 select, input[type="text"] {
-	color: #000;
+	color: var(--fg-colour);
+	background: var(--bg-colour);
+	border-color: gray;
 }
 
 .dark .tooltipQ,
-.dark .symbol,
-.dark select,
-.dark input[type="text"] {
+.dark .symbol {
 	filter: invert();
 }
 
@@ -731,9 +726,20 @@ select, input[type="text"] {
 	background-size: 128px 128px;
 }
 
+.dark .button {
+	background-image: url("button-background-dark.png");
+}
 .dark .button,
-.dark .slider-holder {
-	filter: brightness(80%) contrast(130%);
+.dark .slider-text {
+	text-shadow: 0.125em 0.125em #303030;
+	color: var(--fg-colour);
+}
+.button:hover,
+.slider-holder:hover .slider-text {
+	color: #FFF787;
+}
+.button:hover {
+	background-image: url("button-background-blue.png");
 }
 
 .dark a {
