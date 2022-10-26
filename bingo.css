@@ -392,7 +392,7 @@ body {
 	color: var(--fg-colour);
 }
 
-.seed_for_copying {
+.seed-input {
 	font-size: 1.01em;
 	text-align: center;
 }
