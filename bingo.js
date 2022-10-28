@@ -349,7 +349,7 @@ function generateNewSheet()
 {
 	let seedInput = $(".seed-input");
 	seedInput.val(SEED);
-	seedInput.attr("size", Math.max(SEED.length, 1));
+	seedInput.attr("size", Math.max(SEED.length, 5));
 
 	// Reset the random seed
 	Math.seedrandom(SEED);
