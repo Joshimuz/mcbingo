@@ -1,4 +1,4 @@
-// This is part of a version currently in development and may be changed at any time.
+// Used in stable v4 -- should be copied as generator_v4 to introduce goal generation changes in v5
 
 var generator_v3 = function(layout, difficulty, bingoList)
 {
