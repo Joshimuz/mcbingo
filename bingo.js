@@ -347,8 +347,9 @@ function forEachSquare(f)
 
 function generateNewSheet()
 {
-	$(".seed_for_copying").val(SEED);
-	$(".seed_for_copying").attr("size", SEED.length);
+	let seedInput = $(".seed-input");
+	seedInput.val(SEED);
+	seedInput.attr("size", Math.max(SEED.length, 5));
 
 	// Reset the random seed
 	Math.seedrandom(SEED);
@@ -490,6 +491,13 @@ function changeDifficulty(value)
 {
 	DIFFICULTY = parseInt(value);
 	updateDifficulty();
+	generateNewSheet();
+	pushNewUrl();
+}
+
+function changeSeed(value)
+{
+	SEED = value;
 	generateNewSheet();
 	pushNewUrl();
 }
