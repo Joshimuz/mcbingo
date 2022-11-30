@@ -498,7 +498,6 @@ function changeDifficulty(value)
 function changeSeed(value)
 {
 	SEED = value;
-	//updateDifficulty();
 	generateNewSheet();
 	pushNewUrl();
 }
