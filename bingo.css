@@ -77,6 +77,11 @@ body {
 	background-color: var(--bg-colour);
 	background-size: 1920px 1080px;
 }
+@media only screen and (min-width: 1921px) {
+	body {
+		background-size: contain;
+	}
+}
 body {
 	min-height: 100%;
 }
