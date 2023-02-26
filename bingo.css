@@ -788,6 +788,7 @@ select, input[type="text"] {
 	align-items: stretch;
 	text-align: center;
 	padding: 4px;
+	z-index: 200;
 }
 
 #export textarea {
