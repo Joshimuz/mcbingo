@@ -57,6 +57,7 @@ const COLOUR_THEME_SETTING_NAME = "bingoColourTheme";
 const DARK_MODE_CLASS_NAME = "dark";
 
 const SHOW_OPTIONS_MENU_CLASS_NAME = "show-options";
+const SHOW_EXPORT_CLASS_NAME = "show-export";
 
 // Dropdowns and pause menu handling.
 $(document).click(function(event) {
@@ -88,11 +89,6 @@ $(document).ready(function()
 {
 	// Set the background to a random image
 	document.body.className += "bg" + (Math.floor(Math.random() * 10) + 1);
-
-	// By default hide the tooltips
-	$(".tooltip").hide();
-
-	$("#export").hide();
 
 	// On clicking a goal square
 	const bingoSquares = $("#bingo td");
@@ -708,12 +704,12 @@ function createGoalExport()
 		});
 	});
 	$("#export textarea").text(JSON.stringify(result));
-	$("#export").show();
+	$("body").addClass(SHOW_EXPORT_CLASS_NAME);
 }
 
 function hideGoalExport()
 {
-	$("#export").hide();
+	$("body").removeClass(SHOW_EXPORT_CLASS_NAME);
 }
 
 // Made this a function for readability and ease of use
