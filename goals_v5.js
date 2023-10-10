@@ -288,13 +288,13 @@ var bingoList_v5 = [
 	{name: "Create an Iron Golem", tags: [Action, Overworld]},
 	{name: "Eye of Ender", reactant: ["Pacifist"], antisynergy: ["EyeOfEnder"], tags: [Item, Nether, Combat]},
 	{name: "Rabbit Stew", tags: [Item, Overworld]},
-	{name: "Potion of Fire Resistance", infrequency: 12, tags: [Item, Nether]}, // no Pacifist reactant and no Combat tag, because can be bartered
+	{name: "Potion of Fire Resistance", infrequency: 12, tags: [Item, Nether]}, // no Pacifist reactant and no Combat tag (Blaze Powder), no Overworld tag (Water Bottles), because can be bartered
 	{name: "Potion of Healing", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Potion of Poison", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Potion of Harming", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
-	{name: "Potion of Regeneration", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
+	{name: "Potion of Regeneration", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Potion of Slowness", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
-	{name: "Potion of Strength", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
+	{name: "Potion of Strength", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Potion of Swiftness", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Potion of Weakness", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Potion of Leaping", infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, RareBiome, Overworld, Combat]},

@@ -1,4 +1,5 @@
-// This is part of a version currently in development and may be changed at any time.
+// This file should not be edited anymore since a stable version refers to it (except
+// maybe for purely visual things that don't change the goals, like typos).
 
 // Tags
 var Item = {name: "Item", max: [25, 25, 20, 20, 20], line: true},
