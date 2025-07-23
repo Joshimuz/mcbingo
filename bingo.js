@@ -41,7 +41,7 @@ var VERSIONS = [
 	{ id:"2", name:"v2 [1.12.2]",		goals: bingoList_v2, generator: generator_v2, stable: true },
 	{ id:"3", name:"v3 [1.13.2]", 		goals: bingoList_v3, generator: generator_v2, stable: true },
 	{ id:"4", name:"v4 [1.16.5]", 		goals: bingoList_v4, generator: generator_v3, stable: true },
-	{ id:"dev", name:"dev [1.16.5]", 	goals: bingoList_v5, generator: generator_v3, stable: false }, // Dev version
+	{ id:"dev", name:"dev [1.16.5]", 	goals: bingoList_v5, generator: generator_v4, stable: false }, // Dev version
 ];
 
 // This is the newest stable version that users not specifying a version will get
@@ -361,15 +361,20 @@ function generateNewSheet()
 	forEachSquare((i, square) => {
 		var goal = result[i];
 
-		//square.append(goal.generatedName + " " + goal.difficulty);
-		square.append(goal.generatedName);
+		if (!goal) {
+			square.append("✖");
+			setSquareColor(square, "redsquare");
+		}
+		else {
+			square.append(goal.generatedName);
 
-		square.attr(TOOLTIP_TEXT_ATTR_NAME, goal.tooltiptext || "");
-		square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
+			square.attr(TOOLTIP_TEXT_ATTR_NAME, goal.tooltiptext || "");
+			square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
 
-		if (goal.tags && goal.tags.findIndex(t => t.name == "Never") != -1)
-		{
-			setSquareColor(square, NEVER_HIGHLIGHT_CLASS_NAME);
+			if (goal.tags && goal.tags.findIndex(t => t.name == "Never") != -1)
+			{
+				setSquareColor(square, NEVER_HIGHLIGHT_CLASS_NAME);
+			}
 		}
 	});
 }
