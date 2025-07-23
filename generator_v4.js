@@ -22,39 +22,39 @@ var generator_v4 = function(layout, difficulty, bingoList)
         case 1:
             squareMin = 1;
             squareMax = 4;
-            lineMin = 5;
-            lineMax = 10;
+            lineMin = 6;
+            lineMax = 11;
             break;
 
         // Easy
         case 2:
-            squareMin = 2;
-            squareMax = 6;
-            lineMin = 20;
-            lineMax = 25;
+            squareMin = 4;
+            squareMax = 12;
+            lineMin = 40;
+            lineMax = 50;
             break;
 
         // Medium
         case 3:
-            squareMin = 4;
-            squareMax = 10;
-            lineMin = 30;
-            lineMax = 40;
+            squareMin = 8;
+            squareMax = 20;
+            lineMin = 60;
+            lineMax = 80;
             break;
 
         // Hard
         case 4:
-            squareMin = 8;
-            squareMax = 15;
-            lineMin = 50;
-            lineMax = 65;
+            squareMin = 16;
+            squareMax = 30;
+            lineMin = 100;
+            lineMax = 130;
             break;
 
         // Very Hard
         case 5:
-            squareMin = 12;
+            squareMin = 24;
             squareMax = 999;
-            lineMin = 75;
+            lineMin = 125;
             lineMax = 999999;
             break;
 
@@ -63,7 +63,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
             squareMin = 0;
             squareMax = 999;
             lineMin = 0;
-            lineMax = 999;
+            lineMax = 99999;
     }
 
     // Group the goals by difficulty
@@ -382,6 +382,7 @@ function distributeDifficulty(squareMin, squareMax, lineMin, lineMax, difficulti
 
         if (row === MID && col === MID) {
             // Centre fixed at max, skip assigning
+            // TODO: Make it so it doesn't the the max value but the highest from the chosen.
             return backtrack(col === SIZE - 1 ? row + 1 : row, col === SIZE - 1 ? 0 : col + 1);
         }
 

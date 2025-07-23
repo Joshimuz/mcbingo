@@ -7,9 +7,9 @@ Currently the values are quite widespread to allow for more overlap between diff
 | Difficulty    | Goal minimum  | Goal maximum  | Est. Line time    | Est. Blackout time
 | ---			| ---			| ---			| ---				| ---
 | Very Easy		| 1				| 4				| ~5 minutes		| ~1 hours
-| Easy			| 2				| 6				| ~20 minutes		| ~3 hours
-| Medium		| 4				| 10			| ~1 hour			| ~6 hours
-| Hard			| 8				| 15			| ~3.5 hours		| ~10 hours
+| Easy			| 4				| 12			| ~20 minutes		| ~3 hours
+| Medium		| 8				| 20			| ~1 hour			| ~6 hours
+| Hard			| 16			| 30			| ~3.5 hours		| ~20 hours
 | Very Hard		| 12			| →				| ???				| An entire server's lifespan.
 
 ### Generation
@@ -25,75 +25,77 @@ The current version for this is `dev`, using  `generator_v4.js` for generation a
 # The very malleable points definition
 Each goal will have a point value assigned to it. Parts will be very arbitrary, some are attempted to be described more closely in the following sections. If you're not sure how to value a given goal, you can try to keep within the specification provided in the table, although it is not a hard rule. 
 
+Note: The points have been doubled from their original values, so there is a bit more wiggle room now. Feel free to deviate ever so slightly in certain spots.
+
 The total value of a goal will consist of an arbitrary point value + the points added by necessary *biomes*, *resources*, *constraints* and *time* the player will have to visit/collect/abide. The general point evaluation with *examples* is provided below:
 
-Combat = **1** point
+Combat = **2** pts
 
 ## BIOMES/STRUCTURES
 These are the base points for finding them, added to the value of goals within them.
-- Ocean, Village = **2** pts
-- Ruined Portal = **4** pts
-- Desert, Swamp, Taiga = **5** pts
-- Pillagers / Outpost = **6** pts
-- Jungle = **10** pts
-- Mooshrooms = **20** pts
+- Ocean, Village = **4** pts
+- Ruined Portal = **8** pts
+- Desert, Swamp, Taiga = **10** pts
+- Pillagers / Outpost = **12** pts
+- Jungle = **20** pts
+- Mooshrooms = **40** pts
 
 ## ITEMS 
 Could scale by quarters of a stack (~ roughly 2+ patches of ores), so every `16` pieces (starting from 1) the point value would be added. Very subject to change however.
 
-- Basic items *(Wood, Cobblestone)* = **0** pts
-- Nonbasic items *(Stone, Paper, Flint)* = **1** point
-- Nonbasic resources *(Iron, Gold)* = **2** pts
-- Rare resources *(Redstone, Lapis)* = **3** pts
-- Mythic/Legendary resources *(Diamond)* = **5** pts
+- Basic items *(Wood, Cobblestone)* = **1** pts
+- Nonbasic items *(Stone, Paper, Flint)* = **2** pts
+- Nonbasic resources *(Iron, Gold)* = **4–5** pts
+- Rare resources *(Redstone, Lapis)* = **6** pts
+- Mythic/Legendary resources *(Diamond)* = **10** pts
 
 ## NEVER GOALS 
 Never…
-- Pick up CrafTables = **1** point
+- Pick up CrafTables = **2** pts
 - Use Fishing Rod (nothing???)
-- Wear Chestplates = **2** pts
-- Use a Sword = **2** pts
-- Use a Boat = **3** pts
-- Use Coal = **3** pts
-- Place Torches = **3** pts
-- Use Shields = **4** pts
-- Eat non-meat = **4** pts
-- Eat meat = **5** pts
-- Use an Axe = **5** pts
-- Sleep = **6** pts
-- Wear Armour = **6** pts
-- Craft Sticks = **6** pts
-- Use Debug = **7** pts
-- Use Buckets = **7** pts
-- Smelt with Furnaces = **9** pts
-- Wear Armour or use Shields = **10** pts
-- Kill any mob = **15** pts
+- Wear Chestplates = **4** pts
+- Use a Sword = **4** pts
+- Use a Boat = **6** pts
+- Use Coal = **6** pts
+- Place Torches = **6** pts
+- Use Shields = **8** pts
+- Eat non-meat = **8** pts
+- Eat meat = **10** pts
+- Use an Axe = **10** pts
+- Sleep = **12** pts
+- Wear Armour = **12** pts
+- Craft Sticks = **12** pts
+- Use Debug = **14** pts
+- Use Buckets = **14** pts
+- Smelt with Furnaces = **18** pts
+- Wear Armour or use Shields = **20** pts
+- Kill any mob = **30** pts
 
 ## TIME GOALS 
-5 minutes = **1** point (roughly)
+5 minutes = **2** points (roughly)
 
 Average duration should be taken into account for timed or chance-based events.
-- Fish Treasure & Junk = **6** pts
-*(Fishing Rod + body of water = **3** pts; a cast will take ~40 seconds; to catch a Treasure should take ~20 casts)*
-- Tree with Bee Nest = **12** pts
+- Fish Treasure & Junk = **12** pts
+*(Fishing Rod + body of water = **6** pts; a cast will take ~40 seconds; to catch a Treasure should take ~20 casts)*
+- Tree with Bee Nest = **24** pts
 *(~4.5 Bone Meal per tree; should take ~20 trees to get a Bee Nest (90 Bone Meal))*
-- Scute & Phantom Membrane = **20** pts
+- Scute & Phantom Membrane = **40** pts
 *(~5 nights for it to happen)*
-- Turtle Shell = **22** pts
+- Turtle Shell = **44** pts
 *(if you can do it once, you can do it five times, at once)*
-- Wither Skull = **20** pts
+- Wither Skull = **40** pts
 *(NF base is 8; should take ~40 Wither Skeletons, would take about an hour)*
-- Conduit = **70** pts
-*(finding a HotS = **5** pts; getting LotS3 = **8** pts; one Nautilus Shell is ~53 casts × 8)*
+- Conduit = **140** pts
+*(finding a HotS = **10** pts; getting LotS3 = **16** pts; one Nautilus Shell is ~53 casts × 8)*
 
 ## NETHER 
-- Nether base = **5** pts 
+- Nether base = **10** pts 
 (find 3 Iron, lava pool + water, build, difficulty)
-- Nether Fortress += **3** pts
-- Blaze Rod = **9** pts
+- Nether Fortress += **5** pts (added, for a total of **15**)
+- Blaze Rod = **18** pts
 ### Potions:
-- Fire Resistance = **7** pts (Can barter)
-- STR, Speed, Poison = **9** pts
-- Heal, NightVis, Invis, Leap, Weak = **10** pts
-- WaterBr, Regen, Harm, Slow = **11** pts
-- Turtle Master = **31** pts
+- Fire Resistance = **14** pts (Can barter, so Nether + Gold)
+- STR, Speed, Poison = **18** pts
+- Heal, NightVis, Invis, Leap, Weak = **20** pts
+- WaterBr, Regen, Harm, Slow = **22** pts
+- Turtle Master = **62** pts
