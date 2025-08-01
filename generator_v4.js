@@ -74,13 +74,11 @@ var generator_v4 = function(layout, difficulty, bingoList)
 
     const result = distributeDifficulty(squareMin, squareMax, lineMin, lineMax, Object.keys(groupedGoals));
     if(!result) {
-        if(difficulty == 1) {
-            console.log("Unable to generate sheet.");
-            return false;
-        }
-        console.log("The sheet failed to generate, attempting a lower difficulty:", --difficulty);
-        return generator_v4(layout, difficulty, bingoList);
+		alert("The sheet failed to generate, a different random seed will be chosen.");
+		newSeed(true);
+		return;
     }
+
     for (var i = 0; i < 5; i++) {
         for (var j = 0; j < 5; j++) {
             sheetLayout[i+j*5] = result[i][j];
@@ -112,17 +110,16 @@ var generator_v4 = function(layout, difficulty, bingoList)
 			// If the loop is stuck because no more suitable goals
 			if (failSafe >= 100)
 			{
+				// Move the difficulty down by one
+				sheetLayout[i]--;
+
 				// Check for a non-broken goal list
 				if (sheetLayout[i] == 0)
 				{
-					window.alert("The sheet failed to generate.");
+					console.log("Breaking out.");
 					break GoalGen;
 				}
 
-				// Move the difficulty down by one
-				sheetLayout[i]--;
-                if(sheetLayout[i] <= 0)
-                    sheetLayout[i] = 2;
 				failSafe = 0;
 
 				console.log("Failsafe occurred on index " + (i + 1) + "/25, changing the goal's difficulty to " + sheetLayout[i] + ".");
@@ -151,7 +148,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
 			if (currentSheet.some(r => r.name === goalCandidate.name))
 			{
 				// Get a new goal
-				console.log("'" + goalCandidate.name + "' already on the sheet, generating a new goal.");
+				//console.log("'" + goalCandidate.name + "' already on the sheet, generating a new goal.");
 				continue GoalGen;
 			}
 
@@ -171,7 +168,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
 					else if (tagCount[tag.name] >= tag.max[difficulty - 1])
 					{
 						// If we've got too many of that tag, get a new goal
-						console.log("'" + tag.name + " max reached with '" + tagCount[tag.name] + "' on the sheet, generating a new goal.");
+						//console.log("'" + tag.name + " max reached with '" + tagCount[tag.name] + "' on the sheet, generating a new goal.");
 						continue GoalGen;
 					}
 				}
@@ -188,7 +185,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
 							// If both goals have the same tag
 							if (currentSheet[indexes[z]].tags.some(r=> r.line == false && goalCandidate.tags.some(s=> r.name === s.name)))
 							{
-								console.log("'" + goalCandidate.name + "' and '" + currentSheet[indexes[z]].name + "' cannot be on same line, generating a new goal.");
+								//console.log("'" + goalCandidate.name + "' and '" + currentSheet[indexes[z]].name + "' cannot be on same line, generating a new goal.");
 								continue GoalGen;
 							}
 						}
@@ -203,7 +200,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
 				if (goalCandidate.antisynergy.some(a => antisynergys.has(a)))
 				{
 					// If it is, get a new goal
-					console.log("'" + goalCandidate.name + "' antisynergy detected, generating a new goal.");
+					//console.log("'" + goalCandidate.name + "' antisynergy detected, generating a new goal.");
 					continue GoalGen;
 				}
 			}
@@ -213,7 +210,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
 				if (goalCandidate.catalyst.some(c => reactants.has(c)))
 				{
 					// If it is, get a new goal
-					console.log("'" + goalCandidate.name + "' reactant detected, generating a new goal.");
+					//console.log("'" + goalCandidate.name + "' reactant detected, generating a new goal.");
 					continue GoalGen;
 				}
 			}
@@ -224,7 +221,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
 				if (goalCandidate.reactant.some(r => catalysts.has(r)))
 				{
 					// If it is, get a new goal
-					console.log("'" + goalCandidate.nam + "' catalyst detected, generating a new goal.");
+					//console.log("'" + goalCandidate.nam + "' catalyst detected, generating a new goal.");
 					continue GoalGen;
 				}
 			}
