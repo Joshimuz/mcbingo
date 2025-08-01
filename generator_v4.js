@@ -147,8 +147,11 @@ var generator_v4 = function(layout, difficulty, bingoList)
 				}
 			}
 
+			// Regex to remove the amounts ("3", "7" etc), amount ranges ("(2-6)", "(32-64)" etc) and plural "s"s ("BlockS", "StickS" etc) from goal names for comparison
+			const normalizeName = name =>name.replace(/^(?:\d+|\(\d+(?:[-–]\d+)?\))\s+|\b(\w{2,})s\b/g, (_, singular) => singular || '');
+
 			// If the current sheet already has this goal on it
-			if (currentSheet.some(r => r.name === goalCandidate.name))
+			if (currentSheet.some(r =>normalizeName(r.name) === normalizeName(goalCandidate.name)))
 			{
 				// Get a new goal
 				console.log("'" + goalCandidate.name + "' already on the sheet, generating a new goal.");
