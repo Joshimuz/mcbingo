@@ -16,7 +16,7 @@ var COLOUR_SELECTIONS = [
 ];
 var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEXT
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
-var COLOURSYMBOLS = false;
+var COLOURSYMBOLS = true;
 var DARK_MODE = false;
 const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
 
@@ -41,14 +41,13 @@ var VERSIONS = [
 	{ id:"2", name:"v2 [1.12.2]",		goals: bingoList_v2, generator: generator_v2, stable: true },
 	{ id:"3", name:"v3 [1.13.2]", 		goals: bingoList_v3, generator: generator_v2, stable: true },
 	{ id:"4", name:"v4 [1.16.5]", 		goals: bingoList_v4, generator: generator_v3, stable: true },
-	{ id:"dev", name:"dev [1.16.5]", 	goals: bingoList_v5, generator: generator_v3, stable: false }, // Dev version
+	{ id:"dev", name:"dev [1.21.9]", 	goals: bingoList_v5, generator: generator_v4, stable: false }, // Dev version
 ];
 
 // This is the newest stable version that users not specifying a version will get
 var LATEST_VERSION = "4";
 
 const SQUARE_COUNT = 25;
-const NODE_TYPE_TEXT = 3;
 const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
@@ -352,7 +351,7 @@ function generateNewSheet()
 
 	// Reset every goal square
 	forEachSquare((i, square) => {
-		square.contents().filter(function(){ return this.nodeType == NODE_TYPE_TEXT; }).remove();
+		square.contents().filter(function(){ return this.nodeType == Node.TEXT_NODE || this.nodeName == "BR"; }).remove();
 		setSquareColor(square, DEFAULT_SQUARE_CLASS_NAME);
 	});
 
@@ -361,15 +360,25 @@ function generateNewSheet()
 	forEachSquare((i, square) => {
 		var goal = result[i];
 
-		//square.append(goal.generatedName + " " + goal.difficulty);
-		square.append(goal.generatedName);
+		if (!goal) {
+			square.append("✖");
+			setSquareColor(square, "redsquare");
+		}
+		else {
+			square.append(goal.generatedName);
 
-		square.attr(TOOLTIP_TEXT_ATTR_NAME, goal.tooltiptext || "");
-		square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
+			square.attr(TOOLTIP_TEXT_ATTR_NAME, goal.tooltiptext || "");
+			square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
 
-		if (goal.tags && goal.tags.findIndex(t => t.name == "Never") != -1)
-		{
-			setSquareColor(square, NEVER_HIGHLIGHT_CLASS_NAME);
+			// Debug: If the URL contains "&d", append the difficulty to the goal name
+			if (gup('d') !== null || gup('diff') !== null) {
+				square.append("<br>diff: " + goal.difficulty);
+			}
+
+			if (goal.tags && goal.tags.findIndex(t => t.name == "Never") != -1)
+			{
+				setSquareColor(square, NEVER_HIGHLIGHT_CLASS_NAME);
+			}
 		}
 	});
 }
@@ -723,14 +732,7 @@ function gup( name )
 {
 	let params = new URLSearchParams(document.location.search);
 	let result = params.get(name);
-	if (result == null)
-	{
-		return "";
-	}
-	else
-	{
-		return result;
-	}
+	return result;
 }
 
 // random source: www.engin33r.net/bingo/random.js
