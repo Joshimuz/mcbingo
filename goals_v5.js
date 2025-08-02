@@ -716,7 +716,7 @@ var bingoList_v5 = [
 	{name: "Crying Obsidian", difficulty: 17, tags: [Item]},
 	{name: "Full Gold Armour", difficulty: 10, tags: [Item]},
 	{name: "Ice Block on top of a Magma Block", difficulty: 20, tags: [Item, Build, Overworld]},
-	{name: "(32-64) Blue Ice", difficulty: 22, tags: [Item, Overworld]},
+	{name: "(32-64) Blue Ice", difficulty: 23, tags: [Item, Overworld]},
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", difficulty: 24, tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/IceCube.jpg", tags: [Build, Overworld]},
 	{name: "Finish on top of a stairway to Heaven", difficulty: 18, tooltiptext: "Using Stairs, build up to Y=320 (height limit) and stand on top at the end of the Bingo. (If you need to jump over a block, it's not a finished stairway.)", tooltipimg: "Goal Tooltip Images/FinishStairs.jpg", tags: [Build, Overworld, Finish]},
 	{name: "Enchanted Golden Apple", difficulty: 27, tags: [Item]},

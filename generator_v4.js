@@ -37,7 +37,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
         // Medium (avg goal 13–16)
         case 3:
             squareMin = 9;
-            squareMax = 23;
+            squareMax = 22;
             lineMin = 65;
             lineMax = 80;
             break;

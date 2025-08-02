@@ -8,7 +8,7 @@ Currently the values are quite widespread to allow for more overlap between diff
 | ---			| ---			| ---			| ---				| ---
 | Very Easy		| 1				| 4				| ~5 minutes		| ~1 hours
 | Easy			| 4				| 12			| ~20 minutes		| ~3 hours
-| Medium		| 9				| 23			| ~1 hour			| ~6 hours
+| Medium		| 9				| 22			| ~1 hour			| ~6 hours
 | Hard			| 16			| 32			| ~3.5 hours		| ~20 hours
 | Very Hard		| 25			| →				| ???				| An entire server's lifespan.
 
