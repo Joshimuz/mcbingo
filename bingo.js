@@ -16,7 +16,7 @@ var COLOUR_SELECTIONS = [
 ];
 var COLOURCOUNT = 1; // used as an index in COLOUR_SELECTIONS and COLOURCOUNTTEXT
 var COLOURCOUNTTEXT = [ "Green only", "Blue, Green, Red", "6 Colours"];
-var COLOURSYMBOLS = false;
+var COLOURSYMBOLS = true;
 var DARK_MODE = false;
 const NEVER_HIGHLIGHT_CLASS_NAME = "greensquare";
 
