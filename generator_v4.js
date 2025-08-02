@@ -14,7 +14,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
                     0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0,
-                    0, 0, 0, 0, 0];
+                    0, 0, 0, 0, 0 ];
 
     switch(difficulty)
     {
@@ -23,10 +23,10 @@ var generator_v4 = function(layout, difficulty, bingoList)
             squareMin = 1;
             squareMax = 4;
             lineMin = 6;
-            lineMax = 11;
+            lineMax = 14;
             break;
 
-        // Easy
+        // Easy (avg goal 8–10)
         case 2:
             squareMin = 4;
             squareMax = 12;
@@ -34,28 +34,28 @@ var generator_v4 = function(layout, difficulty, bingoList)
             lineMax = 50;
             break;
 
-        // Medium
+        // Medium (avg goal 13–16)
         case 3:
-            squareMin = 8;
-            squareMax = 20;
-            lineMin = 60;
+            squareMin = 9;
+            squareMax = 23;
+            lineMin = 65;
             lineMax = 80;
             break;
 
-        // Hard
+        // Hard (avg goal 24–28)
         case 4:
             squareMin = 16;
-            squareMax = 30;
-            lineMin = 100;
-            lineMax = 130;
+            squareMax = 32;
+            lineMin = 120;
+            lineMax = 140;
             break;
 
         // Very Hard
         case 5:
-            squareMin = 24;
+            squareMin = 25;
             squareMax = 999;
-            lineMin = 125;
-            lineMax = 999999;
+            lineMin = 200;
+            lineMax = 1500;
             break;
 
         // Jesus take the wheel
@@ -72,9 +72,9 @@ var generator_v4 = function(layout, difficulty, bingoList)
         return result;
     }, {});
 
-    const result = distributeDifficulty(squareMin, squareMax, lineMin, lineMax, Object.keys(groupedGoals));
+    const result = distributeDifficulty(squareMin, squareMax, lineMin, lineMax, bingoList);
     if(!result) {
-		alert("The sheet failed to generate, a different random seed will be chosen.");
+		alert("The sheet failed to generate, a different random seed will be chosen. Report this issue on GitHub with the current seed in the URL.");
 		newSeed(true);
 		return;
     }
@@ -103,6 +103,12 @@ var generator_v4 = function(layout, difficulty, bingoList)
 		do
 		{
 			failSafe++;
+			if(!(sheetLayout[i] in groupedGoals)) {
+				while(!(sheetLayout[i] in groupedGoals)) {
+					sheetLayout[i]--;
+				}
+				console.log("No goal at that difficulty available, reducing to " + sheetLayout[i] + ".");
+			}
 			// Generate a new goal candidate from the list of goals
 			var rng = Math.floor((Math.random() * groupedGoals[sheetLayout[i]].length - 1) + 1);
 			var goalCandidate = groupedGoals[sheetLayout[i]][rng];
@@ -116,7 +122,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
 				// Check for a non-broken goal list
 				if (sheetLayout[i] == 0)
 				{
-					console.log("Breaking out.");
+					console.log("The difficulty for goal " + i + "/24 is 0, breaking out.");
 					break GoalGen;
 				}
 
@@ -313,18 +319,16 @@ function shuffle(a) {
 	return a;
 }
 
-function distributeDifficulty(squareMin, squareMax, lineMin, lineMax, difficulties) {
+function distributeDifficulty(squareMin, squareMax, lineMin, lineMax, goals) {
     const SIZE = 5;
-    const MID = 2;
-    const UNIQUE_VALS = -1; // This can be set higher for generating a more unique spread of difficulties.
-    const MAX_ATTEMPTS = 50;
+    const UNIQUE_VALS = 3; // This can be set higher for generating a more unique spread of difficulties.
+    const MAX_ATTEMPTS = 1000;
     let attempts = 0;
 
     for (let restart = 0; restart < 100; restart++) {
         attempts = 0;
         // Fill the grid with 0s
         grid = Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
-        grid[MID][MID] = squareMax; // Centre square is fixed to max value
 
         if (backtrack()) {
             return grid;
@@ -380,18 +384,24 @@ function distributeDifficulty(squareMin, squareMax, lineMin, lineMax, difficulti
 
         if (row === SIZE) return true;
 
-        if (row === MID && col === MID) {
-            // Centre fixed at max, skip assigning
-            // TODO: Make it so it doesn't the the max value but the highest from the chosen.
-            return backtrack(col === SIZE - 1 ? row + 1 : row, col === SIZE - 1 ? 0 : col + 1);
-        }
-
         const nextRow = col === SIZE - 1 ? row + 1  : row;
         const nextCol = col === SIZE - 1 ? 0        : col + 1;
 
-        // Generate values from the available difficulties between sqaureMin & squareMax, then shuffle
-        let values = shuffle(difficulties.filter(v => v >= squareMin && v <= squareMax).map(v => parseInt(v)));
-        //let values = shuffle(Array.from({ length: squareMax - squareMin + 1 }, (_, i) => i + squareMin));
+		let frequencyMap = {};
+		for (let goal of goals) {
+			let diff = goal.difficulty;
+			if (diff >= squareMin && diff <= squareMax)
+				frequencyMap[diff] = (frequencyMap[diff] || 0) + 1;
+		}
+
+		let values = [];
+		for (let [value, count] of Object.entries(frequencyMap)) {
+			for (let i = 0; i < count; i++) {
+				values.push(parseInt(value));
+			}
+		}
+
+		values = shuffle(values);
 
         for (let val of values) {
             attempts++;
