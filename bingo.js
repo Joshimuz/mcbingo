@@ -48,7 +48,6 @@ var VERSIONS = [
 var LATEST_VERSION = "4";
 
 const SQUARE_COUNT = 25;
-const NODE_TYPE_TEXT = 3;
 const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
 const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
@@ -352,7 +351,7 @@ function generateNewSheet()
 
 	// Reset every goal square
 	forEachSquare((i, square) => {
-		square.contents().filter(function(){ return this.nodeType == NODE_TYPE_TEXT; }).remove();
+		square.contents().filter(function(){ return this.nodeType == Node.TEXT_NODE || this.nodeName == "BR"; }).remove();
 		setSquareColor(square, DEFAULT_SQUARE_CLASS_NAME);
 	});
 
@@ -371,8 +370,10 @@ function generateNewSheet()
 			square.attr(TOOLTIP_TEXT_ATTR_NAME, goal.tooltiptext || "");
 			square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
 
-			// DEBUG ADD GOAL DIFFICULTY
-			//square.append(" diff: " + goal.difficulty);
+			// Debug: If the URL contains "&d", append the difficulty to the goal name
+			if (gup('d') !== null || gup('diff') !== null) {
+				square.append("<br>diff: " + goal.difficulty);
+			}
 
 			if (goal.tags && goal.tags.findIndex(t => t.name == "Never") != -1)
 			{
@@ -731,14 +732,7 @@ function gup( name )
 {
 	let params = new URLSearchParams(document.location.search);
 	let result = params.get(name);
-	if (result == null)
-	{
-		return "";
-	}
-	else
-	{
-		return result;
-	}
+	return result;
 }
 
 // random source: www.engin33r.net/bingo/random.js
