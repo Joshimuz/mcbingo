@@ -250,16 +250,19 @@ function getSettingsFromURL()
 	 * The seed should always be last, so in order to be able to add more settings,
 	 * settings and the seed are separated from eachother.
 	 */
-	var split = gup("s").split("_");
-	if (split.length == 2)
-	{
-		var settings = split[0].split("-");
-		SEED = split[1];
+	let urlSettings = gup("s");
+	if(urlSettings !== null) {
+		var split = urlSettings.split("_");
+		if (split.length == 2)
+		{
+			var settings = split[0].split("-");
+			SEED = split[1];
 
-		DIFFICULTY = parseInt(settings[0]);
-		HIDDEN = settings[1] == "1";
-		STREAMER_MODE = settings[2] == "1";
-		var selectedVersion = settings[3];
+			DIFFICULTY = parseInt(settings[0]);
+			HIDDEN = settings[1] == "1";
+			STREAMER_MODE = settings[2] == "1";
+			var selectedVersion = settings[3];
+		}
 	}
 
 	// Set default values
