@@ -6,8 +6,8 @@ The difficulty interface will likely remain, although now each goal will be assi
 Currently the values are quite widespread to allow for more overlap between difficulties, but this can certainly be changed to strenghten their identity. The generation however ensures that the difficulty is within certain limits—more on that in the [Generation](#generation) section.
 | Difficulty    | Goal minimum  | Goal maximum  | Est. Line time    | Est. Blackout time
 | ---			| ---			| ---			| ---				| ---
-| Very Easy		| 1				| 4				| ~5 minutes		| ~1 hours
-| Easy			| 4				| 12			| ~20 minutes		| ~3 hours
+| Very Easy		| 1				| 4				| ~10 minutes		| ~1 hours
+| Easy			| 4				| 12			| ~30 minutes		| ~3 hours
 | Medium		| 9				| 22			| ~1 hour			| ~6 hours
 | Hard			| 16			| 32			| ~3.5 hours		| ~20 hours
 | Very Hard		| 25			| →				| ???				| An entire server's lifespan.
