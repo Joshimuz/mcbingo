@@ -76,8 +76,8 @@ Never…
 5 minutes = **2** points (roughly)
 
 Average duration should be taken into account for timed or chance-based events.
-- Fish Treasure & Junk = **12** pts
-*(Fishing Rod + body of water = **6** pts; a cast will take ~40 seconds; to catch a Treasure should take ~20 casts)*
+- Fish Treasure & Junk = **8** pts
+*(Fishing Rod + body of water = **6** pts; a cast will take ~13 seconds; to catch a Treasure should take ~20 casts)*
 - Tree with Bee Nest = **24** pts
 *(~4.5 Bone Meal per tree; should take ~20 trees to get a Bee Nest (90 Bone Meal))*
 - Scute & Phantom Membrane = **40** pts
