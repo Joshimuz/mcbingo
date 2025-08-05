@@ -358,6 +358,7 @@ var bingoList_v5 = [
 	{name: "Detonate a TNT-Minecart", difficulty: 11, tags: [Action, Overworld]},
 	{name: "Add a Marker to a Map", difficulty: 11, tags: [Action, Overworld]},
 	{name: "Create a Snow Golem", difficulty: 12, tags: [Action, RareBiome, Overworld]},
+	{name: "Make a Creeper Ring a Bell", difficulty: 12, tooltiptext: "While weighing your options, don't forget about the creeper's weight.", tooltipimg: "Goal Tooltip Images/CreeperBell.jpg", tags: [Action, Overworld, Village]},
 	{name: "Extend a Piston", difficulty: 9, tags: [Action, Overworld]},
 	{name: "Give a Fox a Sword", difficulty: 12, tags: [Action, Overworld, RareBiome]},
 	{name: "Remove an Enchantment with a Grindstone", difficulty: 12, tags: [Action]},
