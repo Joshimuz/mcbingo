@@ -411,6 +411,7 @@ var bingoList_v5 = [
 	{name: "Gain an Ocelot's Trust", difficulty: 35, tags: [Action, Overworld, RareBiome]},
 	{name: "Shear a Mooshroom", difficulty: 40, antisynergy: ["Mooshroom"], infrequency: 2, tags: [Action, RareBiome, Overworld]},
 	{name: "Milk a Mooshroom", difficulty: 40, antisynergy: ["Mooshroom"], infrequency: 2, tags: [Action, RareBiome, Overworld]},
+	{name: "Make a Bee sting another Mob", difficulty: 40, tags: [Action, Combat, Overworld]},
 	{name: "Get a Villager into The End", difficulty: 62, tags: [Action, End, Village]},
 	{name: "Nametag a Wither", difficulty: 140, reactant: ["Pacifist"], tags: [Action, Combat, Overworld]},
 	{name: "Get a Shulker into the Overworld", difficulty: 180, tags: [Action, Combat, End, Overworld]},
