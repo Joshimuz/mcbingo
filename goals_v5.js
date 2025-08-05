@@ -626,6 +626,7 @@ var bingoList_v5 = [
 	{name: "Get Regeneration from a Beacon", difficulty: 135, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "(32-64) Wither Roses", difficulty: 160, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
 	{name: "Skull Charge Banner Pattern", difficulty: 200, tags: [Item, Nether, Combat, RareBiome, Overworld, Storm]},
+	{name: "Give a Piglin full Gold Armour", difficulty: 23, tags: [Item, Nether]},
 	//#endregion 
 
 	//#region End
