@@ -388,6 +388,7 @@ var bingoList_v5 = [
 	{name: "Place an Iron, Gold and Diamond block on top of each other", difficulty: 18, tags: [Build, Ore]},
 	{name: "Kill a hostile mob with a Sweet Berry Bush", difficulty: 20, reactant: ["Pacifist"], tags: [Action, Overworld, Combat, RareBiome]},
 	{name: "Convert a Carrot on a Stick into a Fishing Rod", difficulty: 16, tags: [Action, Overworld]},
+	{name: "Place every height of Snow next to each other", difficulty: 17, tooltiptext: "The heights of Snow are 1, 2, 3, 4, 5, 6, 7, and 8!",  tooltipimg: "Goal Tooltip Images/SnowHeights.jpg", tags: [Build, RareBiome, Overworld]},
 	{name: "Destroy a Monster Spawner", difficulty: 18, tags: [Action, Combat]},
 	{name: "Kill a Wandering Trader", difficulty: 20, reactant: ["Pacifist"], tags: [Action, Overworld, Combat]},
 	{name: "Kill a mob that is wearing Full Iron Armour", difficulty: 21, reactant: ["Pacifist"], tags: [Action, Combat]},
