@@ -418,6 +418,7 @@ var bingoList_v5 = [
 	{name: "Get a Shulker into the Overworld", difficulty: 180, tags: [Action, Combat, End, Overworld]},
 	{name: "Convert a Pig into a Zombified Piglin", difficulty: 200, tags: [Action, Overworld, Storm]},
 	{name: "Tame a Skeleton Horse", difficulty: 200, tags: [Action, Overworld, Storm]},
+	{name: "Remove an Effect from Yourself", difficulty: 8, tooltiptext: "Effects are things like Posion, Dolphion's Grace etc. Waiting for them to naturally run out doesn't count.", reactant: ["UseBuckets"], tags: [Action, Overworld]},
 	//#endregion
 	
 	//#region Mobs (Friend and Foe)
