@@ -38,6 +38,7 @@ var bingoList_v5 = [
 	{name: "(33-48) Coarse Dirt", difficulty: 5, infrequency: 4, tags: [Item, Overworld]},
 	{name: "(49-64) Coarse Dirt", difficulty: 6, infrequency: 4, tags: [Item, Overworld]},
 	{name: "Grass Block", difficulty: 14, tooltiptext: "If you don't have Silk Touch, I know a guy who might pick one up for you...", tooltipimg: "Goal Tooltip Images/GrassBlock.jpg", tags: [Item, Overworld]},
+	{name: "Rooted Dirt", difficulty: 10, tags: [Item, Overworld]},
 	//#endregion
 
 	//#region Stone
@@ -59,7 +60,9 @@ var bingoList_v5 = [
 	{name: "(17-32) Diorite", difficulty: 3, infrequency: 3, tags: [Item, Overworld]},
 	{name: "(33-48) Diorite", difficulty: 4, infrequency: 3, tags: [Item, Overworld]},
 	{name: "(49-64) Diorite", difficulty: 5, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(16-32) Mossy Cobblestone", difficulty: 10, tags: [Item, Overworld]}, // not RareBiome, because can be found in a Plains Village
+	{name: "(16-32) Mossy Cobblestone", difficulty: 10, tags: [Item, Overworld]},
+	{name: "Block of Amethyst", difficulty: 13, tags: [Item, RareBiome, Overworld]},
+	{name: "Smooth Basalt", difficulty: 11, tags: [Item]}, // No Overworld or Nether tag coz can be found in both places
 	//#endregion
 
 	//#region Wood
@@ -227,12 +230,12 @@ var bingoList_v5 = [
 	//#endregion
 
 	//#region Ores
-	{name: "Iron Block", difficulty: 4, infrequency: 3, tags: [Item, Ore]},
-	{name: "3 Iron Blocks", difficulty: 8, infrequency: 3, tags: [Item, Ore]},
-	{name: "5 Iron Blocks", difficulty: 12, infrequency: 3, tags: [Item, Ore]},
-	{name: "Gold Block", difficulty: 5, infrequency: 3, tags: [Item, Ore]},
-	{name: "3 Gold Blocks", difficulty: 10, infrequency: 3, tags: [Item, Ore]},
-	{name: "5 Gold Blocks", difficulty: 15, infrequency: 3, tags: [Item, Ore]},
+	{name: "Iron Block", difficulty: 4, antisynergy: ["IronBlock"], infrequency: 3, tags: [Item, Ore]},
+	{name: "3 Iron Blocks", difficulty: 8, antisynergy: ["IronBlock"], infrequency: 3, tags: [Item, Ore]},
+	{name: "5 Iron Blocks", difficulty: 12, antisynergy: ["IronBlock"], infrequency: 3, tags: [Item, Ore]},
+	{name: "Gold Block", difficulty: 5, antisynergy: ["GoldBlock"], infrequency: 3, tags: [Item, Ore]},
+	{name: "3 Gold Blocks", difficulty: 10, antisynergy: ["GoldBlock"], infrequency: 3, tags: [Item, Ore]},
+	{name: "5 Gold Blocks", difficulty: 15, antisynergy: ["GoldBlock"], infrequency: 3, tags: [Item, Ore]},
 	{name: "Diamond", difficulty: 9, tags: [Item]},
 	{name: "Diamond Block", difficulty: 11, infrequency: 3, tags: [Item, Ore]},
 	{name: "3 Diamond Blocks", difficulty: 17, infrequency: 3, tags: [Item, Ore]},
@@ -249,25 +252,49 @@ var bingoList_v5 = [
 	{name: "5 Blocks of Coal", difficulty: 9, reactant: ["Coal"], tags: [Item, Ore]},
 	{name: "(32-64) Iron Nuggets", difficulty: 4, tags: [Item, Ore]},
 	{name: "(32-64) Gold Nuggets", difficulty: 5, tags: [Item, Ore]},
+	{name: "(32-64) Copper Nuggets", difficulty: 4, tags: [Item, Ore, Overworld]},
 	{name: "Emerald", difficulty: 8, tags: [Item, Overworld, Ore]},
+	{name: "Copper Block", difficulty: 4, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "3 Copper Blocks", difficulty: 7, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "5 Copper Blocks", difficulty: 10, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "Raw Iron Block", difficulty: 4, antisynergy: ["IronBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "3 Raw Iron Blocks", difficulty: 8, antisynergy: ["IronBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "5 Raw Iron Blocks", difficulty: 12, antisynergy: ["IronBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "Raw Gold Block", difficulty: 5, antisynergy: ["GoldBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "3 Raw Gold Blocks", difficulty: 10, antisynergy: ["GoldBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "5 Raw Gold Blocks", difficulty: 15, antisynergy: ["GoldBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "Raw Copper Block", difficulty: 4, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "3 Raw Copper Blocks", difficulty: 7, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "5 Raw Copper Blocks", difficulty: 10, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "(2-4) Different Gold Items", difficulty: 5, tooltiptext: "Any item with 'Gold' in its name (yes, even Raw and Ingots).", tags: [Item, Ore]},
+	{name: "(5-7) Different Gold Items", difficulty: 7, tooltiptext: "Any item with 'Gold' in its name (yes, even Ingots and Ores).", tags: [Item, Ore]},
+	{name: "(3-4) Different Diamond Items", difficulty: 10, tooltiptext: "Any item with 'Diamond' in its name (yes, even itself).", tags: [Item, Ore]},
+	{name: "(5-7) Different Diamond Items", difficulty: 14, tooltiptext: "Any item with 'Diamond' in its name (yes, even itself).", tags: [Item, Ore]},
+	{name: "(5-7) Different Ores", difficulty: 32, tooltiptext: "Coal, Copper, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quartz, Nether Gold and Redstone Ores are your choices.", tooltipimg: "Goal Tooltip Images/Ores.jpg", tags: [Item, Overworld, Ore]},
 	//#endregion
 
 	//#region Tools (and weapons)
-	{name: "Lava Bucket", difficulty: 4, antisynergy: ["LavaBucket"], reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Tool]},
+	{name: "Lava Bucket", difficulty: 5, antisynergy: ["LavaBucket"], reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Tool]},
 	{name: "Milk Bucket", difficulty: 4, antisynergy: ["MilkBucket"], reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Overworld, Tool]},
 	{name: "Water Bucket", difficulty: 4, antisynergy: ["WaterBucket"], reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Overworld, Tool]},
-	{name: "Bucket of Fish", difficulty: 4, antisynergy: ["FishBucket"], reactant: ["UseBuckets"], infrequency: 4, tooltiptext: "Can be any of the types of Fish.", tooltipimg: "Goal Tooltip Images/FishBucket.jpg", tags: [Item, Ocean, Overworld, Tool]},
+	{name: "Bucket of Fish", difficulty: 5, antisynergy: ["FishBucket"], reactant: ["UseBuckets"], infrequency: 4, tooltiptext: "Can be any of the types of Fish.", tooltipimg: "Goal Tooltip Images/FishBucket.jpg", tags: [Item, Ocean, Overworld, Tool]},
+	{name: "Bucket of Cod", difficulty: 6, antisynergy: ["FishBucket"], reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Ocean, Overworld, Tool]},
+	{name: "Bucket of Salmon", difficulty: 6, antisynergy: ["FishBucket"], reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Overworld, Tool]},
+	{name: "Bucket of Tropical Fish", difficulty: 15, antisynergy: ["FishBucket"], reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Ocean, Overworld, Tool]},
+	{name: "Bucket of Pufferfish", difficulty: 17, antisynergy: ["FishBucket"], reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Ocean, Overworld, Tool]},
+	{name: "Bucket of Axolotl", difficulty: 18, antisynergy: ["FishBucket"], reactant: ["UseBuckets"], infrequency: 4, tags: [Item, Overworld, Tool]},
+	{name: "Bucket of Tadpole", difficulty: 18, reactant: ["UseBuckets"], infrequency: 4, tags: [Item, RareBiome, Overworld, Tool]},
+	{name: "Powder Snow Bucket", difficulty: 10, reactant: ["UseBuckets"], infrequency: 4, tags: [Item, RareBiome, Overworld, Tool]},
 	{name: "Fishing Rod", difficulty: 3, tags: [Item, Tool]},
-	{name: "Deplete a Hoe", difficulty: 1, tooltiptext: "Use a Hoe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
 	{name: "(9-16) Arrows", difficulty: 5, tags: [Item, Tool]}, // 2 + 1 + 2
 	{name: "(17-32) Arrows", difficulty: 6, tags: [Item, Tool]},
 	{name: "Clock", difficulty: 11, tags: [Item, Overworld, Tool]},
-	{name: "Wooden, Stone, Gold, Iron and Diamond Sword", difficulty: 14, infrequency: 2, antisynergy: ["EverySword"], tags: [Item, Tool]},
-	{name: "Wooden, Stone, Gold, Iron and Diamond Pickaxe", difficulty: 14, infrequency: 2, antisynergy: ["EveryPickaxe"], tags: [Item, Tool]},
-	{name: "Water, Lava and Milk Bucket", difficulty: 8, antisynergy: ["BucketTypes", "WaterBucket", "LavaBucket", "MilkBucket"], reactant: ["UseBuckets"], tags: [Item, Overworld, Tool]},
+	{name: "Wooden, Stone, Copper, Gold, Iron and Diamond Sword", difficulty: 15, infrequency: 2, antisynergy: ["EverySword"], tags: [Item, Tool]},
+	{name: "Wooden, Stone, Copper, Gold, Iron and Diamond Pickaxe", difficulty: 15, infrequency: 2, antisynergy: ["EveryPickaxe"], tags: [Item, Tool]},
+	{name: "Water, Lava and Milk Bucket", difficulty: 8, antisynergy: ["WaterBucket", "LavaBucket", "MilkBucket"], reactant: ["UseBuckets"], tags: [Item, Overworld, Tool]},
 	{name: "Finish where you spawned using a Compass", difficulty: 13, tooltiptext: "Be stood close enough to spin your compass within a couple blocks at the end of the game.", tooltipimg: "Goal Tooltip Images/Compass.jpg", tags: [Action, Overworld, Finish, Tool]},
 	{name: "Carrot on a Stick", difficulty: 10, tags: [Item, Tool]},
-	{name: "Water, Lava, Milk and Fish Bucket", difficulty: 10, antisynergy: ["BucketTypes", "WaterBucket", "LavaBucket", "MilkBucket", "FishBucket"], reactant: ["UseBuckets"], tooltiptext: "Can be any of the types of Fish.", tooltipimg: "Goal Tooltip Images/FishBucket.jpg", tags: [Item, Overworld, Tool]},
+	{name: "Water, Lava, Milk and Fish Bucket", difficulty: 10, antisynergy: ["WaterBucket", "LavaBucket", "MilkBucket", "FishBucket"], reactant: ["UseBuckets"], tooltiptext: "Can be any of the types of Fish.", tooltipimg: "Goal Tooltip Images/FishBucket.jpg", tags: [Item, Overworld, Tool]},
 	{name: "Blue Shield with White Flower Charge Pattern", difficulty: 14, tags: [Item, Overworld, Tool]},
 	{name: "Enchanted Golden Sword", difficulty: 14, tags: [Item, Tool]},
 	//#endregion
@@ -299,6 +326,7 @@ var bingoList_v5 = [
 	{name: "3 Different Seeds", difficulty: 10, infrequency: 2, antisynergy: ["Seeds"], tooltiptext: "Any item with \"Seeds\" in the name.", tags: [Item, Overworld]},
 	{name: "4 Different Seeds", difficulty: 25, infrequency: 2, antisynergy: ["Seeds"], tooltiptext: "Any item with \"Seeds\" in the name.", tags: [Item, Overworld]},
 	{name: "(6-15) Bamboo", difficulty: 10, tags: [Item, Overworld, RareBiome]},
+	{name: "Moss Block", difficulty: 13, tags: [Item, Overworld]},
 	//#endregion
 
 	//#region Stats
@@ -316,6 +344,9 @@ var bingoList_v5 = [
 	{name: "Kill (26-50) mobs", difficulty: 5, reactant: ["Pacifist"], tooltiptext: "Check the 'General' statistics screen!", infrequency: 3, tags: [Action, Combat, Stat]},
 	{name: "Kill (51-75) mobs", difficulty: 7, reactant: ["Pacifist"], tooltiptext: "Check the 'General' statistics screen!", infrequency: 3, tags: [Action, Combat, Stat]},
 	{name: "Kill (76-100) mobs", difficulty: 9, reactant: ["Pacifist"], tooltiptext: "Check the 'General' statistics screen!", infrequency: 3, tags: [Action, Combat, Stat]},
+	{name: "Deplete a Hoe", difficulty: 1, tooltiptext: "Use a Hoe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
+	{name: "Deplete an Iron Sword", difficulty: 10, reactant: ["SwordUse"], tooltiptext: "Use an Iron Sword until it breaks, check the 'Items' statistics screen!", tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg", tags: [Action, Stat]},
+	{name: "Deplete a Copper Pickaxe", difficulty: 8, tooltiptext: "Use an Copper Pickaxe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
 	//#endregion
 
 	//#region Action and Builds
@@ -351,7 +382,6 @@ var bingoList_v5 = [
 	{name: "Open a Door with a Target Block from 10 blocks away", difficulty: 9, tooltiptext: "YOU have to be 10 blocks away, not the Target Block from the Door.", tooltipimg: "Goal Tooltip Images/TargetAndDoor.jpg",  tags: [Action, Overworld]},
 	{name: "Repair an Iron Golem", difficulty: 10, tags: [Action, Overworld, Village]},
 	{name: "Fill a Hopper with 320 items", difficulty: 10, tags: [Action, Item]},
-	{name: "Deplete an Iron Sword", difficulty: 10, reactant: ["SwordUse"], tooltiptext: "Use an Iron Sword until it breaks, check the 'Items' statistics screen!", tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg", tags: [Action, Stat]},
 	{name: "Tame a Wolf", difficulty: 10, tags: [Action, Overworld]},
 	{name: "Clean a Pattern off a Banner", difficulty: 11, tags: [Action, Overworld]},
 	{name: "Fish a Treasure and a Junk item", difficulty: 8, tooltiptext: "Treasure: Bow, Enchanted Book, Name Tag, Nautilus Shell, Saddle. Junk: Lily Pad, Bone, Bowl, Leather, Boots, Rotten Flesh, Stick, Water Bottle, Ink Sac, Tripwire Hook", reactant: ["Fishing"], tags: [Action, Overworld]},
@@ -419,6 +449,9 @@ var bingoList_v5 = [
 	{name: "Convert a Pig into a Zombified Piglin", difficulty: 200, tags: [Action, Overworld, Storm]},
 	{name: "Tame a Skeleton Horse", difficulty: 200, tags: [Action, Overworld, Storm]},
 	{name: "Remove an Effect from Yourself", difficulty: 8, tooltiptext: "Effects are things like Posion, Dolphion's Grace etc. Waiting for them to naturally run out doesn't count.", reactant: ["UseBuckets"], tags: [Action, Overworld]},
+	{name: "Play a Goat Horn", difficulty: 22, antisynergy: ["GoatHorn"], tags: [Action, RareBiome, Overworld]},
+	{name: "Play 4 Different Goat Horns", difficulty: 32, antisynergy: ["GoatHorn"], tags: [Action, RareBiome, Overworld]},
+	{name: "Play 8 Different Goat Horns", difficulty: 150, antisynergy: ["GoatHorn"], tags: [Action, RareBiome, Overworld]},
 	//#endregion
 	
 	//#region Mobs (Friend and Foe)
@@ -432,9 +465,10 @@ var bingoList_v5 = [
 	{name: "(9-16) Feathers", difficulty: 3, antisynergy: ["Feathers"], infrequency: 5, tags: [Item]},
 	{name: "(16-24) Feathers", difficulty: 4, antisynergy: ["Feathers"], infrequency: 5, tags: [Item]},
 	{name: "(25-32) Feathers", difficulty: 5, antisynergy: ["Feathers"], infrequency: 5, tags: [Item]},
-	{name: "(5-8) Ink Sacs", difficulty: 4, antisynergy: ["InkSacs"], infrequency: 3, tags: [Item, Overworld]},
-	{name: "(9-16) Ink Sacs", difficulty: 6, antisynergy: ["InkSacs"], infrequency: 3, tags: [Item, Overworld]},
-	{name: "(17-32) Ink Sacs", difficulty: 9, antisynergy: ["InkSacs"], infrequency: 3, tags: [Item, Overworld]},
+	{name: " Ink Sac", difficulty: 3, infrequency: 2, tags: [Item, Overworld]},
+	{name: "(5-8) Ink Sacs", difficulty: 4, infrequency: 2, tags: [Item, Overworld]},
+	{name: "(9-16) Ink Sacs", difficulty: 6, infrequency: 2, tags: [Item, Overworld]},
+	{name: "(17-32) Ink Sacs", difficulty: 9, infrequency: 2, tags: [Item, Overworld]},
 	{name: "Fermented Spider Eye", difficulty: 10, tags: [Item, Overworld]}, // 5 + 3 + 2
 	{name: "Ender Pearls", difficulty: 10, infrequency: 2, tags: [Item]},
 	{name: "2 Ender Pearls", difficulty: 12, antisynergy: ["EnderPearl"], infrequency: 2, tags: [Item, Combat]},
@@ -457,10 +491,10 @@ var bingoList_v5 = [
 	{name: "Rotten Flesh, Spider Eye, Bone, Gunpowder and Ender Pearl", difficulty: 11, tags: [Item, Combat, Overworld]},
 	{name: "Honey Bottle", difficulty: 14, antisynergy: ["Honey"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "3 Honeycombs", difficulty: 14, antisynergy: ["Honeycomb"], infrequency: 2, tags: [Item, Overworld]},
-	{name: "Honey Block", difficulty: 24, antisynergy: ["Honey"], infrequency: 2, tags: [Action, Overworld]},
-	{name: "3 Honeycomb Blocks", difficulty: 24, antisynergy: ["Honeycomb"], infrequency: 2, tags: [Action, Overworld]},
-	{name: "(2-3) Honey Blocks", difficulty: 34, antisynergy: ["Honey"], infrequency: 2, tags: [Action, Overworld]},
-	{name: "(6-12) Honeycomb Blocks", difficulty: 34, antisynergy: ["Honeycomb"], infrequency: 2, tags: [Action, Overworld]},
+	{name: "Honey Block", difficulty: 24, antisynergy: ["Honey"], infrequency: 2, tags: [Item, Overworld]},
+	{name: "3 Honeycomb Blocks", difficulty: 24, antisynergy: ["Honeycomb"], infrequency: 2, tags: [Item, Overworld]},
+	{name: "(2-3) Honey Blocks", difficulty: 34, antisynergy: ["Honey"], infrequency: 2, tags: [Item, Overworld]},
+	{name: "(6-12) Honeycomb Blocks", difficulty: 34, antisynergy: ["Honeycomb"], infrequency: 2, tags: [Item, Overworld]},
 	{name: "Get a Skeleton's Bow", difficulty: 10, reactant: ["Pacifist"], tooltiptext: "Kill Skeletons until you get the rare Bow drop from one.", tags: [Item, Combat]},
 	{name: "(5-9) Slimeballs", difficulty: 16, tags: [Item, RareBiome, Overworld]},
 	{name: "Phantom Membrane", difficulty: 40, reactant: ["Pacifist"], tags: [Item, Combat, Overworld]},
@@ -468,6 +502,12 @@ var bingoList_v5 = [
 	{name: "Ominous Banner", difficulty: 16, reactant: ["Pacifist"], tags: [Item, Combat, Overworld]},
 	{name: "Brown Wool", difficulty: 11, tags: [Item, Overworld]},
 	{name: "Turtle Scute", difficulty: 40, antisynergy: ["TurtleShell"], tags: [Item, Ocean, Overworld]},
+	{name: "Capture a Blue Axolotl in a Bucket", difficulty: 201, tags: [Action, Ocean, Overworld]},
+	{name: "Get Regeneration from an Axolotl", difficulty: 20, antisynergy: ["AxolotlEffect"], tags: [Action, Combat, Ocean, Overworld]},
+	{name: "Remove Mining Fatique with an Axolotl", difficulty: 24, antisynergy: ["AxolotlEffect"], tags: [Action, Combat, Ocean, Overworld]},
+	{name: "Glow Ink Sac", difficulty: 9, tags: [Item, Overworld]},
+	{name: "(5-8) Glow Ink Sacs", difficulty: 13, tags: [Item, Overworld]},
+	{name: "Milk a Goat", difficulty: 18, tags: [Action, Overworld]},
 	//#endregion
 
 	//#region Ocean
@@ -482,10 +522,10 @@ var bingoList_v5 = [
 	{name: "Sea Lantern", difficulty: 16, antisynergy: ["SeaLantern"], infrequency: 3, tags: [Item, Combat, Ocean, Overworld]},
 	{name: "Sea Pickle", difficulty: 16, infrequency: 3, tags: [Item, Ocean, RareBiome, Overworld]},
 	{name: "(2-8) Sea Pickles", difficulty: 18, infrequency: 3, tags: [Item, Ocean, RareBiome, Overworld]},
+	{name: "(9-16) Sea Pickles", difficulty: 20, infrequency: 3, tags: [Item, Ocean, RareBiome, Overworld]},
 	{name: "Sponge", difficulty: 20, tooltiptext: "DRY Sponge, not a Wet one", tooltipimg: "Goal Tooltip Images/Sponge.jpg", tags: [Item, Combat, Ocean, Overworld]},
 	{name: "(2-4) Sea Lanterns", difficulty: 20, antisynergy: ["SeaLantern"], infrequency: 3, tags: [Item, Combat, Ocean, Overworld]},
-	{name: "(9-16) Sea Pickles", difficulty: 20, infrequency: 3, tags: [Item, Ocean, RareBiome, Overworld]},
-	{name: "(2-5) types of Dead Coral Blocks", difficulty: 20, tags: [Item, Ocean, RareBiome, Overworld]},
+	{name: "(2-5) types of Dead Coral Blocks", difficulty: 18, tags: [Item, Ocean, RareBiome, Overworld]},
 	{name: "(2-5) Prismarine Shards", difficulty: 24, infrequency: 2, tags: [Item, Ocean, Overworld]},
 	{name: "(5-10) Sea Lanterns", difficulty: 25, antisynergy: ["SeaLantern"], infrequency: 3, tags: [Item, Combat, Ocean, Overworld]},
 	{name: "(11-16) Sea Lanterns", difficulty: 30, antisynergy: ["SeaLantern"], infrequency: 3, tags: [Item, Combat, Ocean, Overworld]},
@@ -519,6 +559,7 @@ var bingoList_v5 = [
 	{name: "(16-32) Melon Slices", difficulty: 20, infrequency: 2, tags: [Item, Overworld, Food]},
 	{name: "(33-64) Melon Slices", difficulty: 21, infrequency: 2, tags: [Item, Overworld, Food]},
 	{name: "Rabbit Stew", difficulty: 14, tags: [Item, Overworld, Food]},
+	{name: "(2-6) Glow Berries", difficulty: 13, tags: [Item, Overworld, Food]},
 	//#endregion
 	
 	//#region Never
@@ -614,15 +655,18 @@ var bingoList_v5 = [
 	{name: "Get a regular Ghast into the Overworld", difficulty: 30, tooltiptext: "Not the Happy Ghast.", tags: [Action, Nether, Overworld]},
 	{name: "Every type of Pickaxe", difficulty: 30, infrequency: 2, antisynergy: ["EveryPickaxe"], tooltiptext: "Wooden, Stone, Copper, Iron, Gold, Diamond and yes, even Netherite.", tags: [Item, Nether, Netherite]},
 	{name: "Every type of Sword", difficulty: 31, infrequency: 2, antisynergy: ["EverySword"], tooltiptext: "Wooden, Stone, Copper, Iron, Gold, Diamond and yes, even Netherite.", tags: [Item, Nether, Netherite]},
-	{name: "Every type of Chestplate", difficulty: 34, tooltiptext: "Leather, Gold, Chainmail, Iron, Diamond and yes, even Netherite.", tooltipimg: "Goal Tooltip Images/chainmail chest.jpg", tags: [Item, Combat, Netherite]},
+	{name: "Every type of Chestplate", difficulty: 34, tooltiptext: "Leather, Gold, Chainmail, Copper, Iron, Diamond and yes, even Netherite.", tooltipimg: "Goal Tooltip Images/chainmail chest.jpg", tags: [Item, Combat, Netherite]},
 	{name: "12 Eyes of Ender", difficulty: 35, reactant: ["Pacifist"], tooltiptext: "How good is your luck?", tags: [Item, Nether, Combat]},
 	{name: "(12-15) Different Potions", difficulty: 35, tooltiptext: "Splash, Lingering, Enhanced and Extended variants DON'T count!", reactant: ["Pacifist"], tags: [Item, Nether, Combat, Overworld]},
 	{name: "Wither Skull", difficulty: 40, reactant: ["Pacifist"], tags: [Item, Nether, Combat, RareBiome]},
-	{name: "Kill a mob with an End Crystal", difficulty: 44, reactant: ["Pacifist"], tags: [Action, Overworld, Nether, Combat]},{name: "Netherite Ingot", difficulty: 25, tags: [Item, Nether, Netherite]},
+	{name: "Kill a mob with an End Crystal", difficulty: 44, reactant: ["Pacifist"], tags: [Action, Overworld, Nether, Combat]},
+	{name: "Netherite Ingot", difficulty: 25, tags: [Item, Nether, Netherite]},
 	{name: "Any mob head OTHER than a Wither Skeleton's", difficulty: 60, tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count.", tags: [Item, Combat, Overworld]},
 	{name: "Full Netherite Armour and Tools", difficulty: 65, tags: [Item, Nether, Netherite]},
-	{name: "Place 1 of each Mineral block on top of each other", difficulty: 75, tooltiptext: "Coal, Iron, Gold, Diamond, Redstone, Lapis, Emerald, Quartz and Netherite blocks.", tooltipimg: "Goal Tooltip Images/MineralBlocks.jpg", tags: [Item, Build, Overworld, Nether, Netherite]},
+	{name: "Place 1 of each Mineral block on top of each other", difficulty: 75, tooltiptext: "Coal, Copper, Iron, Gold, Diamond, Redstone, Lapis, Emerald, Quartz and Netherite blocks.", tooltipimg: "Goal Tooltip Images/MineralBlocks.jpg", tags: [Item, Build, Overworld, Nether, Netherite]},
+	{name: "Block of Netherite", difficulty: 50, tags: [Item, Nether, Netherite]},
 	{name: "2 Blocks of Netherite", difficulty: 90, tags: [Item, Nether, Netherite]},
+	{name: "3 Blocks of Netherite", difficulty: 130, tags: [Item, Nether, Netherite]},
 	{name: "Get Regeneration from a Beacon", difficulty: 135, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "(32-64) Wither Roses", difficulty: 160, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
 	{name: "Skull Charge Banner Pattern", difficulty: 200, tags: [Item, Nether, Combat, RareBiome, Overworld, Storm]},
@@ -686,10 +730,6 @@ var bingoList_v5 = [
 	{name: "Hay Bale", difficulty: 5, tags: [Item, Overworld]},
 	{name: "Flower Pot", difficulty: 2, tags: [Item, Overworld]},
 	{name: "(5-16) Charcoal", difficulty: 3, reactant: ["UseFurnace"], tags: [Item, Overworld]},
-	{name: "(2-4) Different Gold Items", difficulty: 5, tooltiptext: "Any item with 'Gold' in its name (yes, even Raw and Ingots).", tags: [Item]},
-	{name: "(5-7) Different Gold Items", difficulty: 7, tooltiptext: "Any item with 'Gold' in its name (yes, even Ingots and Ores).", tags: [Item]},
-	{name: "(3-4) Different Diamond Items", difficulty: 10, tooltiptext: "Any item with 'Diamond' in its name (yes, even itself).", tags: [Item]},
-	{name: "(5-7) Different Diamond Items", difficulty: 14, tooltiptext: "Any item with 'Diamond' in its name (yes, even itself).", tags: [Item]},
 	{name: "(2-5) Paper", difficulty: 3, infrequency: 2, tags: [Item, Overworld]},
 	{name: "(6-16) Paper", difficulty: 4, infrequency: 2, tags: [Item, Overworld]},
 	{name: "(2-4) Flint", difficulty: 2, infrequency: 6, tags: [Item]},
@@ -702,8 +742,9 @@ var bingoList_v5 = [
 	{name: "(2-4) Bookshelves", difficulty: 5, tags: [Item, Overworld]},
 	{name: "Jukebox", difficulty: 9, tags: [Item]},
 	{name: "(2-3) TNT", difficulty: 10, tags: [Item, Overworld]},
-	{name: "Full Iron Armour", difficulty: 8, infrequency: 3, tags: [Item]},
-	{name: "Full Leather Armour", difficulty: 8, infrequency: 3, tags: [Item]},
+	{name: "Full Iron Armour", difficulty: 8, tags: [Item]},
+	{name: "Full Leather Armour", difficulty: 8, tags: [Item]},
+	{name: "Full Copper Armour", difficulty: 7, tags: [Item]},
 	{name: "(16-32) Brick Blocks", difficulty: 8, reactant: ["UseFurnace"], tags: [Item, Overworld]},
 	{name: "Banner Pattern", difficulty: 6, tooltiptext: "Any kind of Banner Pattern.", tags: [Item, Overworld]},
 	{name: "Become Nauseous", difficulty: 5, antisynergy: ["Pufferfish"], reactant: ["EatMeat"], tags: [Item, Ocean, Overworld]},
@@ -717,6 +758,7 @@ var bingoList_v5 = [
 	{name: "(5-10) Obsidian", difficulty: 13, infrequency: 2, tags: [Item]},
 	{name: "Firework Star", difficulty: 6, tags: [Item, Overworld]},
 	{name: "(16-32) Item Frames", difficulty: 9, tags: [Item]},
+	{name: "(5-8) Glow Item Frames", difficulty: 15, tags: [Item]},
 	{name: "Saddle", difficulty: 5, tags: [Item]},
 	{name: "Heart of the Sea", difficulty: 12, tags: [Item, Ocean, Overworld]},
 	{name: "Max Scale Map", difficulty: 12, tooltiptext: "You don't need to complete it, just zoom it out to the max.", tags: [Item, Overworld]},
@@ -732,10 +774,12 @@ var bingoList_v5 = [
 	{name: "Activate a Totem of Undying", difficulty: 30, tags: [Item, Overworld]},
 	{name: "Finish by building a Scaffolding tower, then removing it", difficulty: 15, tooltiptext: "Build a 1x1 Scaffolding Tower from Bedrock to Y=320 (height limit) and then knock it all down as the final goal.", tags: [Build, Overworld, Finish]},
 	{name: "Build a 6x6 Scaffolding 'n' shape (not counting corners)", difficulty: 12, tooltiptext: "Width/height of the inside frame, disregarding corners.", tooltipimg: "Goal Tooltip Images/ScaffingN.jpg", tags: [Build, Overworld]},
-	{name: "(5-7) Different Ores", difficulty: 32, tooltiptext: "Coal, Copper, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quartz, Nether Gold and Redstone Ores are your choices.", tooltipimg: "Goal Tooltip Images/Ores.jpg", tags: [Item, Overworld]},
 	{name: "(10-32) Mycelium", difficulty: 60, tags: [Item, RareBiome, Overworld]},
 	{name: "5 types of Coral Blocks", difficulty: 23, tooltiptext: "The alive stuff, not the Dead Coral Blocks.", tooltipimg: "Goal Tooltip Images/CoralBlocks.jpg", tags: [Item, RareBiome, Ocean, Overworld]},
 	{name: "Every non-template item Diamonds are used to Craft", difficulty: 33, antisynergy: ["DiamondItems"], tooltiptext: "Block, Axe, Boots, Chestplate, Helmet, Hoe, Leggings, Pickaxe, Shovel, Sword, Enchantment Table, Firework Star and Jukebox.", tags: [Item]},
 	{name: "Get a Slimeball from a Panda", difficulty: 85, tags: [Item, Overworld, RareBiome]},
+	{name: "Light a Candle", difficulty: 14, tags: [Item, Overworld]},
+	{name: "Extinguish a Candle on a Cake", difficulty: 22, tags: [Item, Overworld]},
+	{name: "Pointed Dripstone", difficulty: 3, tags: [Item, Overworld]},
 	//#endregion
 ];
