@@ -1,4 +1,5 @@
 // This is part of a version currently in development and may be changed at any time.
+const date = new Date();
 
 var generator_v4 = function(layout, difficulty, bingoList)
 {
@@ -149,6 +150,9 @@ var generator_v4 = function(layout, difficulty, bingoList)
 					continue GoalGen;
 				}
 			}
+
+			// Scramble the eggs
+			ScrambleEggs(goalCandidate);
 
 			// Regex to remove the amounts ("3", "7" etc), amount ranges ("(2-6)", "(32-64)" etc) and plural "s"s ("BlockS", "StickS" etc) from goal names for comparison
 			const normalizeName = name =>name.replace(/^(?:\d+|\(\d+(?:[-–]\d+)?\))\s+|\b(\w{2,})s\b/g, (_, singular) => singular || '');
@@ -317,6 +321,28 @@ function shuffle(a) {
 		[a[i], a[j]] = [a[j], a[i]];
 	}
 	return a;
+}
+
+function ScrambleEggs(goalCandidate)
+{
+	if (goalCandidate.name == "Extinguish a Candle on a Cake")
+	{
+		var month = date.getMonth() + 1; // getMonth() indexs from 0 but getDate from 1 for some god awful reason
+		var day = date.getDate();
+
+		if (month == 8 && day == 19) 
+		{
+			goalCandidate.name = "Extinguish a Blue Candle on a Cake";
+			goalCandidate.tooltiptext = "Happy Birthday Joshimuz!";
+		}
+		else if (month == 1 && day == 13)
+		{
+			goalCandidate.name = "Extinguish a Green Candle on a Cake";
+			goalCandidate.tooltiptext = "Happy Birthday Faye!";
+		}
+	}
+	
+	return;
 }
 
 function distributeDifficulty(squareMin, squareMax, lineMin, lineMax, goals) {
