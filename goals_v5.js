@@ -77,7 +77,7 @@ var bingoList_v5 = [
 	{name: "(49-64) Diorite", difficulty: 5, infrequency: 3, tags: [Item, Overworld, Stone]},
 	{name: "(16-32) Mossy Cobblestone", difficulty: 10, tags: [Item, Overworld, Stone]},
 	{name: "Block of Amethyst", difficulty: 13, tags: [Item, RareBiome, Overworld, Stone]},
-	{name: "Smooth Basalt", difficulty: 11, tags: [Item, Stone]}, // No Overworld or Nether tag coz can be found in both places
+	{name: "Smooth Basalt", difficulty: 14, tags: [Item, Stone]}, // No Overworld or Nether tag coz can be found in both places
 	//#endregion
 
 	//#region Wood
@@ -335,11 +335,13 @@ var bingoList_v5 = [
 	{name: "Raw Copper Block", difficulty: 4, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
 	{name: "3 Raw Copper Blocks", difficulty: 7, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
 	{name: "5 Raw Copper Blocks", difficulty: 10, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
-	{name: "(2-4) Different Gold Items", difficulty: 5, tooltiptext: "Any item with 'Gold' in its name (yes, even Raw and Ingots).", tags: [Item, Ore]},
-	{name: "(5-7) Different Gold Items", difficulty: 7, tooltiptext: "Any item with 'Gold' in its name (yes, even Ingots and Ores).", tags: [Item, Ore]},
-	{name: "(3-4) Different Diamond Items", difficulty: 10, tooltiptext: "Any item with 'Diamond' in its name (yes, even itself).", tags: [Item, Ore]},
-	{name: "(5-7) Different Diamond Items", difficulty: 14, tooltiptext: "Any item with 'Diamond' in its name (yes, even itself).", tags: [Item, Ore]},
-	{name: "(5-7) Different Ores", difficulty: 32, tooltiptext: "Coal, Copper, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quartz, Nether Gold and Redstone Ores are your choices.", tooltipimg: "Goal Tooltip Images/Ores.jpg", tags: [Item, Overworld, Ore]},
+	{name: "(2-4) Different Gold Items", difficulty: 5, infrequency: 2, tooltiptext: "Any item with 'Gold' in its name (yes, even Raw and Ingots).", tags: [Item, Ore]},
+	{name: "(5-7) Different Gold Items", difficulty: 7, infrequency: 2, tooltiptext: "Any item with 'Gold' in its name (yes, even Ingots and Ores).", tags: [Item, Ore]},
+	{name: "(3-4) Different Diamond Items", difficulty: 10, infrequency: 2, tooltiptext: "Any item with 'Diamond' in its name (yes, even itself).", tags: [Item, Ore]},
+	{name: "(5-7) Different Diamond Items", difficulty: 14, infrequency: 2, tooltiptext: "Any item with 'Diamond' in its name (yes, even itself).", tags: [Item, Ore]},
+	{name: "5 Different Ores", difficulty: 29, infrequency: 3, tooltiptext: "Coal, Copper, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quartz, Nether Gold, Redstone Ores and Anchient Debris are your choices.", tooltipimg: "Goal Tooltip Images/Ores.jpg", tags: [Item, Overworld, Ore]},
+	{name: "6 Different Ores", difficulty: 30, infrequency: 3, tooltiptext: "Coal, Copper, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quartz, Nether Gold, Redstone Ores and Anchient Debris are your choices.", tooltipimg: "Goal Tooltip Images/Ores.jpg", tags: [Item, Overworld, Ore]},
+	{name: "7 Different Ores", difficulty: 32, infrequency: 3, tooltiptext: "Coal, Copper, Diamond, Emerald, Gold, Iron, Lapis Lazuli, Nether Quartz, Nether Gold, Redstone Ores and Anchient Debris are your choices.", tooltipimg: "Goal Tooltip Images/Ores.jpg", tags: [Item, Overworld, Ore]},
 	//#endregion
 
 	//#region Tools (and weapons)
@@ -364,7 +366,7 @@ var bingoList_v5 = [
 	{name: "Finish where you spawned using a Compass", difficulty: 13, tooltiptext: "Be stood close enough to spin your compass within a couple blocks at the end of the game.", tooltipimg: "Goal Tooltip Images/Compass.jpg", tags: [Action, Overworld, Finish, Tool]},
 	{name: "Carrot on a Stick", difficulty: 10, tags: [Item, Tool]},
 	{name: "Water, Lava, Milk and Fish Bucket", difficulty: 10, antisynergy: ["WaterBucket", "LavaBucket", "MilkBucket", "FishBucket"], reactant: ["UseBuckets"], tooltiptext: "Can be any of the types of Fish.", tooltipimg: "Goal Tooltip Images/FishBucket.jpg", tags: [Item, Overworld, Tool]},
-	{name: "Blue Shield with White Flower Charge Pattern", difficulty: 14, tags: [Item, Overworld, Tool]},
+	{name: "Blue Shield with White Flower Charge Pattern", difficulty: 11, tags: [Item, Overworld, Tool]},
 	{name: "Enchanted Golden Sword", difficulty: 14, tags: [Item, Tool]},
 	{name: "Spyglass", difficulty: 13, tags: [Item, Overworld, Tool]},
 	{name: "Boat with Chest", difficulty: 1, tags: [Item, Tool]},
@@ -420,7 +422,7 @@ var bingoList_v5 = [
 	{name: "Deplete a Hoe", difficulty: 1, tooltiptext: "Use a Hoe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
 	{name: "Deplete an Iron Sword", difficulty: 10, reactant: ["SwordUse"], tooltiptext: "Use an Iron Sword until it breaks, check the 'Items' statistics screen!", tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg", tags: [Action, Stat]},
 	{name: "Deplete a Copper Pickaxe", difficulty: 8, tooltiptext: "Use an Copper Pickaxe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
-	{name: "Kill a Warden", difficulty: 50, tags: [Action, Combat, Overworld, Stat]},
+	{name: "Kill a Warden", difficulty: 50, reactant: ["Pacifist"], tags: [Action, Combat, Overworld, Stat]},
 	//#endregion
 
 	//#region Action and Builds
@@ -484,10 +486,10 @@ var bingoList_v5 = [
 	{name: "Kill a hostile mob with Sand", difficulty: 14, reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat, Overworld]},
 	{name: "Put a Carpet on a Llama", difficulty: 14, tags: [RareBiome, Action, Overworld]},
 	{name: "Gain a Fox's Trust", difficulty: 15, tags: [Action, Overworld, RareBiome]},
-	{name: "Make two Pandas breed", difficulty: 15, tags: [Action, Overworld, RareBiome]},
+	{name: "Breed two Pandas", difficulty: 15, tags: [Action, Overworld, RareBiome]},
 	{name: "Finish by jumping from top to bottom of the world", difficulty: 15, tooltiptext: "Dig a hole to Bedrock, build to Y=320 (height limit), then jump from top to bottom at the end of the Bingo.", tooltipimg: "Goal Tooltip Images/FinishTopToBottom.jpg", tags: [Action, Build, Overworld, Finish]},
 	{name: "Kill a hostile mob with an Anvil", difficulty: 16, reactant: ["Pacifist"], tags: [Action, Combat]},
-	{name: "Ignite a TNT with a Lectern", difficulty: 16, tags: [Action, Overworld]},
+	{name: "Ignite a TNT with a Lectern", difficulty: 14, tags: [Action, Overworld]},
 	{name: "Put a Chest on a Donkey", difficulty: 16, tags: [Action, Overworld]},
 	{name: "Enchant an item", difficulty: 18, antisynergy: ["Enchant"], tags: [Action, Overworld]},
 	{name: "Place an Iron, Gold and Diamond block on top of each other", difficulty: 18, tags: [Build, Ore]},
@@ -506,7 +508,7 @@ var bingoList_v5 = [
 	{name: "Listen to an entire Music Disc", difficulty: 26, tooltiptext: "It doesn't count until the song naturally finishes!", tags: [Action]},
 	{name: "Tame a Mule", difficulty: 27, tags: [Action, Overworld]},
 	{name: "Stun a Ravager", difficulty: 28, tags: [Action, Overworld, Combat, Village]},
-	{name: "Feed a Panda a Cake", difficulty: 28, tags: [Action, Overworld, RareBiome]},
+	{name: "Feed a Panda a Cake", difficulty: 18, tags: [Action, Overworld, RareBiome]},
 	{name: "Sleep in a Woodland Mansion", difficulty: 30, tags: [Action, RareBiome, Overworld]},
 	{name: "Complete a dance with a Parrot", difficulty: 30, tooltiptext: "You also have to dance. It doesn't count until the music disc naturally finishes!", infrequency: 2, tags: [Action, RareBiome, Overworld]},
 	{name: "Create an Enchantment requiring level 10+", difficulty: 30, tags: [Action, Overworld]},
@@ -589,7 +591,7 @@ var bingoList_v5 = [
 	{name: "3 Different Froglights", difficulty: 50, tags: [Item, Overworld, Nether, RareBiome]},
 	{name: "Duplicate an Allay", difficulty: 25, tags: [Action, Overworld]},
 	{name: "Ride a Camel", difficulty: 10, tags: [Action, Overworld]},
-	{name: "Kill a Hostile Mob while riding a Camel", difficulty: 12, tags: [Action, Overworld, Combat]},
+	{name: "Kill a Hostile Mob while riding a Camel", reactant: ["Pacifist"], difficulty: 12, tags: [Action, Overworld, Combat]},
 	{name: "Sniffer Egg", difficulty: 25, tags: [Item, Overworld, Ocean, RareBiome]},
 	//#endregion
 
@@ -664,7 +666,7 @@ var bingoList_v5 = [
 	{name: "Never use Buckets", difficulty: 14, catalyst: ["UseBuckets"], tags: [Never]},
 	{name: "Never smelt with Furnaces", difficulty: 18, tooltiptext: "You can use Furnaces in crafting, but cannot use them for cooking or smelting", catalyst: ["UseFurnace"], tags: [Never]},
 	{name: "Never wear Armour or use Shields", difficulty: 20, tooltiptext: "You can use Armour/Shields in crafting, but cannot wear the Armour or block with Shields", catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
-	{name: "Pacifist", difficulty: 30, tooltiptext: "Never kill any creature, as per the statistics screen", catalyst: ["Pacifist"], tags: [Never, Stat]},
+	{name: "Pacifist", difficulty: 30, tooltiptext: "Never kill any mob, as per the statistics screen", catalyst: ["Pacifist"], tags: [Never, Stat]},
 	//#endregion
 
 	//#region Sand
@@ -706,7 +708,7 @@ var bingoList_v5 = [
 	{name: "Soul Lantern", difficulty: 12, tags: [Item, Nether]}, // Soul Sand can be found in Ancient cities, but that's dumb
 	{name: "(5-16) Soul Sand", difficulty: 12, tags: [Item, Nether]}, // Soul Sand can be found in Ancient Cities, but that's dumb
 	{name: "(5-16) Soul Soil", difficulty: 14, tags: [Item, Nether]},
-	{name: "(Try to) Sleep in the Nether", difficulty: 14, tags: [Action, Nether, Overworld]},
+	{name: "(Try to) Sleep in the Nether", difficulty: 11, tags: [Action, Nether, Overworld]},
 	{name: "Fill all 4 slots of a Soul Campfire with Porkchops", difficulty: 14, reactant: ["Pacifist"], tags: [Action, Nether, Combat]}, // Soul Sand can be found in Ancient Cities, but that's dumb
 	{name: "Potion of Fire Resistance", difficulty: 14, infrequency: 12, tags: [Item, Nether]}, // no Pacifist reactant and no Combat tag (Blaze Powder), no Overworld tag (Water Bottles), because can be bartered
 	{name: "Potion of Poison", difficulty: 18, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
@@ -727,7 +729,7 @@ var bingoList_v5 = [
 	{name: "Blaze Rod", difficulty: 18, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
 	{name: "Ride a Strider", difficulty: 18, tags: [Action, Nether]},
 	{name: "Finish on top of a Blaze Spawner", difficulty: 18, tooltiptext: "Be stood on top of a Blaze Spawner at the end of the game.", tags: [Action, Nether, Combat, Finish]},
-	{name: "Gilded Blackstone", difficulty: 20, tags: [Item, Nether, RareBiome]},
+	{name: "Gilded Blackstone", difficulty: 17, tags: [Item, Nether, RareBiome]},
 	{name: "Convert a Hoglin into a Zoglin", difficulty: 23, tags: [Action, Nether, Combat]},
 	{name: "Get a Zombified Piglin's Sword", difficulty: 23, reactant: ["Pacifist"], tooltiptext: "Kill Zombified Piglins until you get a rare drop from one, it being their Golden Sword.", tooltipimg: "Goal Tooltip Images/GoldenSword.jpg", tags: [Action, Combat, Nether]},
 	{name: "Grow a Huge Nether Fungus in the Overworld", difficulty: 23, antisynergy: ["GrowFungus"], tags: [Action, Overworld, Nether]},
@@ -752,7 +754,7 @@ var bingoList_v5 = [
 	{name: "3 Blocks of Netherite", difficulty: 130, tags: [Item, Nether, Netherite]},
 	{name: "Get Regeneration from a Beacon", difficulty: 135, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "(32-64) Wither Roses", difficulty: 160, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
-	{name: "Skull Charge Banner Pattern", difficulty: 200, tags: [Item, Nether, Combat, RareBiome, Overworld, Storm]},
+	{name: "Skull Charge Banner Pattern", difficulty: 200, reactant: ["Pacifist"], tags: [Item, Nether, Combat, RareBiome, Overworld, Storm]},
 	{name: "Give a Piglin full Gold Armour", difficulty: 23, tags: [Item, Nether]},
 	//#endregion 
 
@@ -815,11 +817,11 @@ var bingoList_v5 = [
 	{name: "Shaper Armour Trim", difficulty: 36, tags: [Item, RareBiome, Overworld, Trim]},
 	{name: "Silence Armour Trim", difficulty: 200, tags: [Item, RareBiome, Overworld, Trim]},
 	{name: "Rib Armour Trim", difficulty: 35, tags: [Item, RareBiome, Nether, Trim]},
-	{name: "Flow Armour Trim", difficulty: 45, tags: [Item, RareBiome, Overworld, Trim]},
+	{name: "Flow Armour Trim", difficulty: 45, reactant: ["Pacifist"], tags: [Item, RareBiome, Overworld, Trim]},
 	{name: "Wild Armour Trim", difficulty: 35, tags: [Item, RareBiome, Overworld, Trim]},
 	{name: "Wayfinder Armour Trim", difficulty: 36, tags: [Item, RareBiome, Overworld, Trim]},
 	{name: "Host Armour Trim", difficulty: 36, tags: [Item, RareBiome, Overworld, Trim]},
-	{name: "Tide Armour Trim", difficulty: 22, tags: [Item, Overworld, Ocean, Combat, Trim]},
+	{name: "Tide Armour Trim", difficulty: 22, reactant: ["Pacifist"], tags: [Item, Overworld, Ocean, Combat, Trim]},
 	{name: "Eye Armour Trim", difficulty: 48, tags: [Item, RareBiome, Overworld, Trim]},
 	{name: "Bolt Armour Trim", difficulty: 22, tags: [Item, RareBiome, Overworld, Trim]},
 	{name: "Apply an Armour Trim", difficulty: 15, tags: [Action, RareBiome, Trim]},
