@@ -25,7 +25,7 @@ Ore = {name: "Ore", max: [5, 4, 3, 2, 1], line: true},
 Tool = {name: "Tool", max: [5, 4, 3, 2, 1], line: true}, // And weapons
 Food = {name: "Food", max: [5, 4, 3, 2, 1], line: true},
 Storm = {name: "Storm", max: [0, 0, 0, 0, 1], line: false};
-Trim = {name: "Storm", max: [0, 0, 1, 2, 3], line: true};
+Trim = {name: "Trim", max: [0, 0, 1, 2, 3], line: true};
 
 var bingoList_v5 = [
 	// New Points System
