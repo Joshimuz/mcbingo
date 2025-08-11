@@ -14,12 +14,14 @@ Never = {name: "Never", max: [3, 3, 3, 2, 1], line: false},
 Combat = {name: "Combat", max: [5, 10, 20, 20, 20], line: true},
 Overworld = {name: "Overworld", max: [25, 25, 23, 21, 18], line: true},
 Nether = {name: "Nether", max: [0, 2, 5, 10, 15], line: true},
-End = {name: "End", max: [0, 0, 0, 1, 5], line: true},
+End = {name: "End", max: [0, 0, 0, 2, 5], line: true},
 Finish = {name: "Finish", max: [1, 1, 1, 1, 1], line: true},
 Netherite = {name: "Netherite", max: [0, 0, 0, 1, 3], line: true};
 
 // New Points System Tags
 var Wood = {name: "Wood", max: [4, 3, 2, 1, 0], line: false},
+Dirt = {name: "Dirt", max: [3, 2, 1, 0, 0], line: false},
+Stone = {name: "Dirt", max: [3, 2, 1, 0, 0], line: false},
 Ore = {name: "Ore", max: [5, 4, 3, 2, 1], line: true},
 Tool = {name: "Tool", max: [5, 4, 3, 2, 1], line: true}, // And weapons
 Food = {name: "Food", max: [5, 4, 3, 2, 1], line: true},
@@ -31,38 +33,51 @@ var bingoList_v5 = [
 	// Duplicate named goals should be avoided by the generator so less "AntiSynergy" between the same named goal should be unecerssary
 	
 	//#region Dirt
-	{name: "(33-48) Dirt", difficulty: 1, infrequency: 2, tags: [Item, Overworld]},
-	{name: "(49-64) Dirt", difficulty: 2, infrequency: 2, tags: [Item, Overworld]},
-	{name: "(9-16) Coarse Dirt", difficulty: 3, infrequency: 4, tags: [Item, Overworld]},
-	{name: "(17-32) Coarse Dirt", difficulty: 4, infrequency: 4, tags: [Item, Overworld]},
-	{name: "(33-48) Coarse Dirt", difficulty: 5, infrequency: 4, tags: [Item, Overworld]},
-	{name: "(49-64) Coarse Dirt", difficulty: 6, infrequency: 4, tags: [Item, Overworld]},
-	{name: "Grass Block", difficulty: 14, tooltiptext: "If you don't have Silk Touch, I know a guy who might pick one up for you...", tooltipimg: "Goal Tooltip Images/GrassBlock.jpg", tags: [Item, Overworld]},
-	{name: "Rooted Dirt", difficulty: 10, tags: [Item, Overworld]},
+	{name: "(33-48) Dirt", difficulty: 1, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(49-64) Dirt", difficulty: 2, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(9-16) Coarse Dirt", difficulty: 3, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(17-32) Coarse Dirt", difficulty: 4, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(33-48) Coarse Dirt", difficulty: 5, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(49-64) Coarse Dirt", difficulty: 6, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "Grass Block", difficulty: 14, tooltiptext: "If you don't have Silk Touch, I know a guy who might pick one up for you...", tooltipimg: "Goal Tooltip Images/GrassBlock.jpg", tags: [Item, Overworld, Dirt]},
+	{name: "Rooted Dirt", difficulty: 10, tags: [Item, Overworld, Dirt]},
+	{name: "Muddy Mangrove Roots", difficulty: 12, tags: [Item, Overworld, Dirt]},
+	{name: "(2-16) Mud", difficulty: 4, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(17-32) Mud", difficulty: 5, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(33-48) Mud", difficulty: 6, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(49-64) Mud", difficulty: 7, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(2-16) Packed Mud", difficulty: 6, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(17-32) Packed Mud", difficulty: 7, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(33-48) Packed Mud", difficulty: 8, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(49-64) Packed Mud", difficulty: 9, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(2-16) Mud Bricks", difficulty: 7, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(17-32) Mud Bricks", difficulty: 8, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(33-48) Mud Bricks", difficulty: 9, infrequency: 2, tags: [Item, Overworld, Dirt]},
+	{name: "(49-64) Mud Bricks", difficulty: 10, infrequency: 2, tags: [Item, Overworld, Dirt]},
 	//#endregion
 
 	//#region Stone
-	{name: "(17-32) Cobblestone", difficulty: 1, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(33-48) Cobblestone", difficulty: 2, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(49-64) Cobblestone", difficulty: 3, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(17-32) Stone", difficulty: 3, tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", infrequency: 3, reactant: ["UseFurnace"], tags: [Item, Overworld]},
-	{name: "(33-48) Stone", difficulty: 4, tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", infrequency: 3, reactant: ["UseFurnace"], tags: [Item, Overworld]},
-	{name: "(49-64) Stone", difficulty: 5, tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", infrequency: 3, reactant: ["UseFurnace"], tags: [Item, Overworld]},
-	{name: "(17-32) Smooth Stone", difficulty: 4, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(33-48) Smooth Stone", difficulty: 5, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(49-64) Smooth Stone", difficulty: 6, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(17-32) Andesite", difficulty: 3, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(33-48) Andesite", difficulty: 4, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(49-64) Andesite", difficulty: 5, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(17-32) Granite", difficulty: 3, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(33-48) Granite", difficulty: 4, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(49-64) Granite", difficulty: 5, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(17-32) Diorite", difficulty: 3, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(33-48) Diorite", difficulty: 4, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(49-64) Diorite", difficulty: 5, infrequency: 3, tags: [Item, Overworld]},
-	{name: "(16-32) Mossy Cobblestone", difficulty: 10, tags: [Item, Overworld]},
-	{name: "Block of Amethyst", difficulty: 13, tags: [Item, RareBiome, Overworld]},
-	{name: "Smooth Basalt", difficulty: 11, tags: [Item]}, // No Overworld or Nether tag coz can be found in both places
+	{name: "(17-32) Cobblestone", difficulty: 1, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(33-48) Cobblestone", difficulty: 2, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(49-64) Cobblestone", difficulty: 3, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(17-32) Stone", difficulty: 3, tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", infrequency: 3, reactant: ["UseFurnace"], tags: [Item, Overworld, Stone]},
+	{name: "(33-48) Stone", difficulty: 4, tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", infrequency: 3, reactant: ["UseFurnace"], tags: [Item, Overworld, Stone]},
+	{name: "(49-64) Stone", difficulty: 5, tooltiptext: "NOT Cobblestone.", tooltipimg: "Goal Tooltip Images/Stone.jpg", infrequency: 3, reactant: ["UseFurnace"], tags: [Item, Overworld, Stone]},
+	{name: "(17-32) Smooth Stone", difficulty: 4, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(33-48) Smooth Stone", difficulty: 5, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(49-64) Smooth Stone", difficulty: 6, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(17-32) Andesite", difficulty: 3, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(33-48) Andesite", difficulty: 4, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(49-64) Andesite", difficulty: 5, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(17-32) Granite", difficulty: 3, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(33-48) Granite", difficulty: 4, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(49-64) Granite", difficulty: 5, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(17-32) Diorite", difficulty: 3, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(33-48) Diorite", difficulty: 4, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(49-64) Diorite", difficulty: 5, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(16-32) Mossy Cobblestone", difficulty: 10, tags: [Item, Overworld, Stone]},
+	{name: "Block of Amethyst", difficulty: 13, tags: [Item, RareBiome, Overworld, Stone]},
+	{name: "Smooth Basalt", difficulty: 11, tags: [Item, Stone]}, // No Overworld or Nether tag coz can be found in both places
 	//#endregion
 
 	//#region Wood
@@ -98,6 +113,10 @@ var bingoList_v5 = [
 	{name: "(17-32) Jungle Logs", difficulty: 12, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(33-48) Jungle Logs", difficulty: 13, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(49-64) Jungle Logs", difficulty: 14, infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(7-16) Mangrove Logs", difficulty: 11, infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(17-32) Mangrove Logs", difficulty: 12, infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(33-48) Mangrove Logs", difficulty: 13, infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(49-64) Mangrove Logs", difficulty: 14, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(33-64) Oak Planks", difficulty: 1, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(65-128) Oak Planks", difficulty: 2, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(33-64) Birch Planks", difficulty: 1, infrequency: 9, tags: [Item, Overworld, Wood]},
@@ -114,6 +133,8 @@ var bingoList_v5 = [
 	{name: "(65-128) Crimson Planks", difficulty: 12, infrequency: 9, tags: [Item, Nether, Wood]},
 	{name: "(33-64) Jungle Planks", difficulty: 11, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(65-128) Jungle Planks", difficulty: 12, infrequency: 9, tags: [Item, Overworld, Wood]},	
+	{name: "(33-64) Mangrove Planks", difficulty: 11, infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(65-128) Mangrove Planks", difficulty: 12, infrequency: 9, tags: [Item, Overworld, Wood]},	
 	{name: "(5-12) Oak Wood", difficulty: 1, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(13-24) Oak Wood", difficulty: 2, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(25-36) Oak Wood", difficulty: 3, infrequency: 9, tags: [Item, Overworld, Wood]},
@@ -154,6 +175,11 @@ var bingoList_v5 = [
 	{name: "(25-36) Jungle Wood", difficulty: 13, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(37-48) Jungle Wood", difficulty: 14, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(49-60) Jungle Wood", difficulty: 15, infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(5-12) Mangrove Wood", difficulty: 11, infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(13-24) Mangrove Wood", difficulty: 12, infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(25-36) Mangrove Wood", difficulty: 13, infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(37-48) Mangrove Wood", difficulty: 14, infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(49-60) Mangrove Wood", difficulty: 15, infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(7-16) Stripped Oak Logs", difficulty: 2, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(17-32) Stripped Oak Logs", difficulty: 3, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(33-48) Stripped Oak Logs", difficulty: 4, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
@@ -186,6 +212,10 @@ var bingoList_v5 = [
 	{name: "(17-32) Stripped Jungle Logs", difficulty: 13, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(33-48) Stripped Jungle Logs", difficulty: 14, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(49-64) Stripped Jungle Logs", difficulty: 15, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(7-16) Stripped Mangrove Logs", difficulty: 12, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(17-32) Stripped Mangrove Logs", difficulty: 13, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(33-48) Stripped Mangrove Logs", difficulty: 14, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(49-64) Stripped Mangrove Logs", difficulty: 15, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(5-12) Stripped Oak Wood", difficulty: 2, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(13-24) Stripped Oak Wood", difficulty: 3, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(25-36) Stripped Oak Wood", difficulty: 4, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
@@ -226,6 +256,11 @@ var bingoList_v5 = [
 	{name: "(25-36) Stripped Jungle Wood", difficulty: 14, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(37-48) Stripped Jungle Wood", difficulty: 15, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(49-60) Stripped Jungle Wood", difficulty: 16, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(5-12) Stripped Mangrove Wood", difficulty: 12, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(13-24) Stripped Mangrove Wood", difficulty: 13, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(25-36) Stripped Mangrove Wood", difficulty: 14, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(37-48) Stripped Mangrove Wood", difficulty: 15, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
+	{name: "(49-60) Stripped Mangrove Wood", difficulty: 16, reactant: ["AxeUse"], infrequency: 9, tags: [Item, Overworld, Wood]},
 	{name: "(32-64) Sticks", difficulty: 1, infrequency: 2, tags: [Item, Wood]},
 	//#endregion
 
@@ -297,6 +332,8 @@ var bingoList_v5 = [
 	{name: "Water, Lava, Milk and Fish Bucket", difficulty: 10, antisynergy: ["WaterBucket", "LavaBucket", "MilkBucket", "FishBucket"], reactant: ["UseBuckets"], tooltiptext: "Can be any of the types of Fish.", tooltipimg: "Goal Tooltip Images/FishBucket.jpg", tags: [Item, Overworld, Tool]},
 	{name: "Blue Shield with White Flower Charge Pattern", difficulty: 14, tags: [Item, Overworld, Tool]},
 	{name: "Enchanted Golden Sword", difficulty: 14, tags: [Item, Tool]},
+	{name: "Spygalss", difficulty: 13, tags: [Item, Overworld, Tool]},
+	{name: "Boat with Chest", difficulty: 1, tags: [Item, Tool]},
 	//#endregion
 
 	//#region Vegetation
@@ -347,6 +384,7 @@ var bingoList_v5 = [
 	{name: "Deplete a Hoe", difficulty: 1, tooltiptext: "Use a Hoe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
 	{name: "Deplete an Iron Sword", difficulty: 10, reactant: ["SwordUse"], tooltiptext: "Use an Iron Sword until it breaks, check the 'Items' statistics screen!", tooltipimg: "Goal Tooltip Images/SwordDepelete.jpg", tags: [Action, Stat]},
 	{name: "Deplete a Copper Pickaxe", difficulty: 8, tooltiptext: "Use an Copper Pickaxe until it breaks, check the 'Items' statistics screen!", tags: [Action, Stat]},
+	{name: "Kill a Warden", difficulty: 50, tags: [Action, Combat, Overworld, Stat]},
 	//#endregion
 
 	//#region Action and Builds
@@ -508,6 +546,10 @@ var bingoList_v5 = [
 	{name: "Glow Ink Sac", difficulty: 9, tags: [Item, Overworld]},
 	{name: "(5-8) Glow Ink Sacs", difficulty: 13, tags: [Item, Overworld]},
 	{name: "Milk a Goat", difficulty: 18, tags: [Action, Overworld]},
+	{name: "Froglight", difficulty: 30, tags: [Item, Overworld, Nether, RareBiome]},
+	{name: "2 Different Froglights", difficulty: 40, tags: [Item, Overworld, Nether, RareBiome]},
+	{name: "3 Different Froglights", difficulty: 50, tags: [Item, Overworld, Nether, RareBiome]},
+	{name: "Duplicate an Allay", difficulty: 25, tags: [Item, Overworld]},
 	//#endregion
 
 	//#region Ocean
@@ -781,5 +823,7 @@ var bingoList_v5 = [
 	{name: "Light a Candle", difficulty: 14, tags: [Item, Overworld]},
 	{name: "Extinguish a Candle on a Cake", difficulty: 22, tags: [Item, Overworld]},
 	{name: "Pointed Dripstone", difficulty: 3, tags: [Item, Overworld]},
+	{name: "Calibrated Sculk Sensor", difficulty: 40, tags: [Item, Overworld, RareBiome]},
+	{name: "Recovery Compass", difficulty: 41, tags: [Item, Overworld, RareBiome]},
 	//#endregion
 ];

@@ -39,6 +39,9 @@ These are the base points for finding them, added to the value of goals within t
 - Jungle = **10** pts
 - Swamp = **11** pts
 - Pillagers / Outpost = **12** pts
+- Trial Chamber = **20** pts
+- Deep Dark = **30** pts
+- Ancient Cities = **35** pts
 - Mooshrooms = **40** pts
 
 ## ITEMS 
