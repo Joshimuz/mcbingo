@@ -20,7 +20,7 @@ Netherite = {name: "Netherite", max: [0, 0, 0, 1, 3], line: true};
 // New Points System Tags
 var Wood = {name: "Wood", max: [4, 3, 2, 1, 0], line: false},
 Dirt = {name: "Dirt", max: [3, 2, 1, 0, 0], line: false},
-Stone = {name: "Dirt", max: [3, 2, 1, 0, 0], line: false},
+Stone = {name: "Stone", max: [3, 2, 1, 0, 0], line: false},
 Ore = {name: "Ore", max: [5, 4, 3, 2, 1], line: true},
 Tool = {name: "Tool", max: [5, 4, 3, 2, 1], line: true}, // And weapons
 Food = {name: "Food", max: [5, 4, 3, 2, 1], line: true},
