@@ -18,6 +18,7 @@
 		<script src="goals_v4.js"></script>
 		<script src="goals_v5.js"></script>
 		<script src="bingo.js"></script>
+		<script src="therun.js"></script>
 
 		<link rel="icon" type="image/png" href="icon.png" />
 
@@ -45,6 +46,12 @@
 		<link rel="prefetch" href="Symbols/x.png" as="image">
 		<link rel="prefetch" href="button-background-blue.png" as="image">
 		<link rel="prefetch" href="stone-tile.png" as="image">
+
+		<!-- Preconnect and DNS-prefetch therun.gg for races !-->
+		<link rel="preconnect" href="https://therun.gg/">
+		<link rel="dns-prefetch" href="https://therun.gg/">
+		<link rel="preconnect" href="https://dry-surf-6b16.joshua-ed.workers.dev/">
+		<link rel="dns-prefetch" href="https://dry-surf-6b16.joshua-ed.workers.dev/">
 	</head>
 	<body>
 		<section id="nav_section">
@@ -165,8 +172,20 @@
 
 			<p><em>Note:</em> Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</p>
 
-			<h3>Playing with Others</h3>
-			<p>If you're racing together with other players, generate a Bingo sheet and then link it to them so that everyone has the same goals. You can hide the table in the Options menu before generating the seed so that everyone can reveal the sheet when you start. Make sure everyone uses the same Seed for the world too!</p>
+			<h2><a href="https://therun.gg/" target="_blank">TheRun.gg</a> Races <button class="button small-button" id="TheRunRefreshButton" title="TheRun.gg Refresh" onclick="loadAndDisplayRaces()">Refresh</button></h2>
+			<p id="TheRunTip"><em>Tip:</em> Clicking a race will open the race page in a new tab. If a sheet is listed in the description it will load on this page and copy the seed to your clipboard.</p>
+			<p id="TheRunNoRaces">No races found, visit <a href="https://therun.gg/races/create" target="_blank">TheRun.gg race creation page</a> to start your own!</p>
+			<table id="raceTable">
+				<thead>
+				<tr>
+					<th>Custom Name</th>
+					<th>Category</th>
+					<th>Creator</th>
+					<th>Created At</th>
+				</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
 
 			<h2>Other</h2>
 
