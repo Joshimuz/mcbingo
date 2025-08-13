@@ -115,11 +115,41 @@ function displayRaces() {
       <td>${"Players<br>" + race.participantCount || "Players<br>0"}</td>
     `;
 
+	// This has to be it's own thing to avoid insecure errors
+	// Copy the seed to the clipboard if there is one
+	tr.addEventListener("click", () => {
+		if (race.description) {
+			const match = race.description.match(/https?:\/\/minecraftbingo\.com[^\s"]+/i);
+			if (match) {
+				targetUrl = match[0];
+
+				// Extract seed before navigating
+				const underscoreIndex = targetUrl.lastIndexOf("_");
+				if (underscoreIndex !== -1) {
+					let seedPart = targetUrl.substring(underscoreIndex + 1);
+
+					// Trim off trailing & parameters if present
+					const ampIndex = seedPart.indexOf("&");
+					if (ampIndex !== -1) {
+					seedPart = seedPart.substring(0, ampIndex);
+					}
+
+					// Copy to clipboard immediately
+					navigator.clipboard.writeText(seedPart)
+					.then(() => console.log("Copied seed:", seedPart))
+					.catch(err => console.error("Clipboard copy failed:", err));
+				}
+			}
+		}
+	});
+
+	// Open the race page
 	tr.addEventListener("click", () => {
 		const url = `https://therun.gg/races/${race.raceId}`;
 		window.open(url, "_blank");
 	});
 
+	// Load the board with all it's settings if there is one
 	tr.addEventListener("click", () => {
 		if (race.description) {
 			// Look for a MinecraftBingo.com URL in the description that also includes a seed thingy
