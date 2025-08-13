@@ -9,10 +9,10 @@ RareBiome = {name: "RareBiome", max: [1, 2, 3, 4, 6], line: true}, // On lower d
 Ocean = {name: "Ocean", max: [5, 5, 5, 5, 5], line: true},
 Village = {name: "Village", max: [0, 1, 2, 2, 2], line: true},
 Colour = {name: "Colour", max: [2, 2, 2, 2, 2], line: true},
-Never = {name: "Never", max: [3, 3, 3, 2, 1], line: false},
+Never = {name: "Never", max: [3, 3, 2, 2, 1], line: false},
 Combat = {name: "Combat", max: [5, 10, 20, 20, 20], line: true},
 Overworld = {name: "Overworld", max: [25, 25, 23, 21, 18], line: true},
-Nether = {name: "Nether", max: [0, 2, 5, 10, 15], line: true},
+Nether = {name: "Nether", max: [0, 2, 4, 8, 16], line: true},
 End = {name: "End", max: [0, 0, 0, 2, 5], line: true},
 Finish = {name: "Finish", max: [1, 1, 1, 1, 1], line: true},
 Netherite = {name: "Netherite", max: [0, 0, 0, 1, 3], line: true};
@@ -473,13 +473,13 @@ var bingoList_v5 = [
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)", difficulty: 12, tooltiptext: "Sea Level is Y=63, but starting from higher is fine.", tags: [Action, Overworld]},
 	{name: "Finish on top of the world", difficulty: 12, tooltiptext: "Build up to Y=320 (height limit) and stand on the top at the end of the Bingo.", tooltipimg: "Goal Tooltip Images/FinishTop.jpg", tags: [Action, Build, Overworld, Finish]},
 	{name: "Use a Lead on a Rabbit", difficulty: 12, tags: [Action, Overworld]},
-	{name: "Power a Redstone Lamp", difficulty: 12, tags: [Action, Overworld]},
+	{name: "Power a Redstone Lamp", difficulty: 12, tags: [Action, Overworld, Nether]}, // While this doesn't REQUIRE the nether it really changes it's difficulty
 	{name: "Wear 4 Different Armour types at the same time", difficulty: 12, tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet.", tooltipimg: "Goal Tooltip Images/4Armour.jpg", reactant: ["WearArmour"], tags: [Action]}, // Made easier thanks to Copper Armour
 	{name: "Give a mob a Hat", difficulty: 13, tooltiptext: "This is impossible on Easy in game difficulty, and easier on Hard than Medium.", tags: [Action, Combat]},
 	{name: "Kill an Iron Golem", difficulty: 13, reactant: ["Pacifist"], tags: [Action, Overworld]},
 	{name: "Grow a Mega Jungle Tree", difficulty: 13, tooltiptext: "A mega tree is one grown with a 2x2 square of saplings.", tags: [Action, RareBiome, Overworld]},
 	{name: "Kill a hostile mob with Gravel", difficulty: 13, reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat]},
-	{name: "Bounce on a Slime Block", difficulty: 14, tooltiptext: "Get a Slime Block, place it on the ground and give it a good old bouncin' on.", tooltipimg: "Goal Tooltip Images/SlimeBlock.jpg", tags: [Action, Overworld]},
+	{name: "Bounce on a Slime Block", difficulty: 17, tooltiptext: "Get a Slime Block, place it on the ground and give it a good old bouncin' on.", tooltipimg: "Goal Tooltip Images/SlimeBlock.jpg", tags: [Action, Overworld, RareBiome]},
 	{name: "Get a '... whilst trying to escape ...' Death message", difficulty: 14, tooltiptext: "Example: 'PLAYER' drowned whilst trying to escape a Skeleton.", tags: [Action]},
 	{name: "Poison a Parrot", difficulty: 14, reactant: ["Pacifist"], infrequency: 2, tags: [Action, RareBiome, Overworld]},
 	{name: "Tame a Parrot", difficulty: 14, infrequency: 2, tags: [Action, RareBiome, Overworld]},
