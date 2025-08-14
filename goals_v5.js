@@ -476,7 +476,7 @@ var bingoList_v5 = [
 	{name: "Power a Redstone Lamp", difficulty: 12, tags: [Action, Overworld, Nether]}, // While this doesn't REQUIRE the nether it really changes it's difficulty
 	{name: "Wear 4 Different Armour types at the same time", difficulty: 12, tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet.", tooltipimg: "Goal Tooltip Images/4Armour.jpg", reactant: ["WearArmour"], tags: [Action]}, // Made easier thanks to Copper Armour
 	{name: "Give a mob a Hat", difficulty: 13, tooltiptext: "This is impossible on Easy in game difficulty, and easier on Hard than Medium.", tags: [Action, Combat]},
-	{name: "Kill an Iron Golem", difficulty: 13, reactant: ["Pacifist"], tags: [Action, Overworld]},
+	{name: "Kill an Iron Golem", difficulty: 7, reactant: ["Pacifist"], tags: [Action, Overworld]},
 	{name: "Grow a Mega Jungle Tree", difficulty: 13, tooltiptext: "A mega tree is one grown with a 2x2 square of saplings.", tags: [Action, RareBiome, Overworld]},
 	{name: "Kill a hostile mob with Gravel", difficulty: 13, reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat]},
 	{name: "Bounce on a Slime Block", difficulty: 17, tooltiptext: "Get a Slime Block, place it on the ground and give it a good old bouncin' on.", tooltipimg: "Goal Tooltip Images/SlimeBlock.jpg", tags: [Action, Overworld, RareBiome]},
@@ -497,8 +497,8 @@ var bingoList_v5 = [
 	{name: "Convert a Carrot on a Stick into a Fishing Rod", difficulty: 16, tags: [Action, Overworld]},
 	{name: "Place every height of Snow next to each other", difficulty: 17, tooltiptext: "The heights of Snow are 1, 2, 3, 4, 5, 6, 7, and 8!",  tooltipimg: "Goal Tooltip Images/SnowHeights.jpg", tags: [Build, RareBiome, Overworld]},
 	{name: "Destroy a Monster Spawner", difficulty: 18, tags: [Action, Combat]},
-	{name: "Kill a Wandering Trader", difficulty: 20, reactant: ["Pacifist"], tags: [Action, Overworld, Combat]},
-	{name: "Kill a mob that is wearing Full Iron Armour", difficulty: 21, reactant: ["Pacifist"], tags: [Action, Combat]},
+	{name: "Kill a Wandering Trader", difficulty: 64, reactant: ["Pacifist"], tags: [Action, Overworld, Combat]}, // On average takes 14.3 minecraft days (20 mins each) to spawn
+	{name: "Kill a mob that is wearing Full Iron Armour", difficulty: 18, reactant: ["Pacifist"], tags: [Action, Combat]},
 	{name: "Throw a Mending Book into Lava", difficulty: 22, tags: [Action]},
 	{name: "Enchant 5 different items", difficulty: 24, antisynergy: ["Enchant"], tags: [Action, Overworld]},
 	{name: "Nametag an Enderman", difficulty: 24, tags: [Action, Combat, Overworld]},
@@ -530,6 +530,7 @@ var bingoList_v5 = [
 	{name: "Play 8 Different Goat Horns", difficulty: 150, antisynergy: ["GoatHorn"], tags: [Action, RareBiome, Overworld]},
 	{name: "Fill a Chiseled Bookshelf", difficulty: 12, tags: [Action]},
 	{name: "Fill a Chiseled Bookshelf with Enchanted Books", difficulty: 22, tags: [Action]},
+	{name: "Ice Block on top of a Magma Block", difficulty: 12, tags: [Build, Overworld]},
 	//#endregion
 	
 	//#region Mobs (Friend and Foe)
@@ -590,8 +591,8 @@ var bingoList_v5 = [
 	{name: "2 Different Froglights", difficulty: 40, tags: [Item, Overworld, Nether, RareBiome]},
 	{name: "3 Different Froglights", difficulty: 50, tags: [Item, Overworld, Nether, RareBiome]},
 	{name: "Duplicate an Allay", difficulty: 25, tags: [Action, Overworld]},
-	{name: "Ride a Camel", difficulty: 10, tags: [Action, Overworld]},
-	{name: "Kill a Hostile Mob while riding a Camel", reactant: ["Pacifist"], difficulty: 12, tags: [Action, Overworld, Combat]},
+	{name: "Ride a Camel", difficulty: 9, tags: [Action, Overworld]},
+	{name: "Kill a Hostile Mob while riding a Camel", reactant: ["Pacifist"], difficulty: 10, tags: [Action, Overworld, Combat]},
 	{name: "Sniffer Egg", difficulty: 25, tags: [Item, Overworld, Ocean, RareBiome]},
 	//#endregion
 
@@ -641,8 +642,8 @@ var bingoList_v5 = [
 	{name: "(2-6) Sweet Berries", difficulty: 10, tags: [Item, Overworld, RareBiome, Food]},
 	{name: "Drink a Suspicious Stew", difficulty: 10, reactant: ["EatNonMeat"], tags: [Item, Overworld, Food]},
 	{name: "Beetroot Soup", difficulty: 12, tags: [Item, Overworld, Food]},
-	{name: "(16-32) Melon Slices", difficulty: 20, infrequency: 2, tags: [Item, Overworld, Food]},
-	{name: "(33-64) Melon Slices", difficulty: 21, infrequency: 2, tags: [Item, Overworld, Food]},
+	{name: "(16-32) Melon Slices", difficulty: 11, infrequency: 2, tags: [Item, Overworld, Food]},
+	{name: "(33-64) Melon Slices", difficulty: 12, infrequency: 2, tags: [Item, Overworld, Food]},
 	{name: "Rabbit Stew", difficulty: 14, reactant: ["UseFurnace"], tags: [Item, Overworld, Food]},
 	{name: "(2-6) Glow Berries", difficulty: 13, tags: [Item, Overworld, Food]},
 	//#endregion
@@ -665,7 +666,7 @@ var bingoList_v5 = [
 	{name: "Never use Debug (F3)", difficulty: 14, tags: [Never]},
 	{name: "Never use Buckets", difficulty: 14, catalyst: ["UseBuckets"], tags: [Never]},
 	{name: "Never smelt with Furnaces", difficulty: 18, tooltiptext: "You can use Furnaces in crafting, but cannot use them for cooking or smelting", catalyst: ["UseFurnace"], tags: [Never]},
-	{name: "Never wear Armour or use Shields", difficulty: 20, tooltiptext: "You can use Armour/Shields in crafting, but cannot wear the Armour or block with Shields", catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
+	{name: "Never wear Armour or use Shields", difficulty: 15, tooltiptext: "You can use Armour/Shields in crafting, but cannot wear the Armour or block with Shields", catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
 	{name: "Pacifist", difficulty: 30, tooltiptext: "Never kill any mob, as per the statistics screen", catalyst: ["Pacifist"], tags: [Never, Stat]},
 	//#endregion
 
@@ -823,7 +824,7 @@ var bingoList_v5 = [
 	{name: "Host Armour Trim", difficulty: 36, tags: [Item, RareBiome, Overworld, Trim]},
 	{name: "Tide Armour Trim", difficulty: 22, reactant: ["Pacifist"], tags: [Item, Overworld, Ocean, Combat, Trim]},
 	{name: "Eye Armour Trim", difficulty: 48, tags: [Item, RareBiome, Overworld, Trim]},
-	{name: "Bolt Armour Trim", difficulty: 22, tags: [Item, RareBiome, Overworld, Trim]},
+	{name: "Bolt Armour Trim", difficulty: 25, reactant: ["Pacifist"], tags: [Item, RareBiome, Overworld, Trim]},
 	{name: "Apply an Armour Trim", difficulty: 15, tags: [Action, RareBiome, Trim]},
 	//#endregion
 
@@ -871,7 +872,6 @@ var bingoList_v5 = [
 	{name: "Max Scale Map", difficulty: 12, tooltiptext: "You don't need to complete it, just zoom it out to the max.", tags: [Item, Overworld]},
 	{name: "Crying Obsidian", difficulty: 17, tags: [Item]},
 	{name: "Full Gold Armour", difficulty: 10, tags: [Item]},
-	{name: "Ice Block on top of a Magma Block", difficulty: 20, tags: [Item, Build, Overworld]},
 	{name: "(32-64) Blue Ice", difficulty: 23, tags: [Item, Overworld]},
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", difficulty: 24, tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "Goal Tooltip Images/IceCube.jpg", tags: [Build, Overworld]},
 	{name: "Finish on top of a stairway to Heaven", difficulty: 18, tooltiptext: "Using Stairs, build up to Y=320 (height limit) and stand on top at the end of the Bingo. (If you need to jump over a block, it's not a finished stairway.)", tooltipimg: "Goal Tooltip Images/FinishStairs.jpg", tags: [Build, Overworld, Finish]},
