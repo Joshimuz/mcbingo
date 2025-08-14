@@ -813,6 +813,21 @@ select, input[type="text"] {
 	background-image: url(github-img-white.png);
 }
 
+/* TheRun.gg logo */
+.therun-logo {
+	display: inline-block;
+	width: 120px;
+	height: 24px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(therun-img.png);
+	position: relative;
+	top: 6px;
+}
+.dark .therun-logo {
+	background-image: url(therun-img-white.png);
+}
+
 /* TheRun.gg Races Table */
 #raceTable {
   width: 100%;
