@@ -105,7 +105,7 @@
 						</div>
 						<p>Use this seed to create a new world in Minecraft. Remember to adjust ingame settings such as difficulty if necessary.</p>
 						<p>If you've been linked this page for a race, you are not allowed to change the seed/goals. See the full rules below.</p>
-						<button class="button show-table-button" onclick='toggleHidden();event.preventDefault();'>Show Table</button>
+						<button class="button show-table-button" onclick='toggleHidden();event.preventDefault();' title="Show the Bingo Sheet.">Show Table</button>
 						<p>The table is currently hidden, you may show it when the Bingo starts (unless otherwise agreed upon by the players).</p>
 					</div>
 				</div>
@@ -113,10 +113,10 @@
 					<button class="button pause-menu-close">x</button>
 					<div class="pause-menu-column">
 						<div class="pause-menu-group">
-							<button class="button options-button" id="ishidden" onclick='toggleHidden();'></button>
-							<button class="button options-button" onclick='toggleStreamerMode();'>Streamer Mode</button>
+							<button class="button options-button" id="ishidden" onclick='toggleHidden();' title="Hide/Show the Bingo Sheet."></button>
+							<button class="button options-button" onclick='toggleStreamerMode();' title="Toggle a reduced version of the page designed for use in stream/video creation.">Streamer Mode</button>
 						</div>
-						<button class="button options-button dark-mode-button" onclick='toggleDarkMode();'></button>
+						<button class="button options-button dark-mode-button" onclick='toggleDarkMode();' title="Toggle a Light/Dark version of the page."></button>
 						<div class="pause-menu-group">
 							<div class="slider-holder" title="The number of colours to cycle through when clicking on a square. Can always press (1-6) or (0/q) while hovering over square to select colours.">
 								<input type="range" id="colourCountRange" value="1" max="2" min="0" class="slider" oninput="changeColourCount(this.value);"/>
@@ -134,15 +134,15 @@
 				</div>
 			</div>
 			<div id="info_bar">
-				Seed: <input class="seed-input" type="text" value="12345" oninput="changeSeed(value)" />&emsp;Difficulty: <span class="difficulty-text"></span>&emsp;Version: <span class="versionText"></span><br>
+				Seed: <input class="seed-input" type="text" value="12345" oninput="changeSeed(value)"/>&emsp;Difficulty: <span class="difficulty-text"></span>&emsp;Version: <span class="versionText"></span><br>
 			</div>
 			<div class="buttons-row">
-				<button onclick='newSeed(true);event.preventDefault();' class="button new-seed-button">Generate New Seed</button>
-				<div class="slider-holder difficulty-slider-holder">
+				<button onclick='newSeed(true);event.preventDefault();' class="button new-seed-button" title="Generate a new random 5 digit seed.">Generate New Seed</button>
+				<div class="slider-holder difficulty-slider-holder" title="Change the difficulty of the sheet generated between Very Easy, Easy, Medium, Hard and Very Hard.">
 					<input type="range" id="difficultyRange" value="3" max="5" min="1" class="slider" oninput="changeDifficulty(this.value);"/>
 					<p class="slider-text difficulty-text"></p>
 				</div>
-				<button class="button" id="options-toggle-button">Options...</button>
+				<button class="button" id="options-toggle-button" title="Show additional options. Can also press ESC to toggle the options menu.">Options...</button>
 			</div>
 		</section>
 		<div class="stream-exit-text"><a href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a> - <a href="#" onclick='popoutBingoCard();event.preventDefault();'>Pop out Bingo Card</a></div>
@@ -172,7 +172,7 @@
 
 			<p><em>Note:</em> Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</p>
 
-			<h2><a href="https://therun.gg/" target="_blank"><span class="therun-logo"></span></a> Races <button class="button small-button" id="TheRunRefreshButton" title="TheRun.gg Refresh" onclick="loadAndDisplayRaces()">Refresh</button></h2>
+			<h2><a href="https://therun.gg/" target="_blank"><span class="therun-logo"></span></a> Races <button class="button small-button" id="TheRunRefreshButton" title="(Re)Load race information from TheRung.gg." onclick="loadAndDisplayRaces()">Refresh</button></h2>
 			<p id="TheRunTip"><em>Tip:</em> Clicking a race will open the race page in a new tab. If a sheet is listed in the description it will load on this page and copy the seed to your clipboard.</p>
 			<p id="TheRunNoRaces">No races found, visit <a href="https://therun.gg/races" target="_blank">TheRun's race page</a> to start your own or view <a = href="https://therun.gg/races/stats/Minecraft%3A%20Java%20Edition/Bingo" target="_blank">MinecraftBingo race stats.</a></p>
 			<table id="raceTable">
