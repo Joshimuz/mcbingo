@@ -50,6 +50,7 @@ var LATEST_VERSION = "4";
 const SQUARE_COUNT = 25;
 const TOOLTIP_TEXT_ATTR_NAME = "data-tooltiptext";
 const TOOLTIP_IMAGE_ATTR_NAME = "data-tooltipimg";
+const TOOLTIP_FOLDER_STRUCTURE = "Images/Goal Tooltip Images/";
 const COLOUR_COUNT_SETTING_NAME = "bingoColourCount";
 const COLOUR_SYMBOLS_SETTING_NAME = "bingoColourSymbols";
 const COLOUR_THEME_SETTING_NAME = "bingoColourTheme";
@@ -137,6 +138,11 @@ $(document).ready(function()
 		hoveredSquare = $(this);
 		// Fill the #goalTooltip with the content from the goal
 		var tooltipImg = hoveredSquare.attr(TOOLTIP_IMAGE_ATTR_NAME);
+		// If tooltip is a local image include the file structure
+		if (tooltipImg.length > 1 && !tooltipImg.includes("http"))
+		{
+			tooltipImg = TOOLTIP_FOLDER_STRUCTURE + tooltipImg;
+		}
 		var tooltipText = hoveredSquare.attr(TOOLTIP_TEXT_ATTR_NAME);
 		$("#tooltipimg").attr('src', tooltipImg);
 		$("#tooltipimg").toggle(tooltipImg != "");

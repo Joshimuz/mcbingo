@@ -11,12 +11,12 @@ button:focus, input:focus {
 
 @font-face {
 	font-family: minecraftFont;
-	src: url(MinecrafterAlt.ttf);
+	src: url(Fonts/MinecrafterAlt.ttf);
 }
 
 @font-face {
 	font-family: Minecraftia;
-	src: url(Minecraftia.ttf);
+	src: url(Fonts/Minecraftia.ttf);
 }
 
 /* Colour theme */
@@ -86,34 +86,34 @@ body {
 	min-height: 100%;
 }
 .bg1 {
-	background-image: url(Backgrounds/background1.jpg);
+	background-image: url(Images/Backgrounds/background1.jpg);
 }
 .bg2 {
-	background-image: url(Backgrounds/background2.jpg);
+	background-image: url(Images/Backgrounds/background2.jpg);
 }
 .bg3 {
-	background-image: url(Backgrounds/background3.jpg);
+	background-image: url(Images/Backgrounds/background3.jpg);
 }
 .bg4 {
-	background-image: url(Backgrounds/background4.jpg);
+	background-image: url(Images/Backgrounds/background4.jpg);
 }
 .bg5 {
-	background-image: url(Backgrounds/background5.jpg);
+	background-image: url(Images/Backgrounds/background5.jpg);
 }
 .bg6 {
-	background-image: url(Backgrounds/background6.jpg);
+	background-image: url(Images/Backgrounds/background6.jpg);
 }
 .bg7 {
-	background-image: url(Backgrounds/background7.jpg);
+	background-image: url(Images/Backgrounds/background7.jpg);
 }
 .bg8 {
-	background-image: url(Backgrounds/background8.jpg);
+	background-image: url(Images/Backgrounds/background8.jpg);
 }
 .bg9 {
-	background-image: url(Backgrounds/background9.jpg);
+	background-image: url(Images/Backgrounds/background9.jpg);
 }
 .bg10 {
-	background-image: url(Backgrounds/background10.jpg);
+	background-image: url(Images/Backgrounds/background10.jpg);
 }
 
 /* End Base Page */
@@ -227,7 +227,7 @@ body {
 	background: var(--blue-square-hover);
 }
 .bluesquare .symbol {
-	background-image: url("Symbols/heart.png");
+	background-image: url("Images/Symbols/heart.png");
 }
 
 #bingo tr td.greensquare {
@@ -237,7 +237,7 @@ body {
 	background: var(--green-square-hover);
 }
 .greensquare .symbol {
-	background-image: url("Symbols/ok.png");
+	background-image: url("Images/Symbols/ok.png");
 }
 
 #bingo tr td.redsquare {
@@ -247,7 +247,7 @@ body {
 	background: var(--red-square-hover);
 }
 .redsquare .symbol {
-	background-image: url("Symbols/x.png");
+	background-image: url("Images/Symbols/x.png");
 }
 
 #bingo tr td.yellowsquare {
@@ -257,7 +257,7 @@ body {
 	background: var(--yellow-square-hover);
 }
 .yellowsquare .symbol {
-	background-image: url("Symbols/star.png");
+	background-image: url("Images/Symbols/star.png");
 }
 
 #bingo tr td.cyansquare {
@@ -267,7 +267,7 @@ body {
 	background: var(--cyan-square-hover);
 }
 .cyansquare .symbol {
-	background-image: url("Symbols/moon.png");
+	background-image: url("Images/Symbols/moon.png");
 }
 
 #bingo tr td.brownsquare {
@@ -277,7 +277,7 @@ body {
 	background: var(--brown-square-hover);
 }
 .brownsquare .symbol {
-	background-image: url("Symbols/apple.png");
+	background-image: url("Images/Symbols/apple.png");
 }
 
 /** Goal tooltip **/
@@ -337,7 +337,7 @@ body {
 /** Hide Table mode **/
 #hidden-bingo {
 	display: none;
-	background-image: url("stone-tile.png");
+	background-image: url("Images/stone-tile.png");
 	background-repeat: repeat;
 	background-size: 128px 128px;
 	box-sizing: border-box;
@@ -417,7 +417,7 @@ body {
 .button {
 	position: relative;
 	background-color: #6F6F6F;
-	background-image: url("button-background.png");
+	background-image: url("Images/button-background.png");
 }
 
 .button,
@@ -485,12 +485,12 @@ body {
 /** Sliders **/
 .slider-holder {
 	box-sizing: border-box;
-	background-image: url("slider-background.png");
+	background-image: url("Images/slider-background.png");
 	position: relative;
 	-webkit-appearance: none;
 }
 .dark .slider-holder {
-	background-image: url("slider-background-dark.png");
+	background-image: url("Images/slider-background-dark.png");
 }
 
 .slider,
@@ -517,7 +517,7 @@ input[type=range]::-webkit-slider-thumb {
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
 	width: 22px;
-	background-image: url("button-background.png");
+	background-image: url("Images/button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
 	border-radius: 0px;
@@ -529,7 +529,7 @@ input[type=range]::-moz-range-thumb {
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
 	width: 22px;
-	background-image: url("button-background.png");
+	background-image: url("Images/button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
 	border-radius: 0px;
@@ -540,7 +540,7 @@ input[type=range]::-ms-thumb {
 	box-shadow: inset 3px 3px 0px #ffffff6e, inset -3px -4px 0px #00000045;
 	height: 50px;
 	width: 22px;
-	background-image: url("button-background.png");
+	background-image: url("Images/button-background.png");
 	cursor: pointer;
 	border: 2px solid black;
 	border-radius: 0px;
@@ -552,15 +552,15 @@ input[type=range]::-moz-range-track {
 
 input[type=range]::-webkit-slider-thumb:hover,
 input[type=range]::-webkit-slider-thumb:active {
-	background-image: url("button-background-blue.png");
+	background-image: url("Images/button-background-blue.png");
 }
 input[type=range]::-moz-range-thumb:hover,
 input[type=range]::-moz-range-thumb:active {
-	background-image: url("button-background-blue.png");
+	background-image: url("Images/button-background-blue.png");
 }
 input[type=range]::-ms-thumb:hover,
 input[type=range]::-ms-thumb:active {
-	background-image: url("button-background-blue.png");
+	background-image: url("Images/button-background-blue.png");
 }
 
 /** Individual controls' sizes **/
@@ -727,12 +727,12 @@ select, input[type="text"] {
 }
 
 .dark #hidden-bingo {
-	background-image: url(polished_blackstone_bricks.png);
+	background-image: url("Images/polished_blackstone_bricks.png");
 	background-size: 128px 128px;
 }
 
 .dark .button {
-	background-image: url("button-background-dark.png");
+	background-image: url("Images/button-background-dark.png");
 }
 .dark .button,
 .dark .slider-text {
@@ -744,7 +744,7 @@ select, input[type="text"] {
 	color: #FFF787;
 }
 .button:hover {
-	background-image: url("button-background-blue.png");
+	background-image: url("Images/button-background-blue.png");
 }
 
 .dark a {
@@ -807,10 +807,10 @@ select, input[type="text"] {
 	height: 64px;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-image: url(github-img.png);
+	background-image: url(Images/github-img.png);
 }
 .dark .github-logo {
-	background-image: url(github-img-white.png);
+	background-image: url(Images/github-img-white.png);
 }
 
 /* TheRun.gg logo */
@@ -820,12 +820,12 @@ select, input[type="text"] {
 	height: 24px;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-image: url(therun-img.png);
+	background-image: url(Images/therun-img.png);
 	position: relative;
 	top: 6px;
 }
 .dark .therun-logo {
-	background-image: url(therun-img-white.png);
+	background-image: url(Images/therun-img-white.png);
 }
 
 /* TheRun.gg Races Table */
