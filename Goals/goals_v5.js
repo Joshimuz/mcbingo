@@ -475,7 +475,7 @@ var bingoList_v5 = [
 	{name: "Use a Lead on a Rabbit", difficulty: 12, tags: [Action, Overworld]},
 	{name: "Power a Redstone Lamp", difficulty: 12, tags: [Action, Overworld, Nether]}, // While this doesn't REQUIRE the nether it really changes it's difficulty
 	{name: "Wear 4 Different Armour types at the same time", difficulty: 12, tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet.", tooltipimg: "4Armour.jpg", reactant: ["WearArmour"], tags: [Action]}, // Made easier thanks to Copper Armour
-	{name: "Give a mob a Hat", difficulty: 13, tooltiptext: "This is impossible on Easy in game difficulty, and easier on Hard than Medium.", tags: [Action, Combat]},
+	{name: "Give a mob a Hat", difficulty: 13, tooltiptext: "This is impossible on Easy in game difficulty, and easier on Hard than Normal.", tags: [Action, Combat]},
 	{name: "Kill an Iron Golem", difficulty: 7, reactant: ["Pacifist"], tags: [Action, Overworld]},
 	{name: "Grow a Mega Jungle Tree", difficulty: 13, tooltiptext: "A mega tree is one grown with a 2x2 square of saplings.", tags: [Action, RareBiome, Overworld]},
 	{name: "Kill a hostile mob with Gravel", difficulty: 13, reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat]},

@@ -4,7 +4,7 @@ var LAYOUT;
 var HIDDEN;
 var STREAMER_MODE;
 var VERSION;
-var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Medium", "Hard", "Very Hard"];
+var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Normal", "Hard", "Very Hard"];
 
 const DEFAULT_SQUARE_CLASS_NAME = "greysquare";
 const ALL_COLOURS = [DEFAULT_SQUARE_CLASS_NAME, "bluesquare", "greensquare", "redsquare", "yellowsquare", "cyansquare", "brownsquare"];
