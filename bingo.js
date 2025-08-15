@@ -337,7 +337,14 @@ function getSettingsFromLocalStorage()
 	}
 
 	const savedColourTheme = localStorage.getItem(COLOUR_THEME_SETTING_NAME);
-	DARK_MODE = (savedColourTheme == DARK_MODE_CLASS_NAME);
+	if (savedColourTheme != null)
+	{
+		DARK_MODE = (savedColourTheme == DARK_MODE_CLASS_NAME);
+	}
+	else if (window.matchMedia) // Attempt to get the user's OS/Browser theme if  no local storage setting is found
+	{
+		DARK_MODE = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	}
 	updateDarkMode(false);
 }
 
