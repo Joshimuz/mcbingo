@@ -339,7 +339,7 @@ function getSettingsFromLocalStorage()
 
 	const savedColourTheme = localStorage.getItem(COLOUR_THEME_SETTING_NAME);
 	DARK_MODE = (savedColourTheme == DARK_MODE_CLASS_NAME);
-	updateDarkMode();
+	updateDarkMode(false);
 }
 
 /*
@@ -559,11 +559,16 @@ function toggleColourSymbols()
 	pushNewLocalSetting(COLOUR_SYMBOLS_SETTING_NAME, COLOURSYMBOLS);
 }
 
-function updateDarkMode()
+function updateDarkMode(transition)
 {
 	const smoothTransitionClassName = "smooth-transition";
 	const body = $("body");
-	body.addClass(smoothTransitionClassName);
+
+	if (transition)
+	{
+		body.addClass(smoothTransitionClassName);
+	}
+
 	if (DARK_MODE)
 	{
 		body.addClass(DARK_MODE_CLASS_NAME);
@@ -581,7 +586,7 @@ function updateDarkMode()
 function toggleDarkMode()
 {
 	DARK_MODE = !DARK_MODE;
-	updateDarkMode();
+	updateDarkMode(true);
 	pushNewLocalSetting(COLOUR_THEME_SETTING_NAME, DARK_MODE ? DARK_MODE_CLASS_NAME : "light");
 }
 
