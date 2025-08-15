@@ -198,6 +198,14 @@ $(document).ready(function()
 	};
 
 	loadSettings();
+
+	// Popout window detection
+	if (window.opener && !STREAMER_MODE)
+	{
+		// Scroll down enough to show just the bingo sheet
+		window.scrollTo(0, 120);
+		$("#Popoutbutton").css("display", "none");
+	}
 });
 
 function toggleOptionsMenu()
@@ -468,7 +476,7 @@ function toggleHidden()
 }
 
 function popoutBingoCard(){
-	window.open(window.location.href, "_blank", "toolbar=no, status=no, menubar=no, scrollbars=no, width=745, height=715");
+	window.open(window.location.href, "_blank", "toolbar=no, resizeable=no, titlebar=no, status=no, menubar=no, scrollbars=no, width=745, height=715");
 }
 
 function toggleStreamerMode()
