@@ -1,4 +1,3 @@
-
 var DIFFICULTY;
 var SEED;
 var LAYOUT;
@@ -88,7 +87,7 @@ $(document).click(function(event) {
 $(document).ready(function()
 {
 	// Set the background to a random image
-	document.body.className += "bg" + (Math.floor(Math.random() * 10) + 1);
+	$("body").addClass("bg" + (Math.floor(Math.random() * 10) + 1));
 
 	// On clicking a goal square
 	const bingoSquares = $("#bingo td");
