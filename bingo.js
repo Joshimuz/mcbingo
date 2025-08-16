@@ -5,6 +5,7 @@ var HIDDEN;
 var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Normal", "Hard", "Very Hard"];
+var DEBUG_SHEET = false;
 
 const DEFAULT_SQUARE_CLASS_NAME = "greysquare";
 const ALL_COLOURS = [DEFAULT_SQUARE_CLASS_NAME, "bluesquare", "greensquare", "redsquare", "yellowsquare", "cyansquare", "brownsquare"];
@@ -309,6 +310,9 @@ function getSettingsFromURL()
 		// document.getElementById("whatlayout").innerHTML="Random Layout";
 	}
 
+	// Debug: If the URL contains "&d" or "&diff", append the difficulty to the goal name
+	DEBUG_SHEET = (gup('d') !== null || gup('diff') !== null);
+
 	updateHidden();
 	updateStreamerMode();
 	updateDifficulty();
@@ -394,7 +398,9 @@ function generateNewSheet()
 			square.attr(TOOLTIP_IMAGE_ATTR_NAME, goal.tooltipimg || "");
 
 			// Debug: If the URL contains "&d", append the difficulty to the goal name
-			if (gup('d') !== null || gup('diff') !== null) {
+			//if (gup('d') !== null || gup('diff') !== null)
+			if (DEBUG_SHEET)
+			{
 				square.append("<br>diff: " + goal.difficulty);
 			}
 
@@ -600,7 +606,9 @@ function pushNewUrl()
 {
 	var hidden = HIDDEN ? "1" : "0";
 	var streamerMode = STREAMER_MODE ? "1" : "0";
-	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED);
+	var debug = DEBUG_SHEET ? "&d" : "";
+
+	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED + debug);
 }
 
 function pushNewLocalSetting(name, value)
