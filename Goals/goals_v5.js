@@ -24,8 +24,9 @@ Stone = {name: "Stone", max: [3, 2, 1, 0, 0], line: false},
 Ore = {name: "Ore", max: [5, 4, 3, 2, 1], line: true},
 Tool = {name: "Tool", max: [5, 4, 3, 2, 1], line: true}, // And weapons
 Food = {name: "Food", max: [5, 4, 3, 2, 1], line: true},
-Storm = {name: "Storm", max: [0, 0, 0, 0, 1], line: false};
-Trim = {name: "Trim", max: [0, 0, 1, 2, 3], line: true};
+Storm = {name: "Storm", max: [0, 0, 0, 0, 1], line: false},
+Trim = {name: "Trim", max: [0, 0, 1, 2, 3], line: true},
+Death = {name: "Death", max: [1, 2, 3, 4, 5], line: true};
 
 var bingoList_v5 = [
 	// New Points System
@@ -40,7 +41,7 @@ var bingoList_v5 = [
 	{name: "(33-48) Coarse Dirt", difficulty: 5, infrequency: 2, tags: [Item, Overworld, Dirt]},
 	{name: "(49-64) Coarse Dirt", difficulty: 6, infrequency: 2, tags: [Item, Overworld, Dirt]},
 	{name: "Grass Block", difficulty: 14, tooltiptext: "If you don't have Silk Touch, I know a guy who might pick one up for you...", tooltipimg: "GrassBlock.jpg", tags: [Item, Overworld, Dirt]},
-	{name: "Rooted Dirt", difficulty: 10, tags: [Item, Overworld, Dirt]},
+	{name: "Rooted Dirt", difficulty: 15, tags: [Item, Overworld, Dirt]},
 	{name: "Muddy Mangrove Roots", difficulty: 12, tags: [Item, Overworld, Dirt]},
 	{name: "(2-16) Mud", difficulty: 4, infrequency: 2, tags: [Item, Overworld, Dirt]},
 	{name: "(17-32) Mud", difficulty: 5, infrequency: 2, tags: [Item, Overworld, Dirt]},
@@ -450,11 +451,11 @@ var bingoList_v5 = [
 	{name: "2 Creepers in the same Boat", difficulty: 7, tooltiptext: "The 2 Creepers must be in the same boat at the same time.", tooltipimg: "2creepers1boat.jpg", tags: [Action, Combat, Overworld]},
 	{name: "Set fire to a Villager's House", difficulty: 7, tags: [Action, Village, Overworld]},
 	{name: "Tame a Cat", difficulty: 8, tags: [Action, Village, Overworld]},
-	{name: "Die to your own arrow", difficulty: 8, reactant: ["Pacifist"], tags: [Action]},
+	{name: "Die to your own arrow", difficulty: 8, reactant: ["Pacifist"], tags: [Action, Death]},
 	{name: "Complete a Map", difficulty: 9, antisynergy: ["CompleteMap"], tags: [Action, Overworld]},
 	{name: "Light a Campfire from 10 blocks away", difficulty: 9, tags: [Action]},
 	{name: "Make a Compass point to a Lodestone", difficulty: 9, tags: [Action]},
-	{name: "Die to using an Ender Pearl", difficulty: 9, tooltiptext: "Need to die to the damage taken from using a Pearl.", tooltipimg: "EnderPearl.jpg", reactant: ["Pacifist"], tags: [Action]},
+	{name: "Die to using an Ender Pearl", difficulty: 9, tooltiptext: "Need to die to the damage taken from using a Pearl.", tooltipimg: "EnderPearl.jpg", reactant: ["Pacifist"], tags: [Action, Death]},
 	{name: "Open a Door with a Target Block from 10 blocks away", difficulty: 9, tooltiptext: "YOU have to be 10 blocks away, not the Target Block from the Door.", tooltipimg: "TargetAndDoor.jpg",  tags: [Action, Overworld]},
 	{name: "Repair an Iron Golem", difficulty: 10, tags: [Action, Overworld, Village]},
 	{name: "Fill a Hopper with 320 items", difficulty: 10, tags: [Action, Item]},
@@ -480,7 +481,7 @@ var bingoList_v5 = [
 	{name: "Grow a Mega Jungle Tree", difficulty: 13, tooltiptext: "A mega tree is one grown with a 2x2 square of saplings.", tags: [Action, RareBiome, Overworld]},
 	{name: "Kill a hostile mob with Gravel", difficulty: 13, reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat]},
 	{name: "Bounce on a Slime Block", difficulty: 17, tooltiptext: "Get a Slime Block, place it on the ground and give it a good old bouncin' on.", tooltipimg: "SlimeBlock.jpg", tags: [Action, Overworld, RareBiome]},
-	{name: "Get a '... whilst trying to escape ...' Death message", difficulty: 14, tooltiptext: "Example: 'PLAYER' drowned whilst trying to escape a Skeleton.", tags: [Action]},
+	{name: "Get a '... whilst trying to escape ...' Death message", difficulty: 14, tooltiptext: "Example: 'PLAYER' drowned whilst trying to escape a Skeleton.", tags: [Action, Death]},
 	{name: "Feed a Cookie to a Parrot", difficulty: 16, reactant: ["Pacifist"], infrequency: 2, tags: [Action, RareBiome, Overworld]},
 	{name: "Tame a Parrot", difficulty: 14, infrequency: 2, tags: [Action, RareBiome, Overworld]},
 	{name: "Kill a hostile mob with Sand", difficulty: 14, reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat, Overworld]},
@@ -763,7 +764,7 @@ var bingoList_v5 = [
 	// (50 pts base)
 	{name: "(32-64) Dirt, Netherrack and End Stone", difficulty: 51, tags: [Item, Overworld, Nether, End]},
 	{name: "(5-16) Dragon's Breath", difficulty: 52, tags: [Item, Combat, End]},
-	{name: "Get a '... didn't want to live in the same world as ...' Death message", difficulty: 52, tags: [Action, End]}, // This didn't have an End tag but surely? What are you gonna do, break bedrock real quick?
+	{name: "Get a '... didn't want to live in the same world as ...' Death message", difficulty: 52, tags: [Action, End, Death]}, // This didn't have an End tag but surely? What are you gonna do, break bedrock real quick?
 	{name: "(32-64) Popped Chorus Fruit", difficulty: 55, tags: [Item, End]},
 	{name: "Dragon Egg", difficulty: 55, tags: [Item, Combat, End]},
 	{name: "Complete a full size Map in the End", difficulty: 66, antisynergy: ["CompleteMap"], tags: [Action, Overworld, End]},
@@ -877,7 +878,7 @@ var bingoList_v5 = [
 	{name: "Finish on top of a stairway to Heaven", difficulty: 18, tooltiptext: "Using Stairs, build up to Y=320 (height limit) and stand on top at the end of the Bingo. (If you need to jump over a block, it's not a finished stairway.)", tooltipimg: "FinishStairs.jpg", tags: [Build, Overworld, Finish]},
 	{name: "Enchanted Golden Apple", difficulty: 27, tags: [Item]},
 	{name: "Cookie", difficulty: 10, tags: [Item, Overworld]},
-	{name: "Be killed by a Villager", difficulty: 25, tooltiptext: "Check the 'Mobs' statistics screen!", tags: [Village, Overworld, Stat, Combat]},
+	{name: "Be killed by a Villager", difficulty: 25, tooltiptext: "Check the 'Mobs' statistics screen!", tags: [Village, Overworld, Stat, Combat, Death]},
 	{name: "Activate a Totem of Undying", difficulty: 30, tags: [Item, Overworld]},
 	{name: "Finish by building a Scaffolding tower, then removing it", difficulty: 15, tooltiptext: "Build a 1x1 Scaffolding Tower from Bedrock to Y=320 (height limit) and then knock it all down as the final goal.", tags: [Build, Overworld, Finish]},
 	{name: "Build a 6x6 Scaffolding 'n' shape (not counting corners)", difficulty: 12, tooltiptext: "Width/height of the inside frame, disregarding corners.", tooltipimg: "ScaffingN.jpg", tags: [Build, Overworld]},
@@ -886,7 +887,7 @@ var bingoList_v5 = [
 	{name: "Every non-template item Diamonds are used to Craft", difficulty: 33, antisynergy: ["DiamondItems"], tooltiptext: "Block, Axe, Boots, Chestplate, Helmet, Hoe, Leggings, Pickaxe, Shovel, Sword, Enchantment Table, Firework Star and Jukebox.", tags: [Item]},
 	{name: "Get a Slimeball from a Panda", difficulty: 85, tags: [Item, Overworld, RareBiome]},
 	{name: "Light a Candle", difficulty: 14, tags: [Item, Overworld]},
-	{name: "Extinguish a Candle on a Cake", reactant: ["UseFurnace"], difficulty: 22, tags: [Item, Overworld]},
+	{name: "Extinguish a Candle on a Cake", difficulty: 22, tags: [Item, Overworld]},
 	{name: "Pointed Dripstone", difficulty: 3, tags: [Item, Overworld]},
 	{name: "Calibrated Sculk Sensor", difficulty: 40, tags: [Item, Overworld, RareBiome]},
 	{name: "Recovery Compass", difficulty: 41, tags: [Item, Overworld, RareBiome]},
