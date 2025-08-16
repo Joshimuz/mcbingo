@@ -6,6 +6,7 @@ var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Normal", "Hard", "Very Hard"];
 var DEBUG_SHEET = false;
+var CUSTOM_TAGS = [];
 
 const DEFAULT_SQUARE_CLASS_NAME = "greysquare";
 const ALL_COLOURS = [DEFAULT_SQUARE_CLASS_NAME, "bluesquare", "greensquare", "redsquare", "yellowsquare", "cyansquare", "brownsquare"];
@@ -313,6 +314,46 @@ function getSettingsFromURL()
 	// Debug: If the URL contains "&d" or "&diff", append the difficulty to the goal name
 	DEBUG_SHEET = (gup('d') !== null || gup('diff') !== null);
 
+	CUSTOM_TAGS = [];
+
+	// Attempt to get custom tags from the URL
+	var newTags = (gup('tags'));
+	if (newTags !== null)
+	{
+		try
+		{
+			newTags = newTags.split("-");
+			for (var i = 0; i < newTags.length; i++)
+			{
+				try
+				{
+					var tag = newTags[i].split("_");
+					if (tag.length == 2)
+					{
+						CUSTOM_TAGS.push({
+							name: tag[0],
+							max: tag[1]
+						});
+					}
+					else
+					{
+						console.error("Invalid custom tag format: " + newTags[i] + ". Expected format: name-amount");
+					}
+				}
+				catch (e)
+				{
+					console.error("Error parsing custom tag: " + newTags[i] + " - " + e);
+					continue;
+				}
+			}
+		}
+		catch (e)
+		{
+			console.error("Error parsing custom tags from URL: " + e);
+		}
+	}
+	console.log("Custom tags: " + CUSTOM_TAGS[0]?.name + " = " + CUSTOM_TAGS[0]?.max);
+
 	updateHidden();
 	updateStreamerMode();
 	updateDifficulty();
@@ -382,7 +423,7 @@ function generateNewSheet()
 		setSquareColor(square, DEFAULT_SQUARE_CLASS_NAME);
 	});
 
-	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
+	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals, CUSTOM_TAGS);
 
 	forEachSquare((i, square) => {
 		var goal = result[i];
@@ -606,9 +647,16 @@ function pushNewUrl()
 {
 	var hidden = HIDDEN ? "1" : "0";
 	var streamerMode = STREAMER_MODE ? "1" : "0";
+	var tags = "";
+
+	if (CUSTOM_TAGS.length > 0)
+	{
+		tags = "&tags=" + CUSTOM_TAGS.map(t => t.name + "_" + t.max).join("-");
+	}
+
 	var debug = DEBUG_SHEET ? "&d" : "";
 
-	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED + debug);
+	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED + tags+ debug);
 }
 
 function pushNewLocalSetting(name, value)

@@ -1,7 +1,7 @@
 // This is part of a version currently in development and may be changed at any time.
 const date = new Date();
 
-var generator_v4 = function(layout, difficulty, bingoList)
+var generator_v4 = function(layout, difficulty, bingoList, customTags)
 {
     var squareMin;
     var squareMax;
@@ -89,7 +89,7 @@ var generator_v4 = function(layout, difficulty, bingoList)
 	var indexes = Array.from(Array(25).keys());
 
 	// Keep track off what tags, antisynergys, reactants and catalysts are already on the sheet
-	var tagCount = {};
+	var tags = [];
 	var antisynergys = new Set(),
 	reactants = new Set(),
 	catalysts = new Set();
@@ -171,17 +171,30 @@ var generator_v4 = function(layout, difficulty, bingoList)
 				// foreach tag in the goal's tags
 				for (const tag of goalCandidate.tags)
 				{
-					// If the tag isn't in our list of tags yet, add it and set it to 0
-					if (typeof tagCount[tag.name] == 'undefined')
+					var currentTag = tags.find(t => t.name === tag.name);
+
+					if (!currentTag)
 					{
-						//console.log(tag.name + " not collected yet, adding");
-						tagCount[tag.name] = 0;
+						// Clone the tag object, don't make a reference to the original tag
+						currentTag = structuredClone(tag); 
+						currentTag.max = tag.max[difficulty - 1];
+
+						// If the tag is a custom tag, override the max value with the custom tag's max value
+						currentCustomTag = customTags && customTags.length > 0 && customTags.find(t => t.name === tag.name);
+						if (currentCustomTag)
+						{
+							currentTag.max = currentCustomTag.max;
+						}
+
+						// Set the initial count to 0
+						currentTag.count = 0;
+						tags.push(currentTag);
 					}
-					// Otherwise check if it's higher than it should be
-					else if (tagCount[tag.name] >= tag.max[difficulty - 1])
+
+					// NOT else if because the max can be 0
+					if (currentTag.count >= currentTag.max)
 					{
-						// If we've got too many of that tag, get a new goal
-						//console.log("'" + tag.name + " max reached with '" + tagCount[tag.name] + "' on the sheet, generating a new goal.");
+						// If the tag has reached its max value, get a new goal
 						continue GoalGen;
 					}
 				}
@@ -244,11 +257,10 @@ var generator_v4 = function(layout, difficulty, bingoList)
 		}
 		while (true);
 
-		// We successfully picked a goal, add its tags to tagCount
+		// We successfully picked a goal, increase the count of it's tags
 		for (const tag of goalCandidate.tags)
 		{
-			tagCount[tag.name]++;
-			//console.log(tagCount);
+			tags.find(t => t.name === tag.name).count++;
 		}
 		// Add its antisynergys to the set of antisynergys
 		if (typeof goalCandidate.antisynergy !== 'undefined')
@@ -283,6 +295,11 @@ var generator_v4 = function(layout, difficulty, bingoList)
 
 	console.log("Sheet generation completed successfully.");
 
+	if (DEBUG_SHEET)
+	{
+		tags.forEach(tag => {console.log("Tag '" + tag.name + "' has " + tag.count + " goals, max is " + tag.max + ".");});
+	}
+	
 	return currentSheet;
 }
 
