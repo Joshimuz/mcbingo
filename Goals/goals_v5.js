@@ -78,7 +78,7 @@ var bingoList_v5 = [
 	{name: "(49-64) Diorite", difficulty: 5, infrequency: 3, tags: [Item, Overworld, Stone]},
 	{name: "(16-32) Mossy Cobblestone", difficulty: 10, tags: [Item, Overworld, Stone]},
 	{name: "Block of Amethyst", difficulty: 13, tags: [Item, RareBiome, Overworld, Stone]},
-	{name: "Smooth Basalt", difficulty: 14, tags: [Item, Stone]}, // No Overworld or Nether tag coz can be found in both places
+	{name: "Smooth Basalt", difficulty: 12, tags: [Item, Stone]}, // No Overworld or Nether tag coz can be found in both places
 	//#endregion
 
 	//#region Wood
@@ -488,7 +488,7 @@ var bingoList_v5 = [
 	{name: "Put a Carpet on a Llama", difficulty: 14, tags: [RareBiome, Action, Overworld]},
 	{name: "Gain a Fox's Trust", difficulty: 15, tags: [Action, Overworld, RareBiome]},
 	{name: "Breed two Pandas", difficulty: 15, tags: [Action, Overworld, RareBiome]},
-	{name: "Finish by jumping from top to bottom of the world", difficulty: 15, tooltiptext: "Dig a hole to Bedrock, build to Y=320 (height limit), then jump from top to bottom at the end of the Bingo.", tooltipimg: "FinishTopToBottom.jpg", tags: [Action, Build, Overworld, Finish]},
+	{name: "Finish by jumping from top to bottom of the world", difficulty: 13, tooltiptext: "Dig a hole to Bedrock, build to Y=320 (height limit), then jump from top to bottom at the end of the Bingo. (It doesn't matter if you die)", tooltipimg: "FinishTopToBottom.jpg", tags: [Action, Build, Overworld, Finish]},
 	{name: "Kill a hostile mob with an Anvil", difficulty: 16, reactant: ["Pacifist"], tags: [Action, Combat]},
 	{name: "Ignite a TNT with a Lectern", difficulty: 14, tags: [Action, Overworld]},
 	{name: "Put a Chest on a Donkey", difficulty: 16, tags: [Action, Overworld]},
@@ -558,11 +558,11 @@ var bingoList_v5 = [
 	{name: "Hatch a Chicken from an Egg", difficulty: 8, tags: [Action, Overworld]},
 	{name: "Drown a Zombie", difficulty: 7, tags: [Action, Combat, Overworld]},
 	{name: "Gunpowder", difficulty: 5, infrequency: 3, tags: [Item]},
-	{name: "(3-5) Gunpowder", difficulty: 6, infrequency: 5, tags: [Item]},
+	{name: "(2-5) Gunpowder", difficulty: 6, infrequency: 3, tags: [Item]},
 	{name: "(6-10) Gunpowder", difficulty: 8, infrequency: 5, tags: [Item, Combat]},
-	{name: "(11-16) Gunpowder", difficulty: 10, infrequency: 5, tags: [Item, Combat]},
-	{name: "(17-23) Gunpowder", difficulty: 14, infrequency: 5, tags: [Item, Combat]},
-	{name: "(24-32) Gunpowder", difficulty: 18, infrequency: 5, tags: [Item, Combat]},
+	{name: "(11-15) Gunpowder", difficulty: 10, infrequency: 3, tags: [Item, Combat]},
+	{name: "(16-20) Gunpowder", difficulty: 14, infrequency: 3, tags: [Item, Combat]},
+	{name: "(21-25) Gunpowder", difficulty: 18, infrequency: 3, tags: [Item, Combat]},
 	{name: "(2-5) Spider Eyes", difficulty: 5, infrequency: 2, tags: [Item, Overworld]},
 	{name: "(6-12) Spider Eyes", difficulty: 7, infrequency: 2, tags: [Item, Combat, Overworld]},
 	{name: "(4-6) Bone Blocks", difficulty: 10, tags: [Item]},
@@ -652,22 +652,22 @@ var bingoList_v5 = [
 	//#region Never
 	{name: "Never use a Fishing Rod", difficulty: 1, tooltiptext: "You can use Fishing Rods in crafting, but cannot use them for casting and reeling", catalyst: ["Fishing"], tags: [Never, Overworld]},
 	{name: "Never Pick up Crafting Tables", difficulty: 2, tooltiptext: "Never break and pick up Crafting Tables. You can make, place and use, but not collect.", tags: [Never]},
-	{name: "Never wear Chestplates", difficulty: 4, catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
-	{name: "Never use a Sword", difficulty: 4, catalyst: ["SwordUse"], tooltiptext: "Never use a Sword for Combat or Block Breaking. Holding or crafting is fine.", tooltipimg: "NoSword.jpg", tags: [Never]},
-	{name: "Never use a Boat", difficulty: 6, tags: [Never, Overworld]},
-	{name: "Never use Coal", difficulty: 6, tooltiptext: "Never use Coal for any crafting recipes or fuel in a Furnace, CAN use Charcoal.", catalyst: ["Coal"], tooltipimg: "NoCoal.jpg", tags: [Never]},
-	{name: "Never place Torches", difficulty: 6, tooltiptext: "Never place normal Torches, you CAN craft with them. Other types of Torches are allowed.", tags: [Never]},
-	{name: "Never use Shields", difficulty: 8, tooltiptext: "You can use Shields in crafting, but cannot use them for blocking", tags: [Never]},
-	{name: "Carnivore", difficulty: 8, tooltiptext: "Only eat meat.", tooltipimg: "NoBread.jpg", antisynergy: ["Food"], tags: [Never, Action], catalyst: ["EatNonMeat"]},
-	{name: "Vegetarian", difficulty: 10, tooltiptext: "Never eat meat, including fish.", tooltipimg: "NoFish.jpg", antisynergy: ["Food"], tags: [Never, Action], catalyst: ["EatMeat"]},
-	{name: "Never use an Axe", difficulty: 10, catalyst: ["AxeUse"], tags: [Never]},
-	{name: "Never wear any Armour", difficulty: 12, catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
+	{name: "Never wear Chestplates", difficulty: 3, catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
+	{name: "Never use a Sword", difficulty: 3, catalyst: ["SwordUse"], tooltiptext: "Never use a Sword for Combat or Block Breaking. Holding or crafting is fine.", tooltipimg: "NoSword.jpg", tags: [Never]},
+	{name: "Never use a Boat", difficulty: 5, tags: [Never, Overworld]},
+	{name: "Never use Coal", difficulty: 5, tooltiptext: "Never use Coal for any crafting recipes or fuel in a Furnace, CAN use Charcoal.", catalyst: ["Coal"], tooltipimg: "NoCoal.jpg", tags: [Never]},
+	{name: "Never place Torches", difficulty: 5, tooltiptext: "Never place normal Torches, you CAN craft with them. Other types of Torches are allowed.", tags: [Never]},
+	{name: "Never use Shields", difficulty: 7, tooltiptext: "You can use Shields in crafting, but cannot use them for blocking", tags: [Never]},
+	{name: "Carnivore", difficulty: 7, tooltiptext: "Only eat meat.", tooltipimg: "NoBread.jpg", antisynergy: ["Food"], tags: [Never, Action], catalyst: ["EatNonMeat"]},
+	{name: "Vegetarian", difficulty: 9, tooltiptext: "Never eat meat, including fish.", tooltipimg: "NoFish.jpg", antisynergy: ["Food"], tags: [Never, Action], catalyst: ["EatMeat"]},
+	{name: "Never use an Axe", difficulty: 9, catalyst: ["AxeUse"], tags: [Never]},
+	{name: "Never wear any Armour", difficulty: 11, catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
 	{name: "Never Craft Sticks", difficulty: 12, tags: [Never, Overworld]}, // Overworld because can't get sticks in the Nether without crafting them
-	{name: "Never Sleep", difficulty: 13, catalyst: ["Sleep"], tags: [Never, Overworld]},
+	{name: "Never Sleep", difficulty: 12, catalyst: ["Sleep"], tags: [Never, Overworld]},
 	{name: "Never use Debug (F3)", difficulty: 14, tags: [Never]},
 	{name: "Never use Buckets", difficulty: 14, catalyst: ["UseBuckets"], tags: [Never]},
 	{name: "Never smelt with Furnaces", difficulty: 18, tooltiptext: "You can use Furnaces in crafting, but cannot use them for cooking or smelting", catalyst: ["UseFurnace"], tags: [Never]},
-	{name: "Never wear Armour or use Shields", difficulty: 15, tooltiptext: "You can use Armour/Shields in crafting, but cannot wear the Armour or block with Shields", catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
+	{name: "Never wear Armour or use Shields", difficulty: 14, tooltiptext: "You can use Armour/Shields in crafting, but cannot wear the Armour or block with Shields", catalyst: ["WearArmour"], antisynergy: ["NeverWearArmour"], tags: [Never]},
 	{name: "Pacifist", difficulty: 30, tooltiptext: "Never kill any mob, as per the statistics screen", catalyst: ["Pacifist"], tags: [Never, Stat]},
 	//#endregion
 
@@ -709,7 +709,7 @@ var bingoList_v5 = [
 	{name: "Barter with a Piglin", difficulty: 13, tags: [Action, Nether]},
 	{name: "Soul Lantern", difficulty: 12, tags: [Item, Nether]}, // Soul Sand can be found in Ancient cities, but that's dumb
 	{name: "(5-16) Soul Sand", difficulty: 12, tags: [Item, Nether]}, // Soul Sand can be found in Ancient Cities, but that's dumb
-	{name: "(5-16) Soul Soil", difficulty: 14, tags: [Item, Nether]},
+	{name: "(5-16) Soul Soil", difficulty: 13, tags: [Item, Nether]}, // Breaking a soul campfire gives you Soul Soil even when made with Soul Sand
 	{name: "(Try to) Sleep in the Nether", difficulty: 11, tags: [Action, Nether, Overworld]},
 	{name: "Fill all 4 slots of a Soul Campfire with Porkchops", difficulty: 14, reactant: ["Pacifist"], tags: [Action, Nether, Combat]}, // Soul Sand can be found in Ancient Cities, but that's dumb
 	{name: "Potion of Fire Resistance", difficulty: 14, infrequency: 12, tags: [Item, Nether]}, // no Pacifist reactant and no Combat tag (Blaze Powder), no Overworld tag (Water Bottles), because can be bartered
@@ -871,7 +871,7 @@ var bingoList_v5 = [
 	{name: "Saddle", difficulty: 5, tags: [Item]},
 	{name: "Heart of the Sea", difficulty: 12, tags: [Item, Ocean, Overworld]},
 	{name: "Max Scale Map", difficulty: 12, tooltiptext: "You don't need to complete it, just zoom it out to the max.", tags: [Item, Overworld]},
-	{name: "Crying Obsidian", difficulty: 17, tags: [Item]},
+	{name: "Crying Obsidian", difficulty: 14, tags: [Item]},
 	{name: "Full Gold Armour", difficulty: 10, tags: [Item]},
 	{name: "(32-64) Blue Ice", difficulty: 23, tags: [Item, Overworld]},
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", difficulty: 24, tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "IceCube.jpg", tags: [Build, Overworld]},
