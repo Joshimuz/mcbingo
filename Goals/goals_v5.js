@@ -28,6 +28,9 @@ Storm = {name: "Storm", max: [0, 0, 0, 0, 1], line: false},
 Trim = {name: "Trim", max: [0, 0, 1, 2, 3], line: true},
 Death = {name: "Death", max: [1, 2, 3, 4, 5], line: true};
 
+const tagList_v5 = [Item, Stat, Action, Build, RareBiome, Ocean, Village, Colour, Never, Combat,
+	Overworld, Nether, End, Finish, Netherite, Wood, Dirt, Stone, Ore, Tool, Food, Storm, Trim, Death];
+
 var bingoList_v5 = [
 	// New Points System
 	// → Read goals.md for information regarding the new points system. ←

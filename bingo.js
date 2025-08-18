@@ -6,7 +6,7 @@ var STREAMER_MODE;
 var VERSION;
 var DIFFICULTYTEXT = [ "Very Easy", "Easy", "Normal", "Hard", "Very Hard"];
 var DEBUG_SHEET = false;
-var CUSTOM_TAGS = [];
+var CURRENT_TAGS = []; // The tags currently on the current sheet.
 
 const DEFAULT_SQUARE_CLASS_NAME = "greysquare";
 const ALL_COLOURS = [DEFAULT_SQUARE_CLASS_NAME, "bluesquare", "greensquare", "redsquare", "yellowsquare", "cyansquare", "brownsquare"];
@@ -42,7 +42,7 @@ var VERSIONS = [
 	{ id:"2", name:"v2 [1.12.2]",		goals: bingoList_v2, generator: generator_v2, stable: true },
 	{ id:"3", name:"v3 [1.13.2]", 		goals: bingoList_v3, generator: generator_v2, stable: true },
 	{ id:"4", name:"v4 [1.16.5]", 		goals: bingoList_v4, generator: generator_v3, stable: true },
-	{ id:"dev", name:"dev [1.21.9]", 	goals: bingoList_v5, generator: generator_v4, stable: false }, // Dev version
+	{ id:"dev", name:"dev [1.21.9]", 	goals: bingoList_v5, generator: generator_v4, stable: false, tagList: tagList_v5 }, // Dev version
 ];
 
 // This is the newest stable version that users not specifying a version will get
@@ -59,6 +59,8 @@ const DARK_MODE_CLASS_NAME = "dark";
 
 const SHOW_OPTIONS_MENU_CLASS_NAME = "show-options";
 const SHOW_EXPORT_CLASS_NAME = "show-export";
+const SHOW_TAG_CUSTOMISATION_CLASS_NAME = "show-tag-customisation";
+const TAG_CUSTOMISATION_SLIDERS_ID_NAME = "#tag-customisation-sliders";
 
 // Dropdowns and pause menu handling.
 $(document).click(function(event) {
@@ -314,51 +316,64 @@ function getSettingsFromURL()
 	// Debug: If the URL contains "&d" or "&diff", append the difficulty to the goal name
 	DEBUG_SHEET = (gup('d') !== null || gup('diff') !== null);
 
-	CUSTOM_TAGS = [];
-
-	// Attempt to get custom tags from the URL
-	var newTags = (gup('tags'));
-	if (newTags !== null)
-	{
-		try
-		{
-			newTags = newTags.split("-");
-			for (var i = 0; i < newTags.length; i++)
-			{
-				try
-				{
-					var tag = newTags[i].split("_");
-					if (tag.length == 2)
-					{
-						CUSTOM_TAGS.push({
-							name: tag[0],
-							max: tag[1]
-						});
-					}
-					else
-					{
-						console.error("Invalid custom tag format: " + newTags[i] + ". Expected format: name-amount");
-					}
-				}
-				catch (e)
-				{
-					console.error("Error parsing custom tag: " + newTags[i] + " - " + e);
-					continue;
-				}
-			}
-		}
-		catch (e)
-		{
-			console.error("Error parsing custom tags from URL: " + e);
-		}
-	}
-	console.log("Custom tags: " + CUSTOM_TAGS[0]?.name + " = " + CUSTOM_TAGS[0]?.max);
-
 	updateHidden();
 	updateStreamerMode();
 	updateDifficulty();
 	updateVersion();
+	updateTags();
 	generateNewSheet();
+}
+
+function updateTags()
+{
+	if (VERSION.tagList !== undefined)
+	{
+		CURRENT_TAGS = structuredClone(VERSION.tagList);
+		CURRENT_TAGS.forEach((tag) => {tag.customMax = tag.max[DIFFICULTY - 1];}); // Reset the custom max for all tags
+
+		// Attempt to get custom tags from the URL
+		var newTags = (gup('tags'));
+		if (newTags !== null)
+		{
+			try
+			{
+				newTags = newTags.split("-");
+				for (var i = 0; i < newTags.length; i++)
+				{
+					try
+					{
+						var tag = newTags[i].split("_");
+						if (tag.length == 2)
+						{
+							CURRENT_TAGS.find(t => t.name === tag[0]).customMax = parseInt(tag[1]);
+						}
+						else
+						{
+							console.error("Invalid custom tag format: " + newTags[i] + ". Expected format: name-amount");
+						}
+					}
+					catch (e)
+					{
+						console.error("Error parsing custom tag: " + newTags[i] + " - " + e);
+						continue;
+					}
+				}
+			}
+			catch (e)
+			{
+				console.error("Error parsing custom tags from URL: " + e);
+			}
+		}
+	}
+
+    // If any tag is custom, show "Custom Tags"
+    if (CURRENT_TAGS.some(tag => tag.customMax !== tag.max[DIFFICULTY - 1])) {
+        $(".versionText").html("Custom Tags");
+    }
+	else
+	{
+		$(".versionText").html(VERSION.name);
+	}
 }
 
 function getSettingsFromLocalStorage()
@@ -423,7 +438,7 @@ function generateNewSheet()
 		setSquareColor(square, DEFAULT_SQUARE_CLASS_NAME);
 	});
 
-	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals, CUSTOM_TAGS);
+	var result = VERSION.generator(LAYOUT, DIFFICULTY, VERSION.goals);
 
 	forEachSquare((i, square) => {
 		var goal = result[i];
@@ -451,6 +466,15 @@ function generateNewSheet()
 			}
 		}
 	});
+
+	// Update the tag usage display in the popup if open
+    if ($("body").hasClass(SHOW_TAG_CUSTOMISATION_CLASS_NAME))
+	{
+        VERSION.tagList.forEach((tag, index) => {
+            const usageId = `#tag-usage-${index}`;
+            $(usageId).text(CURRENT_TAGS[index] ? CURRENT_TAGS[index].count : 0);
+        });
+    }
 }
 
 // Create a new seed
@@ -649,14 +673,25 @@ function pushNewUrl()
 	var streamerMode = STREAMER_MODE ? "1" : "0";
 	var tags = "";
 
-	if (CUSTOM_TAGS.length > 0)
+	CURRENT_TAGS.forEach((tag) => 
 	{
-		tags = "&tags=" + CUSTOM_TAGS.map(t => t.name + "_" + t.max).join("-");
-	}
+		if (tag.customMax !== undefined && tag.customMax != tag.max[DIFFICULTY - 1])
+		{
+			if (tags == "")
+			{
+				tags = "&tags=";
+			}
+			else
+			{
+				tags += "-";
+			}
+			tags += tag.name + "_" + tag.customMax;
+		}
+	});
 
 	var debug = DEBUG_SHEET ? "&d" : "";
 
-	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED + tags+ debug);
+	window.history.pushState('', "Sheet", "?s=" + DIFFICULTY + "-" + hidden + "-" + streamerMode + "-" + VERSION.id + "_" + SEED + tags + debug);
 }
 
 function pushNewLocalSetting(name, value)
@@ -687,6 +722,20 @@ function updateVersion()
 	$("#version_selection").val(VERSION.id);
 	$("#versions-toggle-button").html(VERSION.name);
 	$(".versionText").html(VERSION.name);
+
+	// Enable custom tag button if this version supports custom tags
+	if (VERSION.tagList != undefined)
+	{
+		$("#tagcustomisation").css("display", "block");
+		CURRENT_TAGS = structuredClone(VERSION.tagList);
+	}
+	else
+	{
+		$("body").removeClass(SHOW_TAG_CUSTOMISATION_CLASS_NAME);
+		$("#tagcustomisation").css("display", "none");
+		CURRENT_TAGS = [];
+	}
+
 	if (VERSION.id != LATEST_VERSION && VERSION.stable)
 	{
 		$("#version_notice").css("display", "block");
@@ -703,8 +752,9 @@ function updateVersion()
 function changeVersion(versionId)
 {
 	VERSION = getVersion(versionId);
-	generateNewSheet();
 	updateVersion();
+	updateTags();
+	generateNewSheet();
 	pushNewUrl();
 }
 
@@ -803,6 +853,57 @@ function createGoalExport()
 function hideGoalExport()
 {
 	$("body").removeClass(SHOW_EXPORT_CLASS_NAME);
+}
+
+function toggleTagCustomisationSection()
+{
+    $("body").toggleClass(SHOW_TAG_CUSTOMISATION_CLASS_NAME);
+
+    if ($("body").hasClass(SHOW_TAG_CUSTOMISATION_CLASS_NAME))
+    {
+        const tagCustomisationsliders = $(TAG_CUSTOMISATION_SLIDERS_ID_NAME);
+        tagCustomisationsliders.empty();
+
+        let rowDiv = null;
+        VERSION.tagList.forEach((tag, index) => {
+            if (index % 3 === 0) {
+                rowDiv = $('<div class="tag-slider-row"></div>');
+                tagCustomisationsliders.append(rowDiv);
+            }
+            const tagName = tag.name;
+            const max = CURRENT_TAGS[index].customMax !== undefined ? CURRENT_TAGS[index].customMax : tag.max;
+			const currentUsage = CURRENT_TAGS[index] ? CURRENT_TAGS[index].count : 0;
+			const defaultMax = tag.max[DIFFICULTY - 1];
+
+            const sliderId = `tag-slider-${index}`;
+            const valueId = `tag-value-${index}`;
+			const usageId = `tag-usage-${index}`;
+			const defaultMaxId = `tag-default-${index}`;
+
+            const sliderHolder = $(`
+                <div class="slider-holder tag-slider-holder">
+                    <input type="range" class="slider tag-slider-input" id="${sliderId}" min="0" max="25" value="${max}" oninput="$('#${valueId}').text(this.value); CURRENT_TAGS[${index}].customMax = parseInt(this.value); pushNewUrl(); generateNewSheet(); updateTags();">
+                    <span class="slider-text tag-slider-text">${tagName} m<span id="${valueId}">${max}</span> c<span id="${usageId}">${currentUsage}</span> d<span id="${defaultMaxId}">${defaultMax}</span></span>
+                </div>
+            `);
+            rowDiv.append(sliderHolder);
+        });
+    }
+}
+
+function resetTagCustomisation()
+{
+	// Reset the custom max for all tags to their default values
+	CURRENT_TAGS.forEach((tag, index) => {
+		tag.customMax = tag.max[DIFFICULTY - 1];
+		$(`#tag-slider-${index}`).val(tag.customMax);
+		$(`#tag-value-${index}`).text(tag.customMax);
+	});
+	pushNewUrl();
+	updateTags();
+	generateNewSheet();
+
+	//$("body").addClass(SHOW_TAG_CUSTOMISATION_CLASS_NAME);
 }
 
 // Made this a function for readability and ease of use

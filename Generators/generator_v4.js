@@ -1,7 +1,7 @@
 // This is part of a version currently in development and may be changed at any time.
 const date = new Date();
 
-var generator_v4 = function(layout, difficulty, bingoList, customTags)
+var generator_v4 = function(layout, difficulty, bingoList)
 {
     var squareMin;
     var squareMax;
@@ -89,7 +89,9 @@ var generator_v4 = function(layout, difficulty, bingoList, customTags)
 	var indexes = Array.from(Array(25).keys());
 
 	// Keep track off what tags, antisynergys, reactants and catalysts are already on the sheet
-	var tags = [];
+	CURRENT_TAGS.forEach(tag => {
+		tag.count = 0; // Reset the count of each tag
+	});
 	var antisynergys = new Set(),
 	reactants = new Set(),
 	catalysts = new Set();
@@ -171,28 +173,18 @@ var generator_v4 = function(layout, difficulty, bingoList, customTags)
 				// foreach tag in the goal's tags
 				for (const tag of goalCandidate.tags)
 				{
-					var currentTag = tags.find(t => t.name === tag.name);
+ 					var currentTag = CURRENT_TAGS.find(t => t.name === tag.name);
 
-					if (!currentTag)
+					// If the tag is a custom tag, override the max value with the custom tag's max value
+					if (currentTag.customMax !== undefined)
 					{
-						// Clone the tag object, don't make a reference to the original tag
-						currentTag = structuredClone(tag); 
-						currentTag.max = tag.max[difficulty - 1];
-
-						// If the tag is a custom tag, override the max value with the custom tag's max value
-						currentCustomTag = customTags && customTags.length > 0 && customTags.find(t => t.name === tag.name);
-						if (currentCustomTag)
+						if (currentTag.count >= currentTag.customMax)
 						{
-							currentTag.max = currentCustomTag.max;
+							// If the tag has reached its max value, get a new goal
+							continue GoalGen;
 						}
-
-						// Set the initial count to 0
-						currentTag.count = 0;
-						tags.push(currentTag);
 					}
-
-					// NOT else if because the max can be 0
-					if (currentTag.count >= currentTag.max)
+					else if (currentTag.count >= currentTag.max[difficulty -1])
 					{
 						// If the tag has reached its max value, get a new goal
 						continue GoalGen;
@@ -260,8 +252,9 @@ var generator_v4 = function(layout, difficulty, bingoList, customTags)
 		// We successfully picked a goal, increase the count of it's tags
 		for (const tag of goalCandidate.tags)
 		{
-			tags.find(t => t.name === tag.name).count++;
+			CURRENT_TAGS.find(t => t.name === tag.name).count++;
 		}
+
 		// Add its antisynergys to the set of antisynergys
 		if (typeof goalCandidate.antisynergy !== 'undefined')
 		{
@@ -294,11 +287,6 @@ var generator_v4 = function(layout, difficulty, bingoList, customTags)
 	}
 
 	console.log("Sheet generation completed successfully.");
-
-	if (DEBUG_SHEET)
-	{
-		tags.forEach(tag => {console.log("Tag '" + tag.name + "' has " + tag.count + " goals, max is " + tag.max + ".");});
-	}
 	
 	return currentSheet;
 }

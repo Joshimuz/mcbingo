@@ -125,6 +125,9 @@
 							</div>
 							<button class="button options-button" id="colourSymbols" onclick='toggleColourSymbols();' title="Toggle the symbols showing on the squares for different colours."></button>
 						</div>
+						<div class="pause-menu-group">
+							<button class="button" id="tagcustomisation" onclick='toggleTagCustomisationSection();' title="EXPERIMENTAL! Customise the tags used for generating the sheet.">Tag Customisation</button>
+						</div>
 					</div>
 					<div class="pause-menu-column">
 						<div class="dropdown-holder">
@@ -149,6 +152,19 @@
 		<div class="stream-exit-text"><a href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a> - <a href="#" onclick='popoutBingoCard();event.preventDefault();'>Pop out Bingo Card</a></div>
 		<div class="stream-exit-text"><a href="#" onclick='newSeed(true);event.preventDefault();'>Generate New Seed</a> - <a href="#" onclick='toggleHidden();event.preventDefault();'>Toggle Show/Hide</a></div>
 		<section id="rules-section">
+			<div id="tag-customisation">
+				<h2>Tag Customisation<br></h2>
+				<h3>WARNING! This feature is EXPERIMENTAL!</h3>
+				<p>It can and will result in broken sheet generation.</p>
+				<p><br></p>
+				<p>This box allows you to customise the sheet generation using tags.</p>
+				<p>Every goal has tags, all those tags have a slider below.</p>
+				<p>m = the maximum, which you can change with the slider.</p>
+				<p>c = the number of goals with that tag currently on the sheet.</p>
+				<p>d = the default maximum for that tag.</p>
+				<div id="tag-customisation-sliders"></div>
+				<div id="tag-customisation-controls"><a href="#" onclick='resetTagCustomisation();event.preventDefault();'>Reset</a> - <a href="#" onclick='toggleTagCustomisationSection();event.preventDefault();'>Close</a></div>
+			</div>
 			<h2>Version</h2>
 			<p>The various versions of the Bingo are designed for specific versions of Vanilla Minecraft (Java Edition, Bedrock versions have minor differences). Try to match versions whenever possible for the best experience.</p>
 			<p>To ensure that each created Bingo sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL.</p>

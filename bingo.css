@@ -960,3 +960,69 @@ select, input[type="text"] {
 .button[disabled]:focus {
   outline: none;
 }
+
+/* Tag Customisation Section */
+
+.show-tag-customisation #tag-customisation {
+	display: flex;
+}
+
+#tag-customisation {
+    display: none;
+    position: static;
+    top: auto;
+    left: auto;
+    background: var(--bg-colour);
+    border: 2px solid #444;
+    color: var(--fg-colour);
+    margin: 16px auto 16px auto;
+    padding: 16px 16px;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-radius: 12px;
+		flex-direction: column;
+	align-items: stretch;
+	text-align: center;
+	height: auto;
+	font-size:1rem;
+}
+
+.tag-slider-holder {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+
+.tag-slider-holder .slider {
+    flex: 1 1 180px;
+    max-width: 250px;
+}
+
+.tag-slider-input {
+    width: 320px;
+    max-width: 100%;
+}
+
+.tag-slider-row {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 18px;
+    justify-content: flex-start;
+}
+
+.tag-slider-holder {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    gap: 12px;
+}
+
+.tag-slider-text {
+    font-size: 1em;
+    white-space: nowrap;
+}
+
+/* End Tag Customisation Popup */
