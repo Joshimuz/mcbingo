@@ -14,7 +14,7 @@ Combat = {name: "Combat", max: [5, 10, 20, 20, 20], line: true},
 Overworld = {name: "Overworld", max: [25, 25, 23, 21, 18], line: true},
 Nether = {name: "Nether", max: [0, 2, 4, 8, 16], line: true},
 End = {name: "End", max: [0, 0, 0, 2, 5], line: true},
-Finish = {name: "Finish", max: [1, 1, 1, 1, 1], line: true},
+Finish = {name: "Finish", max: [1, 1, 1, 1, 1], line: false},
 Netherite = {name: "Netherite", max: [0, 0, 0, 1, 3], line: true};
 
 // New Points System Tags
