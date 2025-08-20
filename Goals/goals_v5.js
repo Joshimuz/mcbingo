@@ -79,6 +79,10 @@ var bingoList_v5 = [
 	{name: "(16-32) Mossy Cobblestone", difficulty: 10, tags: [Item, Overworld, Stone]},
 	{name: "Block of Amethyst", difficulty: 13, tags: [Item, RareBiome, Overworld, Stone]},
 	{name: "Smooth Basalt", difficulty: 12, tags: [Item, Stone]}, // No Overworld or Nether tag coz can be found in both places
+	{name: "(2-16) Tuff", difficulty: 6, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(17-32) Tuff", difficulty: 7, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(33-48) Tuff", difficulty: 8, infrequency: 3, tags: [Item, Overworld, Stone]},
+	{name: "(49-64) Tuff", difficulty: 9, infrequency: 3, tags: [Item, Overworld, Stone]},
 	//#endregion
 
 	//#region Wood
@@ -381,6 +385,8 @@ var bingoList_v5 = [
 	{name: "Enchanted Golden Sword", difficulty: 14, tags: [Item, Tool]},
 	{name: "Spyglass", difficulty: 13, tags: [Item, Overworld, Tool]},
 	{name: "Boat with Chest", difficulty: 1, tags: [Item, Tool]},
+	{name: "Brush", difficulty: 4, tags: [Item, Tool]},
+	{name: "Mace", difficulty: 75, tags: [Item, Tool, Combat]},
 	//#endregion
 
 	//#region Vegetation
@@ -411,8 +417,8 @@ var bingoList_v5 = [
 	{name: "4 Different Seeds", difficulty: 25, infrequency: 2, antisynergy: ["Seeds"], tooltiptext: "Any item with \"Seeds\" in the name.", tags: [Item, Overworld]},
 	{name: "(6-15) Bamboo", difficulty: 10, tags: [Item, Overworld, RareBiome]},
 	{name: "Moss Block", difficulty: 13, tags: [Item, Overworld]},
-	{name: "Torch Flower", difficulty: 28, tags: [Item, Overworld, Ocean, RareBiome]}, // Inherits the tags of the sniffer
-	{name: "Pitcher Plant", difficulty: 30, tags: [Item, Overworld, Ocean, RareBiome]}, // Inherits the tags of the sniffer
+	{name: "Torch Flower", difficulty: 33, tags: [Item, Overworld, Ocean, RareBiome]}, // Inherits the tags of the sniffer
+	{name: "Pitcher Plant", difficulty: 35, tags: [Item, Overworld, Ocean, RareBiome]}, // Inherits the tags of the sniffer
 	//#endregion
 
 	//#region Stats
@@ -470,6 +476,7 @@ var bingoList_v5 = [
 	{name: "Repair an Iron Golem", difficulty: 10, tags: [Action, Overworld, Village]},
 	{name: "Fill a Hopper with 320 items", difficulty: 10, tags: [Action, Item]},
 	{name: "Tame a Wolf", difficulty: 10, tags: [Action, Overworld]},
+	{name: "Give a Wolf Armour", difficulty: 16, tags: [Action, Overworld]},
 	{name: "Clean a Pattern off a Banner", difficulty: 11, tags: [Action, Overworld]},
 	{name: "Fish a Treasure and a Junk item", difficulty: 8, tooltiptext: "Treasure: Bow, Enchanted Book, Name Tag, Nautilus Shell, Saddle. Junk: Lily Pad, Bone, Bowl, Leather, Boots, Rotten Flesh, Stick, Water Bottle, Ink Sac, Tripwire Hook", reactant: ["Fishing"], tags: [Action, Overworld]},
 	{name: "Detonate a TNT-Minecart", difficulty: 10, tags: [Action, Overworld]},
@@ -541,6 +548,9 @@ var bingoList_v5 = [
 	{name: "Fill a Chiseled Bookshelf", difficulty: 12, tags: [Action]},
 	{name: "Fill a Chiseled Bookshelf with Enchanted Books", difficulty: 22, tags: [Action]},
 	{name: "Ice Block on top of a Magma Block", difficulty: 12, tags: [Build, Overworld]},
+	{name: "Craft an item with a Crafter", difficulty: 11, tags: [Action, Overworld]},
+	{name: "Unlock a Vault", difficulty: 25, reactant: ["Pacifist"], tags: [Action, Overworld, Combat]},
+	{name: "Leash a Boat", difficulty: 5, tags: [Action]},
 	//#endregion
 	
 	//#region Mobs (Friend and Foe)
@@ -603,7 +613,10 @@ var bingoList_v5 = [
 	{name: "Duplicate an Allay", difficulty: 25, tags: [Action, Overworld]},
 	{name: "Ride a Camel", difficulty: 9, tags: [Action, Overworld]},
 	{name: "Kill a Hostile Mob while riding a Camel", reactant: ["Pacifist"], difficulty: 10, tags: [Action, Overworld, Combat]},
-	{name: "Sniffer Egg", difficulty: 25, tags: [Item, Overworld, Ocean, RareBiome]},
+	{name: "Sniffer Egg", difficulty: 30, tags: [Item, Overworld, Ocean, RareBiome]},
+	{name: "Armadilo Scute", difficulty: 13, tags: [Item, Overworld]},
+	{name: "Breeze Rod", difficulty: 22, reactant: ["Pacifist"], tags: [Item, Overworld, Combat]},
+	{name: "Arrow of Poison", difficulty: 22, reactant: ["Pacifist"], tags: [Item, Overworld, Combat]},
 	//#endregion
 
 	//#region Ocean
@@ -733,6 +746,10 @@ var bingoList_v5 = [
 	{name: "Potion of Regeneration", difficulty: 22, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Potion of Slow Falling", difficulty: 44, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Combat, Overworld]},
 	{name: "Potion of the Turtle Master", difficulty: 62, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Ocean, Overworld, Combat]},
+	{name: "Potion of Infestation", difficulty: 18, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
+	{name: "Potion of Oozing", difficulty: 32, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
+	{name: "Potion of Weaving", difficulty: 22, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
+	{name: "Potion of Wind Charging", difficulty: 40, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Eye of Ender", difficulty: 22, reactant: ["Pacifist"], antisynergy: ["EyeOfEnder"], tags: [Item, Nether, Combat]},
 	{name: "(33-64) Glowstone Dust", difficulty: 14, infrequency: 2, tags: [Item, Nether]},
 	{name: "Ghast Tear", difficulty: 15, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
@@ -900,5 +917,16 @@ var bingoList_v5 = [
 	{name: "Recovery Compass", difficulty: 41, tags: [Item, Overworld, RareBiome]},
 	{name: "Decorated Pot", difficulty: 4, reactant: ["UseFurnace"], tags: [Item, Overworld]},
 	{name: "Craft a Decorated Pot with 4 Pottery Sherds", difficulty: 28, tags: [Action, Overworld]},
+	{name: "Archer, Miner, Prize or Skull Pottery Sherd", difficulty: 20, infrequency: 4, tags: [Item, Overworld]},
+	{name: "Arms Up or Brewer Pottery Sherd", difficulty: 20, infrequency: 4, tags: [Item, Overworld]},
+	{name: "Angler, Shelter or Snort Pottery Sherd", difficulty: 30, infrequency: 4, tags: [Item, Ocean, Overworld, RareBiome]},
+	{name: "Blade, Explorer, Mourner or Plenty Pottery Sherd", difficulty: 25, infrequency: 4, tags: [Item, Ocean, Overworld]},
+	{name: "Burn, Danger, Friend, Heart, Heartbreak, Howl or Sheaf Pottery Sherd", difficulty: 30, infrequency: 4, tags: [Item, Overworld]},
+	{name: "Scrape, Flow or Guster Pottery Sherd", difficulty: 22, infrequency: 4, tags: [Item, Overworld]},
+	{name: "Every type of Pottery Sherd", difficulty: 200, tags: [Item, Ocean, Overworld]},
+	{name: "Ominous Trial Key", difficulty: 40, reactant: ["Pacifist"], tags: [Item, Combat, Overworld]},
+	{name: "Light a Copper Bulb", difficulty: 20, tags: [Action, Overworld]}, // No nether tag because they can be found in Trial Chambers
+	{name: "Wax a Copper Block", difficulty: 16, tags: [Action, Overworld]},
+	{name: "Any kind of Explorer Map", difficulty: 9, tags: [Item, Overworld, Village]},
 	//#endregion
 ];
