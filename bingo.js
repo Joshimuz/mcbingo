@@ -472,7 +472,9 @@ function generateNewSheet()
 	{
         VERSION.tagList.forEach((tag, index) => {
             const usageId = `#tag-usage-${index}`;
+			const defaultMaxId = `#tag-default-${index}`;
             $(usageId).text(CURRENT_TAGS[index] ? CURRENT_TAGS[index].count : 0);
+            $(defaultMaxId).text(CURRENT_TAGS[index].max[DIFFICULTY - 1]);
         });
     }
 }
@@ -873,7 +875,7 @@ function toggleTagCustomisationSection()
             const tagName = tag.name;
             const max = CURRENT_TAGS[index].customMax !== undefined ? CURRENT_TAGS[index].customMax : tag.max;
 			const currentUsage = CURRENT_TAGS[index] ? CURRENT_TAGS[index].count : 0;
-			const defaultMax = tag.max[DIFFICULTY - 1];
+			const defaultMax = CURRENT_TAGS[index].max[DIFFICULTY - 1];
 
             const sliderId = `tag-slider-${index}`;
             const valueId = `tag-value-${index}`;
