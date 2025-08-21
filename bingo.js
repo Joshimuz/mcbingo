@@ -366,9 +366,8 @@ function updateTags()
 		}
 	}
 
-    // If any tag is custom, show "Custom Tags"
     if (CURRENT_TAGS.some(tag => tag.customMax !== tag.max[DIFFICULTY - 1])) {
-        $(".versionText").html("Custom Tags");
+        $(".versionText").html("Custom " + VERSION.name);
     }
 	else
 	{
@@ -471,10 +470,7 @@ function generateNewSheet()
     if ($("body").hasClass(SHOW_TAG_CUSTOMISATION_CLASS_NAME))
 	{
         VERSION.tagList.forEach((tag, index) => {
-            const usageId = `#tag-usage-${index}`;
-			const defaultMaxId = `#tag-default-${index}`;
-            $(usageId).text(CURRENT_TAGS[index] ? CURRENT_TAGS[index].count : 0);
-            $(defaultMaxId).text(CURRENT_TAGS[index].max[DIFFICULTY - 1]);
+			updateTagCustomisationSlider(index);
         });
     }
 }
@@ -590,6 +586,15 @@ function updateDifficulty()
 
 function changeDifficulty(value)
 {
+	// When difficulty changes, update any custom max that was set to the default
+	CURRENT_TAGS.forEach((tag) => 
+	{
+		if (tag.customMax !== undefined && tag.customMax == tag.max[DIFFICULTY - 1])
+		{
+			tag.customMax = tag.max[parseInt(value) - 1];
+		}
+	});
+
 	DIFFICULTY = parseInt(value);
 	updateDifficulty();
 	generateNewSheet();
@@ -884,13 +889,48 @@ function toggleTagCustomisationSection()
 
             const sliderHolder = $(`
                 <div class="slider-holder tag-slider-holder">
-                    <input type="range" class="slider tag-slider-input" id="${sliderId}" min="0" max="25" value="${max}" oninput="$('#${valueId}').text(this.value); CURRENT_TAGS[${index}].customMax = parseInt(this.value); pushNewUrl(); generateNewSheet(); updateTags();">
+                    <input type="range" class="slider tag-slider-input" id="${sliderId}" min="0" max="25" value="${max}" oninput="updateTagCustomisationSlider(${index}, this.value, true)">
                     <span class="slider-text tag-slider-text">${tagName} m<span id="${valueId}">${max}</span> c<span id="${usageId}">${currentUsage}</span> d<span id="${defaultMaxId}">${defaultMax}</span></span>
                 </div>
             `);
             rowDiv.append(sliderHolder);
+
+			if (max != defaultMax)
+			{
+				$("#" + valueId).parent().css("color", "red");
+			}
         });
     }
+}
+
+function updateTagCustomisationSlider(index, value = CURRENT_TAGS[index].customMax !== undefined ? CURRENT_TAGS[index].customMax : tag.max, updateSheet = false)
+{
+	const sliderId = `#tag-slider-${index}`;
+	const valueId = `#tag-value-${index}`;
+	const usageId = `#tag-usage-${index}`;
+	const defaultMaxId = `#tag-default-${index}`;
+
+	$(valueId).text(value);
+	$(usageId).text(CURRENT_TAGS[index] ? CURRENT_TAGS[index].count : 0);
+	$(defaultMaxId).text(CURRENT_TAGS[index].max[DIFFICULTY - 1]);
+
+	if (value != CURRENT_TAGS[index].max[DIFFICULTY - 1])
+	{
+		$(valueId).parent().css("color", "red");
+	}
+	else
+	{
+		$(valueId).parent().css("color", "");
+	}
+
+	CURRENT_TAGS[index].customMax = parseInt(value);
+
+	if (updateSheet)
+	{
+		pushNewUrl();
+		generateNewSheet();
+		updateTags();
+	}
 }
 
 function resetTagCustomisation()
