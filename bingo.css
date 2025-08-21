@@ -989,20 +989,15 @@ select, input[type="text"] {
 }
 
 .tag-slider-holder {
-    display: flex;
     align-items: center;
-    margin-bottom: 12px;
-    gap: 12px;
+	flex: 1 1 0;
+    display: flex;
 }
 
 .tag-slider-holder .slider {
     flex: 1 1 180px;
-    max-width: 250px;
-}
-
-.tag-slider-input {
-    width: 320px;
     max-width: 100%;
+	left: auto;
 }
 
 .tag-slider-row {
@@ -1011,13 +1006,6 @@ select, input[type="text"] {
     gap: 24px;
     margin-bottom: 18px;
     justify-content: flex-start;
-}
-
-.tag-slider-holder {
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    gap: 12px;
 }
 
 .tag-slider-text {
