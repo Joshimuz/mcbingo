@@ -498,6 +498,7 @@ var bingoList_v5 = [
 	{name: "Place a Cactus in a Flower Pot", difficulty: 12, tags: [Action, RareBiome, Overworld]},
 	{name: "Create an Iron Golem", difficulty: 12, tags: [Action, Overworld]},
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)", difficulty: 12, tooltiptext: "Sea Level is Y=63, but starting from higher is fine.", tags: [Action, Overworld]},
+	{name: "Dig a 5x5 hole to Bedrock from Sea level.", difficulty: 22, tooltiptext: "Sea Level is Y=63, but starting from higher is fine.", tags: [Action, Overworld]},
 	{name: "Use a Lead on a Rabbit", difficulty: 12, tags: [Action, Overworld]},
 	{name: "Power a Redstone Lamp", difficulty: 12, tags: [Action, Overworld, Nether]}, // While this doesn't REQUIRE the nether it really changes it's difficulty
 	{name: "Wear 4 Different Armour types at the same time", difficulty: 12, tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet.", tooltipimg: "4Armour.jpg", reactant: ["WearArmour"], tags: [Action]}, // Made easier thanks to Copper Armour
@@ -530,7 +531,7 @@ var bingoList_v5 = [
 	{name: "Grow a Tree with a Bee Nest attached", difficulty: 24, tags: [Action, Overworld]},
 	{name: "Disarm a Pillager", difficulty: 24, tooltiptext: "Get a Pillager to not be holding any Weapons.", tags: [Action, Overworld, Combat, RareBiome]}, // It takes 23 minutes to disarm a Pillager.
 	{name: "Cure a Zombie Villager", difficulty: 26, tags: [Action, Overworld]},
-	{name: "Listen to an entire Music Disc", difficulty: 26, tooltiptext: "It doesn't count until the song naturally finishes!", tags: [Action]},
+	{name: "Listen to an entire Music Disc", difficulty: 22, tooltiptext: "It doesn't count until the song naturally finishes!", tags: [Action]},
 	{name: "Tame a Mule", difficulty: 27, tags: [Action, Overworld]},
 	{name: "Stun a Ravager", difficulty: 30, tags: [Action, Overworld, Combat, Village]},
 	{name: "Feed a Panda a Cake", difficulty: 18, tags: [Action, Overworld, RareBiome]},
@@ -570,7 +571,7 @@ var bingoList_v5 = [
 	{name: "(9-16) Feathers", difficulty: 3, antisynergy: ["Feathers"], infrequency: 5, tags: [Item]},
 	{name: "(16-24) Feathers", difficulty: 4, antisynergy: ["Feathers"], infrequency: 5, tags: [Item]},
 	{name: "(25-32) Feathers", difficulty: 5, antisynergy: ["Feathers"], infrequency: 5, tags: [Item]},
-	{name: " Ink Sac", difficulty: 2, infrequency: 2, tags: [Item, Overworld]},
+	{name: "Ink Sac", difficulty: 2, infrequency: 2, tags: [Item, Overworld]},
 	{name: "(5-8) Ink Sacs", difficulty: 3, infrequency: 2, tags: [Item, Overworld]},
 	{name: "(9-16) Ink Sacs", difficulty: 5, infrequency: 2, tags: [Item, Overworld]},
 	{name: "(17-32) Ink Sacs", difficulty: 8, infrequency: 2, tags: [Item, Overworld]},
@@ -603,8 +604,8 @@ var bingoList_v5 = [
 	{name: "Get a Skeleton's Bow", difficulty: 10, reactant: ["Pacifist"], tooltiptext: "Kill Skeletons until you get the rare Bow drop from one.", tags: [Item, Combat]},
 	{name: "(5-9) Slimeballs", difficulty: 16, tags: [Item, RareBiome, Overworld]},
 	{name: "Phantom Membrane", difficulty: 40, reactant: ["Pacifist"], tags: [Item, Combat, Overworld]},
-	{name: "Get a Pillager's Crossbow", difficulty: 18, reactant: ["Pacifist"], tooltiptext: "Kill Pillagers until you get a rare Crossbow drop from one.", tags: [Item, Combat, Overworld, RareBiome]},
-	{name: "Ominous Banner", difficulty: 16, reactant: ["Pacifist"], tags: [Item, Combat, Overworld]},
+	{name: "Get a Pillager's Crossbow", difficulty: 20, reactant: ["Pacifist"], tooltiptext: "Kill Pillagers until you get a rare Crossbow drop from one.", tags: [Item, Combat, Overworld, RareBiome]},
+	{name: "Ominous Banner", difficulty: 16, tags: [Item, Overworld]}, // No pacifist reactant as you can get it from the side of a pillager outpost
 	{name: "Brown Wool", difficulty: 4, tags: [Item, Overworld]},
 	{name: "Turtle Scute", difficulty: 40, antisynergy: ["TurtleShell"], tags: [Item, Ocean, Overworld]},
 	{name: "Capture a Blue Axolotl in a Bucket", difficulty: 233, tags: [Action, Ocean, Overworld]},
@@ -616,7 +617,7 @@ var bingoList_v5 = [
 	{name: "Froglight", difficulty: 30, tags: [Item, Overworld, Nether, RareBiome]},
 	{name: "2 Different Froglights", difficulty: 40, tags: [Item, Overworld, Nether, RareBiome]},
 	{name: "3 Different Froglights", difficulty: 50, tags: [Item, Overworld, Nether, RareBiome]},
-	{name: "Duplicate an Allay", difficulty: 25, tags: [Action, Overworld]},
+	{name: "Duplicate an Allay", difficulty: 34, tags: [Action, Overworld]},
 	{name: "Ride a Camel", difficulty: 9, tags: [Action, Overworld]},
 	{name: "Kill a Hostile Mob while riding a Camel", reactant: ["Pacifist"], difficulty: 10, tags: [Action, Overworld, Combat]},
 	{name: "Sniffer Egg", difficulty: 30, tags: [Item, Overworld, Ocean, RareBiome]},
@@ -788,7 +789,7 @@ var bingoList_v5 = [
 	{name: "Get Regeneration from a Beacon", difficulty: 135, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "(32-64) Wither Roses", difficulty: 160, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
 	{name: "Skull Charge Banner Pattern", difficulty: 200, reactant: ["Pacifist"], tags: [Item, Nether, Combat, RareBiome, Overworld, Storm]},
-	{name: "Give a Piglin full Gold Armour", difficulty: 23, tags: [Item, Nether]},
+	{name: "Give a Piglin full Gold Armour", difficulty: 21, tags: [Item, Nether]},
 	//#endregion 
 
 	//#region End
