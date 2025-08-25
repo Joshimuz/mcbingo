@@ -369,6 +369,7 @@ function forEachSquare(f)
 
 function generateNewSheet()
 {
+	indicateSeedOverflow()
 	let seedInput = $(".seed-input");
 	seedInput.val(SEED);
 	seedInput.attr("size", Math.max(SEED.length, 5));
@@ -534,6 +535,15 @@ function changeSeed(value)
 	SEED = value;
 	generateNewSheet();
 	pushNewUrl();
+}
+
+function indicateSeedOverflow() {
+	var seedInputElement = $('#seed')[0]
+	if (seedInputElement.scrollWidth > seedInputElement.clientWidth) {
+		seedInputElement.classList.add('overflow');
+	} else {
+		seedInputElement.classList.remove('overflow');
+	}
 }
 
 function updateColourCount()
