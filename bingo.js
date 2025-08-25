@@ -485,6 +485,7 @@ function toggleHidden()
 	// Invert HIDDEN setting, then update
 	HIDDEN = !HIDDEN;
 	updateHidden();
+	indicateSeedOverflow()
 	pushNewUrl();
 }
 
@@ -538,12 +539,14 @@ function changeSeed(value)
 }
 
 function indicateSeedOverflow() {
-	var seedInputElement = $('#seed')[0]
-	if (seedInputElement.scrollWidth > seedInputElement.clientWidth) {
-		seedInputElement.classList.add('overflow');
-	} else {
-		seedInputElement.classList.remove('overflow');
-	}
+	var seedInputElements = document.querySelectorAll(".seed-input");
+	seedInputElements.forEach(seedInputElement => {
+		if (seedInputElement.scrollWidth > seedInputElement.clientWidth) {
+			seedInputElement.classList.add('overflow');
+		} else {
+			seedInputElement.classList.remove('overflow');
+		}
+	});	
 }
 
 function updateColourCount()
