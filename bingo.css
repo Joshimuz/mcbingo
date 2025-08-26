@@ -400,7 +400,7 @@ body {
 .seed-input {
 	font-size: 1.01em;
 	text-align: center;
-	width: 145px;
+	max-width: 145px;
 	overflow: hidden;
 	text-overflow: ellipsis ellipsis;
 	white-space: nowrap;
