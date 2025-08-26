@@ -74,6 +74,11 @@ $(document).click(function(event) {
 		});
 	}
 	if (!$(event.target).closest(".pause-menu").length) {
+		if (event.target.href.startsWith("javascript:hide") && event.target.href.endsWith("Dialog()")) {
+			// return here because we don't want to close the pause menu when we hit one of the hide buttons
+			return;
+		}
+
 		if (event.target.id != "options-toggle-button") {
 			// Hide if click was anywhere BUT on a pause menu
 			hideOptionsMenu();
