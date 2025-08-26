@@ -127,9 +127,20 @@
 						</div>
 					</div>
 					<div class="pause-menu-column">
-						<div class="dropdown-holder">
-							<button class="button options-button dropdown-button" id="versions-toggle-button" title="Change version of Bingo"><!-- text set by updateVersion() --></button>
-							<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
+						<div class="pause-menu-group">
+							<div class="dropdown-holder">
+								<button class="button options-button dropdown-button" id="versions-toggle-button" title="Change version of Bingo"><!-- text set by updateVersion() --></button>
+								<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
+							</div>
+							<button class="button hidden">intentionally hidden</button>
+							<button class="button hidden">intentionally hidden</button>
+						</div>
+						<div class="pause-menu-group">
+							<button class="button hidden">intentionally hidden</button>
+						</div>
+						<div class="pause-menu-group">
+							<button class="button options-button" onclick="displaySaveDialog();">Save Progress</button>
+							<button class="button options-button" onclick="displayLoadDialog();">Load Progress</button>
 						</div>
 					</div>
 				</div>
@@ -201,8 +212,18 @@
 		<div id="copiedTooltip" class="tooltip"><span class="tooltiptext">Copied!</span></div>
 		<div id="export">
 			<p>The goals of the current sheet as JSON:</p>
-			<textarea readonly="readonly"></textarea>
+			<textarea readonly="readonly" name="export-textarea"></textarea>
 			<a href="javascript:hideGoalExport()">Hide</a>
+		</div>
+		<div id="save">
+			<p>Your current progress.<br>Store it in safe place to restore later.</p>
+			<textarea readonly="readonly" id="save-textarea" name="save-textarea"></textarea>
+			<a href="javascript:hideSaveDialog('bla')">Hide</a>
+		</div>
+		<div id="load">
+			<p>Enter your progress string here:</p>
+			<textarea id="load-textarea" name="load-textarea"></textarea>
+			<span><a href="javascript:hideLoadDialog()">Hide</a> | <a href="javascript:loadProgressFromDialog()">Load</a></span>
 		</div>
 	</body>
 </html>
