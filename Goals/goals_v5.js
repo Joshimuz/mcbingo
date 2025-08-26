@@ -532,7 +532,7 @@ var bingoList_v5 = [
 	{name: "Disarm a Pillager", difficulty: 24, tooltiptext: "Get a Pillager to not be holding any Weapons.", tags: [Action, Overworld, Combat, RareBiome]}, // It takes 23 minutes to disarm a Pillager.
 	{name: "Cure a Zombie Villager", difficulty: 26, tags: [Action, Overworld]},
 	{name: "Listen to an entire Music Disc", difficulty: 22, tooltiptext: "It doesn't count until the song naturally finishes!", tags: [Action]},
-	{name: "Tame a Mule", difficulty: 27, tags: [Action, Overworld]},
+	{name: "Tame a Mule", difficulty: 25, tags: [Action, Overworld]},
 	{name: "Stun a Ravager", difficulty: 30, tags: [Action, Overworld, Combat, Village]},
 	{name: "Feed a Panda a Cake", difficulty: 18, tags: [Action, Overworld, RareBiome]},
 	{name: "Sleep in a Woodland Mansion", difficulty: 30, tags: [Action, RareBiome, Overworld]},
@@ -926,7 +926,7 @@ var bingoList_v5 = [
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", difficulty: 24, tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "IceCube.jpg", tags: [Build, Overworld]},
 	{name: "Enchanted Golden Apple", difficulty: 27, tags: [Item]},
 	{name: "Cookie", difficulty: 10, tags: [Item, Overworld]},
-	{name: "Be killed by a Villager", difficulty: 25, tooltiptext: "Check the 'Mobs' statistics screen!", tags: [Village, Overworld, Stat, Combat, Death]},
+	{name: "Be killed by a Villager", difficulty: 23, tooltiptext: "Check the 'Mobs' statistics screen!", tags: [Village, Overworld, Stat, Combat, Death]},
 	{name: "Activate a Totem of Undying", difficulty: 31, tags: [Item, Overworld]},
 	{name: "Build a 6x6 Scaffolding 'n' shape (not counting corners)", difficulty: 12, tooltiptext: "Width/height of the inside frame, disregarding corners.", tooltipimg: "ScaffingN.jpg", tags: [Build, Overworld]},
 	{name: "(10-32) Mycelium", difficulty: 60, tags: [Item, RareBiome, Overworld]},
