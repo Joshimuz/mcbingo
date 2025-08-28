@@ -388,6 +388,8 @@ var bingoList_v5 = [
 	{name: "Boat with Chest", difficulty: 1, tags: [Item, Tool]},
 	{name: "Brush", difficulty: 4, tags: [Item, Tool]},
 	{name: "Mace", difficulty: 75, tags: [Item, Tool, Combat]},
+	{name: "Get a '... was smashed by ...' Death message", difficulty: 82, tooltiptext: "Example: 'PLAYER' was smashed by a Zombie.", tags: [Action, Death, Combat]},
+	{name: "Bundle", difficulty: 4, tags: [Item, Tool]},
 	//#endregion
 
 	//#region Vegetation
@@ -460,6 +462,8 @@ var bingoList_v5 = [
 	{name: "Extinguish a Campfire", difficulty: 3, tags: [Action]},
 	{name: "Fill a Composter", difficulty: 3, tooltiptext: "Add stuff until you can get Bonemeal out!", tooltipimg: "FullComposter.jpg", tags: [Action]},
 	{name: "Fill all 4 slots of a Campfire", difficulty: 4, tags: [Action, Food]},
+	{name: "Fill a Bundle", difficulty: 5, tags: [Action, Tool]},
+	{name: "Fill a Bundle with 64 different items", tooltiptext: "No item inside the bundle can be the same, every item must be singular (so no number at the bottom).", difficulty: 14, tags: [Action, Tool]},
 	{name: "Repair an Item with a Grindstone", difficulty: 4, tags: [Action, Overworld]},
 	{name: "Tame a Horse", difficulty: 4, tags: [Action, Overworld]},
 	{name: "Sleep in a Villager's bed", difficulty: 4, reactant: ["Sleep"], tags: [Action, Village, Overworld]},
@@ -558,6 +562,7 @@ var bingoList_v5 = [
 	{name: "Craft an item with a Crafter", difficulty: 11, tags: [Action, Overworld]},
 	{name: "Unlock a Vault", difficulty: 25, reactant: ["Pacifist"], tags: [Action, Overworld, Combat]},
 	{name: "Leash a Boat", difficulty: 5, tags: [Action]},
+	{name: "Power Minecart with Furnace", difficulty: 8, tags: [Action]},
 	//#endregion
 	
 	//#region Mobs (Friend and Foe)
