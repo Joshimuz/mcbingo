@@ -421,7 +421,6 @@ var bingoList_v5 = [
 	{name: "(5-16) Poppies & (5-16) Dandelions", difficulty: 2, antisynergy: ["PoppiesDandelions"], infrequency: 3, tags: [Item, Overworld]}, // Somehow these are showing up on the same sheet so they need antisynergy
 	{name: "(17-32) Poppies & (17-32) Dandelions", difficulty: 4, antisynergy: ["PoppiesDandelions"], infrequency: 3, tags: [Item, Overworld]}, // Somehow these are showing up on the same sheet so they need antisynergy
 	{name: "(32-64) Leaves", difficulty: 5, tags: [Item, Overworld]},
-	{name: "Pumpkin", difficulty: 4, tags: [Item, Overworld]},
 	{name: "(2-5) Cacti", difficulty: 9, tags: [Item, RareBiome, Overworld]},
 	{name: "(6-16) Cacti", difficulty: 10, tags: [Item, RareBiome, Overworld]},
 	{name: "Cactus flower", difficulty: 9, tags: [Item, RareBiome, Overworld]},
@@ -593,6 +592,7 @@ var bingoList_v5 = [
 	{name: "Unlock a Vault", difficulty: 25, reactant: ["Pacifist"], tags: [Action, Overworld, Combat]},
 	{name: "Leash a Boat", difficulty: 5, tags: [Action]},
 	{name: "Power Minecart with Furnace", difficulty: 8, tags: [Action]},
+	{name: "Swap your entire hotbar at once using Shelves", difficulty: 4, tags: [Action]},
 	//#endregion
 	
 	//#region Mobs (Friend and Foe)
@@ -665,6 +665,8 @@ var bingoList_v5 = [
 	{name: "Chiseled Resin Bricks", difficulty: 25, tooltiptext: "The block, not the item.", tags: [Item, Overworld, RareBiome, Combat]},
 	{name: "Poison a Bee", difficulty: 20, tags: [Action, Overworld]},
 	{name: "Remove a Saddle from a Pig without it dying", difficulty: 7, tags: [Action, Overworld]},
+	{name: "Wax a Copper Golem", difficulty: 15, tags: [Action, Overworld]},
+	{name: "Waxed Exposed Copper Golem Statue", difficulty: 555, reactant: ["AxeUse"], tags: [Item, Overworld]},
 	//#endregion
 
 	//#region Ocean
@@ -996,5 +998,6 @@ var bingoList_v5 = [
 	{name: "Light a Copper Bulb", difficulty: 20, tags: [Action, Overworld]}, // No nether tag because they can be found in Trial Chambers
 	{name: "Wax a Copper Block", difficulty: 16, tags: [Action, Overworld]},
 	{name: "Any kind of Explorer Map", difficulty: 9, tags: [Item, Overworld, Village]},
+	{name: "Copper Chest", difficulty: 9, tags: [Item, Overworld]},
 	//#endregion
 ];
