@@ -413,6 +413,7 @@ var bingoList_v5 = [
 	{name: "Mace", difficulty: 75, tags: [Item, Tool, Combat]},
 	{name: "Get a '... was smashed by ...' Death message", difficulty: 82, tooltiptext: "Example: 'PLAYER' was smashed by a Zombie.", tags: [Action, Death, Combat]},
 	{name: "Bundle", difficulty: 4, tags: [Item, Tool]},
+	{name: "(2-4) Tipped Arrows", difficulty: 23, tags: [Item, Tool]},
 	//#endregion
 
 	//#region Vegetation
@@ -662,7 +663,8 @@ var bingoList_v5 = [
 	{name: "Arrow of Poison", difficulty: 22, reactant: ["Pacifist"], tags: [Item, Overworld, Combat]},
 	{name: "Respawn a Creaking without destroying/placing it's Creaking Heart", difficulty: 30, tags: [Action, Overworld, RareBiome, Combat]},
 	{name: "Chiseled Resin Bricks", difficulty: 25, tooltiptext: "The block, not the item.", tags: [Item, Overworld, RareBiome, Combat]},
-	{name: "Poison a Bee", difficulty: 20, tags: [Action, Overworld,]},
+	{name: "Poison a Bee", difficulty: 20, tags: [Action, Overworld]},
+	{name: "Remove a Saddle from a Pig without it dying", difficulty: 7, tags: [Action, Overworld]},
 	//#endregion
 
 	//#region Ocean
@@ -809,7 +811,6 @@ var bingoList_v5 = [
 	{name: "Grow a Huge Nether Fungus in the Overworld", difficulty: 23, antisynergy: ["GrowFungus"], tags: [Action, Overworld, Nether]},
 	{name: "(Try to) use a Respawn Anchor in the Overworld", difficulty: 20, tags: [Action, Nether]},
 	{name: "Damage a Strider with Water", difficulty: 25, tags: [Action, Nether]},
-	{name: "(2-4) Tipped Arrows", difficulty: 26, tags: [Item, Nether, Overworld]},
 	{name: "Give a Piglin Brute an Enchanted Axe", difficulty: 28, tags: [Action, Nether, Combat, RareBiome]},
 	{name: "Get a regular Ghast into the Overworld", difficulty: 40, tooltiptext: "Not the Happy Ghast.", tags: [Action, Nether, Overworld]},
 	{name: "Every type of Pickaxe", difficulty: 30, infrequency: 2, antisynergy: ["EveryPickaxe"], tooltiptext: "Wooden, Stone, Copper, Iron, Gold, Diamond and yes, even Netherite.", tags: [Item, Nether, Netherite, Overworld]},
@@ -829,7 +830,11 @@ var bingoList_v5 = [
 	{name: "(32-64) Wither Roses", difficulty: 160, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
 	{name: "Skull Charge Banner Pattern", difficulty: 200, reactant: ["Pacifist"], tags: [Item, Nether, Combat, RareBiome, Overworld, Storm]},
 	{name: "Give a Piglin full Gold Armour", difficulty: 21, tags: [Item, Nether]},
-	//#endregion 
+	{name: "Dried Ghast", difficulty: 14, tags: [Item, Nether]},
+	{name: "Give a Happy Ghast a Harness and a Boat", difficulty: 24, tags: [Item, Nether, Overworld]},
+	{name: "Get a Happy Ghast into the Nether", difficulty: 28, tooltiptext: "Not the regular Ghast.", tags: [Action, Nether, Overworld]},
+	{name: "Jump from one Happy Ghast to another", difficulty: 27, tags: [Action, Nether, Overworld]},
+	//#endregion
 
 	//#region End
 	// (50 pts base)
