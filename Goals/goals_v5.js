@@ -42,7 +42,7 @@ var bingoList_v5 = [
 	{name: "(49-64) Coarse Dirt", difficulty: 6, infrequency: 2, tags: [Item, Overworld, Dirt]},
 	{name: "Grass Block", difficulty: 14, tooltiptext: "If you don't have Silk Touch, I know a guy who might pick one up for you...", tooltipimg: "GrassBlock.jpg", tags: [Item, Overworld, Dirt]},
 	{name: "Rooted Dirt", difficulty: 15, tags: [Item, Overworld, Dirt]},
-	{name: "Muddy Mangrove Roots", difficulty: 12, tags: [Item, Overworld, Dirt]},
+	{name: "Muddy Mangrove Roots", difficulty: 17, tags: [Item, Overworld, Dirt]},
 	{name: "(2-16) Mud", difficulty: 4, infrequency: 2, tags: [Item, Overworld, Dirt]},
 	{name: "(17-32) Mud", difficulty: 5, infrequency: 2, tags: [Item, Overworld, Dirt]},
 	{name: "(33-48) Mud", difficulty: 6, infrequency: 2, tags: [Item, Overworld, Dirt]},
@@ -421,7 +421,9 @@ var bingoList_v5 = [
 	{name: "(17-32) Poppies & (17-32) Dandelions", difficulty: 4, antisynergy: ["PoppiesDandelions"], infrequency: 3, tags: [Item, Overworld]}, // Somehow these are showing up on the same sheet so they need antisynergy
 	{name: "(32-64) Leaves", difficulty: 5, tags: [Item, Overworld]},
 	{name: "Pumpkin", difficulty: 4, tags: [Item, Overworld]},
-	{name: "(5-16) Cacti", difficulty: 9, tags: [Item, RareBiome, Overworld]},
+	{name: "(2-5) Cacti", difficulty: 9, tags: [Item, RareBiome, Overworld]},
+	{name: "(6-16) Cacti", difficulty: 10, tags: [Item, RareBiome, Overworld]},
+	{name: "Cactus flower", difficulty: 9, tags: [Item, RareBiome, Overworld]},
 	{name: "Pumpkin", difficulty: 4, tags: [Item, Overworld]},
 	{name: "Carved Pumpkin", difficulty: 5, tags: [Item, Overworld]},
 	{name: "(17-32) Vines", difficulty: 10, tags: [Item, RareBiome, Overworld]},
@@ -448,6 +450,10 @@ var bingoList_v5 = [
 	{name: "Moss Block", difficulty: 13, tags: [Item, Overworld]},
 	{name: "Torch Flower", difficulty: 33, tags: [Item, Overworld, Ocean, RareBiome]}, // Inherits the tags of the sniffer
 	{name: "Pitcher Plant", difficulty: 35, tags: [Item, Overworld, Ocean, RareBiome]}, // Inherits the tags of the sniffer
+	{name: "64 Leaf Litter", difficulty: 3, tags: [Item, Overworld]},
+	{name: "Firefly Bush", difficulty: 4, tags: [Item, Overworld]},
+	{name: "(2-4) Firefly Bushes", difficulty: 5, tags: [Item, Overworld]},
+	{name: "(5-10) Firefly Bushes", difficulty: 6, tags: [Item, Overworld]},
 	//#endregion
 
 	//#region Stats
@@ -607,8 +613,10 @@ var bingoList_v5 = [
 	{name: "Ender Pearls", difficulty: 10, infrequency: 2, tags: [Item]},
 	{name: "2 Ender Pearls", difficulty: 12, antisynergy: ["EnderPearl"], infrequency: 2, tags: [Item, Combat]},
 	{name: "(3-5) Ender Pearls", difficulty: 13, antisynergy: ["EnderPearl"], infrequency: 2, tags: [Item, Combat]},
-	{name: "Chicken Egg", difficulty: 3, antisynergy: ["ChickenEggs"], tags: [Item]},
-	{name: "16 Chicken Eggs", difficulty: 9, antisynergy: ["ChickenEggs"], tags: [Item]},
+	{name: "Egg", difficulty: 3, tooltiptext: "Any colour of egg.", tags: [Item]},
+	{name: "Brown Egg", difficulty: 5, tags: [Item]},
+	{name: "Blue Egg", difficulty: 5, tags: [Item]},
+	{name: "16 Eggs", difficulty: 9, tags: [Item]},
 	{name: "Hatch a Chicken from an Egg", difficulty: 8, tags: [Action, Overworld]},
 	{name: "Drown a Zombie", difficulty: 7, tags: [Action, Combat, Overworld]},
 	{name: "Gunpowder", difficulty: 5, infrequency: 3, tags: [Item]},
@@ -957,7 +965,8 @@ var bingoList_v5 = [
 	{name: "Build a (2-4)x(2-4)x(2-4) Ice cube", difficulty: 24, tooltiptext: "You can choose what shall be the width/length/height.", tooltipimg: "IceCube.jpg", tags: [Build, Overworld]},
 	{name: "Enchanted Golden Apple", difficulty: 27, tags: [Item]},
 	{name: "Cookie", difficulty: 10, tags: [Item, Overworld]},
-	{name: "Be killed by a Villager", difficulty: 23, tooltiptext: "Check the 'Mobs' statistics screen!", tags: [Village, Overworld, Stat, Combat, Death]},
+	{name: "Be killed by a Villager", difficulty: 23, tooltiptext: "Check the 'Mobs' statistics screen!", tags: [Village, Overworld, Stat, Death]},
+	{name: "Be killed by a Pig", difficulty: 21, tooltiptext: "Check the 'Mobs' statistics screen!", tags: [Overworld, Stat, Death]},
 	{name: "Activate a Totem of Undying", difficulty: 31, tags: [Item, Overworld]},
 	{name: "Build a 6x6 Scaffolding 'n' shape (not counting corners)", difficulty: 12, tooltiptext: "Width/height of the inside frame, disregarding corners.", tooltipimg: "ScaffingN.jpg", tags: [Build, Overworld]},
 	{name: "(10-32) Mycelium", difficulty: 60, tags: [Item, RareBiome, Overworld]},
