@@ -446,13 +446,14 @@ var bingoList_v5 = [
 	{name: "3 Different Seeds", difficulty: 10, infrequency: 2, antisynergy: ["Seeds"], tooltiptext: "Any item with \"Seeds\" in the name.", tags: [Item, Overworld]},
 	{name: "4 Different Seeds", difficulty: 25, infrequency: 2, antisynergy: ["Seeds"], tooltiptext: "Any item with \"Seeds\" in the name.", tags: [Item, Overworld]},
 	{name: "(6-15) Bamboo", difficulty: 10, tags: [Item, Overworld, RareBiome]},
-	{name: "Moss Block", difficulty: 13, tags: [Item, Overworld]},
+	{name: "Moss Block", difficulty: 13, tags: [Item, RareBiome, Overworld]},
 	{name: "Torch Flower", difficulty: 33, tags: [Item, Overworld, Ocean, RareBiome]}, // Inherits the tags of the sniffer
 	{name: "Pitcher Plant", difficulty: 35, tags: [Item, Overworld, Ocean, RareBiome]}, // Inherits the tags of the sniffer
 	{name: "64 Leaf Litter", difficulty: 3, tags: [Item, Overworld]},
 	{name: "Firefly Bush", difficulty: 4, tags: [Item, Overworld]},
 	{name: "(2-4) Firefly Bushes", difficulty: 5, tags: [Item, Overworld]},
 	{name: "(5-10) Firefly Bushes", difficulty: 6, tags: [Item, Overworld]},
+	{name: "Build a 10 block tall Dripleaf", difficulty: 15, tags: [Build, RareBiome, Overworld]},
 	//#endregion
 
 	//#region Stats
@@ -485,6 +486,7 @@ var bingoList_v5 = [
 	{name: "Hang up a 4x4 Painting", difficulty: 3, infrequency: 2, antisynergy: ["Painting"], tags: [Action, Overworld]},
 	{name: "Hang up 3 Different 4x4 Paintings", difficulty: 5, infrequency: 2, antisynergy: ["Painting"], tags: [Action, Overworld]},
 	{name: "Change the colour of text on a Sign", difficulty: 2, tags: [Action]},
+	{name: "Outline the text on a Hanging Sign", difficulty: 12, tags: [Action, Overworld]},
 	{name: "Sleep in a Bed", difficulty: 2, reactant: ["Sleep"], tags: [Action, Overworld]},
 	{name: "Bounce on a Bed", difficulty: 2, tags: [Action, Overworld]},
 	{name: "Extinguish a Campfire", difficulty: 3, tags: [Action]},
@@ -496,6 +498,7 @@ var bingoList_v5 = [
 	{name: "Tame a Horse", difficulty: 4, tags: [Action, Overworld]},
 	{name: "Sleep in a Villager's bed", difficulty: 4, reactant: ["Sleep"], tags: [Action, Village, Overworld]},
 	{name: "Fill a Cauldron with Water", difficulty: 5, tags: [Action, Overworld]},
+	{name: "Fill a Cauldron with Lava", difficulty: 7, tags: [Action]},
 	{name: "Shoot a Button with an Arrow", difficulty: 5, tags: [Action]},
 	{name: "Ring a Bell from 10 blocks away", difficulty: 5, tags: [Action, Village, Overworld]},
 	{name: "Hang a mob with a Lead", difficulty: 5, reactant: ["Pacifist"], tooltiptext: "Suspend a mob in mid air using Fences and a Lead.", tooltipimg: "HangingLead.jpg", tags: [Action, Overworld]},
@@ -591,6 +594,7 @@ var bingoList_v5 = [
 	{name: "Leash a Boat", difficulty: 5, tags: [Action]},
 	{name: "Power Minecart with Furnace", difficulty: 8, tags: [Action]},
 	{name: "Swap your entire hotbar at once using Shelves", difficulty: 4, tags: [Action]},
+	{name: "Have a Warden kill a Villager", difficulty: 60, tags: [Action, RareBiome, Overworld, Combat, Village]},
 	//#endregion
 	
 	//#region Mobs (Friend and Foe)
@@ -665,6 +669,7 @@ var bingoList_v5 = [
 	{name: "Remove a Saddle from a Pig without it dying", difficulty: 7, tags: [Action, Overworld]},
 	{name: "Wax a Copper Golem", difficulty: 15, tags: [Action, Overworld]},
 	{name: "Waxed Exposed Copper Golem Statue", difficulty: 190, reactant: ["AxeUse"], tags: [Item, Overworld]},
+	{name: "Get a '... was obliterated by a sonically-charged shriek' Death message", difficulty: 32, tags: [Action, Overworld, RareBiome, Death]},
 	//#endregion
 
 	//#region Ocean
@@ -913,6 +918,7 @@ var bingoList_v5 = [
 	{name: "Finish on top of a Blaze Spawner", difficulty: 18, tooltiptext: "Be stood on top of a Blaze Spawner as the final goal.", tags: [Action, Nether, Combat, Finish]},
 	{name: "Finish by launching Fireworks of (5-7) Different Colours", difficulty: 20, tooltiptext: "Launch the fireworks as the final goal.", tags: [Action, Item, Colour, Overworld, Finish]},
 	{name: "Finish by building a Scaffolding tower, then removing it", difficulty: 15, tooltiptext: "Build a 1x1 Scaffolding Tower from Bedrock to Y=320 (height limit) and then knock it all down as the final goal.", tags: [Build, Overworld, Finish]},
+	{name: "Finish where you last died using a Recovery Compass ", difficulty: 41, tooltiptext: "Be stood close enough to spin your compass within a couple blocks as the final goal.", tags: [Finish, Overworld, RareBiome]},
 	//#endregion
 
 	//#region Music Discs
@@ -988,7 +994,6 @@ var bingoList_v5 = [
 	{name: "Extinguish a Candle on a Cake", difficulty: 22, tags: [Item, Overworld]},
 	{name: "Pointed Dripstone", difficulty: 4, tags: [Item, Overworld]},
 	{name: "Calibrated Sculk Sensor", difficulty: 40, tags: [Item, Overworld, RareBiome]},
-	{name: "Recovery Compass", difficulty: 41, tags: [Item, Overworld, RareBiome]},
 	{name: "Decorated Pot", difficulty: 4, reactant: ["UseFurnace"], tags: [Item, Overworld]},
 	{name: "Craft a Decorated Pot with 4 Pottery Sherds", difficulty: 28, tags: [Action, Overworld]},
 	{name: "Archer, Miner, Prize or Skull Pottery Sherd", difficulty: 20, infrequency: 4, tags: [Item, Overworld]},
