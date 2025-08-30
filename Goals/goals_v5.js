@@ -15,10 +15,8 @@ Overworld = {name: "Overworld", max: [25, 25, 23, 21, 18], line: true},
 Nether = {name: "Nether", max: [0, 1, 4, 8, 16], line: true},
 End = {name: "End", max: [0, 0, 0, 2, 5], line: true},
 Finish = {name: "Finish", max: [1, 1, 1, 1, 1], line: true},
-Netherite = {name: "Netherite", max: [0, 0, 0, 1, 3], line: true};
-
-// New Points System Tags
-var Wood = {name: "Wood", max: [4, 3, 2, 1, 0], line: false},
+Netherite = {name: "Netherite", max: [0, 0, 0, 1, 3], line: true},
+Wood = {name: "Wood", max: [4, 3, 2, 1, 0], line: false},
 Dirt = {name: "Dirt", max: [3, 2, 1, 0, 0], line: false},
 Stone = {name: "Stone", max: [3, 2, 1, 0, 0], line: false},
 Ore = {name: "Ore", max: [5, 4, 3, 2, 1], line: true},
@@ -26,7 +24,8 @@ Tool = {name: "Tool", max: [5, 4, 3, 2, 1], line: true}, // And weapons
 Food = {name: "Food", max: [5, 4, 3, 2, 1], line: true},
 Storm = {name: "Storm", max: [0, 0, 0, 0, 1], line: false},
 Trim = {name: "Trim", max: [0, 0, 1, 2, 3], line: true},
-Death = {name: "Death", max: [0, 1, 2, 3, 4], line: true};
+Death = {name: "Death", max: [0, 1, 2, 3, 4], line: true},
+Disc = {name: "Disc", max: [2, 2, 2, 2, 1], line: true};
 
 var bingoList_v5 = [
 	// New Points System
@@ -564,7 +563,6 @@ var bingoList_v5 = [
 	{name: "Grow a Tree with a Bee Nest attached", difficulty: 24, tags: [Action, Overworld]},
 	{name: "Disarm a Pillager", difficulty: 24, tooltiptext: "Get a Pillager to not be holding any Weapons.", tags: [Action, Overworld, Combat, RareBiome]}, // It takes 23 minutes to disarm a Pillager.
 	{name: "Cure a Zombie Villager", difficulty: 26, tags: [Action, Overworld]},
-	{name: "Listen to an entire Music Disc", difficulty: 22, tooltiptext: "It doesn't count until the song naturally finishes!", tags: [Action]},
 	{name: "Tame a Mule", difficulty: 25, tags: [Action, Overworld]},
 	{name: "Stun a Ravager", difficulty: 30, tags: [Action, Overworld, Combat, Village]},
 	{name: "Feed a Panda a Cake", difficulty: 18, tags: [Action, Overworld, RareBiome]},
@@ -666,7 +664,7 @@ var bingoList_v5 = [
 	{name: "Poison a Bee", difficulty: 20, tags: [Action, Overworld]},
 	{name: "Remove a Saddle from a Pig without it dying", difficulty: 7, tags: [Action, Overworld]},
 	{name: "Wax a Copper Golem", difficulty: 15, tags: [Action, Overworld]},
-	{name: "Waxed Exposed Copper Golem Statue", difficulty: 555, reactant: ["AxeUse"], tags: [Item, Overworld]},
+	{name: "Waxed Exposed Copper Golem Statue", difficulty: 190, reactant: ["AxeUse"], tags: [Item, Overworld]},
 	//#endregion
 
 	//#region Ocean
@@ -801,7 +799,7 @@ var bingoList_v5 = [
 	{name: "Potion of Oozing", difficulty: 32, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Potion of Weaving", difficulty: 22, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "Potion of Wind Charging", difficulty: 40, infrequency: 12, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
-	{name: "Eye of Ender", difficulty: 22, reactant: ["Pacifist"], antisynergy: ["EyeOfEnder"], tags: [Item, Nether, Combat]},
+	{name: "Eye of Ender", difficulty: 22, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
 	{name: "(33-64) Glowstone Dust", difficulty: 14, infrequency: 2, tags: [Item, Nether]},
 	{name: "Ghast Tear", difficulty: 15, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
 	{name: "(2-3) Magma Cream", difficulty: 16, tags: [Item, Nether, Combat]},
@@ -836,6 +834,7 @@ var bingoList_v5 = [
 	{name: "Give a Happy Ghast a Harness and a Boat", difficulty: 24, tags: [Item, Nether, Overworld]},
 	{name: "Get a Happy Ghast into the Nether", difficulty: 28, tooltiptext: "Not the regular Ghast.", tags: [Action, Nether, Overworld]},
 	{name: "Jump from one Happy Ghast to another", difficulty: 27, tags: [Action, Nether, Overworld]},
+	{name: "Fill all slots of an Ender Chest", difficulty: 25, reactant: ["Pacifist"], tags: [Action, Nether, Combat]},
 	//#endregion
 
 	//#region End
@@ -914,6 +913,11 @@ var bingoList_v5 = [
 	{name: "Finish on top of a Blaze Spawner", difficulty: 18, tooltiptext: "Be stood on top of a Blaze Spawner as the final goal.", tags: [Action, Nether, Combat, Finish]},
 	{name: "Finish by launching Fireworks of (5-7) Different Colours", difficulty: 20, tooltiptext: "Launch the fireworks as the final goal.", tags: [Action, Item, Colour, Overworld, Finish]},
 	{name: "Finish by building a Scaffolding tower, then removing it", difficulty: 15, tooltiptext: "Build a 1x1 Scaffolding Tower from Bedrock to Y=320 (height limit) and then knock it all down as the final goal.", tags: [Build, Overworld, Finish]},
+	//#endregion
+
+	//#region Music Discs
+	{name: "Listen to an entire Music Disc", difficulty: 22, tooltiptext: "It doesn't count until the song naturally finishes!", tags: [Action, Disc]},
+	{name: "Listen to all of a Pigstep Music Disc", difficulty: 42, tooltiptext: "It doesn't count until the song naturally finishes!", tags: [Action, RareBiome, Nether, Disc]},
 	//#endregion
 
 	//#region Unsorted
