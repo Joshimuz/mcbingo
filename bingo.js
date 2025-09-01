@@ -74,19 +74,11 @@ $(document).click(function(event) {
 		});
 	}
 	if (!$(event.target).closest(".pause-menu").length) {
-		if (event.target.href.startsWith("javascript:hide") && event.target.href.endsWith("Dialog()")) {
-			// return here because we don't want to close the pause menu when we hit one of the hide buttons
-			return;
-		}
-
 		if (event.target.id != "options-toggle-button") {
 			// Hide if click was anywhere BUT on a pause menu
 			hideOptionsMenu();
+			closeSaveAndLoadMenu();
 		}
-	}
-	if (className.includes("pause-menu")) {
-		// hide if clicking on pause-menu layout, but not on buttons/sliders
-		hideOptionsMenu();
 	}
 });
 
@@ -182,6 +174,7 @@ $(document).ready(function()
 		if (e.keyCode == 27 /* Esc */)
 		{
 			toggleOptionsMenu();
+			closeSaveAndLoadMenu();
 		}
 	});
 
@@ -190,9 +183,6 @@ $(document).ready(function()
 		changeVersion($(this).val());
 	});
 
-	$(".pause-menu-close").click(function() {
-		hideOptionsMenu();
-	});
 	$("#options-toggle-button").click(function() {
 		toggleOptionsMenu();
 	});
@@ -211,6 +201,9 @@ $(document).ready(function()
 		window.scrollTo(0, 120);
 		$("#Popoutbutton").css("display", "none");
 	}
+
+	templateLoadSlots();
+	populateLoadSlots();
 });
 
 function toggleOptionsMenu()
@@ -779,86 +772,98 @@ function gup( name )
 // random source: www.engin33r.net/bingo/random.js
 (function(j,i,g,m,k,n,o){function q(b){var e,f,a=this,c=b.length,d=0,h=a.i=a.j=a.m=0;a.S=[];a.c=[];for(c||(b=[c++]);d<g;)a.S[d]=d++;for(d=0;d<g;d++)e=a.S[d],h=h+e+b[d%c]&g-1,f=a.S[h],a.S[d]=f,a.S[h]=e;a.g=function(b){var c=a.S,d=a.i+1&g-1,e=c[d],f=a.j+e&g-1,h=c[f];c[d]=h;c[f]=e;for(var i=c[e+h&g-1];--b;)d=d+1&g-1,e=c[d],f=f+e&g-1,h=c[f],c[d]=h,c[f]=e,i=i*g+c[e+h&g-1];a.i=d;a.j=f;return i};a.g(g)}function p(b,e,f,a,c){f=[];c=typeof b;if(e&&c=="object")for(a in b)if(a.indexOf("S")<5)try{f.push(p(b[a],e-1))}catch(d){}return f.length?f:b+(c!="string"?"\0":"")}function l(b,e,f,a){b+="";for(a=f=0;a<b.length;a++){var c=e,d=a&g-1,h=(f^=e[a&g-1]*19)+b.charCodeAt(a);c[d]=h&g-1}b="";for(a in e)b+=String.fromCharCode(e[a]);return b}i.seedrandom=function(b,e){var f=[],a;b=l(p(e?[b,j]:arguments.length?b:[(new Date).getTime(),j,window],3),f);a=new q(f);l(a.S,j);i.random=function(){for(var c=a.g(m),d=o,b=0;c<k;)c=(c+b)*g,d*=g,b=a.g(1);for(;c>=n;)c/=2,d/=2,b>>>=1;return(c+b)/d};return b};o=i.pow(g,m);k=i.pow(2,k);n=k*2;l(i.random(),j)})([],Math,256,6,52);
 
-/**
- * helper function to convert a progress "object" to its base64 representation
- **/
-function progressToBase64(progress) {
-	return btoa(unescape(encodeURIComponent(JSON.stringify(progress))));
+function openSaveAndLoadMenu() {
+	$("#savenloadmenu").css('display', 'flex');
+	$("#bingo").css('filter', 'blur(0.1em)')
 }
 
-/*
-* helper function to convert a base64 string to a progress "object"
-*/
-function progressFromBase64(b64) {
-	try {
-		return JSON.parse(decodeURIComponent(escape(atob(b64))));
-	}
-	catch (e) {
-		console.error("Invalid Base64 or JSON:", e);
-		return;
-	}
+function closeSaveAndLoadMenu() {
+	$("#savenloadmenu").css('display', 'none');
+	$("#bingo").css('filter', '')
 }
 
-/**
- * function to collect all relevant data, build the progress object
- * and return it as base64
- **/
-function saveProgress() {
+function saveProgress(slotId) {
 	var difficulty = DIFFICULTY;
 	var version = VERSION.id;
-	seed = SEED;
-	var slots = [];
-	var slotElements = document.querySelectorAll("#bingo td");
+	var seed = SEED;
+	var lastModified = new Date().toISOString();
 
-	slotElements.forEach(cell => {
-		slots.push({
+	var squares = [];
+	var squareElements = document.querySelectorAll("#bingo td");
+
+	squareElements.forEach(cell => {
+		squares.push({
 			id: cell.id,
 			classes: cell.className.split(" ").filter(Boolean)
 		});
 	});
 
-	const progress = { difficulty, version, seed, slots };
+	const progress = { difficulty, version, seed, squares, lastModified };
 	console.log(progress);
-	console.log(progressToBase64(progress));
-	return progressToBase64(progress);
+	localStorage.setItem(slotId, JSON.stringify(progress));
+	setSlotTitle(slotId, progress)
 }
 
-/**
- * loads the progress from a base64 and recreates the sheet from that
- **/
-function loadProgress(base64String) {
-	const progress = progressFromBase64(base64String);
-
+function loadProgress(slotId) {
+	let storageContent = localStorage.getItem(slotId);
+	if (storageContent === null) {
+		console.error(`No content for slot ${slotId} in local storage found`)
+		return
+	}
+	var progress = JSON.parse(storageContent);
 	console.log(progress);
 	changeSeed(progress.seed);
 	changeDifficulty(progress.difficulty);
 	changeVersion(progress.version);
 
-	progress.slots.forEach(item => {
+	progress.squares.forEach(item => {
 		const element = document.getElementById(item.id);
 		element.className = item.classes.join(" ");
 	});
 }
 
-/** functions used for saving and loading in the UI **/
-function displaySaveDialog() {
-	$("#save textarea").text(saveProgress());
-	$("#save").css('display', 'flex');
+function deleteProgress(slotId) {
+	localStorage.removeItem(slotId);
+	$(`#load-slot-${slotId} #slot-title`).html(`Slot ${slotId}`)
 }
 
-function hideSaveDialog() {
-	$("#save").css('display', 'none');
+/**
+ * Clones the list of load slots from the template to add them to the UI
+ **/
+function templateLoadSlots() {
+	var menuContainer = $('.savenloadmenu');
+	var template = document.getElementById('load-slot-template');
+	var count = 7;
+
+	for (var i = 1; i <= count; i++) {
+		var clone = $(template.content.cloneNode(true));
+
+		clone
+		.find('#slot-title')
+		.text(`Slot ${i}`);
+
+		clone
+		.add(clone.find('.row'))
+		.attr('id', 'load-slot-' + i)
+		.attr('slot', i);
+
+		menuContainer.append(clone);
+	}
 }
 
-function displayLoadDialog() {
-	$("#load").css('display', 'flex');
+/**
+ * Actually populates the slots with the data in local storage
+ **/
+function populateLoadSlots() {
+	Object.keys(localStorage).forEach(key => {
+		var progress = JSON.parse(localStorage.getItem(key));
+		setSlotTitle(key, progress)
+	});
 }
 
-function hideLoadDialog() {
-	$("#load").css('display', 'none');
-}
-
-function loadProgressFromDialog() {
-	loadProgress($("#load textarea").val().trim());
-	hideLoadDialog();
+function setSlotTitle(slotId, progress) {
+	var versionText = getVersion(progress.version).name
+	var difficultyText = DIFFICULTYTEXT[progress.difficulty - 1]
+	var seed = progress.seed
+	$(`#load-slot-${slotId} #slot-title`).html(`${seed} ${difficultyText} ${versionText}<br>${progress.lastModified}`)
 }

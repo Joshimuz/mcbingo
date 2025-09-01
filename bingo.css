@@ -971,29 +971,28 @@ select, input[type="text"] {
   outline: none;
 }
 
-/* save and load dialogs */
-#save,
-#load {
-	display: none;
-	width: 50%;
-	height: 50%;
-	position: fixed;
-	border: 4px solid #000;
-	top: 10%;
-	left: 25%;
-	color: var(--fg-colour);
-	background: var(--bg-colour);
-	flex-direction: column;
-	align-items: stretch;
-	text-align: center;
-	padding: 4px;
-	z-index: 200;
+.savenloadmenu {
+	margin-top: 5em;
+	width: 100%;
 }
-#save textarea,
-#load textarea {
-	flex-grow: 1;
-	font-family: monospace;
-	color: var(--fg-colour);
-	background-color: var(--bg-colour);
-	resize: none;
+.savenloadmenu .row {
+	display: flex;
+	flex-direction: row;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.savenloadmenu .row .button {
+	height: 60px;
+	margin: 2px;
+	margin-bottom: 5px;
+}
+.savenloadmenu .row .title {
+	width: 100%;
+	padding: 5px;
+	font-size: 15px;
+}
+.savenloadmenu img {
+	padding: 5px;
+	width: 48px;
+	height: 48px;
 }
