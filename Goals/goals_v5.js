@@ -457,11 +457,19 @@ var bingoList_v5 = [
 	//#endregion
 
 	//#region Stats
-	{name: "Level (5-7)", difficulty: 2, infrequency: 2, tags: [Stat]},
-	{name: "Level (8-15)", difficulty: 5, infrequency: 2, tags: [Stat]},
-	{name: "Level (16-25)", difficulty: 12, infrequency: 2, tags: [Stat]},
-	{name: "Level (26-35)", difficulty: 24, infrequency: 2, tags: [Stat]},
-	{name: "Level (46-50)", difficulty: 34, infrequency: 2, tags: [Stat]},
+	{name: "Level (2-3)", difficulty: 2, infrequency: 2, tags: [Stat]}, // This is lower infrequency coz there's only 2 level goals possible in Very Easy
+	{name: "Level (4-5)", difficulty: 4, infrequency: 4, tags: [Stat]},
+	{name: "Level (6-9)", difficulty: 6, infrequency: 4, tags: [Stat]},
+	{name: "Level (10-14)", difficulty: 8, infrequency: 4, tags: [Stat]},
+	{name: "Level (15-18)", difficulty: 10, infrequency: 4, tags: [Stat]},
+	{name: "Level (19-22)", difficulty: 13, infrequency: 4, tags: [Stat]},
+	{name: "Level (23-26)", difficulty: 16, infrequency: 4, tags: [Stat]},
+	{name: "Level (27-30)", difficulty: 19, infrequency: 4, tags: [Stat]},
+	{name: "Level (31-34)", difficulty: 23, infrequency: 4, tags: [Stat]},
+	{name: "Level (35-38)", difficulty: 28, infrequency: 4, tags: [Stat]},
+	{name: "Level (39-42)", difficulty: 33, infrequency: 4, tags: [Stat]},
+	{name: "Level (43-46)", difficulty: 38, infrequency: 4, tags: [Stat]},
+	{name: "Level (47-50)", difficulty: 44, infrequency: 4, tags: [Stat]},
 	{name: "Breed a set of animals", difficulty: 2, tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 3, tags: [Action, Stat]},
 	{name: "Breed (2-4) sets of animals", difficulty: 4, tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 3, tags: [Action, Stat]},
 	{name: "Breed (5-7) sets of animals", difficulty: 6, tooltiptext: "Check the 'General' statistics screen!", antisynergy: ["BreedAnimals"], infrequency: 3, tags: [Action, Stat]},
@@ -553,8 +561,8 @@ var bingoList_v5 = [
 	{name: "Ignite a TNT with a Lectern", difficulty: 14, tags: [Action, Overworld]},
 	{name: "Put a Chest on a Donkey", difficulty: 16, tags: [Action, Overworld]},
 	{name: "Enchant an item", difficulty: 18, antisynergy: ["Enchant"], tooltiptext: "With an enchantment table, not an anvil.", tags: [Action, Overworld]},
-	{name: "Enchant 5 different items", difficulty: 24, antisynergy: ["Enchant"], tags: [Action, Overworld]},
-	{name: "Create an Enchantment requiring level 10+", difficulty: 30, antisynergy: ["Enchant"], tags: [Action, Overworld]},
+	{name: "Enchant 5 different items", difficulty: 24, antisynergy: ["Enchant"], tooltiptext: "With an enchantment table, not an anvil.", tags: [Action, Overworld]},
+	{name: "Enchant an item requiring level 10+", difficulty: 28, antisynergy: ["Enchant"], tooltiptext: "With an enchantment table, not an anvil.", tags: [Action, Overworld]},
 	{name: "Kill a hostile mob with a Sweet Berry Bush", difficulty: 20, reactant: ["Pacifist"], tags: [Action, Overworld, Combat, RareBiome]},
 	{name: "Convert a Carrot on a Stick into a Fishing Rod", difficulty: 13, tags: [Action, Overworld]},
 	{name: "Place every height of Snow next to each other", difficulty: 17, tooltiptext: "The heights of Snow are 1, 2, 3, 4, 5, 6, 7, and 8!",  tooltipimg: "SnowHeights.jpg", tags: [Build, RareBiome, Overworld]},
@@ -659,7 +667,7 @@ var bingoList_v5 = [
 	{name: "Duplicate an Allay", difficulty: 34, tags: [Action, Overworld]},
 	{name: "Ride a Camel", difficulty: 9, tags: [Action, Overworld]},
 	{name: "Kill a Hostile Mob while riding a Camel", reactant: ["Pacifist"], difficulty: 10, tags: [Action, Overworld, Combat]},
-	{name: "Sniffer Egg", difficulty: 30, tags: [Item, Overworld, Ocean, RareBiome]},
+	{name: "Sniffer Egg", difficulty: 32, tags: [Item, Overworld, Ocean, RareBiome]},
 	{name: "Armadilo Scute", difficulty: 13, tags: [Item, Overworld]},
 	{name: "Breeze Rod", difficulty: 22, reactant: ["Pacifist"], tags: [Item, Overworld, Combat]},
 	{name: "Arrow of Poison", difficulty: 22, reactant: ["Pacifist"], tags: [Item, Overworld, Combat]},
@@ -967,7 +975,10 @@ var bingoList_v5 = [
 	{name: "(11-20) Magma Blocks", difficulty: 8, infrequency: 3, tags: [Item]},
 	{name: "(21-32) Magma Blocks", difficulty: 9, infrequency: 3, tags: [Item]},
 	{name: "Damaged Anvil", difficulty: 12, tags: [Item]},
-	{name: "6 Fire Charges", difficulty: 17, tags: [Item]}, // No Nether/Combat tag coz can find in Ruined Portals and Trial Chambers, 16 coz you don't *NEED* Blaze Rods if found in Chests
+	{name: "Fire Charge", difficulty: 10, infrequency: 4, tags: [Item]}, // No Nether/Combat tag coz can find in Ruined Portals and Trial Chambers
+	{name: "(2-3) Fire Charges", difficulty: 12, infrequency: 4, tags: [Item]}, // No Nether/Combat tag coz can find in Ruined Portals and Trial Chambers
+	{name: "(4-5) Fire Charges", difficulty: 14, infrequency: 4, tags: [Item]}, // No Nether/Combat tag coz can find in Ruined Portals and Trial Chambers
+	{name: "(6-7) Fire Charges", difficulty: 16, infrequency: 4, tags: [Item]}, // No Nether/Combat tag coz can find in Ruined Portals and Trial Chambers
 	{name: "(2-4) Obsidian", difficulty: 12, infrequency: 2, tags: [Item]},
 	{name: "(5-10) Obsidian", difficulty: 13, infrequency: 2, tags: [Item]},
 	{name: "Firework Star", difficulty: 6, tags: [Item, Overworld]},
