@@ -448,6 +448,9 @@ body {
 	height: auto;
 	font-size: 1em;
 }
+.button.hidden {
+	visibility: hidden;
+}
 
 /*** Button border and insets ***/
 .button::after,
@@ -802,6 +805,7 @@ select, input[type="text"] {
 	font-family: monospace;
 	color: var(--fg-colour);
 	background-color: var(--bg-colour);
+	resize: none;
 }
 
 /* End Export Popup */
@@ -965,4 +969,30 @@ select, input[type="text"] {
 /* ensure focus styles do not show for disabled controls */
 .button[disabled]:focus {
   outline: none;
+}
+
+.savenloadmenu {
+	margin-top: 5em;
+	width: 100%;
+}
+.savenloadmenu .row {
+	display: flex;
+	flex-direction: row;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.savenloadmenu .row .button {
+	height: 60px;
+	margin: 2px;
+	margin-bottom: 5px;
+}
+.savenloadmenu .row .title {
+	width: 100%;
+	padding: 5px;
+	font-size: 15px;
+}
+.savenloadmenu img {
+	padding: 5px;
+	width: 48px;
+	height: 48px;
 }
