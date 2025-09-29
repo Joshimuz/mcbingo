@@ -43,12 +43,12 @@ var generator_v4 = function(layout, difficulty, bingoList)
             lineMax = 80;
             break;
 
-        // Hard (avg goal 24–28)
+        // Hard (avg goal 20–24)
         case 4:
             squareMin = 16;
             squareMax = 32;
-            lineMin = 120;
-            lineMax = 140;
+            lineMin = 100;
+            lineMax = 120;
             break;
 
         // Very Hard
