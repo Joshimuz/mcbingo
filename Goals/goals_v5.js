@@ -541,7 +541,6 @@ var bingoList_v5 = [
 	{name: "Place a Cactus in a Flower Pot", difficulty: 12, tags: [Action, RareBiome, Overworld]},
 	{name: "Create an Iron Golem", difficulty: 12, tags: [Action, Overworld]},
 	{name: "Dig straight down to Bedrock from Sea level (1x1 hole)", difficulty: 12, tooltiptext: "Sea Level is Y=63, but starting from higher is fine.", tags: [Action, Overworld]},
-	{name: "Dig a 5x5 hole to Bedrock from Sea level.", difficulty: 22, tooltiptext: "Sea Level is Y=63, but starting from higher is fine.", tags: [Action, Overworld]},
 	{name: "Use a Lead on a Rabbit", difficulty: 12, tags: [Action, Overworld]},
 	{name: "Power a Redstone Lamp", difficulty: 12, tags: [Action, Overworld, Nether]}, // While this doesn't REQUIRE the nether it really changes it's difficulty
 	{name: "Wear 4 Different Armour types at the same time", difficulty: 12, tooltiptext: "Example: GOLD shoes, LEATHER Trousers, IRON Chestplate and DIAMOND Helmet.", tooltipimg: "4Armour.jpg", reactant: ["WearArmour"], tags: [Action]}, // Made easier thanks to Copper Armour
