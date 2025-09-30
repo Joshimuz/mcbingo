@@ -1,3 +1,5 @@
+// This is part of a version currently in development and may be changed at any time.
+
 // Tags
 var Item = {name: "Item", max: [24, 23, 20, 20, 20], line: true},
 Stat = {name: "Stat", max: [5, 5, 5, 5, 5], line: true},
@@ -25,7 +27,7 @@ Trim = {name: "Trim", max: [0, 0, 1, 2, 3], line: true},
 Death = {name: "Death", max: [0, 1, 2, 3, 4], line: true},
 Disc = {name: "Disc", max: [2, 2, 2, 2, 1], line: true};
 
-var bingoList_v5 = [
+var bingoList_v6 = [
 	// New Points System
 	// → Read goals.md for information regarding the new points system. ←
 	// Duplicate named goals should be avoided by the generator so less "AntiSynergy" between the same named goal should be unecerssary
@@ -352,18 +354,18 @@ var bingoList_v5 = [
 	{name: "3 Emerald Blocks", difficulty: 16, infrequency: 3, tags: [Item, Ore, Village]},
 	{name: "5 Emerald Blocks", difficulty: 24, infrequency: 3, tags: [Item, Ore, Village]},
 	{name: "7 Emerald Blocks", difficulty: 29, infrequency: 3, tags: [Item, Ore, Village]},
-	{name: "Copper Block", difficulty: 3, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
-	{name: "3 Copper Blocks", difficulty: 6, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
-	{name: "5 Copper Blocks", difficulty: 9, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "Copper Block", difficulty: 4, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "3 Copper Blocks", difficulty: 7, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "5 Copper Blocks", difficulty: 10, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
 	{name: "Raw Iron Block", difficulty: 5, antisynergy: ["IronBlock"], infrequency: 3, tags: [Item, Ore, Overworld]}, // Raw ores are harder due to requiring being dug manually
 	{name: "3 Raw Iron Blocks", difficulty: 10, antisynergy: ["IronBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
 	{name: "5 Raw Iron Blocks", difficulty: 14, antisynergy: ["IronBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
 	{name: "Raw Gold Block", difficulty: 6, antisynergy: ["GoldBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
 	{name: "3 Raw Gold Blocks", difficulty: 12, antisynergy: ["GoldBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
 	{name: "5 Raw Gold Blocks", difficulty: 17, antisynergy: ["GoldBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
-	{name: "Raw Copper Block", difficulty: 4, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
-	{name: "3 Raw Copper Blocks", difficulty: 6, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
-	{name: "5 Raw Copper Blocks", difficulty: 11, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "Raw Copper Block", difficulty: 5, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "3 Raw Copper Blocks", difficulty: 7, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
+	{name: "5 Raw Copper Blocks", difficulty: 12, antisynergy: ["CopperBlock"], infrequency: 3, tags: [Item, Ore, Overworld]},
 	{name: "(2-4) Different Gold Items", difficulty: 5, infrequency: 2, tooltiptext: "Any item with 'Gold' in its name (yes, even Raw and Ingots).", tags: [Item, Ore]},
 	{name: "(5-7) Different Gold Items", difficulty: 7, infrequency: 2, tooltiptext: "Any item with 'Gold' in its name (yes, even Ingots and Ores).", tags: [Item, Ore]},
 	{name: "(3-4) Different Diamond Items", difficulty: 10, infrequency: 2, tooltiptext: "Any item with 'Diamond' in its name (yes, even itself).", tags: [Item, Ore]},
@@ -411,8 +413,6 @@ var bingoList_v5 = [
 	{name: "Get a '... was smashed by ...' Death message", difficulty: 82, tooltiptext: "Example: 'PLAYER' was smashed by a Zombie.", tags: [Action, Death, Combat]},
 	{name: "Bundle", difficulty: 4, tags: [Item, Tool]},
 	{name: "Tipped Arrow", difficulty: 15, tags: [Item, Tool]},
-	{name: "Copper Torch", difficulty: 3, tags: [Item, Tool]},
-	{name: "Copper Lantern", difficulty: 4, tags: [Item, Tool]},
 	//#endregion
 
 	//#region Vegetation
@@ -604,7 +604,6 @@ var bingoList_v5 = [
 	{name: "Power Minecart with Furnace", difficulty: 8, tags: [Action]},
 	{name: "Swap your entire hotbar at once using Shelves", difficulty: 4, tags: [Action]},
 	{name: "Have a Warden kill a Villager", difficulty: 60, tags: [Action, RareBiome, Overworld, Combat, Village]},
-	{name: "Shear a Copper Golem", difficulty: 55, tags: [Action, Overworld]},
 	//#endregion
 	
 	//#region Mobs (Friend and Foe)
@@ -680,7 +679,7 @@ var bingoList_v5 = [
 	{name: "Wax a Copper Golem", difficulty: 15, tags: [Action, Overworld]},
 	{name: "Copper Golem Statue", difficulty: 25, reactant: ["AxeUse"], tags: [Item, Overworld]},
 	{name: "Get a '... was obliterated by a sonically-charged shriek' Death message", difficulty: 32, tags: [Action, Overworld, RareBiome, Death]},
-	{name: "Shear a Bogged", difficulty: 21, tags: [Action, Overworld, RareBiome]},
+	{name: "Get a Bogged's Mushroom", difficulty: 21, tags: [Action, Overworld, RareBiome]},
 	{name: "Any mob head OTHER than a Wither Skeleton's", difficulty: 60, tags: [Item, Combat, Overworld]},
 	//#endregion
 
