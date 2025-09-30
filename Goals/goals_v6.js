@@ -1,3 +1,5 @@
+// This is part of a version currently in development and may be changed at any time.
+
 // Tags
 var Item = {name: "Item", max: [24, 23, 20, 20, 20], line: true},
 Stat = {name: "Stat", max: [5, 5, 5, 5, 5], line: true},
@@ -25,7 +27,7 @@ Trim = {name: "Trim", max: [0, 0, 1, 2, 3], line: true},
 Death = {name: "Death", max: [0, 1, 2, 3, 4], line: true},
 Disc = {name: "Disc", max: [2, 2, 2, 2, 1], line: true};
 
-var bingoList_v5 = [
+var bingoList_v6 = [
 	// New Points System
 	// → Read goals.md for information regarding the new points system. ←
 	// Duplicate named goals should be avoided by the generator so less "AntiSynergy" between the same named goal should be unecerssary
