@@ -142,9 +142,8 @@
 					<div class="savenloadmenu">
 						<template id="load-slot-template">
 							<div class="row">
-								<button id="slot-title" class="button options-button title">Slot 1</button>
+								<button id="slot-title" class="button options-button title" title="Load" onclick="loadProgress(this.parentNode.slot)">Slot 1</button>
 								<button class="button options-button" title="Save" onclick="saveProgress(this.parentNode.slot)"><img src="Images/save.png"></img></button>
-								<button class="button options-button" title="Load" onclick="loadProgress(this.parentNode.slot)"><img src="Images/load.png"></img></button>
 								<button class="button options-button" title="Delete" onclick="deleteProgress(this.parentNode.slot)"><img src="Images/delete.png"></img></button>
 							</div>
 						</template>
