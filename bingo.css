@@ -679,10 +679,10 @@ body.streamer-mode {
 	margin-top: 5em;
 }
 
-.show-options #bingo {
+.blur-slightly {
 	filter: blur(0.1em);
 }
-.hidden.show-options #hidden-bingo {
+.blur-heavily  {
 	filter: blur(0.5em);
 }
 
@@ -712,7 +712,7 @@ body.streamer-mode {
 	padding-bottom: 1rem;
 }
 
-.show-options #options-menu {
+.show-pause-menu {
 	display: flex;
 }
 
@@ -984,27 +984,27 @@ select, input[type="text"] {
   outline: none;
 }
 
-.savenloadmenu {
+.savenload-menu {
 	margin-top: 5em;
 	width: 100%;
 }
-.savenloadmenu .row {
+.savenload-menu .row {
 	display: flex;
 	flex-direction: row;
 	margin-left: 5px;
 	margin-right: 5px;
 }
-.savenloadmenu .row .button {
+.savenload-menu .row .button {
 	height: 60px;
 	margin: 2px;
 	margin-bottom: 5px;
 }
-.savenloadmenu .row .title {
+.savenload-menu .row .title {
 	width: 100%;
 	padding: 5px;
 	font-size: 15px;
 }
-.savenloadmenu img {
+.savenload-menu img {
 	padding: 5px;
 	width: 48px;
 	height: 48px;
