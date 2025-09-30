@@ -680,7 +680,7 @@ var bingoList_v5 = [
 	{name: "Waxed Exposed Copper Golem Statue", difficulty: 190, reactant: ["AxeUse"], tags: [Item, Overworld]},
 	{name: "Get a '... was obliterated by a sonically-charged shriek' Death message", difficulty: 32, tags: [Action, Overworld, RareBiome, Death]},
 	{name: "Get a Bogged's Mushroom", difficulty: 21, tags: [Action, Overworld, RareBiome]},
-	{name: "Any mob head OTHER than a Wither Skeleton's", difficulty: 60, tooltiptext: "Dragon, Skeleton, Zombie or a Creeper Head. Wither Skeleton skulls do NOT count.", tags: [Item, Combat, Overworld]},
+	{name: "Any mob head OTHER than a Wither Skeleton's", difficulty: 60, tags: [Item, Combat, Overworld]},
 	//#endregion
 
 	//#region Ocean
@@ -850,7 +850,6 @@ var bingoList_v5 = [
 	{name: "3 Blocks of Netherite", difficulty: 130, tags: [Item, Nether, Netherite]},
 	{name: "Get Regeneration from a Beacon", difficulty: 135, reactant: ["Pacifist"], tags: [Item, Nether, Overworld, Combat]},
 	{name: "(32-64) Wither Roses", difficulty: 160, reactant: ["Pacifist"], tags: [Item, Nether, Combat]},
-	{name: "Skull Charge Banner Pattern", difficulty: 200, reactant: ["Pacifist"], tags: [Item, Nether, Combat, RareBiome, Overworld, Storm]},
 	{name: "Give a Piglin full Gold Armour", difficulty: 21, tags: [Item, Nether]},
 	{name: "Dried Ghast", difficulty: 14, tags: [Item, Nether]},
 	{name: "Give a Happy Ghast a Harness and a Boat", difficulty: 28, tags: [Item, Nether, Overworld]},
