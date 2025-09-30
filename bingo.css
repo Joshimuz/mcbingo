@@ -834,6 +834,19 @@ select, input[type="text"] {
 	background-image: url(Images/therun-img-white.png);
 }
 
+/* Joshimuz logo */
+.joshimuz-logo {
+	display: inline-block;
+	width: 325px;
+	height: 64px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url(Images/joshimuz.png);
+}
+.dark .joshimuz-logo {
+	background-image: url(Images/joshimuz.png);
+}
+
 /* TheRun.gg Races Table */
 #raceTable {
   width: 100%;
