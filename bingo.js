@@ -839,7 +839,6 @@ function saveProgress(slotId) {
 	});
 
 	const progress = { difficulty, version, seed, squares, lastModified };
-	console.log(progress);
 	localStorage.setItem(slotId, JSON.stringify(progress));
 	setSlotTitle(slotId, progress)
 }
@@ -851,7 +850,6 @@ function loadProgress(slotId) {
 		return
 	}
 	var progress = JSON.parse(storageContent);
-	console.log(progress);
 	changeSeed(progress.seed);
 	changeDifficulty(progress.difficulty);
 	changeVersion(progress.version);
