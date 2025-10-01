@@ -111,7 +111,7 @@
 					</div>
 				</div>
 				<div id="options-menu" class="pause-menu">
-					<button class="button pause-menu-close">x</button>
+					<button class="button pause-menu-close" onclick="hideOptionsMenu();">x</button>
 					<div class="pause-menu-column">
 						<div class="pause-menu-group">
 							<button class="button options-button" id="ishidden" onclick='toggleHidden();' title="Hide/Show the Bingo Sheet."></button>
@@ -128,10 +128,25 @@
 						</div>
 					</div>
 					<div class="pause-menu-column">
-						<div class="dropdown-holder">
-							<button class="button options-button dropdown-button" id="versions-toggle-button" title="Change version of Bingo"><!-- text set by updateVersion() --></button>
-							<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
+						<div class="pause-menu-group">
+							<div class="dropdown-holder">
+								<button class="button options-button dropdown-button" id="versions-toggle-button" title="Change version of Bingo"><!-- text set by updateVersion() --></button>
+								<div id="versions-dropdown-main" class="dropdown"><!-- filled in by fillVersionSelection() --></div>
+							</div>
+							<button class="button" onclick="hideOptionsMenu();showSaveAndLoadMenu();">Save/Load</button>
 						</div>
+					</div>
+				</div>
+				<div id="savenload-menu" class="pause-menu">
+					<button class="button pause-menu-close" onclick="hideSaveAndLoadMenu();">x</button>
+					<div class="savenload-menu">
+						<template id="load-slot-template">
+							<div class="row">
+								<button id="slot-title" class="button options-button title" title="Load" onclick="loadProgress(this.parentNode.slot)">Slot 1</button>
+								<button class="button options-button" title="Save" onclick="saveProgress(this.parentNode.slot)"><img src="Images/save.png"></img></button>
+								<button class="button options-button" title="Delete" onclick="deleteProgress(this.parentNode.slot)"><img src="Images/delete.png"></img></button>
+							</div>
+						</template>
 					</div>
 				</div>
 			</div>
@@ -203,7 +218,7 @@
 		<div id="copiedTooltip" class="tooltip"><span class="tooltiptext">Copied!</span></div>
 		<div id="export">
 			<p>The goals of the current sheet as JSON:</p>
-			<textarea readonly="readonly"></textarea>
+			<textarea readonly="readonly" name="export-textarea"></textarea>
 			<a href="javascript:hideGoalExport()">Hide</a>
 		</div>
 	</body>

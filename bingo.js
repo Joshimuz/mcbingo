@@ -57,8 +57,10 @@ const COLOUR_SYMBOLS_SETTING_NAME = "bingoColourSymbols";
 const COLOUR_THEME_SETTING_NAME = "bingoColourTheme";
 const DARK_MODE_CLASS_NAME = "dark";
 
-const SHOW_OPTIONS_MENU_CLASS_NAME = "show-options";
+const SHOW_PAUSE_MENU_CLASS_NAME = "show-pause-menu";
 const SHOW_EXPORT_CLASS_NAME = "show-export";
+const BLUR_SLIGHTLY_CLASS_NAME = "blur-slightly"
+const BLUR_HEAVILY_CLASS_NAME = "blur-heavily"
 
 // Dropdowns and pause menu handling.
 $(document).click(function(event) {
@@ -78,11 +80,8 @@ $(document).click(function(event) {
 		if (event.target.id != "options-toggle-button") {
 			// Hide if click was anywhere BUT on a pause menu
 			hideOptionsMenu();
+			hideSaveAndLoadMenu();
 		}
-	}
-	if (className.includes("pause-menu")) {
-		// hide if clicking on pause-menu layout, but not on buttons/sliders
-		hideOptionsMenu();
 	}
 });
 
@@ -177,7 +176,8 @@ $(document).ready(function()
 		}
 		if (e.keyCode == 27 /* Esc */)
 		{
-			toggleOptionsMenu();
+			hideOptionsMenu();
+			hideSaveAndLoadMenu();
 		}
 	});
 
@@ -186,10 +186,8 @@ $(document).ready(function()
 		changeVersion($(this).val());
 	});
 
-	$(".pause-menu-close").click(function() {
-		hideOptionsMenu();
-	});
 	$("#options-toggle-button").click(function() {
+		hideSaveAndLoadMenu();
 		toggleOptionsMenu();
 	});
 
@@ -207,19 +205,68 @@ $(document).ready(function()
 		window.scrollTo(0, 120);
 		$("#Popoutbutton").css("display", "none");
 	}
+
+	templateLoadSlots();
+	populateLoadSlots();
 });
 
 function toggleOptionsMenu()
 {
-	$("#bingo-box").toggleClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+	toggleMenu("#options-menu")
 }
 function showOptionsMenu()
 {
-	$("#bingo-box").addClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+	showMenu("#options-menu")
 }
 function hideOptionsMenu()
 {
-	$("#bingo-box").removeClass(SHOW_OPTIONS_MENU_CLASS_NAME);
+	hideMenu("#options-menu")
+}
+
+function showSaveAndLoadMenu() {
+	showMenu("#savenload-menu")
+}
+
+function hideSaveAndLoadMenu() {
+	hideMenu("#savenload-menu")
+}
+
+function showMenu(menuId) {
+	if(!$(menuId).hasClass(SHOW_PAUSE_MENU_CLASS_NAME)) {
+		$(menuId).addClass(SHOW_PAUSE_MENU_CLASS_NAME);
+		blurBingo();
+	}
+}
+
+function hideMenu(menuId) {
+	if($(menuId).hasClass(SHOW_PAUSE_MENU_CLASS_NAME)) {
+		$(menuId).removeClass(SHOW_PAUSE_MENU_CLASS_NAME);
+		unblurBingo();
+	}
+}
+
+function toggleMenu(menuId) {
+	if($(menuId).hasClass(SHOW_PAUSE_MENU_CLASS_NAME)) {
+		hideMenu(menuId);
+	}
+	else {
+		showMenu(menuId);
+	}
+}
+
+function blurBingo() {
+	$("#bingo").addClass(BLUR_SLIGHTLY_CLASS_NAME);
+	$("#hidden-bingo").addClass(BLUR_HEAVILY_CLASS_NAME)
+}
+
+function unblurBingo() {
+	$("#bingo").removeClass(BLUR_SLIGHTLY_CLASS_NAME);
+	$("#hidden-bingo").removeClass(BLUR_HEAVILY_CLASS_NAME)
+}
+
+function toggleBlurBingo() {
+	$("#bingo").toggleClass(BLUR_SLIGHTLY_CLASS_NAME);
+	$("#hidden-bingo").toggleClass(BLUR_HEAVILY_CLASS_NAME)
 }
 
 function getColourClass(square)
@@ -774,3 +821,87 @@ function gup( name )
 
 // random source: www.engin33r.net/bingo/random.js
 (function(j,i,g,m,k,n,o){function q(b){var e,f,a=this,c=b.length,d=0,h=a.i=a.j=a.m=0;a.S=[];a.c=[];for(c||(b=[c++]);d<g;)a.S[d]=d++;for(d=0;d<g;d++)e=a.S[d],h=h+e+b[d%c]&g-1,f=a.S[h],a.S[d]=f,a.S[h]=e;a.g=function(b){var c=a.S,d=a.i+1&g-1,e=c[d],f=a.j+e&g-1,h=c[f];c[d]=h;c[f]=e;for(var i=c[e+h&g-1];--b;)d=d+1&g-1,e=c[d],f=f+e&g-1,h=c[f],c[d]=h,c[f]=e,i=i*g+c[e+h&g-1];a.i=d;a.j=f;return i};a.g(g)}function p(b,e,f,a,c){f=[];c=typeof b;if(e&&c=="object")for(a in b)if(a.indexOf("S")<5)try{f.push(p(b[a],e-1))}catch(d){}return f.length?f:b+(c!="string"?"\0":"")}function l(b,e,f,a){b+="";for(a=f=0;a<b.length;a++){var c=e,d=a&g-1,h=(f^=e[a&g-1]*19)+b.charCodeAt(a);c[d]=h&g-1}b="";for(a in e)b+=String.fromCharCode(e[a]);return b}i.seedrandom=function(b,e){var f=[],a;b=l(p(e?[b,j]:arguments.length?b:[(new Date).getTime(),j,window],3),f);a=new q(f);l(a.S,j);i.random=function(){for(var c=a.g(m),d=o,b=0;c<k;)c=(c+b)*g,d*=g,b=a.g(1);for(;c>=n;)c/=2,d/=2,b>>>=1;return(c+b)/d};return b};o=i.pow(g,m);k=i.pow(2,k);n=k*2;l(i.random(),j)})([],Math,256,6,52);
+
+function saveProgress(slotId) {
+	var difficulty = DIFFICULTY;
+	var version = VERSION.id;
+	var seed = SEED;
+	var lastModified = new Date().toISOString();
+
+	var squares = [];
+	var squareElements = document.querySelectorAll("#bingo td");
+
+	squareElements.forEach(cell => {
+		squares.push({
+			id: cell.id,
+			classes: cell.className.split(" ").filter(Boolean)
+		});
+	});
+
+	const progress = { difficulty, version, seed, squares, lastModified };
+	localStorage.setItem(slotId, JSON.stringify(progress));
+	setSlotTitle(slotId, progress)
+}
+
+function loadProgress(slotId) {
+	let storageContent = localStorage.getItem(slotId);
+	if (storageContent === null) {
+		console.error(`No content for slot ${slotId} in local storage found`)
+		return
+	}
+	var progress = JSON.parse(storageContent);
+	changeSeed(progress.seed);
+	changeDifficulty(progress.difficulty);
+	changeVersion(progress.version);
+
+	progress.squares.forEach(item => {
+		const element = document.getElementById(item.id);
+		element.className = item.classes.join(" ");
+	});
+}
+
+function deleteProgress(slotId) {
+	localStorage.removeItem(slotId);
+	$(`#load-slot-${slotId} #slot-title`).html(`Slot ${slotId}`)
+}
+
+/**
+ * Clones the list of load slots from the template to add them to the UI
+ **/
+function templateLoadSlots() {
+	var menuContainer = $('.savenload-menu');
+	var template = document.getElementById('load-slot-template');
+	var count = 7;
+
+	for (var i = 1; i <= count; i++) {
+		var clone = $(template.content.cloneNode(true));
+
+		clone
+		.find('#slot-title')
+		.text(`Slot ${i}`);
+
+		clone
+		.add(clone.find('.row'))
+		.attr('id', 'load-slot-' + i)
+		.attr('slot', i);
+
+		menuContainer.append(clone);
+	}
+}
+
+/**
+ * Actually populates the slots with the data in local storage
+ **/
+function populateLoadSlots() {
+	Object.keys(localStorage).forEach(key => {
+		var progress = JSON.parse(localStorage.getItem(key));
+		setSlotTitle(key, progress)
+	});
+}
+
+function setSlotTitle(slotId, progress) {
+	var versionText = getVersion(progress.version).name
+	var difficultyText = DIFFICULTYTEXT[progress.difficulty - 1]
+	var seed = progress.seed
+	$(`#load-slot-${slotId} #slot-title`).html(`${seed} ${difficultyText} ${versionText}<br>${progress.lastModified}`)
+}
