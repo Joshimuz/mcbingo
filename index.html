@@ -159,7 +159,7 @@
 					<input type="range" id="difficultyRange" value="3" max="5" min="1" class="slider" oninput="changeDifficulty(this.value);"/>
 					<p class="slider-text difficulty-text"></p>
 				</div>
-				<button class="button" id="options-toggle-button" title="Show additional options. Can also press ESC to toggle the options menu.">Options...</button>
+				<button onclick="hideSaveAndLoadMenu();toggleOptionsMenu();" class="button" id="options-toggle-button" title="Show additional options. Can also press ESC to toggle the options menu.">Options...</button>
 			</div>
 		</section>
 		<div class="stream-exit-text"><a href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a> - <a href="#" onclick='popoutBingoCard();event.preventDefault();'>Pop out Bingo Card</a></div>
@@ -168,7 +168,7 @@
 			<h2>Version</h2>
 			<p>The various versions of the Bingo are designed for specific versions of Vanilla Minecraft (Java Edition, Bedrock versions have minor differences). Try to match versions whenever possible for the best experience.</p>
 			<p>To ensure that each created Bingo sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL.</p>
-			<p>Selected version: <select id="version_selection"></select></p>
+			<p>Selected version: <select id="version_selection" onchange="changeVersion(this.val());" ></select></p>
 
 			<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked sheet or play on an older version of Minecraft. However, if you want to generate a new Bingo sheet, consider changing version.</p>
 			<p id="version_notice_unstable">You are using an in-development version which may change at any time causing the same link to produce different goals. This is good if you want to make use of the latest updates to goals and Minecraft and for looking at a sheet someone else just linked to you, otherwise consider changing to a stable version.</p>
