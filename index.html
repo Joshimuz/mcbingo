@@ -102,11 +102,11 @@
 						<div id="hidden-table-seed">
 							Bingo Seed:<br>
 							<input class="seed-input" id="seed_for_copying_hidden" type="text" value="12345" readonly="readonly"><br>
-							<button class="button" title="Copy Seed to Clipboard" onclick='copySeedToClipboard("seed_for_copying_hidden", event);'>Copy Seed</button>
+							<button class="button" title="Copy Seed to Clipboard" onclick="copySeedToClipboard('seed_for_copying_hidden', event);">Copy Seed</button>
 						</div>
 						<p>Use this seed to create a new world in Minecraft. Remember to adjust ingame settings such as difficulty if necessary.</p>
 						<p>If you've been linked this page for a race, you are not allowed to change the seed/goals. See the full rules below.</p>
-						<button class="button show-table-button" onclick='toggleHidden();event.preventDefault();' title="Show the Bingo Sheet.">Show Table</button>
+						<button class="button show-table-button" onclick="toggleHidden();event.preventDefault();" title="Show the Bingo Sheet.">Show Table</button>
 						<p>The table is currently hidden, you may show it when the Bingo starts (unless otherwise agreed upon by the players).</p>
 					</div>
 				</div>
@@ -114,17 +114,17 @@
 					<button class="button pause-menu-close" onclick="hideOptionsMenu();">x</button>
 					<div class="pause-menu-column">
 						<div class="pause-menu-group">
-							<button class="button options-button" id="ishidden" onclick='toggleHidden();' title="Hide/Show the Bingo Sheet."></button>
-							<button class="button options-button" id="Popoutbutton" onclick='popoutBingoCard();event.preventDefault();' title="Popout the bingo sheet into a small window for just viewing the sheet.">Popout Sheet</button>
-							<button class="button options-button" onclick='toggleStreamerMode();' title="Toggle a reduced version of the page designed for use in stream/video creation.">Streamer Mode</button>
+							<button class="button options-button" id="ishidden" onclick="toggleHidden();" title="Hide/Show the Bingo Sheet."></button>
+							<button class="button options-button" id="Popoutbutton" onclick="popoutBingoCard();event.preventDefault();" title="Popout the bingo sheet into a small window for just viewing the sheet.">Popout Sheet</button>
+							<button class="button options-button" onclick="toggleStreamerMode();" title="Toggle a reduced version of the page designed for use in stream/video creation.">Streamer Mode</button>
 						</div>
-						<button class="button options-button dark-mode-button" onclick='toggleDarkMode();' title="Toggle a Light/Dark version of the page."></button>
+						<button class="button options-button dark-mode-button" onclick="toggleDarkMode();" title="Toggle a Light/Dark version of the page."></button>
 						<div class="pause-menu-group">
 							<div class="slider-holder" title="The number of colours to cycle through when clicking on a square. Can always press (1-6) or (0/q) while hovering over square to select colours.">
 								<input type="range" id="colourCountRange" value="1" max="2" min="0" class="slider" oninput="changeColourCount(this.value);"/>
 								<p class="slider-text colourCount-text"></p>
 							</div>
-							<button class="button options-button" id="colourSymbols" onclick='toggleColourSymbols();' title="Toggle the symbols showing on the squares for different colours."></button>
+							<button class="button options-button" id="colourSymbols" onclick="toggleColourSymbols();" title="Toggle the symbols showing on the squares for different colours."></button>
 						</div>
 					</div>
 					<div class="pause-menu-column">
@@ -154,7 +154,7 @@
 				Seed:&nbsp;<input class="seed-input" type="text" value="12345" oninput="changeSeed(value)"/>&emsp;Difficulty:&nbsp;<span class="difficulty-text"></span>&emsp;Version:&nbsp;<span class="versionText"></span><br>
 			</div>
 			<div class="buttons-row">
-				<button onclick='newSeed(true);event.preventDefault();' class="button new-seed-button" title="Generate a new random 5 digit seed.">Generate New Seed</button>
+				<button onclick="newSeed(true);event.preventDefault();" class="button new-seed-button" title="Generate a new random 5 digit seed.">Generate New Seed</button>
 				<div class="slider-holder difficulty-slider-holder" title="Change the difficulty of the sheet generated between Very Easy, Easy, Normal, Hard and Very Hard.">
 					<input type="range" id="difficultyRange" value="3" max="5" min="1" class="slider" oninput="changeDifficulty(this.value);"/>
 					<p class="slider-text difficulty-text"></p>
@@ -162,8 +162,8 @@
 				<button onclick="hideSaveAndLoadMenu();toggleOptionsMenu();" class="button" id="options-toggle-button" title="Show additional options. Can also press ESC to toggle the options menu.">Options...</button>
 			</div>
 		</section>
-		<div class="stream-exit-text"><a href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a> - <a href="#" onclick='popoutBingoCard();event.preventDefault();'>Pop out Bingo Card</a></div>
-		<div class="stream-exit-text"><a href="#" onclick='newSeed(true);event.preventDefault();'>Generate New Seed</a> - <a href="#" onclick='toggleHidden();event.preventDefault();'>Toggle Show/Hide</a></div>
+		<div class="stream-exit-text"><a href="#" onclick="toggleStreamerMode();event.preventDefault();">Exit Streamer Mode</a> - <a href="#" onclick="popoutBingoCard();event.preventDefault();">Pop out Bingo Card</a></div>
+		<div class="stream-exit-text"><a href="#" onclick="newSeed(true);event.preventDefault();">Generate New Seed</a> - <a href="#" onclick="toggleHidden();event.preventDefault();">Toggle Show/Hide</a></div>
 		<section id="rules-section">
 			<h2>Version</h2>
 			<p>The various versions of the Bingo are designed for specific versions of Vanilla Minecraft (Java Edition, Bedrock versions have minor differences). Try to match versions whenever possible for the best experience.</p>
@@ -185,7 +185,7 @@
 			<p><em>Tip:</em> You can click on the squares to change their colour which is useful for planning or to mark off completed goals. Use the colour slider in the Options menu to choose how many colours you want to use. You can also hover over the square and press (1-6) to select a colour or (0/q) to remove the colour! Distinct symbols on the squares for each colour can be toggled in the Options menu.</p>
 			<p><em>Tip:</em> Hover over a "?" to get more information about that goal.</p>
 			<h3>Creating the World</h3>
-			<p>Create a new world in Minecraft and use <input class="seed-input" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button class="button small-button" title="Copy Seed to Clipboard" onclick='copySeedToClipboard("seed_for_copying_howto", event);'>Copy</button> as the Seed (this is the same random seed used to generate this sheet). Load the world so that it can generate but don't move until you're ready. Pause the game to make sure time of day doesn't change or you get attacked. When you're ready, reveal the sheet if it's hidden and start playing!</p>
+			<p>Create a new world in Minecraft and use <input class="seed-input" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button class="button small-button" title="Copy Seed to Clipboard" onclick="copySeedToClipboard('seed_for_copying_howto', event);">Copy</button> as the Seed (this is the same random seed used to generate this sheet). Load the world so that it can generate but don't move until you're ready. Pause the game to make sure time of day doesn't change or you get attacked. When you're ready, reveal the sheet if it's hidden and start playing!</p>
 
 			<p><em>Note:</em> Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</p>
 
