@@ -1009,3 +1009,55 @@ select, input[type="text"] {
 	width: 48px;
 	height: 48px;
 }
+
+/*
+	Tabs
+*/
+
+.tabs-list {
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	font-size: 1rem;
+	padding: 0 !important;
+}
+
+.tabs-list li {
+	display: contents;
+}
+
+.tabs-list a {
+	display: block;
+	flex-basis: 100%;
+	flex-grow: 1;
+	padding-block: 0.5rem;
+	background-color: black;
+	text-decoration: none;
+	color: white;
+	border: 2px solid #514f4d;
+}
+
+.tabs-list a:hover {
+	border-color: white;
+}
+
+.tabs-list a:is(:hover, :visited, :active) {
+	color: unset;
+}
+
+.tabs-list a[aria-selected="true"] {
+	text-decoration-line: underline;
+	text-decoration-thickness: 0.125em;
+	text-underline-offset: 0.875em;
+	padding-bottom: 1.25rem;
+	border-color: white;
+	border-bottom: none;
+	background-color: transparent;
+}
+
+.tab-panels > div {
+	/* Prevent big scroll reset when switching to smaller tabs */
+	min-height: 40vh;
+
+	padding-block: 1rem;
+}
