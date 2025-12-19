@@ -8,6 +8,7 @@
 
 		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
+		<script defer src="tabs.js"></script>
 		<script src="Generators/generator_v1.js"></script>
 		<script src="Generators/generator_v2.js"></script>
 		<script src="Generators/generator_v3.js"></script>
@@ -165,16 +166,23 @@
 		<div class="stream-exit-text"><a href="#" onclick='toggleStreamerMode();event.preventDefault();'>Exit Streamer Mode</a> - <a href="#" onclick='popoutBingoCard();event.preventDefault();'>Pop out Bingo Card</a></div>
 		<div class="stream-exit-text"><a href="#" onclick='newSeed(true);event.preventDefault();'>Generate New Seed</a> - <a href="#" onclick='toggleHidden();event.preventDefault();'>Toggle Show/Hide</a></div>
 		<section id="rules-section">
-			<h2>Version</h2>
+			<ul class="tabs-list">
+				<li><a href="#panel-version" id="tab-version">Version</a></li>
+				<li><a href="#panel-how-to-play" id="tab-how-to-play">How to Play</a></li>
+				<li><a href="#panel-races" id="tab-races">Races</a></li>
+				<li><a href="#panel-other" id="tab-other">Other</a></li>
+			</ul>
+			<div class="tab-panels">
+				<div id="panel-version" aria-labelledby="tab-version">
 			<p>The various versions of the Bingo are designed for specific versions of Vanilla Minecraft (Java Edition, Bedrock versions have minor differences). Try to match versions whenever possible for the best experience.</p>
 			<p>To ensure that each created Bingo sheet always stays the same (even if goals are added or modified in the future) a version identifier is encoded into the URL.</p>
 			<p>Selected version: <select id="version_selection"></select></p>
 
 			<p id="version_notice">You are not using the latest stable version. This may be intended, for example if you want to look at a linked sheet or play on an older version of Minecraft. However, if you want to generate a new Bingo sheet, consider changing version.</p>
 			<p id="version_notice_unstable">You are using an in-development version which may change at any time causing the same link to produce different goals. This is good if you want to make use of the latest updates to goals and Minecraft and for looking at a sheet someone else just linked to you, otherwise consider changing to a stable version.</p>
+				</div>
 
-			<h2>How to Play</h2>
-
+				<div id="panel-how-to-play" aria-labelledby="tab-how-to-play">
 			<p>The objective is to get a "Bingo" as quickly as possible by completing the goals in five squares in a line horizontally, vertically or diagonally.</p>
 			<ul>
 				<li><strong>Items:</strong> Goals written as just Item names (such as "Iron Block" or "Milk Bucket") require you to get that item and have it in your Inventory at the end of the game. If you lose the item by completing the Bingo by dying (e.g. "Kill yourself with an Ender Pearl" as the last goal) you do not need to recollect the item.</li>
@@ -188,7 +196,9 @@
 			<p>Create a new world in Minecraft and use <input class="seed-input" id="seed_for_copying_howto" type="text" value="" size="6" readonly="readonly" /><button class="button small-button" title="Copy Seed to Clipboard" onclick='copySeedToClipboard("seed_for_copying_howto", event);'>Copy</button> as the Seed (this is the same random seed used to generate this sheet). Load the world so that it can generate but don't move until you're ready. Pause the game to make sure time of day doesn't change or you get attacked. When you're ready, reveal the sheet if it's hidden and start playing!</p>
 
 			<p><em>Note:</em> Third-party applications or mods (for example Optifine, MCEdit or online Seed Maps) are not allowed.</p>
+				</div>
 
+				<div id="panel-races" aria-labelledby="tab-races">
 			<h2><a href="https://therun.gg/" target="_blank"><span class="therun-logo"></span></a> Races <button class="button small-button" id="TheRunRefreshButton" title="(Re)Load race information from TheRung.gg." onclick="loadAndDisplayRaces()">Refresh</button></h2>
 			<p id="TheRunTip"><em>Tip:</em> Clicking a race will open the race page in a new tab. If a sheet is listed in the description it will load on this page and copy the seed to your clipboard.</p>
 			<p id="TheRunNoRaces">No races found, visit <a href="https://therun.gg/races" target="_blank">TheRun's race page</a> to start your own or view <a = href="https://therun.gg/races/stats/Minecraft%3A%20Java%20Edition/Bingo" target="_blank">MinecraftBingo race stats.</a></p>
@@ -203,11 +213,15 @@
 				</thead>
 				<tbody></tbody>
 			</table>
+				</div>
 
-			<h2>Other</h2>
-
+				<div id="panel-other" aria-labelledby="tab-other">
 			<p>These rules (and goal descriptions) represent the recommended way to play Minecraft Bingo, however if you play alone or everyone in the race agrees, then use whatever rules you want!</p>
 			<p>You can <a href="javascript:createGoalExport()">export the current sheet as JSON</a> for use in other tools such as <a href="https://bingosync.com/">Bingosync.</a></p>
+				</div>
+
+			</div>
+
 			<a href="https://github.com/Joshimuz/mcbingo"><span class="github-logo"></span></a>
 			<a href="https://joshimuz.com"><span class="joshimuz-logo"></span></a>
 		</section>
