@@ -551,7 +551,7 @@ var bingoList_v6 = [
 	{name: "Grow a Mega Jungle Tree", difficulty: 13, tooltiptext: "A mega tree is one grown with a 2x2 square of saplings.", tags: [Action, RareBiome, Overworld]},
 	{name: "Kill a hostile mob with Gravel", difficulty: 13, reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat]},
 	{name: "Bounce on a Slime Block", difficulty: 17, tooltiptext: "Get a Slime Block, place it on the ground and give it a good old bouncin' on.", tooltipimg: "SlimeBlock.jpg", tags: [Action, Overworld, RareBiome]},
-	{name: "Get a '... whilst trying to escape ...' Death message", difficulty: 14, tooltiptext: "Example: 'PLAYER' drowned whilst trying to escape a Skeleton.", tags: [Action, Death]},
+	{name: "Get a '... while trying to escape ...' Death message", difficulty: 14, tooltiptext: "Example: 'PLAYER' drowned while trying to escape a Skeleton.", tags: [Action, Death]},
 	{name: "Feed a Cookie to a Parrot", difficulty: 16, reactant: ["Pacifist"], infrequency: 2, tags: [Action, RareBiome, Overworld]},
 	{name: "Tame a Parrot", difficulty: 14, infrequency: 2, tags: [Action, RareBiome, Overworld]},
 	{name: "Kill a hostile mob with Sand", difficulty: 14, reactant: ["Pacifist"], antisynergy: ["KillFallingBlock"], infrequency: 2, tags: [Action, Combat, Overworld]},
