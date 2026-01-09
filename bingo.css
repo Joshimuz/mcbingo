@@ -738,6 +738,7 @@ select, input[type="text"] {
 .dark #hidden-bingo {
 	background-image: url("Images/polished_blackstone_bricks.png");
 	background-size: 128px 128px;
+	image-rendering: pixelated;
 }
 
 .dark .button {
