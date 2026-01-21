@@ -182,14 +182,6 @@ $(document).ready(function()
 	});
 
 	fillVersionSelection();
-	$("#version_selection").change(function() {
-		changeVersion($(this).val());
-	});
-
-	$("#options-toggle-button").click(function() {
-		hideSaveAndLoadMenu();
-		toggleOptionsMenu();
-	});
 
 	window.onpopstate = function(event)
 	{
