@@ -73,6 +73,9 @@ button:focus, input:focus {
 }
 
 /** backgrounds **/
+html {
+	background-color: #141414;
+}
 body {
 	background-color: var(--bg-colour);
 	background-size: 1920px 1080px;
