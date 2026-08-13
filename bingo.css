@@ -74,7 +74,7 @@ button:focus, input:focus {
 
 /** backgrounds **/
 html {
-	background-color: var(--bg-colour);
+	background-color: #141414;
 }
 body {
 	background-color: var(--bg-colour);
